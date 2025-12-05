@@ -1,11 +1,118 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Hello World</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-    <p>This is Jason's Portfolio site.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jason Chimdinma Jason | Software Engineer</title>
+
+  <!-- Figtree font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo">Jason.</a>
+
+      <nav class="main-nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="section hero">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <div class="hero-avatar">
+            <!-- replace with your image path -->
+            <img src="assets/profile.jpg" alt="Jason Chimdinma Jason" />
+          </div>
+          <p class="greet"> Hello I'm</p>
+          <h1>Jason Chimdinma Jason</h1>
+          <p class="hero-title">Software Engineer</p>
+          <p class="hero-tagline">
+            I build practical, user centered software with a focus on AI, full stack development, and real world impact.
+          </p>
+
+          <div class="hero-actions">
+            <a href="assets/Jason-Resume.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+              Download Resume
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              Contact Me
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <a href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <!-- placeholder icon text for now -->
+              LN
+            </a>
+            <a href="https://github.com/jasynj" target="_blank" rel="noopener" aria-label="GitHub">
+              GH
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2>About</h2>
+
+        <div class="about-cards">
+          <div class="about-card">
+            <p class="label">Experience</p>
+            <p class="value">2+ years</p>
+            <p class="subtext">Software Development</p>
+          </div>
+          <div class="about-card">
+            <p class="label">Education</p>
+            <p class="value">B.Sc Computer Science</p>
+            <p class="subtext">Grambling State University (2023–2027)</p>
+          </div>
+        </div>
+
+        <p class="about-text">
+          I am a Computer Science major at Grambling State University, focused on software engineering, AI, and building
+          tools that solve real problems for real people. My experience spans full stack development, backend services,
+          data handling, and AI assisted features. I enjoy designing systems that are intuitive, scalable, and
+          impactful.
+          I’m currently seeking software engineering internship opportunities where I can contribute, learn, and
+          continue
+          growing as an engineer.
+        </p>
+      </div>
+    </section>
+
+    <!-- PLACEHOLDER SECTIONS (we'll fill later) -->
+    <section id="experience" class="section placeholder"></section>
+    <section id="skills" class="section placeholder"></section>
+    <section id="projects" class="section placeholder"></section>
+    <section id="testimonials" class="section placeholder"></section>
+    <section id="leadership" class="section placeholder"></section>
+    <section id="contact" class="section placeholder"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Jason Chimdinma Jason. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
 </html>
