@@ -125,7 +125,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
     object-position: 40% 30%
 }
 
@@ -274,12 +273,10 @@ body {
 }
 
 .about-image {
-    /* max-width: 420px; */
     width: 100%;
     height: 100%;
     object-fit: cover;
     overflow-clip-margin: content-box;
-    /* display: block; */
 }
 
 .about-right {
@@ -287,32 +284,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-@media (max-width: 850px) {
-    .about-inner {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-
-    .about-left {
-        width: 100%;
-        height: 250px;
-        min-width: unset;
-        margin-bottom: 16px;
-    }
-
-    .about-image {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
-
-    .about-right {
-        width: 100%;
-        align-items: center;
-    }
 }
 
 .about-cards {
@@ -358,6 +329,36 @@ body {
     color: var(--text-body);
     text-align: justify;
 }
+
+
+@media (max-width: 850px) {
+    .about-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .about-left {
+        width: 100%;
+        height: 250px;
+        min-width: unset;
+        margin-bottom: 16px;
+    }
+
+    .about-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .about-right {
+        width: 100%;
+        align-items: center;
+    }
+}
+
+/* Experience */
+
 
 /* Footer */
 .site-footer {
