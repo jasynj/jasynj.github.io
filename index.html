@@ -140,7 +140,7 @@
           <!-- Tab panels -->
           <div class="experience-panels">
 
-            <!-- Internships panel -->
+            <!-- internships  -->
             <div class="experience-panel is-active" id="internships-panel" data-tab-panel="internships">
               <div class="experience-grid">
 
@@ -154,6 +154,9 @@
                   <p class="exp-summary">
                     Contributed full stack features using React and backend APIs for an internal engineering tool.
                   </p>
+                  <button type="button" class="experience-more" data-modal-target="meta-internship-modal">
+                    View details
+                  </button>
                 </article>
 
                 <article class="experience-card">
@@ -167,11 +170,15 @@
                     Improved automated test reliability and collaborated with developers to resolve compatibility
                     issues.
                   </p>
+                  <button type="button" class="experience-more" data-modal-target="phillips-internship-modal">
+                    View details
+                  </button>
                 </article>
 
               </div>
             </div>
 
+            <!-- programs -->
             <div class="experience-panel" id="programs-panel" data-tab-panel="programs">
               <div class="experience-grid">
 
@@ -186,6 +193,9 @@
                     Participated in an intensive introductory program focused on CS fundamentals and technical
                     readiness.
                   </p>
+                  <button type="button" class="experience-more" data-modal-target="nvidia-modal">
+                    View details
+                  </button>
                 </article>
 
                 <article class="experience-card">
@@ -199,6 +209,9 @@
                   <p class="exp-summary">
                     Engaged in workshops and mentorship on technical interviewing, career planning, and industry skills.
                   </p>
+                  <button type="button" class="experience-more" data-modal-target="google-basta-program-modal">
+                    View details
+                  </button>
                 </article>
 
                 <article class="experience-card">
@@ -211,6 +224,9 @@
                   <p class="exp-summary">
                     Explored AI concepts and ethics while working on an AI project with a focus on social impact.
                   </p>
+                  <button type="button" class="experience-more" data-modal-target="ai4all-program-modal">
+                    View details
+                  </button>
                 </article>
 
                 <article class="experience-card">
@@ -223,6 +239,9 @@
                   <p class="exp-summary">
                     Built and pitched a technical solution in a fast paced hackathon environment with a small team.
                   </p>
+                  <button type="button" class="experience-more" data-modal-target="besmart-program-modal">
+                    View details
+                  </button>
                 </article>
 
                 <article class="experience-card">
@@ -236,6 +255,9 @@
                     Practiced technical interviews and gained mentorship aimed at preparing for software engineering
                     roles.
                   </p>
+                  <button type="button" class="experience-more" data-modal-target="code2040-program-modal">
+                    View details
+                  </button>
                 </article>
 
                 <article class="experience-card">
@@ -248,6 +270,9 @@
                   <p class="exp-summary">
                     Supported students in introductory Python, debugging code and explaining core programming concepts.
                   </p>
+                  <button type="button" class="experience-more" data-modal-target="gsu-program-modal">
+                    View details
+                  </button>
                 </article>
 
                 <article class="experience-card">
@@ -260,6 +285,9 @@
                   <p class="exp-summary">
                     Completed modules on networking, cloud, and modern telecom technologies with hands-on exercises.
                   </p>
+                  <button type="button" class="experience-more" data-modal-target="att-program-modal">
+                    View details
+                  </button>
                 </article>
 
                 <article class="experience-card">
@@ -272,6 +300,9 @@
                   <p class="exp-summary">
                     Collaborated on data and research projects focused on community impact and equity.
                   </p>
+                  <button type="button" class="experience-more" data-modal-target="usc-program-modal">
+                    View details
+                  </button>
                 </article>
 
                 <article class="experience-card">
@@ -284,12 +315,63 @@
                   <p class="exp-summary">
                     Learned fundamentals of building and validating startup ideas through workshops and mentorship.
                   </p>
+                  <button type="button" class="experience-more" data-modal-target="startup-program-modal">
+                    View details
+                  </button>
                 </article>
 
               </div>
             </div>
           </div>
         </div>
+
+        <!-- modals -->
+        <div id="meta-internship-modal" class="experience-modal">
+          <div class="experience-modal-content">
+            <h3>Software Engineering Intern - Meta (Meta University)</h3>
+            <p>Menlo Park, CA • June 2025 - August 2025</p>
+            <ul>
+              <li>Built and improved full stack features using React and backend APIs for an internal tool.</li>
+              <li>Enhanced UI performance and code clarity through reviews and debugging.</li>
+              <li>Collaborated with mentors to deliver production quality solutions under tight timelines.</li>
+            </ul>
+            <button type="button" class="experience-modal-close" data-modal-close="meta-internship-modal">
+              Close
+            </button>
+          </div>
+        </div>
+
+        <div id="phillips-internship-modal" class="experience-modal">
+          <div class="experience-modal-content">
+            <h3>Software Testing Intern - Phillips Consulting</h3>
+            <p>Lagos, Nigeria • May 2024 - July 2024</p>
+            <ul>
+              <li>Refined automated test suites to improve reliability across browsers and operating systems.</li>
+              <li>Logged and tracked high priority defects with clear reproducible steps for engineers.</li>
+              <li>Worked with developers to diagnose issues across multiple environments and devices.</li>
+            </ul>
+            <button type="button" class="experience-modal-close" data-modal-close="phillips-internship-modal">
+              Close
+            </button>
+          </div>
+        </div>
+
+        <div id="nvidia-modal" class="experience-modal">
+          <div class="experience-modal-content">
+            <h3>NVIDIA Summer Bridge</h3>
+            <p>Summer program</p>
+            <ul>
+              <li>Completed intensive coursework on CS fundamentals and problem solving.</li>
+              <li>Practiced technical interview style questions and collaborative coding.</li>
+              <li>Engaged with mentors and peers preparing for software engineering careers.</li>
+            </ul>
+            <button type="button" class="experience-modal-close" data-modal-close="nvidia-modal">
+              Close
+            </button>
+          </div>
+        </div>
+
+
       </section>
 
       <section id="skills" class="section placeholder"></section>

@@ -20,3 +20,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+const modalTriggers = document.querySelectorAll(".experience-more");
+const modals = document.querySelectorAll(".experience-modal");
+
+modalTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+        const targetId = trigger.getAttribute("data-modal-target");
+        const modal = document.getElementById(targetId);
+        if (modal) {
+            modal.classList.add("is-open");
+        }
+    });
+});
+
+modals.forEach((modal) => {
+    const closeBtn = modal.querySelector(".experience-modal-close");
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            modal.classList.remove("is-open");
+        });
+    }
+
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.classList.remove("is-open");
+        }
+    });
+});
