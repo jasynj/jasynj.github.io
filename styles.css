@@ -3,6 +3,7 @@
     --surface: rgba(255, 255, 255, 0.03);
     --surface-strong: rgba(255, 255, 255, 0.06);
     --primary: #00ad9f;
+    --secondary: #74f6eb;
     --primary-hover: #01a493;
     --text-main: #ffffff;
     --text-body: #d1e3e3;
@@ -528,6 +529,40 @@ body {
     border-radius: 999px;
     cursor: pointer;
 }
+
+.experience-more {
+    background: none;
+    border: none;
+    padding: 5px 0;
+    margin: 0;
+    gap: 3px;
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    color: var(--secondary);
+    text-decoration: underline;
+    text-decoration-color: var(--primary-hover);
+    font-weight: 500;
+    line-height: 24px;
+    font-size: 12px;
+    font-family: "Instrument Sans", sans-serif;
+    cursor: pointer;
+    outline: none;
+}
+
+/* 
+.experience-more .arrow {
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+} */
+
+.experience-more:hover {
+    transform: translate(3px, -1px);
+    transition: transform 0.2s ease;
+}
+
 
 
 /* Footer */
