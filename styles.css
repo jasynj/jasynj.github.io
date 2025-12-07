@@ -431,7 +431,7 @@ body {
     height: 36px;
 }
 
-.exp-logo-wrap.basta {
+.exp-logo-wrap.double {
     gap: 12px;
 }
 
@@ -509,14 +509,16 @@ body {
 }
 
 .experience-modal-content ul {
-    margin: 0 0 16px;
+    margin: 30px 0;
     padding-left: 18px;
+    list-style: square;
 }
 
 .experience-modal-content li {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     color: var(--text-body);
     font-size: 0.95rem;
+    list-style: square;
 }
 
 .experience-modal-close {
@@ -562,8 +564,6 @@ body {
     transform: translate(3px, -1px);
     transition: transform 0.2s ease;
 }
-
-
 
 /* Footer */
 .site-footer {

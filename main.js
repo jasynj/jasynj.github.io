@@ -30,6 +30,7 @@ modalTriggers.forEach((trigger) => {
         const modal = document.getElementById(targetId);
         if (modal) {
             modal.classList.add("is-open");
+            // document.body.classList.add("modal-open");
         }
     });
 });
@@ -39,12 +40,14 @@ modals.forEach((modal) => {
     if (closeBtn) {
         closeBtn.addEventListener("click", () => {
             modal.classList.remove("is-open");
+            // document.body.classList.remove("modal-open");
         });
     }
 
     modal.addEventListener("click", (event) => {
         if (event.target === modal) {
             modal.classList.remove("is-open");
+            // document.body.classList.remove("modal-open");
         }
     });
 });
