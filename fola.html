@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>For You ❤️</title>
+    <style>
+        body {
+            background: #050816;
+            display: flex;
+            flex-direction: column;
+            color: #f5f5f5;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .typing-container {
+            max-width: 600px;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            border-right: 2px solid #f5f5f5;
+            /* fake cursor */
+            white-space: pre-wrap;
+            /* keep line breaks if you add them */
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <button>
+        click me
+    </button>
+    <div class="typing-container" id="typing">
+    </div>
+
+    <div
+        style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; gap: 24px;">
+        <button id="clickMeBtn"
+            style="padding: 12px 28px; font-size: 1.1rem; border-radius: 999px; background: #00ad9f; color: #fff; border: none; cursor: pointer; font-family: inherit; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: background 0.2s;">
+            Click Me
+        </button>
+        <audio id="bg-music" src="J.I. - Blame On Me (Official Music Video) - J.I. (youtube).mp3" loop></audio>
+        <button id="playMusic"
+            style="padding: 10px 22px; font-size: 1rem; border-radius: 999px; background: #00ad9f; color: #fff; border: none; cursor: pointer; font-family: inherit; font-weight: 500; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">Play
+            Music</button>
+    </div>
+    <script>
+        document.getElementById('clickMeBtn').onclick = function () {
+            window.location.href = 'media.html';
+        };
+        document.getElementById("playMusic").addEventListener("click", () => {
+            document.getElementById("bg-music").play();
+        });
+    </script>
+
+
+    <script>
+        const text = "Hey Folss,\n\nI made this for you. \nNo judging please, cause first of all this was the only good way i could think of comforting you since you're like miles away and idk why, but the words don't come out real time when i need it (i'll work on that); and I was already building a website so like why not. \n\n So about this whole grade thing; let's first establish that devil is a what? A LIAR and i'm not sure what you're worried about rn but i know two things: \n (i) I know that the worst case scenario is; oh the woman refuses to change it and your grade ends up as 3.4 and you won't lost your scholarship cause there is a grace period (i confirmed that from Kaydeen) but then you might be under pressure next sem and then having to tell your parents and all(if you decide to) won't also be nice, so, although unlikely, that's a possibility obviously, let's not sugarcoat it. \n (ii)  but i also know that God is real and working and He cares about even stuff like this. He brought you to this country and to this school of all schools. Coincidence? I THINK NOT. So i'm sure He has a plan. And His concept of time is different than ours, He doesn't work with deadlines or ultimatums. A number of times He comes through last minute often to teach us faith or patience.\n So this might be a lesson, not to say like punishment for anything o (that's legalistic doctrine) but I just want you to have it in your mind that you'll be fine. I know i say that a lot so i'm trying not to sound cliche or like a broken record but it's true and i know because He said so, and He CANNOT lie so i know it's hard but just have it in the back of your mind that you'll be fine. Not sure how yet oo, whether it's best case or worst case scenario but either ways; you're not cooked lol. You'll be fine. Just pray about it when you can and read Phil 4:6-7 and stop biting your nails lol. \n\n Funny story actually, i just remembered. I think King is the only one that knows this (so you shoudl be honored) but after my internship, me and my manager had some issues sha. long story short; i did not meet expectations and like usually how they do it. so it's either you exceed expectations, you meet all, you meet some, you meet none. the only way to get a RO is if you meet all or exceed. and i exceeded actually. i finished and started doing some other htings to like exceed and increase my chances now, you get? in the oversabi process, i messed up one important thing and ended up only meeting some (cause one required thing wasn't working) and my manager warned about it already so it was like oh i told you so kind og thing, you get? omo my punctuations are not punctuationing but you can manage ig. sha sha long story short, they gave me met some, when we got to school, my performance status changed to exceeded. How? till now, idk, but i just knew sth would happen like idk where the calmness came from cause omo, that Phill 4:6-7 also helped a lot too and as usual God turned up. idek how this is relevant but the point i'm sha making is it's never too late for him sha, sometimes he lets it get last minute so you'll just know it couldn't have been anything or anybody else but Him, anyhow anyhow you'll be fine \n click the button up there, hopefully they can cheer you up (i heard your cousin's gf say you looked down)";
+
+        const target = document.getElementById("typing");
+        const typingSpeed = 60; // milliseconds per character
+
+        let index = 0;
+
+        function typeNextChar() {
+            if (index < text.length) {
+                target.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeNextChar, typingSpeed);
+            }
+        }
+
+        // Start typing as soon as the page loads
+        window.addEventListener("load", typeNextChar);
+    </script>
+</body>
+
+</html>
