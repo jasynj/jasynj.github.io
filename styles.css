@@ -1,3 +1,22 @@
+/* Modal Media Grid */
+.modal-media-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 18px;
+    justify-content: flex-start;
+}
+
+.modal-media-img {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #e0e0e0;
+    border: 1px solid var(--border-subtle, #ccc);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
 /* Media Gallery */
 .media-pane {
     max-width: 1100px;
