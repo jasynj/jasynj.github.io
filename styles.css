@@ -746,6 +746,111 @@ body {
     }
 }
 
+/* projects */
+.projects {
+    padding: 120px 0;
+}
+
+.projects h2 {
+    color: var(--text-main);
+    margin-bottom: 24px;
+}
+
+.projects-container {
+    width: min(1200px, 100% - 32px);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.project-tile {
+    position: relative;
+    max-width: 1200px;
+    overflow: hidden;
+    /* border-radius: var(--radius-lg); */
+    color: var(--text-main);
+    background: linear-gradient(var(--n-switchback-gradient-angle, 101deg), #163030 8.17%, #124343 56.72%);
+
+    border: 1px solid rgba(116, 246, 235, 0.25);
+
+    max-width: 1200px;
+    max-height: 390px;
+    margin-inline: auto;
+
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: stretch;
+    margin-bottom: 24px;
+}
+
+.project-tile::after {
+    filter: blur(90px);
+    opacity: 0.4;
+}
+
+.project-img-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+}
+
+.project-info {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-info h3 {
+    color: var(--text-main)
+}
+
+.project-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.actions {
+    margin-top: 32px;
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-main);
+    backdrop-filter: blur(6px);
+    transition: background 0.2s ease, border 0.2s ease;
+}
+
+.actions.demo,
+.actions.link {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.actions.github {
+    background-color: var(--primary);
+}
+
+.actions:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .project-tile {
+        grid-template-columns: 1fr;
+    }
+
+    .project-img {
+        min-height: 260px;
+    }
+}
+
 /* Footer */
 .site-footer {
     border-top: 1px solid var(--border-subtle);
