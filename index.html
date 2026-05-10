@@ -87,37 +87,31 @@
           <div class="about-right">
             <div class="about-cards">
               <div class="about-card">
-                <p class="label">Experience</p>
-                <p class="value">2+ years</p>
-                <p class="subtext">Software Development</p>
-              </div>
-              <div class="about-card">
                 <p class="label">Education</p>
-                <!-- <p class="value">B.Sc Computer Science </p>
-                  <p class="value">B.Sc CyberSecurity </p> -->
-                <p class="value">B.Sc Computer Science · B.Sc CyberSecurity</p>
-                <p class="subtext">Grambling State University (2024–2028)</p>
+                <p class="value">B.Sc Computer Science · B.Sc Computer Information Systems </p>
+                <p class="subtext">Grambling State University </p>
               </div>
             </div>
             <p class="about-text">
-              I’m a Computer Science and Cybersecurity double major at Grambling State University, building full-stack
-              applications that are practical, scalable, and intuitive. I work across the entire stack, but I enjoy
-              the
-              creative side of development — designing interfaces, shaping user experiences, and bringing ideas to
-              life
-              with clean, thoughtful execution.
+              I’m a Computer Science and Computer Informations Systems double major at Grambling State University,
+              building full-stack
+              applications that actually ship — real clients, real users, real problems.
+
+              I work across the whole stack but I'm drawn to the frontend: the intersection of engineering and design
+              where a good decision is both technically sound and visually right. I care about how things look and feel,
+              not just whether they work.
 
               Outside of engineering, I have a strong creative streak. I paint, draw, read, play chess, watch sports,
               and unwind with my PS5. Those interests keep me curious, balanced, and open to new ways of thinking —
               qualities that shape how I learn and build.
 
               I also explore cloud computing and the security foundations behind it as part of strengthening my
-              broader
-              technical skill set.
+              broader technical skill set.
 
               I’m excited to keep growing as an engineer by taking on challenging projects, collaborating with
               talented
               teams, and expanding my experience across full-stack development, design, and security.
+
             </p>
           </div>
         </div>
@@ -145,6 +139,39 @@
           <!-- internships  -->
           <div class="experience-panel is-active" id="internships-panel" data-tab-panel="internships">
             <div class="experience-grid">
+
+              <article class="experience-card">
+                <div class="exp-logo-wrap">
+                  <img class="exp-logo" src="assets/logos/meta.png" alt="Meta logo" />
+                </div>
+                <h3>Software Engineering Intern</h3>
+                <p class="exp-org">Meta</p>
+                <p class="exp-meta">Menlo Park, CA • May 2026 – Aug 2026</p>
+                <p class="exp-summary">
+                  Selected for Meta's competitive SWE Internship on the <strong> Messenger Data Use</strong> team.
+                  Will contribute to data and privacy infrastructure for Messenger, serving over 1 billion users
+                  globally
+                </p>
+                <button type="button" class="experience-more" data-modal-target="meta2-internship-modal">
+                  View details <span class="arrow">↗</span>
+                </button>
+              </article>
+
+              <article class="experience-card">
+                <div class="exp-logo-wrap">
+                  <img class="exp-logo" src="assets/logos/gsu.png" alt="GSU logo" />
+                </div>
+                <h3>Student Software Developer</h3>
+                <p class="exp-org">Grambling State University</p>
+                <p class="exp-meta">Grambling, LA • Jan 2026 – Present </p>
+                <p class="exp-summary">
+                  Design, build, and maintain the GSU Clubs & Organizations Portal, a full-stack production platform
+                  used my org members accross campus. Own the department's web infrastructure end-to-end
+                </p>
+                <button type="button" class="experience-more" data-modal-target="ssd-modal">
+                  View details <span class="arrow">↗</span>
+                </button>
+              </article>
 
               <article class="experience-card">
                 <div class="exp-logo-wrap">
@@ -186,6 +213,25 @@
           <!-- # tech for resistance Hackathon -->
           <div class="experience-panel" id="programs-panel" data-tab-panel="programs">
             <div class="experience-grid">
+
+              <article class="experience-card">
+                <div class="exp-logo-wrap double">
+                  <img class="exp-logo" src="assets/logos/mastercard.png" alt="Mastercard logo" />
+                  <img class="exp-logo" src="assets/logos/auc.png" alt="AUC logo" />
+                </div>
+                <h3> Mastercard X AUC Data Science Initiative </h3>
+                <p class="exp-org">Mastercard & AUC</p>
+                <p class="exp-meta">Atlanta, GA • April 2026</p>
+                <p class="exp-summary">
+                  Competed as part of a 3-person team in a Mastercard-sponsored competition
+                  hosted at the Atlanta University Center. Reached the final round, presenting
+                  to a panel of industry judges including professionals from Mastercard.
+                </p>
+                <button type="button" class="experience-more" data-modal-target="mastercard-modal">
+                  View details
+                </button>
+              </article>
+
               <article class="experience-card">
                 <div class="exp-logo-wrap double">
                   <img class="exp-logo" src="assets/logos/google.png" alt="Google logo" />
@@ -319,6 +365,44 @@
       </div>
 
       <!-- modals -->
+      <div id="meta2-internship-modal" class="experience-modal">
+        <div class="experience-modal-content">
+          <h3>Software Engineering Intern - Meta</h3>
+          <p>Menlo Park, CA • May 2026 - Aug 2026</p>
+          <ul>
+            <li> Selected for Meta's competitive SWE Internship on the Messenger Data Use team.
+            </li>
+            <li> Will contribute to data and privacy infrastructure for Messenger, serving over 1 billion users
+              globally. </li>
+          </ul>
+          <button type="button" class="experience-modal-close" data-modal-close="meta2-internship-modal">
+            Close
+          </button>
+        </div>
+      </div>
+
+      <div id="ssd-modal" class="experience-modal">
+        <div class="experience-modal-content">
+          <h3> Student Software Developer - Grambling State University </h3>
+          <p> Grambling, LA • Jan 2026 - Present </p>
+          <ul>
+            <li> Design, build, and maintain the GSU Clubs & Organizations Portal, a full-stack production platform
+              serving
+              students, org presidents, and admins across campus. Own the department's web infrastructure end-to-end
+            </li>
+            <li> Architected role-based UIs and authentication for three distinct user types (visitors, org presidents,
+              admins),
+              each with tailored navigation, permissions, and editing controls using PostgreSQL, Prisma, and Supabase
+            </li>
+            <li> Promoted from Reservations Team into a developer role after independently shipping process improvements
+            </li>
+          </ul>
+          <button type="button" class="experience-modal-close" data-modal-close="ssd-modal">
+            Close
+          </button>
+        </div>
+      </div>
+
       <div id="meta-internship-modal" class="experience-modal">
         <div class="experience-modal-content">
           <h3>Software Engineering Intern - Meta (Meta University)</h3>
@@ -354,6 +438,22 @@
           </ul>
 
           <button type="button" class="experience-modal-close" data-modal-close="phillips-internship-modal">
+            Close
+          </button>
+        </div>
+      </div>
+
+      <div id="mastercard-modal" class="experience-modal">
+        <div class="experience-modal-content">
+          <h3>Mastercard X AUC Data Science Challenge</h3>
+          <p> Atlanta, GA • April 2026 </p>
+          <div class="modal-media-grid">
+            <img src="assets/programs-media/site.jpeg" alt="Media placeholder" class="modal-media-img" />
+          </div>
+          <ul>
+            <li>Finalist</li>
+          </ul>
+          <button type="button" class="experience-modal-close" data-modal-close="mastercard-modal">
             Close
           </button>
         </div>
@@ -408,7 +508,8 @@
           <h3>BeSmart Hackathon</h3>
           <p> Charlotte, NC • Nov 2025 </p>
           <div class="modal-media-grid">
-            <img src="assets/programs-media/acc_besmart.png" alt="Media placeholder" class="modal-media-img" />
+            <img src="assets/programs-media/acc_besmart.png" alt="Hackathon acceptance" class="modal-media-img" />
+            <img src="assets/programs-media/team_picture.jpeg" alt="Image of Hackathon Team" class="modal-media-img" />
           </div>
           <ul>
             <li>Competed in the BeSmart Hackathon, building an AI-driven solution for a real-world community problem
@@ -767,44 +868,53 @@
       <div class="container">
         <h1 class="title">Skills</h1>
         <div class="skills-card">
+
           <h3 class="skills-category">Languages</h3>
           <div class="skills-list">
-            <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"
-              alt="Python">
-            <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"
-              alt="Java">
-            <img src="https://img.shields.io/badge/Hack-4A154B?style=for-the-badge&logo=meta&logoColor=white"
-              alt="Hack">
             <img
               src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"
               alt="JavaScript">
             <img
               src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"
               alt="TypeScript">
+            <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"
+              alt="Python">
+            <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"
+              alt="Java">
+            <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go">
+            <img src="https://img.shields.io/badge/PHP_(Hack)-4A154B?style=for-the-badge&logo=meta&logoColor=white"
+              alt="PHP (Hack)">
             <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"
               alt="HTML5">
             <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"
               alt="CSS3">
+            <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="SQL">
           </div>
 
           <h3 class="skills-category">Frameworks & Libraries</h3>
           <div class="skills-list">
             <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"
               alt="React">
+            <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white"
+              alt="Next.js">
             <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"
               alt="Node.js">
             <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"
               alt="Express.js">
-            <img src="https://img.shields.io/badge/Django-339943?style=for-the-badge&logo=django&logoColor=white"
-              alt="Django">
+            <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white"
+              alt="FastAPI">
             <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"
               alt="Flask">
+            <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white"
+              alt="Django">
             <img
               src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white"
               alt="TailwindCSS">
+            <img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"
+              alt="React Native">
           </div>
 
-          <h3 class="skills-category">Databases</h3>
+          <h3 class="skills-category">Databases & Cloud</h3>
           <div class="skills-list">
             <img
               src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"
@@ -813,26 +923,41 @@
               alt="MongoDB">
             <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white"
               alt="Prisma">
+            <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black"
+              alt="Firebase">
+            <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"
+              alt="Supabase">
+            <img src="https://img.shields.io/badge/Pinecone-000000?style=for-the-badge&logo=pinecone&logoColor=white"
+              alt="Pinecone">
+            <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"
+              alt="Vercel">
+            <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white"
+              alt="Render">
           </div>
 
-          <h3 class="skills-category">Data & Visualization</h3>
-          <div class="skills-list">
-            <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white"
-              alt="NumPy">
-            <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"
-              alt="Pandas">
-            <img src="https://img.shields.io/badge/Matplotlib-ffffff?style=for-the-badge&logo=plotly&logoColor=black"
-              alt="Matplotlib">
-          </div>
-
-          <h3 class="skills-category">Dev Tools & Platforms</h3>
+          <h3 class="skills-category">Tools & Concepts</h3>
           <div class="skills-list">
             <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
-            <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"
-              alt="GitHub">
+            <img src="https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white"
+              alt="GraphQL">
+            <img src="https://img.shields.io/badge/REST_APIs-005571?style=for-the-badge&logo=fastapi&logoColor=white"
+              alt="REST APIs">
+            <img src="https://img.shields.io/badge/WebSockets-010101?style=for-the-badge&logo=socket.io&logoColor=white"
+              alt="WebSockets">
+            <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white"
+              alt="JWT/OAuth">
             <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white"
               alt="Jira">
+            <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"
+              alt="Figma">
+            <img src="https://img.shields.io/badge/RAG-412991?style=for-the-badge&logo=openai&logoColor=white"
+              alt="RAG">
+            <img src="https://img.shields.io/badge/Agile-0052CC?style=for-the-badge&logo=jira&logoColor=white"
+              alt="Agile">
+            <img src="https://img.shields.io/badge/CI/CD-2088FF?style=for-the-badge&logo=github-actions&logoColor=white"
+              alt="CI/CD">
           </div>
+
         </div>
       </div>
     </section>
