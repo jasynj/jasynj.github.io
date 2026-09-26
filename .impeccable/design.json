@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-26T01:35:58.604415+00:00",
+  "title": "Design System: Jason Chimdinma Jason — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "board-teal": {
+        "role": "neutral",
+        "displayName": "Board Teal",
+        "canonical": "oklch(26.3% 0.035 195)",
+        "tonalRamp": [
+          "#000f10",
+          "#0b2929",
+          "#284646",
+          "#466464",
+          "#658484",
+          "#86a6a5",
+          "#abcccb",
+          "#d4f6f6"
+        ]
+      },
+      "midnight-well": {
+        "role": "neutral",
+        "displayName": "Midnight Well",
+        "canonical": "oklch(22.5% 0.030 199)",
+        "tonalRamp": [
+          "#000f10",
+          "#112829",
+          "#2d4546",
+          "#4a6364",
+          "#698384",
+          "#8aa4a5",
+          "#afcacb",
+          "#d9f5f6"
+        ]
+      },
+      "knight-teal": {
+        "role": "primary",
+        "displayName": "Knight Teal",
+        "canonical": "oklch(67.2% 0.119 185)",
+        "tonalRamp": [
+          "#001611",
+          "#00332b",
+          "#005248",
+          "#007266",
+          "#009386",
+          "#1eb6a8",
+          "#57ddce",
+          "#86fff8"
+        ]
+      },
+      "knight-teal-lit": {
+        "role": "primary",
+        "displayName": "Knight Teal, Lit"
+      },
+      "aqua-highlight": {
+        "role": "secondary",
+        "displayName": "Aqua Highlight",
+        "canonical": "oklch(89.7% 0.116 188)",
+        "tonalRamp": [
+          "#001614",
+          "#00332e",
+          "#00514b",
+          "#00716a",
+          "#00938a",
+          "#20b5ac",
+          "#57dcd2",
+          "#87fffd"
+        ]
+      },
+      "ivory-white": {
+        "role": "neutral",
+        "displayName": "Ivory White"
+      },
+      "mist": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "oklch(90.2% 0.019 197)",
+        "tonalRamp": [
+          "#030e0e",
+          "#192727",
+          "#344343",
+          "#516161",
+          "#718181",
+          "#91a2a2",
+          "#b7c8c8",
+          "#e1f3f3"
+        ]
+      },
+      "slate-sage": {
+        "role": "neutral",
+        "displayName": "Slate Sage",
+        "canonical": "oklch(76.6% 0.028 197)",
+        "tonalRamp": [
+          "#000f0f",
+          "#122829",
+          "#2e4545",
+          "#4b6363",
+          "#6a8383",
+          "#8ba4a4",
+          "#b0caca",
+          "#daf5f5"
+        ]
+      },
+      "veil": {
+        "role": "neutral",
+        "displayName": "Veil"
+      },
+      "veil-strong": {
+        "role": "neutral",
+        "displayName": "Veil Strong"
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline"
+      },
+      "success": {
+        "role": "status",
+        "displayName": "Success"
+      },
+      "error": {
+        "role": "status",
+        "displayName": "Error"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero name only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card, modal, and contact subheads."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraph copy in Mist."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase meta labels in Slate Sage."
+      },
+      "detail-link": {
+        "displayName": "Detail Link",
+        "purpose": "'View details' link on experience cards."
+      }
+    },
+    "shadows": [
+      {
+        "name": "lightbox",
+        "value": "0 8px 40px rgba(0, 0, 0, 0.6)",
+        "purpose": "Only under the enlarged lightbox image."
+      },
+      {
+        "name": "logo-whisper",
+        "value": "0 1px 4px rgba(0, 0, 0, 0.04)",
+        "purpose": "Near-invisible lift under experience logos."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-fade",
+        "value": "0.2s ease",
+        "purpose": "Border, background and color transitions on hover/focus."
+      },
+      {
+        "name": "detail-nudge",
+        "value": "transform translate(3px, -1px) 0.2s ease",
+        "purpose": "'View details' link hover."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "two-col",
+        "value": "768px"
+      },
+      {
+        "name": "about-stack",
+        "value": "850px"
+      },
+      {
+        "name": "hero-contact-stack",
+        "value": "900px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one Knight Teal move per view.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Download Resume</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;font-family:Figtree, system-ui, sans-serif;font-size:0.95rem;font-weight:500;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease} .ds-btn-primary{background:#00ad9f;color:#fff} .ds-btn-primary:hover{background:#0cc5b3} .ds-btn-primary:focus-visible{outline:2px solid #74f6eb;outline-offset:2px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action; hairline pill that turns teal on hover.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">Contact Me</a>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;padding:10px 18px;border-radius:999px;font-family:Figtree, system-ui, sans-serif;font-size:0.95rem;font-weight:500;text-decoration:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.12);transition:border-color .2s ease,color .2s ease} .ds-btn-outline:hover,.ds-btn-outline:focus-visible{border-color:#00ad9f;color:#00ad9f;outline:none}"
+    },
+    {
+      "name": "Experience Tabs",
+      "kind": "chip",
+      "refersTo": "tab-active",
+      "description": "Segmented pill switcher between Internships and Programs.",
+      "html": "<div class=\"ds-tabs\"><button class=\"ds-tab is-active\">Internships</button><button class=\"ds-tab\">Programs &amp; Hackathons</button></div>",
+      "css": ".ds-tabs{display:inline-flex;gap:8px;padding:6px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.12)} .ds-tab{border:none;background:transparent;color:#9fb9b9;font-family:Figtree, system-ui, sans-serif;font-size:0.95rem;padding:6px 16px;border-radius:999px;cursor:pointer} .ds-tab:hover{color:#fff} .ds-tab.is-active{background:#00ad9f;color:#fff}"
+    },
+    {
+      "name": "Experience Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Flat veil tile: logo, title, org, meta, summary, details link.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-logo\">M</div><h3>Software Engineering Intern</h3><p class=\"ds-org\">Meta</p><p class=\"ds-meta\">Menlo Park, CA • May 2026 – Aug 2026</p><p class=\"ds-sum\">Messenger Data Use team — data and privacy infrastructure.</p><button class=\"ds-more\">View details ↗</button></article>",
+      "css": ".ds-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 20px;font-family:Figtree, system-ui, sans-serif;max-width:420px} .ds-logo{width:36px;height:36px;border-radius:8px;border:1px solid #0cc5b3;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-bottom:10px} .ds-card h3{margin:0 0 4px;color:#fff;font-size:1.05rem} .ds-org{margin:0;font-size:.9rem;color:#d1e3e3} .ds-meta{margin:4px 0 10px;font-size:.85rem;color:#9fb9b9} .ds-sum{margin:0;font-size:.95rem;color:#d1e3e3;line-height:1.6} .ds-more{background:none;border:none;padding:5px 0;color:#74f6eb;text-decoration:underline;text-decoration-color:#0cc5b3;font:500 12px/24px 'Instrument Sans',sans-serif;cursor:pointer;transition:transform .2s ease} .ds-more:hover,.ds-more:focus-visible{transform:translate(3px,-1px);outline:none}"
+    },
+    {
+      "name": "Contact Item",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Interactive veil card; hover brightens veil and turns border teal.",
+      "html": "<a class=\"ds-contact\" href=\"#\"><span class=\"ds-icon\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"m3 7 9 6 9-6\"/></svg></span><span><span class=\"ds-label\">Email</span><span class=\"ds-link\">hello@example.com</span></span></a>",
+      "css": ".ds-contact{display:flex;gap:16px;padding:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.12);border-radius:12px;text-decoration:none;font-family:Figtree, system-ui, sans-serif;transition:border-color .2s ease,background .2s ease;max-width:360px} .ds-contact:hover,.ds-contact:focus-visible{border-color:#00ad9f;background:rgba(255,255,255,.06);outline:none} .ds-icon{width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:8px;background:rgba(0,173,159,.1);color:#00ad9f} .ds-label{display:block;margin:0 0 4px;color:#9fb9b9;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em} .ds-link{color:#fff;font-weight:500}"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Faint fill, hairline border; focus turns border teal.",
+      "html": "<label class=\"ds-field\"><span>Name</span><input placeholder=\"Your name\"></label>",
+      "css": ".ds-field{display:block;font-family:Figtree, system-ui, sans-serif;max-width:360px} .ds-field span{display:block;margin-bottom:8px;color:#fff;font-weight:500;font-size:.95rem} .ds-field input{width:100%;box-sizing:border-box;padding:12px 16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff;font-family:inherit;font-size:.95rem;transition:border-color .2s ease,background .2s ease} .ds-field input::placeholder{color:#9fb9b9} .ds-field input:focus{outline:none;border-color:#00ad9f;background:rgba(255,255,255,.04)}"
+    },
+    {
+      "name": "Site Header",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Sticky translucent header; slate links turn white on hover.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-logo-word\" href=\"#\">Jason C. Jason</a><nav><a href=\"#\">About</a><a href=\"#\">Experience</a><a href=\"#\">Projects</a><a href=\"#\">Contact</a></nav></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:rgba(12,42,42,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.12);font-family:Figtree, system-ui, sans-serif} .ds-logo-word{color:#fff;font-weight:700;text-decoration:none;letter-spacing:.04em} .ds-nav nav a{color:#9fb9b9;text-decoration:none;margin-left:20px;font-size:.95rem} .ds-nav nav a:hover,.ds-nav nav a:focus-visible{color:#fff;outline:none}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Endgame Board",
+    "overview": "**Creative North Star: \"The Endgame Board\"**\n\nThe site is a dark, deliberate board where each piece of proof (an internship, a shipped product, a program selection) sits on its own square, placed with intent. The ground is a single deep teal-black. The pieces are flat, barely-lit tiles defined by hairline borders rather than shadows. Knight Teal is the move being made: it marks the one action or state that matters in any given view, such as the primary button, the active tab, or the focused field. The knight cursor and the falling-sparkle trail are the player's hand on the board, the site's signature personal touches.\n\nThe mood is calm, strategic, and confident. Density is moderate: one long page of anchored sections, each opening with a plain heading and then laying its pieces out in a one- or two-column grid. Nothing competes for attention. Hierarchy comes from white-versus-mist text contrast and from the single teal accent, not from size jumps or decoration. Components are calm and precise: soft pill controls, quiet borders, and content doing the talking.",
+    "keyCharacteristics": [
+      "One dark teal ground (`board-teal`) behind everything; no light theme.",
+      "Flat tonal surfaces: 3–6% white veils with 12% white hairline borders.",
+      "A single accent family (Knight Teal, with Aqua Highlight for tiny details).",
+      "Pill-shaped interactive controls; softly rounded (12px) containers.",
+      "Figtree throughout, with bold weight rather than large size carrying hierarchy.",
+      "Personal signature: chess-knight cursor and a white sparkle trail."
+    ],
+    "rules": [
+      {
+        "name": "The One Move Rule",
+        "body": "In any view, Knight Teal marks the one thing to act on or the one active state. If two teal fills sit side by side, one of them is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The Aqua Is Ink Rule",
+        "body": "Aqua Highlight is only for text and underlines. Never use it as a fill, border, or background.",
+        "section": "colors"
+      },
+      {
+        "name": "The Weight, Not Size Rule",
+        "body": "Promote an element with weight and white before you promote it with size. Only the hero name gets real display scale.",
+        "section": "typography"
+      },
+      {
+        "name": "The No-Shadow Rule",
+        "body": "Don't use shadows on cards, buttons, or panels. To make something feel closer, brighten its veil or its border.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep Board Teal as the only page background. New sections sit directly on it, separated by a 4% white hairline.",
+      "**Do** build new containers from Veil + Hairline + 12px radius, and brighten them to Veil Strong with a Knight Teal border on hover when they are interactive.",
+      "**Do** make every interactive control a pill, and every container a 12px or 20px rounded rectangle.",
+      "**Do** give each view one Knight Teal move (The One Move Rule).",
+      "**Do** set headings in bold Ivory White, body text in Mist, and meta and labels in Slate Sage.",
+      "**Do** keep the knight cursor and sparkle trail. They are the signature."
+    ],
+    "donts": [
+      "**Don't** add drop shadows to cards, buttons, or panels (The No-Shadow Rule).",
+      "**Don't** introduce a second accent hue. Status green and red are only for form results.",
+      "**Don't** use Aqua Highlight as a fill or border (The Aqua Is Ink Rule).",
+      "**Don't** use a light theme or light surfaces. The board stays dark.",
+      "**Don't** use large size jumps for hierarchy below the hero name. Use weight and white instead (The Weight, Not Size Rule)."
+    ]
+  }
+}

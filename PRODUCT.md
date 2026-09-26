@@ -23,23 +23,23 @@ Jason ships real products for real users. His work includes a production campus 
 ## Operating Context
 
 - Visitors reach the site from resumes, LinkedIn, job applications, and direct links. Recruiters often decide within seconds.
-- It's a single long page with anchored sections: Hero, About, Experience (Internships / Programs & Hackathons tabs with detail modals), Projects, Skills, Testimonials, and Contact.
-- A resume PDF can be downloaded at `assets/Resume.pdf`.
-- The contact form posts to Formspree.
+- It's a single long page. The reading order puts proof first: relevant experience and what he has shipped lead the page, ahead of his current role or in-progress projects (a decision the user confirmed on 2026-09-25).
+- A resume PDF can be downloaded at `assets/resumes/Chimdinma_Jason.pdf`, the current version (added 2026-09-25). `Resume.pdf` (spring 2026) and `JASON_CHIMDINMA_JASON copy.pdf` (2025) in the same folder are older.
+- Contact is an email drafter, not a form backend. A visitor picks a reason (recruiting, a project, a hello), fills in a few fields, and gets a ready-to-send draft to jasoncj.dev@gmail.com, which they can open in their mail app (mailto) or copy. It uses templates only, with no AI and no backend, and may gain an AI endpoint later once a backend exists.
+- There is no Testimonials section. It was removed until real testimonials exist.
 
 ## Capabilities and Constraints
 
 - Static HTML, CSS, and vanilla JS (`index.html`, `styles.css`, `main.js`), hosted on GitHub Pages at https://jasynj.github.io/. There is no build step.
-- Content is hand-authored in `index.html`, including the experience detail modals.
-- Open items (the user chose to leave these as they are for now, so don't change them without asking):
-  - The Meta Messenger Data Use internship (May–Aug 2026) is still written in the future tense ("Will contribute…"). Its outcomes haven't been provided yet.
-  - The Testimonials section (`#testimonials`) is an empty placeholder, but it's still linked from the nav.
+- Content is structured as data blocks (experiences, programs, projects, skills), kept separate from markup. Adding an entry means adding one block, never hand-writing HTML. A future backend or admin form is planned to append blocks, so the block schema must stay simple and serializable (plain JSON).
+- The user says the current projects, experiences and photos are partly stale. The user supplies updates; never invent content.
+- The current resume is the source of truth for facts. Where the old site copy disagrees with it, the resume wins. For example, Meta University selectivity is "~4% of applicants", not the old site's "0.6% of ~15,000".
 
 ## Brand Commitments
 
 - Name: Jason Chimdinma Jason (nav short form "Jason C. Jason"). Title: Software Engineer.
 - Voice: first person, direct, grounded in real outcomes ("real clients, real users, real problems"). No inflated claims.
-- Personal touches already on the site: a chess-knight cursor and a sparkle cursor trail, which tie to his chess and creative interests.
+- Chess is a binding brand theme: the user asked for an actual chess theme across the site, not a single cursor. The chess-knight cursor stays.
 
 ## Evidence on Hand
 
@@ -47,8 +47,15 @@ Jason ships real products for real users. His work includes a production campus 
 - Organization logos: `assets/logos/` (Meta, Google, NVIDIA, Mastercard, AT&T, Code2040, BASTA, AI4ALL, AUC, GSU, USC, Phillips, BeSmart, Startup School).
 - Program photos: `assets/programs-media/`.
 - Project screenshots: `assets/projects-media/` (CEE, GSU Clubs Portal, FitSync, Flixster, MayaCare, QuantSim, Reminisce, SafeLink).
-- Verifiable outcomes stated on the site: Meta University acceptance (~15,000 applicants, 0.6%), 4th of 62 teams at the BeSmart Hackathon, Mastercard × AUC finalist, test pass rate up 25% at Phillips Consulting, 50+ students tutored.
-- Resume: `assets/Resume.pdf`.
+- Verifiable outcomes stated on the site: Meta University acceptance (~4% of applicants per the current resume), 4th of 62 teams at the BeSmart Hackathon, Mastercard × AUC finalist, test pass rate up 25% at Phillips Consulting, 50+ students tutored.
+- Resume: `assets/resumes/Chimdinma_Jason.pdf`. Facts from it that weren't on the old site:
+  - GPA 3.96 and relevant coursework (distributed systems, deep learning, AI).
+  - Meta 2026 (Messenger Data Use) outcomes: an end-to-end monitoring platform processing ~22M records; flow-lookup latency cut from 15–72s to ~6.5s (~5ms core retrieval); privacy-violation detection coverage up 35%; remediation turnaround down 60%; an AI support bot.
+  - The GSU Clubs & Org Portal serves 600+ users.
+  - QuantSim: an event-driven TypeScript backtesting engine.
+  - Reminisce: a voice-first AI memory companion (FastAPI, Gemini, Pinecone, ElevenLabs).
+  - Leadership: GSU Book Club co-founder and president, ACM treasurer, ColorStack academic chair, ASA PR director, Tiger LIFT mentor.
+- The older spring-2026 resume adds: Capital One Tech Summit runner-up, National Physics Olympiad finalist (top 40), and Craig Events generating 43+ real inquiries (live at craigevents.com).
 - There are no testimonials yet. Never fabricate quotes, endorsements, metrics, or clients.
 
 ## Product Principles
