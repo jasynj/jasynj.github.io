@@ -145,7 +145,7 @@ function annotationBody(item) {
     ${
       highlights || media
         ? `<details class="ann-notes">
-            <summary>Full notes</summary>
+            <summary>Full notes<span class="visually-hidden"> on ${esc(item.org)}</span></summary>
             ${highlights ? `<ul class="ann-highlights">${highlights}</ul>` : ""}
             ${media ? `<div class="ann-evidence">${media}</div>` : ""}
           </details>`
@@ -219,7 +219,7 @@ function projectLinks(project) {
 function positionCard(project) {
   return `<article class="position">
     <figure class="position-diagram">
-      <img src="${esc(project.image.src)}" alt="${esc(project.image.alt)}" loading="lazy">
+      <img src="${esc(project.image.src)}" alt="${esc(project.image.alt)}" width="1200" height="750" loading="lazy" decoding="async">
     </figure>
     <p class="position-context">${esc(project.context)}</p>
     <h3 class="position-name">${esc(project.name)}</h3>
@@ -246,7 +246,7 @@ function lineRow(project) {
 function renderPlayer(profile, leadership) {
   document.querySelector("[data-render='about-photo']").innerHTML = `<img src="${esc(profile.aboutPhoto.src)}" alt="${esc(
     profile.aboutPhoto.alt
-  )}" width="1545" height="2000" loading="lazy">`;
+  )}" width="1000" height="1294" loading="lazy" decoding="async">`;
   document.querySelector("[data-render='about']").innerHTML = profile.about.map((p) => `<p>${esc(p)}</p>`).join("");
 
   const ed = profile.education;

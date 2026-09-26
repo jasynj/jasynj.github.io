@@ -11,7 +11,7 @@
       "alt": "Portrait of Jason Chimdinma Jason"
     },
     "aboutPhoto": {
-      "src": "assets/Untitled design.png",
+      "src": "assets/web/about.jpg",
       "alt": "Jason Chimdinma Jason by the Meta sign at the Menlo Park office"
     },
     "links": [
@@ -240,7 +240,7 @@
       "highlights": [],
       "media": [
         {
-          "src": "assets/programs-media/site.jpeg",
+          "src": "assets/web/site.jpg",
           "alt": "The Mastercard × AUC Data Science Challenge venue"
         }
       ]
@@ -272,11 +272,11 @@
       ],
       "media": [
         {
-          "src": "assets/programs-media/acc_besmart.png",
+          "src": "assets/web/acc_besmart.jpg",
           "alt": "BE Smart Hackathon acceptance letter"
         },
         {
-          "src": "assets/programs-media/team_picture.jpeg",
+          "src": "assets/web/team_picture.jpg",
           "alt": "Jason's hackathon team at BE Smart"
         }
       ],
@@ -307,7 +307,7 @@
       ],
       "media": [
         {
-          "src": "assets/programs-media/acc_code2040.png",
+          "src": "assets/web/acc_code2040.jpg",
           "alt": "Code2040 Fellowship acceptance letter"
         }
       ]
@@ -378,7 +378,7 @@
       ],
       "media": [
         {
-          "src": "assets/programs-media/acc_nvidia.png",
+          "src": "assets/web/acc_nvidia.jpg",
           "alt": "NVIDIA Summer Bridge acceptance letter"
         }
       ]
@@ -447,11 +447,11 @@
       ],
       "media": [
         {
-          "src": "assets/programs-media/acc_usc1.png",
+          "src": "assets/web/acc_usc1.jpg",
           "alt": "Urban Strategies Council externship acceptance, page 1"
         },
         {
-          "src": "assets/programs-media/acc_usc2.png",
+          "src": "assets/web/acc_usc2.jpg",
           "alt": "Urban Strategies Council externship acceptance, page 2"
         }
       ]
@@ -501,7 +501,7 @@
         "Role-based auth"
       ],
       "image": {
-        "src": "assets/projects-media/clubs.png",
+        "src": "assets/web/clubs.jpg",
         "alt": "GSU Clubs & Organizations Portal directory page"
       },
       "links": [
@@ -530,7 +530,7 @@
         "Vercel"
       ],
       "image": {
-        "src": "assets/projects-media/cee.png",
+        "src": "assets/web/cee.jpg",
         "alt": "Craig Events & Entertainments website home page"
       },
       "links": [
@@ -558,7 +558,7 @@
         "Wi-Fi Direct"
       ],
       "image": {
-        "src": "assets/projects-media/safelink.png",
+        "src": "assets/web/safelink.jpg",
         "alt": "SafeLink Mesh AI emergency feed"
       },
       "links": [
@@ -587,7 +587,7 @@
         "React"
       ],
       "image": {
-        "src": "assets/projects-media/reminisce.png",
+        "src": "assets/web/reminisce.jpg",
         "alt": "Reminisce voice companion interface"
       },
       "links": [
