@@ -1,37 +1,82 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-26T03:36:47.174877+00:00",
+  "generatedAt": "2026-09-26T06:04:08+00:00",
   "title": "Design System: Jason Chimdinma Jason — Portfolio",
   "extensions": {
     "colorMeta": {
-      "paper": {
-        "role": "neutral",
-        "displayName": "Chess-Book Paper",
-        "canonical": "oklch(97.2% 0.004 106)",
-        "tonalRamp": [
-          "#0b0b0a",
-          "#242422",
-          "#40403e",
-          "#5e5e5b",
-          "#80807e",
-          "#a5a5a2",
-          "#cbcbc8",
-          "#eeeeec"
-        ]
-      },
       "ink": {
         "role": "neutral",
         "displayName": "Diagram Ink",
         "canonical": "oklch(19.1% 0.000 90)",
         "tonalRamp": [
           "#0b0b0b",
-          "#242424",
-          "#404040",
-          "#5d5d5d",
-          "#808080",
-          "#a4a4a4",
-          "#cacaca",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
           "#eeeeee"
+        ]
+      },
+      "ink-raised": {
+        "role": "neutral",
+        "displayName": "Raised Ink",
+        "canonical": "oklch(23.0% 0.004 107)",
+        "tonalRamp": [
+          "#0b0b09",
+          "#252523",
+          "#424240",
+          "#61615f",
+          "#828280",
+          "#a5a5a2",
+          "#c9c9c6",
+          "#efefec"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Chess-Book Paper",
+        "canonical": "oklch(97.2% 0.004 106)",
+        "tonalRamp": [
+          "#0b0b09",
+          "#252523",
+          "#424240",
+          "#61615f",
+          "#828280",
+          "#a5a5a2",
+          "#c9c9c6",
+          "#efefec"
+        ]
+      },
+      "fg-muted": {
+        "role": "neutral",
+        "displayName": "Panel Grey",
+        "canonical": "oklch(71.3% 0.010 107)",
+        "tonalRamp": [
+          "#0c0b07",
+          "#252520",
+          "#42423c",
+          "#62625b",
+          "#83837c",
+          "#a5a59e",
+          "#cacac2",
+          "#efefe7"
+        ]
+      },
+      "fg-dim": {
+        "role": "neutral",
+        "displayName": "Reply Grey",
+        "canonical": "oklch(63.8% 0.010 107)",
+        "tonalRamp": [
+          "#0c0b07",
+          "#252520",
+          "#42423c",
+          "#62625b",
+          "#83837c",
+          "#a5a69e",
+          "#cacac2",
+          "#efefe7"
         ]
       },
       "ink-muted": {
@@ -39,44 +84,59 @@
         "displayName": "Margin Grey",
         "canonical": "oklch(44.8% 0.010 107)",
         "tonalRamp": [
-          "#0b0b08",
-          "#242420",
-          "#40403b",
-          "#5e5e58",
-          "#81817a",
+          "#0c0b07",
+          "#252520",
+          "#42423d",
+          "#62625b",
+          "#83837c",
           "#a5a59f",
-          "#cbcbc5",
-          "#efefea"
+          "#cacac3",
+          "#efefe8"
         ]
       },
-      "panel-muted": {
+      "rule": {
         "role": "neutral",
-        "displayName": "Panel Grey",
-        "canonical": "oklch(71.3% 0.010 107)",
+        "displayName": "Hairline Rule",
+        "canonical": "rgba(246, 246, 243, 0.16)",
         "tonalRamp": [
-          "#0b0b08",
-          "#242420",
-          "#40403b",
-          "#5e5e58",
-          "#81817a",
-          "#a5a59f",
-          "#cbcbc5",
-          "#efefea"
+          "#0b0b09",
+          "#252523",
+          "#424240",
+          "#61615f",
+          "#828280",
+          "#a5a5a2",
+          "#c9c9c6",
+          "#efefec"
         ]
       },
-      "panel-dim": {
+      "rule-strong": {
         "role": "neutral",
-        "displayName": "Reply Grey",
-        "canonical": "oklch(63.8% 0.010 107)",
+        "displayName": "Strong Rule",
+        "canonical": "rgba(246, 246, 243, 0.55)",
         "tonalRamp": [
-          "#0b0b08",
-          "#242420",
-          "#40403b",
-          "#5e5e58",
-          "#81817a",
-          "#a5a59f",
-          "#cbcbc5",
-          "#efefea"
+          "#0b0b09",
+          "#252523",
+          "#424240",
+          "#61615f",
+          "#828280",
+          "#a5a5a2",
+          "#c9c9c6",
+          "#efefec"
+        ]
+      },
+      "hatch-line": {
+        "role": "neutral",
+        "displayName": "Hatch Line",
+        "canonical": "rgba(246, 246, 243, 0.34)",
+        "tonalRamp": [
+          "#0b0b09",
+          "#252523",
+          "#424240",
+          "#61615f",
+          "#828280",
+          "#a5a5a2",
+          "#c9c9c6",
+          "#efefec"
         ]
       },
       "teal": {
@@ -84,59 +144,29 @@
         "displayName": "Brilliant-Move Teal",
         "canonical": "oklch(67.4% 0.112 190)",
         "tonalRamp": [
-          "#001312",
-          "#00302d",
-          "#004f4b",
-          "#00706b",
-          "#00948f",
-          "#4fb8b2",
-          "#84ddd7",
-          "#b2fffa"
-        ]
-      },
-      "teal-deep": {
-        "role": "primary",
-        "displayName": "Deep Analysis Teal",
-        "canonical": "oklch(49.6% 0.083 190)",
-        "tonalRamp": [
-          "#001211",
-          "#002d2b",
-          "#004b48",
-          "#116b68",
-          "#3d8f8b",
-          "#6db3af",
-          "#9ad8d4",
-          "#c4fbf7"
+          "#001516",
+          "#003331",
+          "#00534f",
+          "#007470",
+          "#009791",
+          "#35bbb5",
+          "#63e0da",
+          "#8cffff"
         ]
       },
       "wash": {
         "role": "primary",
         "displayName": "Analysis Wash",
-        "canonical": "rgba(27, 172, 166, 0.3)",
+        "canonical": "rgba(27, 172, 166, 0.28)",
         "tonalRamp": [
-          "#001312",
-          "#00302d",
-          "#004f4b",
-          "#00706b",
-          "#00948f",
-          "#4fb8b2",
-          "#84ddd7",
-          "#b2fffa"
-        ]
-      },
-      "ink-hairline": {
-        "role": "neutral",
-        "displayName": "Ink Hairline",
-        "canonical": "rgba(246, 246, 243, 0.22)",
-        "tonalRamp": [
-          "#0b0b0a",
-          "#242422",
-          "#40403e",
-          "#5e5e5b",
-          "#80807e",
-          "#a5a5a2",
-          "#cbcbc8",
-          "#eeeeec"
+          "#001516",
+          "#003331",
+          "#00534f",
+          "#007470",
+          "#009791",
+          "#35bbb5",
+          "#63e0da",
+          "#8cffff"
         ]
       }
     },
@@ -151,50 +181,77 @@
       },
       "player": {
         "displayName": "Player",
-        "purpose": "The player's name atop the ink move panel."
+        "purpose": "The player's name, leading the first viewport."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Organisation names in annotations; project names at width 110."
+        "purpose": "Organisation names in experience rows."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "Project names; repertoire group titles."
+      },
+      "move": {
+        "displayName": "Move",
+        "purpose": "The organisation in a hero move row."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The hero tagline and the \"Your move.\" lede."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Summaries and prose, 52-72ch."
+        "purpose": "Summaries and prose, 62-72ch."
       },
       "button": {
         "displayName": "Button",
-        "purpose": "Buttons, intent chips, field labels; sentence case."
+        "purpose": "Buttons, intent chips, field labels, context and demo labels; sentence case."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Uppercase nav, resume tab, Full notes, fact terms, legends. Never above a heading."
+        "purpose": "Uppercase nav, Resume tab, Details toggles, fact terms, legends. Never above a heading."
       },
       "notation": {
         "displayName": "Notation",
-        "purpose": "Move numbers, figurine SAN, ! and !! glyphs."
+        "purpose": "Move numbers, figurine SAN, ! and !! glyphs, metric values."
       },
       "data": {
         "displayName": "Data",
-        "purpose": "Coordinates, PGN tags, dates, durations, metrics, stacks, skills list."
+        "purpose": "Coordinates, PGN tags, dates, durations, tags, stacks, skills list."
       }
     },
     "patterns": [
       {
         "name": "hatch",
-        "value": "repeating-linear-gradient(135deg, var(--ink) 0 1.2px, transparent 1.2px 5px)",
-        "purpose": "Dark board squares, duration bars, empty diagram grounds."
+        "value": "repeating-linear-gradient(135deg, rgba(246, 246, 243, 0.34) 0 1.2px, transparent 1.2px 5px)",
+        "purpose": "Paper hatching on ink: dark board squares, duration bars, empty demo thumbnails."
       },
       {
         "name": "double-rule",
-        "value": "border: 2.5px solid; outline: 1px solid; outline-offset: 3px",
-        "purpose": "Frame for board, project diagrams, player photo, draft sheet; colour opposite the ground."
+        "value": "border: 1.5px solid var(--rule-strong); outline: 1px solid var(--rule); outline-offset: 3px",
+        "purpose": "Frame for the board and the player photo on ink."
+      },
+      {
+        "name": "double-rule-paper",
+        "value": "border: 2.5px solid var(--paper); outline: 1px solid var(--paper); outline-offset: 3px",
+        "purpose": "Frame for the paper scoresheet, the one paper surface."
+      },
+      {
+        "name": "disclosure-row",
+        "value": "heading > button[aria-expanded][aria-controls]; row [data-disclosure-row] clickable; panel on ink-raised",
+        "purpose": "Every expandable experience and project row; projects share data-group so one is open at a time."
       }
     ],
     "shadows": [
       {
         "name": "keyline-inset",
-        "value": "inset 0 0 0 1px var(--ink)",
-        "purpose": "Not depth: a 1px border stand-in on the masthead Resume tab's inverted hover. The system has no drop shadows."
+        "value": "inset 0 0 0 1px var(--paper)",
+        "purpose": "Not depth: a 1px keyline on the masthead Resume tab's inverted hover."
+      },
+      {
+        "name": "piece-keyline",
+        "value": "filter: drop-shadow(0.6px 0 0 var(--fg-muted)) drop-shadow(-0.6px 0 0 var(--fg-muted)) drop-shadow(0 0.6px 0 var(--fg-muted)) drop-shadow(0 -0.6px 0 var(--fg-muted))",
+        "purpose": "Not depth: an unblurred outline so black pieces read on the dark board."
       }
     ],
     "motion": [
@@ -221,12 +278,22 @@
       {
         "name": "state",
         "value": "background-color 0.2s, color 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Button, chip and row inversions."
+        "purpose": "Button, chip and row inversions and raised-ink hovers."
+      },
+      {
+        "name": "unfold",
+        "value": "0.32s cubic-bezier(0.16, 1, 0.3, 1); from { opacity: 0; transform: translateY(-6px) }",
+        "purpose": "An expanded experience or project panel unfolds."
+      },
+      {
+        "name": "toggle-stroke",
+        "value": "transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); scaleY(0)",
+        "purpose": "The plus icon's vertical stroke scales out so it reads as minus when open."
       },
       {
         "name": "reduced-motion",
         "value": "prefers-reduced-motion: reduce",
-        "purpose": "Replay jumps to the final position; piece, eval and arrow transitions off; smooth scroll off."
+        "purpose": "Replay jumps to the final position; piece, eval, arrow and toggle transitions and the unfold switch off; smooth scroll off."
       }
     ],
     "breakpoints": [
@@ -241,12 +308,15 @@
     ],
     "layout": {
       "masthead": "56px sticky (about 100px wrapped below 960px)",
-      "firstViewport": "board 1.05fr | ink panel 1fr, min-height calc(100svh - masthead)",
+      "firstViewport": "board 0.72fr | words 1.28fr, min-height calc(100svh - masthead); board min(58vh, 30vw); panel first below 960px",
+      "experienceRow": "12.5rem clock | 1fr body | auto aside; compact list two columns",
+      "projectRow": "2.4rem index | name up to 20rem | result | 36px toggle",
       "maxContent": "1280px"
     },
     "brand": {
       "cursor": "assets/icons/icons8-knight-16.png (chess-knight cursor, hotspot 4 4)",
-      "pieces": "cburnett SVG figurines in assets/pieces/"
+      "pieces": "cburnett SVG figurines in assets/pieces/",
+      "colorScheme": "dark"
     }
   },
   "components": [
@@ -254,108 +324,134 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-move",
-      "description": "Download resume / Open in email app: paper notation box on ink that inverts on hover.",
-      "html": "<div class=\"ds-ink\"><a class=\"ds-btn ds-btn-move\" href=\"#\">Download resume</a></div>",
-      "css": ".ds-ink{background:var(--ink,#141414);padding:24px}.ds-btn{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-weight:650;font-variation-settings:\"wdth\" 100;font-size:.85rem;letter-spacing:.02em;text-decoration:none;border:1px solid currentColor;border-radius:0;transition:background-color .2s cubic-bezier(.16,1,.3,1),color .2s cubic-bezier(.16,1,.3,1)}.ds-btn-move{background:var(--paper,#f6f6f3);color:var(--ink,#141414);border-color:var(--paper,#f6f6f3)}.ds-btn-move:hover{background:var(--ink,#141414);color:var(--paper,#f6f6f3)}.ds-btn:focus-visible{outline:2px solid var(--teal,#1baca6);outline-offset:3px}"
+      "description": "Paper-on-ink primary action (\"Download resume\", \"Open in email app\"); inverts on hover.",
+      "html": "<a class=\"ds-btn-move\" href=\"#\">Download resume</a>",
+      "css": ".ds-btn-move { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; font-family: var(--font-display); font-weight: 650; font-size: 0.85rem; letter-spacing: 0.02em; text-decoration: none; border: 1px solid currentColor; border-radius: 0; cursor: pointer; transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out); background: var(--paper); color: var(--ink); border-color: var(--paper); } .ds-btn-move:hover { background: var(--ink); color: var(--paper); } .ds-btn-move:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }"
     },
     {
       "name": "Quiet Button",
       "kind": "button",
       "refersTo": "button-quiet",
-      "description": "Secondary action on ink: paper outline, fills paper on hover.",
-      "html": "<div class=\"ds-ink\"><a class=\"ds-btn ds-btn-quiet\" href=\"#\">Draft an email</a></div>",
-      "css": ".ds-ink{background:var(--ink,#141414);padding:24px}.ds-btn{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-weight:650;font-variation-settings:\"wdth\" 100;font-size:.85rem;letter-spacing:.02em;text-decoration:none;border:1px solid currentColor;border-radius:0;background:transparent;transition:background-color .2s cubic-bezier(.16,1,.3,1),color .2s cubic-bezier(.16,1,.3,1)}.ds-btn-quiet{color:var(--paper,#f6f6f3)}.ds-btn-quiet:hover{background:var(--paper,#f6f6f3);color:var(--ink,#141414)}.ds-btn:focus-visible{outline:2px solid var(--teal,#1baca6);outline-offset:3px}"
+      "description": "Transparent on ink with a paper border; fills paper on hover.",
+      "html": "<button class=\"ds-btn-quiet\" type=\"button\">Draft an email</button>",
+      "css": ".ds-btn-quiet { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; font-family: var(--font-display); font-weight: 650; font-size: 0.85rem; letter-spacing: 0.02em; text-decoration: none; border: 1px solid currentColor; border-radius: 0; cursor: pointer; transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out); background: transparent; color: var(--paper); } .ds-btn-quiet:hover { background: var(--paper); color: var(--ink); } .ds-btn-quiet:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }"
     },
     {
       "name": "Line Button",
       "kind": "button",
       "refersTo": "button-line",
-      "description": "Project links on paper: ink outline box that fills ink on hover.",
-      "html": "<a class=\"ds-btn-line\" href=\"#\">Live site</a>",
-      "css": ".ds-btn-line{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-weight:650;font-variation-settings:\"wdth\" 100;font-size:.85rem;letter-spacing:.02em;text-decoration:none;color:var(--ink,#141414);background:var(--paper,#f6f6f3);border:1px solid var(--ink,#141414);border-radius:0;transition:background-color .2s cubic-bezier(.16,1,.3,1),color .2s cubic-bezier(.16,1,.3,1)}.ds-btn-line:hover{background:var(--ink,#141414);color:var(--paper,#f6f6f3)}.ds-btn-line:focus-visible{outline:2px solid var(--teal-deep,#0b716d);outline-offset:3px}"
+      "description": "Link button inside expanded rows: strong-rule border, trailing external arrow.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">Code<svg class=\"ds-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M6 3h7v7\"/><path d=\"M13 3 4 12\"/></svg></a>",
+      "css": ".ds-icon { width: 14px; height: 14px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; } .ds-icon-v { transform-origin: center; transition: transform 0.25s var(--ease-out); } .ds-btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; font-family: var(--font-display); font-weight: 650; font-size: 0.85rem; letter-spacing: 0.02em; text-decoration: none; border: 1px solid currentColor; border-radius: 0; cursor: pointer; transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out); min-height: 40px; padding: 0 14px; background: transparent; color: var(--paper); border-color: var(--rule-strong); } .ds-btn-line:hover { background: var(--paper); color: var(--ink); } .ds-btn-line:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }"
     },
     {
       "name": "Masthead",
       "kind": "nav",
-      "refersTo": "nav-link-hover",
-      "description": "Sticky paper masthead with knight wordmark, uppercase label links that invert on hover, and an ink Resume tab.",
-      "html": "<header class=\"ds-mast\"><a class=\"ds-word\" href=\"#\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 45 45\" aria-hidden=\"true\"><path d=\"M22 10c10.5 1 16.5 8 16 29H15c0-9 10-6.5 8-21\" fill=\"#fff\" stroke=\"#000\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><path d=\"M24 18c.38 2.91-5.55 7.37-8 9-3 2-2.82 4.34-5 4-1.04-.94 1.41-3.04 0-3-1 0 .19 1.23-1 2-1 0-4 1-4-4 0-2 6-12 6-12s1.89-1.9 2-3.5c-.73-.994-.5-2-.5-3 1-1 3 2.5 3 2.5h2s.78-1.992 2.5-3c1 0 1 3 1 3\" fill=\"#fff\" stroke=\"#000\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/></svg><span>Jason C. Jason</span></a><nav class=\"ds-nav\"><a href=\"#\">Experience</a><a href=\"#\">Projects</a><a href=\"#\">About</a></nav><a class=\"ds-resume\" href=\"#\">Resume</a></header>",
-      "css": ".ds-mast{display:flex;align-items:center;gap:24px;height:56px;padding:0 24px;background:var(--paper,#f6f6f3);color:var(--ink,#141414);border-bottom:1px solid var(--ink,#141414);font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-word{display:inline-flex;align-items:center;gap:8px;color:inherit;text-decoration:none;font-weight:800;font-variation-settings:\"wdth\" 112;letter-spacing:-.01em}.ds-nav{display:flex;gap:4px;margin-left:auto}.ds-nav a,.ds-resume{color:inherit;font-weight:650;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:8px 10px}.ds-nav a:hover{background:var(--ink,#141414);color:var(--paper,#f6f6f3)}.ds-resume{background:var(--ink,#141414);color:var(--paper,#f6f6f3)}.ds-resume:hover{background:var(--paper,#f6f6f3);color:var(--ink,#141414);box-shadow:inset 0 0 0 1px var(--ink,#141414)}.ds-nav a:focus-visible,.ds-resume:focus-visible{outline:2px solid var(--teal-deep,#0b716d);outline-offset:3px}"
+      "refersTo": "nav-link",
+      "description": "Sticky 56px ink masthead: knight wordmark, uppercase grey links that rise to raised ink, paper Resume tab.",
+      "html": "<header class=\"ds-mast\"><a class=\"ds-mark\" href=\"#\">&#9822; Jason Jason</a><nav class=\"ds-nav\"><a href=\"#\">Experience</a><a href=\"#\">Projects</a><a href=\"#\">About</a><a href=\"#\">Contact</a></nav><a class=\"ds-resume\" href=\"#\">Resume</a></header>",
+      "css": ".ds-mast { display: flex; align-items: center; gap: 24px; height: 56px; padding: 0 24px; background: var(--ink); color: var(--paper); border-bottom: 1px solid var(--rule); font-family: var(--font-display); } .ds-mark { color: inherit; text-decoration: none; font-weight: 800; font-variation-settings: \"wdth\" 112; letter-spacing: -0.01em; } .ds-nav { display: flex; gap: 4px; margin-left: auto; } .ds-nav a, .ds-resume { font-weight: 650; font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; padding: 8px 10px; } .ds-nav a { color: var(--fg-muted); } .ds-nav a:hover { color: var(--paper); background: var(--ink-raised); } .ds-resume { background: var(--paper); color: var(--ink); } .ds-resume:hover { background: var(--ink); color: var(--paper); box-shadow: inset 0 0 0 1px var(--paper); } .ds-mast a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }"
+    },
+    {
+      "name": "Move List Row",
+      "kind": "custom",
+      "refersTo": "move-row",
+      "description": "Hero move rows: mono number, figurine SAN with glyph, organisation over role, mono proof; raised ink on hover/current; brilliant in teal.",
+      "html": "<ol class=\"ds-moves\"><li><a href=\"#\"><span class=\"ds-no\">5.</span><span class=\"ds-san\">Nc5!</span><span><b class=\"ds-org\">GSU Portal</b><span class=\"ds-role\">Lead engineer</span></span><span class=\"ds-proof\">40k users</span></a></li><li class=\"ds-brilliant\"><a href=\"#\"><span class=\"ds-no\">6.</span><span class=\"ds-san\">Nxf7<span class=\"ds-glyph\">!!</span></span><span><b class=\"ds-org\">Meta Messenger</b><span class=\"ds-role\">Software engineer</span></span><span class=\"ds-proof\">1B+ reach</span></a></li></ol>",
+      "css": ".ds-moves { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule-strong); background: var(--ink); color: var(--paper); font-family: var(--font-display); } .ds-moves li { border-bottom: 1px solid var(--rule); } .ds-moves a { display: grid; grid-template-columns: 2.2rem 5.2rem minmax(0, 1fr) auto; align-items: baseline; gap: 0 14px; padding: 11px 10px; color: inherit; text-decoration: none; transition: background-color 0.2s var(--ease-out); } .ds-moves a:hover { background: var(--ink-raised); } .ds-moves a:focus-visible { background: var(--ink-raised); outline: 2px solid var(--teal); outline-offset: -2px; } .ds-no { font-family: var(--font-mono); font-size: 0.85rem; color: var(--fg-dim); } .ds-san { font-family: var(--font-mono); font-size: 1.05rem; font-weight: 600; } .ds-org { display: block; font-size: 1.15rem; font-weight: 750; font-variation-settings: \"wdth\" 108; line-height: 1.3; } .ds-role { display: block; font-size: 0.92rem; color: var(--fg-muted); } .ds-proof { font-family: var(--font-mono); font-size: 0.9rem; text-align: right; white-space: nowrap; } .ds-brilliant .ds-glyph, .ds-brilliant .ds-proof { color: var(--teal); }"
+    },
+    {
+      "name": "Experience Row",
+      "kind": "custom",
+      "refersTo": "entry-row",
+      "description": "Expandable ruled row: clock with hatched duration bar, logo tile, heading-held toggle, metrics, notation tag and Details toggle; opens a raised-ink panel.",
+      "html": "<ul class=\"ds-entries\"><li class=\"ds-entry ds-open\"><div class=\"ds-row\"><div class=\"ds-when\"><span>Jun 2025 – Now</span><span class=\"ds-bar\" style=\"--months:14\"></span><span class=\"ds-where\">1 yr 2 mo · Menlo Park</span></div><div><div class=\"ds-head\"><span class=\"ds-logo\"></span><div><h3 class=\"ds-org\"><button type=\"button\" aria-expanded=\"true\">Meta</button></h3><p class=\"ds-role\">Software engineer · Messenger</p></div></div><p class=\"ds-sum\">Shipped the feature to every Messenger user.</p><p class=\"ds-metric\"><b>1B+</b> <span>reach</span></p></div><div class=\"ds-aside\"><span class=\"ds-tag\">6. Nxf7<span class=\"ds-teal\">!!</span></span><span class=\"ds-toggle\">Details <svg class=\"ds-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h10\"/><path class=\"ds-icon-v\" d=\"M8 3v10\"/></svg></span></div></div><div class=\"ds-panel\"><ul><li>Highlight one, with the number that proves it.</li></ul><p class=\"ds-tags\">React · GraphQL</p></div></li></ul>",
+      "css": ".ds-icon { width: 14px; height: 14px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; } .ds-icon-v { transform-origin: center; transition: transform 0.25s var(--ease-out); } .ds-entries { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule-strong); background: var(--ink); color: var(--paper); font-family: var(--font-display); line-height: 1.55; } .ds-entry { border-bottom: 1px solid var(--rule); } .ds-row { display: grid; grid-template-columns: 12.5rem minmax(0, 1fr) auto; gap: 0 32px; padding: 28px 16px; cursor: pointer; transition: background-color 0.2s var(--ease-out); } .ds-row:hover, .ds-open > .ds-row { background: var(--ink-raised); } .ds-when { display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 0.8rem; } .ds-bar { display: block; width: min(100%, calc(var(--months) * 10px)); height: 8px; background: repeating-linear-gradient(135deg, rgba(246,246,243,0.34) 0 1.2px, transparent 1.2px 5px); border: 1px solid var(--rule-strong); } .ds-where { color: var(--fg-dim); } .ds-head { display: flex; align-items: center; gap: 14px; } .ds-logo { width: 36px; height: 36px; background: var(--paper); flex-shrink: 0; } .ds-org { margin: 0; font-size: clamp(1.3rem, 2vw, 1.65rem); font-weight: 800; font-variation-settings: \"wdth\" 108; line-height: 1.15; } .ds-org button { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; } .ds-row:hover .ds-org button { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; } .ds-org button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; } .ds-role { margin: 2px 0 0; color: var(--fg-muted); } .ds-sum { margin: 14px 0 0; } .ds-metric b { font-family: var(--font-mono); font-size: 1.1rem; font-weight: 600; } .ds-metric span { color: var(--fg-muted); font-size: 0.9rem; } .ds-aside { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 16px; } .ds-tag { font-family: var(--font-mono); font-size: 0.9rem; color: var(--fg-muted); white-space: nowrap; } .ds-teal { color: var(--teal); font-weight: 600; } .ds-toggle { display: inline-flex; align-items: center; gap: 8px; font-weight: 650; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--fg-muted); } .ds-row:hover .ds-toggle, .ds-open .ds-toggle { color: var(--paper); } .ds-open .ds-icon-v { transform: scaleY(0); } .ds-panel { padding: 24px 16px 32px calc(12.5rem + 48px); background: var(--ink-raised); animation: ds-unfold 0.32s var(--ease-out); } .ds-panel ul { margin: 0; padding: 24px 0 0 1.1em; border-top: 1px solid var(--rule); list-style: square; } .ds-tags { margin: 18px 0 0; font-family: var(--font-mono); font-size: 0.8rem; color: var(--fg-muted); } @keyframes ds-unfold { from { opacity: 0; transform: translateY(-6px); } } @media (prefers-reduced-motion: reduce) { .ds-panel { animation: none; } .ds-icon-v { transition: none; } }"
+    },
+    {
+      "name": "Project Row",
+      "kind": "custom",
+      "refersTo": "project-row",
+      "description": "Equal expandable project row: mono index, name over context, two-line result, square toggle that inverts when hovered or open. One open at a time.",
+      "html": "<ul class=\"ds-projects\"><li class=\"ds-project\"><div class=\"ds-prow\"><span class=\"ds-pno\">1.</span><div><h3 class=\"ds-pname\"><button type=\"button\" aria-expanded=\"false\">GSU Portal</button></h3><p class=\"ds-pctx\">Student platform</p></div><p class=\"ds-result\">Replaced four legacy tools; 40k students sign in each term.</p><span class=\"ds-ptoggle\"><svg class=\"ds-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3 8h10\"/><path class=\"ds-icon-v\" d=\"M8 3v10\"/></svg></span></div></li></ul>",
+      "css": ".ds-icon { width: 14px; height: 14px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; } .ds-icon-v { transform-origin: center; transition: transform 0.25s var(--ease-out); } .ds-projects { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule-strong); background: var(--ink); color: var(--paper); font-family: var(--font-display); } .ds-project { border-bottom: 1px solid var(--rule); } .ds-prow { display: grid; grid-template-columns: 2.4rem minmax(0, 20rem) minmax(0, 1fr) 36px; align-items: center; gap: 0 32px; padding: 22px 16px; cursor: pointer; transition: background-color 0.2s var(--ease-out); } .ds-prow:hover { background: var(--ink-raised); } .ds-pno { font-family: var(--font-mono); font-size: 0.85rem; color: var(--fg-dim); } .ds-pname { margin: 0; font-size: clamp(1.2rem, 1.8vw, 1.45rem); font-weight: 800; font-variation-settings: \"wdth\" 108; line-height: 1.2; } .ds-pname button { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; } .ds-pname button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; } .ds-pctx { margin: 3px 0 0; font-weight: 650; font-size: 0.85rem; color: var(--fg-muted); } .ds-result { margin: 0; color: var(--fg-muted); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; } .ds-ptoggle { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--rule-strong); } .ds-prow:hover .ds-ptoggle { background: var(--paper); color: var(--ink); border-color: var(--paper); }"
+    },
+    {
+      "name": "Demo Card",
+      "kind": "card",
+      "refersTo": "demo-play",
+      "description": "Small 16:9 thumbnail link inside an open row: paper play square, label with external arrow; hatched when there is no thumbnail.",
+      "html": "<a class=\"ds-demo\" href=\"#\"><span class=\"ds-thumb\"><span class=\"ds-play\"><svg class=\"ds-icon-play\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7z\"/></svg></span></span><span class=\"ds-dlabel\">Watch the demo <svg class=\"ds-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M6 3h7v7\"/><path d=\"M13 3 4 12\"/></svg></span></a>",
+      "css": ".ds-icon { width: 14px; height: 14px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; } .ds-icon-v { transform-origin: center; transition: transform 0.25s var(--ease-out); } .ds-demo { display: block; width: 280px; color: var(--paper); text-decoration: none; font-family: var(--font-display); } .ds-thumb { position: relative; display: block; aspect-ratio: 16 / 9; border: 1px solid var(--rule-strong); background: repeating-linear-gradient(135deg, rgba(246,246,243,0.34) 0 1.2px, transparent 1.2px 5px), var(--ink); } .ds-play { position: absolute; inset: 0; margin: auto; display: grid; place-items: center; width: 48px; height: 48px; background: var(--paper); color: var(--ink); } .ds-icon-play { width: 22px; height: 22px; fill: currentColor; } .ds-dlabel { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-weight: 650; font-size: 0.9rem; } .ds-demo:hover .ds-dlabel { text-decoration: underline; } .ds-demo:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }"
+    },
+    {
+      "name": "Analysis Board",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Quiet dark diagram: raised-ink squares, paper hatching on dark squares, double-rule frame, eval bar, wash on the current move.",
+      "html": "<div class=\"ds-boardwrap\"><span class=\"ds-eval\"><span class=\"ds-evalfill\"></span></span><div class=\"ds-board\"><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark ds-wash\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq ds-wash\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span><span class=\"ds-sq ds-dark\"></span><span class=\"ds-sq\"></span></div></div>",
+      "css": ".ds-boardwrap { display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--ink); } .ds-eval { position: relative; width: 10px; height: 240px; border: 1px solid var(--rule-strong); background: var(--ink); } .ds-evalfill { position: absolute; inset: 0; background: var(--paper); transform: scaleY(0.62); transform-origin: bottom; transition: transform 0.6s var(--ease-out); } .ds-board { display: grid; grid-template: repeat(8, 1fr) / repeat(8, 1fr); width: 240px; aspect-ratio: 1; border: 1.5px solid var(--rule-strong); outline: 1px solid var(--rule); outline-offset: 3px; background: var(--ink-raised); } .ds-dark { background: repeating-linear-gradient(135deg, rgba(246,246,243,0.34) 0 1.2px, transparent 1.2px 5px); } .ds-wash { background-color: var(--wash); }"
     },
     {
       "name": "Intent Chip",
       "kind": "chip",
       "refersTo": "intent-chip",
-      "description": "Email drafter reason choices on ink; selected inverts to paper.",
-      "html": "<div class=\"ds-ink\"><label class=\"ds-chip\"><input type=\"radio\" name=\"ds-i\" checked><span>I'm hiring</span></label><label class=\"ds-chip\"><input type=\"radio\" name=\"ds-i\"><span>A project for you</span></label></div>",
-      "css": ".ds-ink{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;background:var(--ink,#141414);padding:24px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-chip{position:relative;cursor:pointer}.ds-chip input{position:absolute;opacity:0}.ds-chip span{display:flex;align-items:center;min-height:48px;padding:0 14px;border:1px solid rgba(246,246,243,.5);color:var(--paper,#f6f6f3);font-weight:650;transition:background-color .2s cubic-bezier(.16,1,.3,1),color .2s cubic-bezier(.16,1,.3,1)}.ds-chip:hover span{border-color:var(--paper,#f6f6f3)}.ds-chip input:checked+span{background:var(--paper,#f6f6f3);border-color:var(--paper,#f6f6f3);color:var(--ink,#141414)}.ds-chip input:focus-visible+span{outline:2px solid var(--teal,#1baca6);outline-offset:3px}"
+      "description": "Square drafter choice on ink; selected inverts to paper.",
+      "html": "<div class=\"ds-chips\"><label><input type=\"radio\" name=\"ds-i\" checked><span>Hiring</span></label><label><input type=\"radio\" name=\"ds-i\"><span>Collaborate</span></label></div>",
+      "css": ".ds-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 16px; background: var(--ink); color: var(--paper); font-family: var(--font-display); } .ds-chips label { position: relative; cursor: pointer; } .ds-chips input { position: absolute; opacity: 0; } .ds-chips span { display: flex; align-items: center; min-height: 48px; padding: 0 14px; border: 1px solid rgba(246,246,243,0.5); font-weight: 650; transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out); } .ds-chips label:hover span { border-color: var(--paper); } .ds-chips input:checked + span { background: var(--paper); border-color: var(--paper); color: var(--ink); } .ds-chips input:focus-visible + span { outline: 2px solid var(--teal); outline-offset: 3px; }"
     },
     {
       "name": "Underline Field",
       "kind": "input",
       "refersTo": "field-input",
-      "description": "Drafter input on ink: paper bottom rule that turns teal on focus.",
-      "html": "<div class=\"ds-ink\"><label class=\"ds-lab\" for=\"ds-n\">Your name</label><input id=\"ds-n\" class=\"ds-field\" placeholder=\"e.g. Alex Rivera\"></div>",
-      "css": ".ds-ink{background:var(--ink,#141414);padding:24px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-lab{display:block;margin-bottom:6px;font-weight:650;font-size:.8rem;color:var(--panel-muted,#a3a39c)}.ds-field{width:100%;min-height:48px;padding:0 14px;background:transparent;border:0;border-bottom:1.5px solid var(--paper,#f6f6f3);border-radius:0;color:var(--paper,#f6f6f3);font:inherit;font-size:1.05rem;caret-color:var(--teal,#1baca6)}.ds-field::placeholder{color:var(--panel-dim,#8c8c85)}.ds-field:focus{outline:none;background:rgba(246,246,243,.06);border-bottom-color:var(--teal,#1baca6)}"
-    },
-    {
-      "name": "Move List Row",
-      "kind": "custom",
-      "refersTo": "move-panel",
-      "description": "Ink panel rows: mono number, figurine SAN + glyph, org over role, mono proof; brilliant move in teal.",
-      "html": "<ol class=\"ds-moves\"><li><a href=\"#\"><span class=\"ds-no\">5.</span><span class=\"ds-san\">exd5 !</span><span><b>Grambling State University</b><small>2026 · Student Software Engineer</small></span><span class=\"ds-proof\">600+ users</span></a></li><li class=\"ds-brill\"><a href=\"#\"><span class=\"ds-no\">6.</span><span class=\"ds-san\">Nxf7 <i>!!</i></span><span><b>Meta</b><small>2026 · Software Engineering Intern</small></span><span class=\"ds-proof\">~22M records</span></a></li></ol>",
-      "css": ".ds-moves{margin:0;padding:16px 24px;list-style:none;background:var(--ink,#141414);color:var(--paper,#f6f6f3);font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-moves li{border-bottom:1px solid rgba(246,246,243,.22)}.ds-moves a{display:grid;grid-template-columns:2.4rem 4.6rem 1fr auto;align-items:baseline;gap:0 12px;padding:9px 8px;color:inherit;text-decoration:none;transition:background-color .2s cubic-bezier(.16,1,.3,1)}.ds-moves a:hover{background:rgba(246,246,243,.08)}.ds-moves a:focus-visible{outline:2px solid var(--teal,#1baca6);outline-offset:-2px}.ds-no{font-family:\"Geist Mono\",ui-monospace,Menlo,monospace;font-size:.8rem;color:var(--panel-dim,#8c8c85)}.ds-san{font-family:\"Geist Mono\",ui-monospace,Menlo,monospace;font-size:.95rem;font-weight:600}.ds-san i{font-style:normal}.ds-brill .ds-san i,.ds-brill .ds-proof{color:var(--teal,#1baca6)}.ds-moves b{display:block;font-weight:700;font-variation-settings:\"wdth\" 108}.ds-moves small{display:block;font-size:.85rem;color:var(--panel-muted,#a3a39c)}.ds-proof{font-family:\"Geist Mono\",ui-monospace,Menlo,monospace;font-size:.78rem;text-align:right;white-space:nowrap}"
-    },
-    {
-      "name": "Annotation with Duration Bar",
-      "kind": "custom",
-      "refersTo": "",
-      "description": "Experience row: mono move, clock with hatched bar (11px per month), org title; brilliant move inverts SAN and fills bar.",
-      "html": "<div class=\"ds-ann\"><p class=\"ds-mv\"><span class=\"ds-n\">3.</span> c4!</p><div class=\"ds-clock\"><span>Jun 2025 – Aug 2025</span><span class=\"ds-bar\" style=\"--months:3\"></span><span class=\"ds-dur\">3 mo · Menlo Park, CA</span></div><div><h3 class=\"ds-org\">Meta</h3><p class=\"ds-role\">Software Engineering Intern</p></div></div>",
-      "css": ".ds-ann{display:grid;grid-template-columns:7rem 11rem 1fr;gap:0 24px;padding:32px 0;border-top:2px solid var(--ink,#141414);border-bottom:1px solid var(--ink,#141414);background:var(--paper,#f6f6f3);color:var(--ink,#141414);font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-mv{margin:0;font-family:\"Geist Mono\",ui-monospace,Menlo,monospace;font-size:1.35rem;font-weight:600}.ds-n{color:var(--ink-muted,#55554f);font-weight:400}.ds-clock{display:flex;flex-direction:column;gap:8px;font-family:\"Geist Mono\",ui-monospace,Menlo,monospace;font-size:.8rem}.ds-bar{display:block;width:min(100%,calc(var(--months)*11px));height:8px;background:repeating-linear-gradient(135deg,var(--ink,#141414) 0 1.2px,transparent 1.2px 5px),var(--paper,#f6f6f3);border:1.5px solid var(--ink,#141414)}.ds-dur{color:var(--ink-muted,#55554f)}.ds-org{margin:0;font-size:1.8rem;font-weight:800;font-variation-settings:\"wdth\" 108;line-height:1.1}.ds-role{margin:2px 0 0;color:var(--ink-muted,#55554f)}"
-    },
-    {
-      "name": "Framed Diagram",
-      "kind": "card",
-      "refersTo": "",
-      "description": "The double-rule frame with hatched ground, used for the board and project screenshots.",
-      "html": "<figure class=\"ds-diagram\"></figure>",
-      "css": ".ds-diagram{margin:12px;width:240px;aspect-ratio:16/10;border:2.5px solid var(--ink,#141414);outline:1px solid var(--ink,#141414);outline-offset:3px;border-radius:0;background:repeating-linear-gradient(135deg,var(--ink,#141414) 0 1.2px,transparent 1.2px 5px),var(--paper,#f6f6f3)}"
+      "description": "Transparent field on ink with a paper underline that turns teal on focus.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-f\">Your name</label><input id=\"ds-f\" placeholder=\"Ada Lovelace\"></div>",
+      "css": ".ds-field { padding: 16px; background: var(--ink); font-family: var(--font-display); } .ds-field label { display: block; margin-bottom: 6px; font-weight: 650; font-size: 0.8rem; color: var(--fg-muted); } .ds-field input { width: 100%; min-height: 48px; padding: 0 14px; background: transparent; border: 0; border-bottom: 1.5px solid var(--paper); color: var(--paper); font: inherit; font-size: 1.05rem; caret-color: var(--teal); border-radius: 0; } .ds-field input::placeholder { color: var(--fg-dim); } .ds-field input:focus { outline: none; background: rgba(246,246,243,0.06); border-bottom-color: var(--teal); }"
     },
     {
       "name": "Draft Sheet",
       "kind": "card",
       "refersTo": "draft-sheet",
-      "description": "Paper scoresheet preview on ink, in the paper double rule.",
-      "html": "<div class=\"ds-ink\"><div class=\"ds-sheet\"><p class=\"ds-line\"><span>To</span> jasoncj.dev@gmail.com</p><p class=\"ds-line\"><span>Subject</span> <strong>Software engineering opportunity</strong></p><p class=\"ds-body\">Hi Jason,</p></div></div>",
-      "css": ".ds-ink{background:var(--ink,#141414);padding:24px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-sheet{padding:22px 24px;background:var(--paper,#f6f6f3);color:var(--ink,#141414);border:2.5px solid var(--paper,#f6f6f3);outline:1px solid var(--paper,#f6f6f3);outline-offset:3px}.ds-line{display:flex;gap:12px;margin:0;padding:8px 0;border-bottom:1px solid var(--ink,#141414);font-size:.95rem}.ds-line span{flex:0 0 4.5rem;font-weight:650;font-size:.78rem;color:var(--ink-muted,#55554f)}.ds-body{margin:16px 0 0;font-size:.98rem;line-height:1.6}"
+      "description": "The one paper surface: the email scoresheet preview in a paper double rule.",
+      "html": "<div class=\"ds-sheetwrap\"><div class=\"ds-sheet\"><p class=\"ds-line\"><span>To</span>jason@example.com</p><p class=\"ds-line\"><span>Subject</span>Your move</p><p class=\"ds-body\">Hi Jason, we would like to talk about a role.</p></div></div>",
+      "css": ".ds-sheetwrap { padding: 24px; background: var(--ink); } .ds-sheet { padding: 22px 24px; background: var(--paper); color: var(--ink); border: 2.5px solid var(--paper); outline: 1px solid var(--paper); outline-offset: 3px; font-family: var(--font-display); } .ds-line { display: flex; gap: 12px; margin: 0; padding: 8px 0; border-bottom: 1px solid var(--ink); font-size: 0.95rem; } .ds-line span { flex: 0 0 4.5rem; font-weight: 650; font-size: 0.78rem; color: var(--ink-muted); } .ds-body { margin: 16px 0 0; font-size: 0.98rem; line-height: 1.6; }"
     }
   ],
   "narrative": {
     "northStar": "The Analysis Board",
-    "overview": "The site is a post-game analysis printed in a chess book. Paper and ink do nearly all the work: a hatched diagram, a solid ink move list, numbered annotations in a column of notation, and one brilliant-move teal that appears only where a move is struck forward. Every visual device is borrowed from how chess is printed and analysed (figurine notation, `!`/`!!` glyphs, a–h/1–8 coordinates, an eval bar, variations in parentheses, PGN tag pairs), so the chess theme is structural rather than decorative.\n\nDensity is that of a well-set book page: generous section padding, hard ink rules between entries, and a clear left-to-right reading order of move number, dates, then substance. Surfaces are flat. Depth comes from two things only: the double-rule frame of a printed diagram and whole regions of ink laid against paper. Corners are square everywhere, like notation boxes.\n\nThe world refuses the category default of an avatar, a greeting, pill buttons, a stock illustration and a card grid. Nothing is hidden behind tabs or modals; secondary material sits in parentheses or an inline \"Full notes\" disclosure. The chess-knight cursor and the knight figurine in the wordmark are durable brand commitments.",
+    "overview": "The site is a post-game analysis, set on ink: a chess-book diagram and its annotations read off one dark ground, the way an engine analysis screen shows a printed game. Ink carries every surface, paper carries the type, and a single brilliant-move teal appears only where a move is struck forward. Every visual device is borrowed from how chess is printed and analysed (figurine notation, `!`/`!!` glyphs, a–h/1–8 coordinates, an eval bar, PGN tag pairs, a duration bar measured in months), so the chess theme is structural rather than decorative.\n\nDensity is that of a well-set analysis page: generous section padding, hairline paper rules between rows, and a clear left-to-right reading order of dates, then substance, then the move. Surfaces are flat. Depth is one tonal step, never light: raised ink for a hovered or opened row and the board's squares, and a double-rule frame around a diagram or photo. Corners are square everywhere, like notation boxes. The one deliberate paper surface on the page is the email drafter's scoresheet, which reads as a printed sheet laid on the board.\n\nThe world refuses the category default of an avatar, a greeting, pill buttons, a stock illustration and a card grid. Detail lives inside ruled rows that expand in place, never behind tabs, carousels or modals. The chess-knight cursor and the knight figurine in the wordmark are durable brand commitments.",
     "keyCharacteristics": [
-      "Paper (#f6f6f3) and ink (#141414) as the whole palette; teal is a rare, earned mark.",
-      "Dark squares and duration bars are ink hatching, never a flat grey fill.",
+      "One dark ground (ink) throughout, with paper for type; `color-scheme: dark`.",
+      "Dark squares, duration bars and empty thumbnails are light hatching on ink, never a flat grey fill.",
       "Archivo variable width for words; Geist Mono only for notation and measurement.",
-      "Double-rule frames and ink/paper overlap in place of shadows.",
+      "Raised ink and double-rule frames in place of shadows.",
       "Square corners on every control, frame and image.",
-      "One authored motion moment: the game replays to the brilliant move."
+      "Two motion moments: the game replays to the brilliant move, and expanded rows unfold."
     ],
     "rules": [
       {
         "name": "The Teal Reserve Rule",
-        "body": "Teal marks the brilliant move and keyboard focus, nothing else. Bright teal lives on ink; on paper only the board arrow and focus outlines take the deep teal. No teal links, headings, backgrounds or decoration.",
+        "body": "Teal marks the brilliant move and keyboard focus, nothing else. The ordinary board arrow is panel grey; it turns teal only for the brilliant move. No teal links, headings, backgrounds or decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Raised Ink Rule",
+        "body": "Ink has exactly one step up. Raised ink marks the board, a row under the pointer, the current or open row, and its expanded panel. There are no other grey fills and no second step.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paper Mark Rule",
+        "body": "Paper appears as type and as small inverted marks (a button, a tab, a tile, a toggle, a play square, a solid bar). The drafter's scoresheet is the one paper surface; no other region or section is set on paper.",
         "section": "colors"
       },
       {
         "name": "The Hatch Rule",
-        "body": "A dark square is ink hatching (`repeating-linear-gradient(135deg, ink 0 1.2px, transparent 1.2px 5px)`), never a grey fill. The same hatch fills duration bars and the empty diagram behind project images.",
+        "body": "A dark square is paper hatching on ink (`repeating-linear-gradient(135deg, hatch-line 0 1.2px, transparent 1.2px 5px)`), never a grey fill. The same hatch fills duration bars and a demo card that has no thumbnail.",
         "section": "colors"
       },
       {
         "name": "The Notation Rule",
-        "body": "Mono is for notation and measurement only: moves, coordinates, dates, durations, numbers, stacks. Never use it as costume for headings, buttons or prose.",
+        "body": "Mono is for notation and measurement only: moves, coordinates, dates, durations, numbers, tags, stacks. Never use it as costume for headings, buttons or prose.",
         "section": "typography"
       },
       {
@@ -365,34 +461,37 @@
       },
       {
         "name": "The Double-Rule Rule",
-        "body": "A frame is 2.5px border plus a 1px outline at 3px offset, in the colour opposite its ground. Nothing is lifted with a shadow, blur or glow.",
+        "body": "A frame is a border plus a 1px outline at 3px offset: 1.5px strong rule and hairline on ink, 2.5px paper on the scoresheet. Nothing is lifted with a shadow, blur or glow.",
         "section": "elevation"
       },
       {
-        "name": "The Overlap Rule",
-        "body": "To bring something forward, invert it: ink region on paper, paper sheet on ink. Tone never steps in greys between.",
+        "name": "The Keyline Rule",
+        "body": "A 1px, unblurred, un-offset outline that keeps a mark legible against its ground is a keyline, not a shadow. It never grows, softens or shifts to suggest height.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** keep the page to paper (#f6f6f3) and ink (#141414); introduce contrast by inverting whole regions, not by adding greys.",
-      "**Do** hatch every dark square, duration bar and empty diagram with the 135° ink hatch.",
-      "**Do** frame diagrams, photos and previews with the double rule: 2.5px border plus 1px outline at 3px offset.",
-      "**Do** set notation, coordinates, dates, durations, metrics and stacks in Geist Mono, and everything else in Archivo.",
+      "**Do** set every surface on ink (#141414) with paper (#f6f6f3) type; bring something forward with raised ink (#1d1d1b) or by inverting a small mark to paper.",
+      "**Do** hatch every dark square, duration bar and empty thumbnail with the 135° paper hatch.",
+      "**Do** frame the board and photos with the double rule: 1.5px strong-rule border plus 1px hairline outline at 3px offset.",
+      "**Do** set notation, coordinates, dates, durations, metrics, tags and stacks in Geist Mono, and everything else in Archivo.",
       "**Do** make a duration bar's length proportional to the real duration.",
-      "**Do** put secondary material in parentheses (side variations) or an inline \"Full notes\" disclosure.",
+      "**Do** put secondary material in an expandable row: a heading that holds the toggle button, the whole row clickable, the panel on raised ink.",
+      "**Do** keep demos as a small thumbnail card inside the open row that opens in a new tab.",
       "**Do** keep the chess-knight cursor and the knight figurine in the wordmark.",
-      "**Do** honour `prefers-reduced-motion`: the replay jumps to the final position and transitions switch off."
+      "**Do** honour `prefers-reduced-motion`: the replay jumps to the final position and transitions and the unfold switch off."
     ],
     "donts": [
-      "**Don't** use teal anywhere except the brilliant move, the board arrow and focus.",
-      "**Don't** add drop shadows, glows, blurs or gradients for depth.",
+      "**Don't** use teal anywhere except the brilliant move, the brilliant board arrow and focus.",
+      "**Don't** add a light or paper section; the scoresheet is the only paper surface.",
+      "**Don't** add a second tone of raised ink or any other grey fill.",
+      "**Don't** add drop shadows, glows, blurs or gradients for depth; the only outlines are frames and keylines.",
       "**Don't** round any corner.",
       "**Don't** put an eyebrow or kicker above a heading.",
       "**Don't** use mono for headings, buttons or prose.",
-      "**Don't** lay out projects or experience as a card grid.",
+      "**Don't** lay out projects or experience as a card grid or show project screenshots.",
       "**Don't** hide content behind tabs, carousels or modals.",
-      "**Don't** add a second authored animation; the game's replay to the brilliant move is the one moment."
+      "**Don't** add authored motion beyond the game replay and the row unfold."
     ]
   }
 }

@@ -1085,7 +1085,7 @@ img {
   gap: 28px 40px;
   margin: 48px 0 0;
   padding-top: 28px;
-  border-top: 1px solid rgba(246, 246, 243, 0.3);
+  border-top: 1px solid var(--rule);
 }
 
 .player-facts dt {
@@ -1120,7 +1120,7 @@ img {
 .repertoire-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  max-width: 1280px;
+  max-width: var(--content);
   margin: 0 auto;
   border-top: 1px solid var(--rule-strong);
 }
@@ -1157,13 +1157,13 @@ img {
 }
 
 .your-move h2 {
-  max-width: 1280px;
+  max-width: var(--content);
   margin: 0 auto;
   font-size: clamp(3.5rem, 11vw, 9rem);
 }
 
 .your-move-lede {
-  max-width: 1280px;
+  max-width: var(--content);
   margin: 20px auto 0;
   font-size: 1.2rem;
 }
@@ -1172,10 +1172,10 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  max-width: 1280px;
+  max-width: var(--content);
   margin: 56px auto 0;
   padding: 24px 0 0;
-  border-top: 1px solid rgba(246, 246, 243, 0.3);
+  border-top: 1px solid var(--rule);
   list-style: none;
 }
 
@@ -1201,7 +1201,7 @@ img {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: clamp(28px, 4vw, 64px);
-  max-width: 1280px;
+  max-width: var(--content);
   margin: 44px auto 0;
 }
 
@@ -1241,7 +1241,7 @@ img {
   align-items: center;
   min-height: 48px;
   padding: 0 14px;
-  border: 1px solid rgba(246, 246, 243, 0.5);
+  border: 1px solid var(--rule-strong);
   font-weight: 650;
   transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
 }
@@ -1532,6 +1532,15 @@ img {
   .entry-panel:not([hidden]),
   .project-panel:not([hidden]) {
     animation: none;
+  }
+
+  .demo-play,
+  .demo-thumb img {
+    transition: none;
+  }
+
+  .demo:hover .demo-play {
+    transform: none;
   }
 }
 

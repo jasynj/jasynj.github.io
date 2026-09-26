@@ -17,11 +17,11 @@ related_targets: []
 
 THESIS: The portfolio is a post-game analysis of Jason's career. Each experience is a move in an annotated game, and the board replays it. It refuses the category default: an avatar, "Hello, I'm", two pill buttons, a stock illustration, then a card grid.
 
-OWN-WORLD: A chess-book print diagram on white paper (#f6f6f3). Dark squares are ink hatching, not a fill. The move list is a solid ink panel (#141414) with white type. Brilliant-move teal (#1baca6) is reserved for `!!` and the struck-forward move, and appears only on ink. Archivo (variable width) carries names and headlines; Geist Mono carries notation, coordinates, dates and metrics; SVG figurine pieces are used throughout. Surfaces are flat, with depth only from overlapping layers. Controls are square-cornered like notation boxes.
+OWN-WORLD: The chess-book world set on ink. The whole site sits on one dark ground (#141414), with paper (#f6f6f3) for type. The board is a quiet dark diagram with light hatching on the dark squares, and black pieces are keylined. Brilliant-move teal (#1baca6) is reserved for `!!`, the struck-move arrow, and focus. Archivo (variable width) carries names, headlines, body and UI labels. Geist Mono carries notation, coordinates, dates, metrics and stack only. Cburnett SVG figurines. Surfaces are flat and corners are square. Lists are ruled rows, with raised ink (#1d1d1b) for hover and open states.
 
 STORY: The recruiter sees the whole game in one glance (Phillips → Meta University! → GSU Portal! → Meta Messenger!!) with numbers beside each move. They understand he ships real products that selective teams vetted, and they download the resume or draft an email.
 
-FIRST VIEWPORT: On the left, a large hatched 8×8 diagram with a–h and 1–8 coordinates. An eval bar hugs its left edge. On the right, an ink panel holds a PGN-style header (name, title, school) and a numbered move list: every work move with its year, org, one metric and a glyph. At the panel's foot: "Download resume" (ink on white, primary) and "Draft an email". Hovering or focusing a move replays it on the board, which draws an arrow and slides the piece. On load, the game plays through once to 6.Nxf7!!.
+FIRST VIEWPORT: The board is quiet and the words lead, at a ratio of about 36/64. On the left is a dark hatched 8×8 diagram at min(58vh, 30vw) with a–h and 1–8 coordinates and a thin eval bar. On the right, with no separate fill, are the name at up to 4.4rem, the title line, the PGN tags, a 1.2rem tagline, and the numbered move list: year, org, role and one proof metric per move, with glyphs. At the foot are "Download resume" (paper on ink, primary) and "Draft an email". Hovering or focusing a move replays it on the board, and on load the game plays through once to 6.Nxf7!!. On mobile the name and moves come first, then the board.
 
 FORM: The Analysis Board, my own top-ranked grounded candidate (#1 on my ordered list: an engine analysis screen), taken as IMPECCABLE'S PICK over the assigned tournament clock (#7). Seed key: b7bfcaa1. Raises kept: nothing hides behind tabs (programs render as side-variations in parentheses); a bar's length equals the real duration; depth only by overlap; the email drafter previews before sending.
 
@@ -31,3 +31,11 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 - The content is partly stale per the user; the user will supply updates to `data/content.json`.
 - The About photo and headshot are the existing files until the user provides new ones.
+
+## Revision 2026-09-26 (user feedback after first ship)
+
+- Constant dark theme across the whole site, including the board.
+- Hero rebalanced so the move list and name lead and the board recedes.
+- Experience: the parenthesized "side variations" are removed. They were grouped by date, which read as programs branching from a job. Now Work is a timeline of expandable rows, and Programs & hackathons is a separate two-column list of expandable rows.
+- Projects: equal expandable rows (one open at a time), no screenshots, and demos as a small thumbnail card inside the expanded row, opening in a new tab.
+- Content contract: data/schema.json plus js/content.js normalization, for a future backend.
