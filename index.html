@@ -86,9 +86,12 @@
     <section id="projects" class="section projects" aria-labelledby="projects-title">
       <header class="section-head">
         <h2 id="projects-title">Projects</h2>
-        <p class="section-note">What I built and what it did. Click a project to open the details, links, and demo.</p>
+        <p class="section-note">A knight's tour through what I've built: each project sits on its own square. Point at one to move the knight there; click it for the details, links, and demo.</p>
       </header>
-      <ol class="project-list" data-render="projects"></ol>
+      <div class="projects-body">
+        <div class="tour" data-tour aria-hidden="true"></div>
+        <ol class="project-list" data-render="projects"></ol>
+      </div>
     </section>
 
     <section id="about" class="section player-card" aria-labelledby="about-title">

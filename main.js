@@ -22,7 +22,7 @@ try {
 
   renderHero({ list: $("[data-render='moves']"), board: $("[data-board]"), evalFill: $(".eval-fill") }, content.mainline);
   renderExperience({ work: $("[data-render='work']"), programs: $("[data-render='programs']") }, content);
-  renderProjects($("[data-render='projects']"), content.projects);
+  renderProjects({ list: $("[data-render='projects']"), board: $("[data-tour]") }, content.projects);
   renderAbout(
     { photo: $("[data-render='about-photo']"), about: $("[data-render='about']"), facts: $("[data-render='facts']") },
     content.profile,
