@@ -6,14 +6,13 @@ const TO = "jasoncj.dev@gmail.com";
 const INTENTS = {
   hiring: {
     fields: {
-      org: { label: "Company", placeholder: "e.g. Stripe" },
+      org: { label: "Company", placeholder: "e.g. Meta" },
       detail: { label: "Role or team", placeholder: "e.g. New Grad SWE 2027, Payments" },
     },
     subject: ({ org, detail }) =>
       detail && org ? `${detail} at ${org}` : org ? `Opportunity at ${org}` : detail ? `${detail} opportunity` : "Software engineering opportunity",
     body: ({ name, org, detail }) =>
-      `Hi Jason,\n\nI'm ${name}${org ? ` from ${org}` : ""}. I came across your portfolio and would like to talk with you about ${
-        detail ? `the ${detail} role` : "a software engineering role"
+      `Hi Jason,\n\nI'm ${name}${org ? ` from ${org}` : ""}. I came across your portfolio and would like to talk with you about ${detail ? `the ${detail} role` : "a software engineering role"
       }${org ? ` at ${org}` : ""}.\n\nWould you be open to a quick call this week or next? Let me know what times work for you.\n\nBest,\n${name}`,
   },
   project: {
@@ -23,8 +22,7 @@ const INTENTS = {
     },
     subject: ({ detail, org }) => (detail ? `Project inquiry: ${detail}` : org ? `Project inquiry from ${org}` : "Project inquiry"),
     body: ({ name, org, detail }) =>
-      `Hi Jason,\n\nI'm ${name}${org ? ` with ${org}` : ""}. I saw your client work and I'm looking for help with ${
-        detail || "a project"
+      `Hi Jason,\n\nI'm ${name}${org ? ` with ${org}` : ""}. I saw your client work and I'm looking for help with ${detail || "a project"
       }.\n\nCould we set up a time to talk about scope, timeline, and budget?\n\nThanks,\n${name}`,
   },
   collab: {
@@ -33,8 +31,7 @@ const INTENTS = {
     },
     subject: ({ detail }) => (detail ? `Talking about ${detail}` : "Let's talk tech"),
     body: ({ name, detail }) =>
-      `Hi Jason,\n\nI'm ${name}. I was looking through your projects and wanted to reach out about ${
-        detail || "what you're building"
+      `Hi Jason,\n\nI'm ${name}. I was looking through your projects and wanted to reach out about ${detail || "what you're building"
       }.\n\nWould love to swap notes sometime.\n\nCheers,\n${name}`,
   },
   hello: {

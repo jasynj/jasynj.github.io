@@ -71,6 +71,7 @@ function normalizeProject(block, categoryIds) {
     context: "",
     outcome: "",
     stack: [],
+    image: null,
     ...block,
     links: normalizeLinks(block.links),
     demo: normalizeDemo(block.demo),

@@ -1,11 +1,18 @@
 // Projects: tabs by category (All first), then a grid of cards. Every card has a demo area:
-// a thumbnail that opens the demo, or a "No demo available" placeholder.
+// a thumbnail that opens the demo; without a demo, the project's screenshot; with neither,
+// a "No demo available" placeholder.
 
 import { html, safeUrl, ICONS } from "../util.js";
 import { linkButtons } from "./shared.js";
 
 function demoArea(project) {
   const url = safeUrl(project.demo?.url);
+  const image = safeUrl(project.image?.src);
+  if (!url && image) {
+    return html`<div class="card-demo card-demo-image">
+      <img src="${image}" alt="${project.image.alt ?? ""}" loading="lazy" decoding="async">
+    </div>`;
+  }
   if (!url) {
     return html`<div class="card-demo card-demo-empty">
       ${ICONS.noVideo}

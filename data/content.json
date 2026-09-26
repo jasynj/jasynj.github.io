@@ -18,9 +18,7 @@
         "Distributed Systems",
         "Foundations of Deep Learning",
         "Intro to Artificial Intelligence",
-        "Computer Architecture",
-        "Object-Oriented Programming",
-        "Discrete Structures"
+        "Computer Architecture"
       ]
     },
     "honors": [
@@ -31,9 +29,9 @@
       "National Physics Olympiad — Finalist, Top 40 nationwide"
     ],
     "about": [
-      "I'm a Computer Science and Computer Information Systems double major at Grambling State University, building full-stack applications that actually ship — real clients, real users, real problems.",
-      "I work across the whole stack, but I'm drawn to the frontend: the intersection of engineering and design, where a good decision is both technically sound and visually right. I care about how things look and feel, not just whether they work.",
-      "Outside of engineering I paint, draw, read, and play chess. Those interests keep me curious and open to new ways of thinking — and they shape how I learn and build."
+      "I'm a Computer Science and Computer Information Systems double major at Grambling State University, building full-stack applications for real users, clients, and organizations.",
+      "I work across the whole stack, but I'm especially drawn to the frontend, where engineering and design meet. I care about how things look and feel, not just whether they work.",
+      "Outside of engineering, I paint, draw, read, and play chess. Those interests keep me curious and influence how I approach design, problem-solving, and learning."
     ],
     "schedule": "https://calendly.com/jasoncj-dev",
     "facts": [
@@ -537,7 +535,11 @@
           "url": "https://github.com/jasynj/Flixster"
         }
       ],
-      "category": "internship"
+      "category": "internship",
+      "image": {
+        "src": "assets/web/flixster.jpg",
+        "alt": "Flixster movie grid"
+      }
     },
     {
       "id": "jarms-delight",
@@ -571,7 +573,11 @@
           "url": "https://github.com/jasynj/cee"
         }
       ],
-      "category": "client"
+      "category": "client",
+      "image": {
+        "src": "assets/web/cee.jpg",
+        "alt": "Craig Events & Entertainments website home page"
+      }
     },
     {
       "id": "gsu-clubs",
@@ -595,7 +601,11 @@
           "url": "https://github.com/jasynj/gsu-clubs-portal"
         }
       ],
-      "category": "client"
+      "category": "client",
+      "image": {
+        "src": "assets/web/clubs.jpg",
+        "alt": "GSU Clubs & Organizations Portal directory page"
+      }
     },
     {
       "id": "safelink",
@@ -686,7 +696,11 @@
           "url": "https://github.com/jasynj/QuantSim"
         }
       ],
-      "category": "personal"
+      "category": "personal",
+      "image": {
+        "src": "assets/web/quantsim.jpg",
+        "alt": "QuantSim backtest dashboard"
+      }
     },
     {
       "id": "visioncare",
@@ -706,7 +720,11 @@
           "url": "https://github.com/jasynj/VisionCare"
         }
       ],
-      "category": "personal"
+      "category": "personal",
+      "image": {
+        "src": "assets/web/visioncare.jpg",
+        "alt": "VisionCare vision test screen"
+      }
     }
   ],
   "leadership": [
@@ -715,16 +733,8 @@
       "org": "Grambling State University Book Club"
     },
     {
-      "role": "Treasurer",
-      "org": "ACM, Grambling Chapter"
-    },
-    {
-      "role": "Academic Chair",
+      "role": "Professional Development Chair",
       "org": "ColorStack Grambling"
-    },
-    {
-      "role": "PR Director",
-      "org": "African Students Association"
     },
     {
       "role": "Tiger LIFT Mentor",

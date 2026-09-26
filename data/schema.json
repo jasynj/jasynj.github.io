@@ -304,6 +304,10 @@
         "category": {
           "type": "string",
           "description": "id of one of projectCategories; decides the tab"
+        },
+        "image": {
+          "$ref": "#/$defs/image",
+          "description": "Screenshot shown in the card's demo area when the project has no demo"
         }
       }
     },
