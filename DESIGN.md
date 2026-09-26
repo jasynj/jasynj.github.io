@@ -1,238 +1,306 @@
 ---
 name: Jason Chimdinma Jason — Portfolio
-description: A dark, deliberate portfolio where every piece of proof is placed with intent.
+description: A career read as an annotated chess game, printed as a chess-book diagram in paper and ink.
 colors:
-  board-teal: "#0c2a2a"
-  midnight-well: "#082021"
-  knight-teal: "#00ad9f"
-  knight-teal-lit: "#0cc5b3"
-  aqua-highlight: "#74f6eb"
-  ivory-white: "#ffffff"
-  mist: "#d1e3e3"
-  slate-sage: "#9fb9b9"
-  veil: "rgba(255, 255, 255, 0.03)"
-  veil-strong: "rgba(255, 255, 255, 0.06)"
-  hairline: "rgba(255, 255, 255, 0.12)"
-  success: "#4ade80"
-  error: "#f87171"
+  paper: "#f6f6f3"
+  ink: "#141414"
+  ink-muted: "#55554f"
+  panel-muted: "#a3a39c"
+  panel-dim: "#8c8c85"
+  teal: "#1baca6"
+  teal-deep: "#0b716d"
+  wash: "rgba(27, 172, 166, 0.3)"
+  ink-hairline: "rgba(246, 246, 243, 0.22)"
 typography:
   display:
-    fontFamily: "Figtree, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-    fontSize: "2.4rem"
-    fontWeight: 700
+    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(3.5rem, 11vw, 9rem)"
+    fontWeight: 850
+    lineHeight: 0.95
+    letterSpacing: "-0.03em"
+    fontVariation: "\"wdth\" 112"
   headline:
-    fontFamily: "Figtree, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-    fontSize: "1.5rem"
-    fontWeight: 700
+    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(2.4rem, 5.2vw, 4.5rem)"
+    fontWeight: 850
+    lineHeight: 0.95
+    letterSpacing: "-0.03em"
+    fontVariation: "\"wdth\" 112"
+  player:
+    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(2.2rem, 3.5vw, 3.5rem)"
+    fontWeight: 850
+    lineHeight: 0.96
+    letterSpacing: "-0.025em"
+    fontVariation: "\"wdth\" 112"
   title:
-    fontFamily: "Figtree, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-    fontSize: "1.05rem"
-    fontWeight: 700
+    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(1.35rem, 2.2vw, 1.8rem)"
+    fontWeight: 800
+    lineHeight: 1.1
+    fontVariation: "\"wdth\" 108"
   body:
-    fontFamily: "Figtree, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
-    lineHeight: 1.6
+    lineHeight: 1.55
+    fontVariation: "\"wdth\" 100"
+  button:
+    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
+    fontSize: "0.85rem"
+    fontWeight: 650
+    letterSpacing: "0.02em"
+    fontVariation: "\"wdth\" 100"
   label:
-    fontFamily: "Figtree, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-    fontSize: "0.8rem"
+    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
+    fontSize: "0.78rem"
+    fontWeight: 650
+    letterSpacing: "0.04em"
+    fontVariation: "\"wdth\" 100"
+  notation:
+    fontFamily: "Geist Mono, ui-monospace, SF Mono, Menlo, monospace"
+    fontSize: "0.95rem"
+    fontWeight: 600
+  data:
+    fontFamily: "Geist Mono, ui-monospace, SF Mono, Menlo, monospace"
+    fontSize: "0.78rem"
     fontWeight: 400
-    letterSpacing: "0.08em"
-  detail-link:
-    fontFamily: "Instrument Sans, sans-serif"
-    fontSize: "12px"
-    fontWeight: 500
-    lineHeight: "24px"
 rounded:
-  sm: "8px"
-  md: "12px"
-  lg: "20px"
-  pill: "999px"
+  none: "0px"
 spacing:
-  xs: "8px"
-  sm: "12px"
-  md: "16px"
-  lg: "24px"
-  xl: "32px"
-  2xl: "48px"
-  section: "96px"
-  section-lg: "120px"
+  gutter: "clamp(16px, 4vw, 48px)"
+  section: "clamp(64px, 9vw, 128px)"
+  section-head: "clamp(40px, 5vw, 64px)"
+  row: "32px"
 components:
-  button-primary:
-    backgroundColor: "{colors.knight-teal}"
-    textColor: "{colors.ivory-white}"
-    rounded: "{rounded.pill}"
-    padding: "10px 18px"
-  button-primary-hover:
-    backgroundColor: "{colors.knight-teal-lit}"
-    textColor: "{colors.ivory-white}"
-  button-outline:
-    backgroundColor: "transparent"
-    textColor: "{colors.ivory-white}"
-    rounded: "{rounded.pill}"
-    padding: "10px 18px"
-  button-outline-hover:
-    textColor: "{colors.knight-teal}"
-  tab:
-    backgroundColor: "transparent"
-    textColor: "{colors.slate-sage}"
-    rounded: "{rounded.pill}"
-    padding: "6px 16px"
-  tab-active:
-    backgroundColor: "{colors.knight-teal}"
-    textColor: "{colors.ivory-white}"
-  card:
-    backgroundColor: "{colors.veil}"
-    rounded: "{rounded.md}"
-    padding: "18px 20px"
-  input:
-    backgroundColor: "rgba(255, 255, 255, 0.02)"
-    textColor: "{colors.ivory-white}"
-    rounded: "{rounded.md}"
-    padding: "12px 16px"
-  modal:
-    backgroundColor: "{colors.midnight-well}"
-    rounded: "{rounded.md}"
-    padding: "20px 22px"
-    width: "520px"
+  button-move:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.button}"
+    rounded: "{rounded.none}"
+    padding: "0 20px"
+    height: "44px"
+  button-move-hover:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+  button-quiet:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    typography: "{typography.button}"
+    rounded: "{rounded.none}"
+    padding: "0 20px"
+    height: "44px"
+  button-quiet-hover:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+  button-line:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.button}"
+    rounded: "{rounded.none}"
+    padding: "0 14px"
+    height: "40px"
+  button-line-hover:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+  masthead-resume:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "8px 10px"
+  nav-link-hover:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    typography: "{typography.label}"
+    padding: "8px 10px"
+  intent-chip:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    typography: "{typography.button}"
+    rounded: "{rounded.none}"
+    padding: "0 14px"
+    height: "48px"
+  intent-chip-selected:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+  field-input:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    typography: "{typography.body}"
+    rounded: "{rounded.none}"
+    padding: "0 14px"
+    height: "48px"
+  move-panel:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.none}"
+    padding: "clamp(24px, 3vw, 40px) clamp(24px, 4vw, 64px)"
+  draft-sheet:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.none}"
+    padding: "22px 24px"
 ---
 
 # Design System: Jason Chimdinma Jason — Portfolio
 
 ## Overview
 
-**Creative North Star: "The Endgame Board"**
+**Creative North Star: "The Analysis Board"**
 
-The site is a dark, deliberate board where each piece of proof (an internship, a shipped product, a program selection) sits on its own square, placed with intent. The ground is a single deep teal-black. The pieces are flat, barely-lit tiles defined by hairline borders rather than shadows. Knight Teal is the move being made: it marks the one action or state that matters in any given view, such as the primary button, the active tab, or the focused field. The knight cursor and the falling-sparkle trail are the player's hand on the board, the site's signature personal touches.
+The site is a post-game analysis printed in a chess book. Paper and ink do nearly all the work: a hatched diagram, a solid ink move list, numbered annotations in a column of notation, and one brilliant-move teal that appears only where a move is struck forward. Every visual device is borrowed from how chess is printed and analysed (figurine notation, `!`/`!!` glyphs, a–h/1–8 coordinates, an eval bar, variations in parentheses, PGN tag pairs), so the chess theme is structural rather than decorative.
 
-The mood is calm, strategic, and confident. Density is moderate: one long page of anchored sections, each opening with a plain heading and then laying its pieces out in a one- or two-column grid. Nothing competes for attention. Hierarchy comes from white-versus-mist text contrast and from the single teal accent, not from size jumps or decoration. Components are calm and precise: soft pill controls, quiet borders, and content doing the talking.
+Density is that of a well-set book page: generous section padding, hard ink rules between entries, and a clear left-to-right reading order of move number, dates, then substance. Surfaces are flat. Depth comes from two things only: the double-rule frame of a printed diagram and whole regions of ink laid against paper. Corners are square everywhere, like notation boxes.
+
+The world refuses the category default of an avatar, a greeting, pill buttons, a stock illustration and a card grid. Nothing is hidden behind tabs or modals; secondary material sits in parentheses or an inline "Full notes" disclosure. The chess-knight cursor and the knight figurine in the wordmark are durable brand commitments.
 
 **Key Characteristics:**
-- One dark teal ground (`board-teal`) behind everything; no light theme.
-- Flat tonal surfaces: 3–6% white veils with 12% white hairline borders.
-- A single accent family (Knight Teal, with Aqua Highlight for tiny details).
-- Pill-shaped interactive controls; softly rounded (12px) containers.
-- Figtree throughout, with bold weight rather than large size carrying hierarchy.
-- Personal signature: chess-knight cursor and a white sparkle trail.
+- Paper (#f6f6f3) and ink (#141414) as the whole palette; teal is a rare, earned mark.
+- Dark squares and duration bars are ink hatching, never a flat grey fill.
+- Archivo variable width for words; Geist Mono only for notation and measurement.
+- Double-rule frames and ink/paper overlap in place of shadows.
+- Square corners on every control, frame and image.
+- One authored motion moment: the game replays to the brilliant move.
 
 ## Colors
 
-A monochrome teal night with one bright move: everything sits in the same blue-green hue family, from near-black ground to pale mist text, and only Knight Teal is saturated.
+A two-ink print palette with a single brilliant-move accent.
 
 ### Primary
-- **Knight Teal** (`knight-teal`): the accent for action and state. Used for primary button fills, the active experience tab, modal close buttons, input focus borders, the hero title line ("Software Engineer"), the hero avatar ring, hover borders on outline buttons and contact cards, and contact icons (on a 10% tint of itself).
-- **Knight Teal, Lit** (`knight-teal-lit`): the hover state of Knight Teal on filled buttons, and the thin ring around experience logos.
-
-### Secondary
-- **Aqua Highlight** (`aqua-highlight`): a small-detail color only. Used for the "View details" link text and the underline under skill category headings. It never fills a surface.
+- **Brilliant-Move Teal** (teal): the `!!` glyph, the brilliant move's proof metric, focus rings, input focus rules and caret. Appears on ink only; on paper it fails contrast and loses its print feel.
+- **Deep Analysis Teal** (teal-deep): the paper-side form of the accent. Used only for the board's struck-move arrow and for focus outlines on paper (5.4:1).
+- **Analysis Wash** (wash): the translucent teal laid over the from/to squares of the current move, and the text selection highlight.
 
 ### Neutral
-- **Board Teal** (`board-teal`): the page background and the base of the translucent sticky header (at 96% opacity with a 12px blur).
-- **Midnight Well** (`midnight-well`): a slightly darker, deeper teal used only for modal panels so they read as sunk below the page.
-- **Ivory White** (`ivory-white`): headings, the logo, card titles, input text, and text on teal buttons.
-- **Mist** (`mist`): body copy, summaries, and paragraph text.
-- **Slate Sage** (`slate-sage`): meta lines (location and dates), nav links at rest, uppercase labels, placeholders, the footer, and inactive tabs.
-- **Veil / Veil Strong** (`veil`, `veil-strong`): translucent white fills for cards, tabs, and the form. Veil Strong is the hover fill.
-- **Hairline** (`hairline`): the universal 1px border on cards, inputs, outline buttons, the header, and the footer. Section dividers use an even fainter 4% white.
-
-### Status
-- **Success** (`success`) / **Error** (`error`): form-submission results only, each shown as text on an 8% tint of itself with a 25% border.
+- **Chess-Book Paper** (paper): the page ground, light diagram squares, text on ink, and the fill of the eval bar.
+- **Diagram Ink** (ink): all type on paper, every rule and frame, the move panel, the player card, the "Your move." section, and the hatch strokes.
+- **Margin Grey** (ink-muted): secondary text on paper: coordinates, roles, durations, section notes, metric labels (6.9:1).
+- **Panel Grey** (panel-muted): secondary text on ink: PGN tag values, roles, form labels (7.3:1).
+- **Reply Grey** (panel-dim): the quietest tone on ink: move numbers, PGN tag names and brackets, placeholders, opponent replies.
+- **Ink Hairline** (ink-hairline): the row dividers of the ink move list. Section-level dividers on ink use the same paper tint at 30%.
 
 ### Named Rules
-**The One Move Rule.** In any view, Knight Teal marks the one thing to act on or the one active state. If two teal fills sit side by side, one of them is wrong.
+**The Teal Reserve Rule.** Teal marks the brilliant move and keyboard focus, nothing else. Bright teal lives on ink; on paper only the board arrow and focus outlines take the deep teal. No teal links, headings, backgrounds or decoration.
 
-**The Aqua Is Ink Rule.** Aqua Highlight is only for text and underlines. Never use it as a fill, border, or background.
+**The Hatch Rule.** A dark square is ink hatching (`repeating-linear-gradient(135deg, ink 0 1.2px, transparent 1.2px 5px)`), never a grey fill. The same hatch fills duration bars and the empty diagram behind project images.
 
 ## Typography
 
-**Display Font:** Figtree (with system-ui, -apple-system, BlinkMacSystemFont, sans-serif)
-**Body Font:** Figtree
-**Detail Font:** Instrument Sans, used only for the "View details" link on experience cards
+**Display Font:** Archivo, variable width 62–125 and weight 300–900 (with Helvetica Neue, Arial)
+**Body Font:** Archivo at width 100
+**Label/Mono Font:** Geist Mono 400–600 (with ui-monospace, SF Mono, Menlo)
 
-**Character:** A single friendly geometric sans at every level. Hierarchy comes from weight (400 / 500 / 600 / 700) and white-versus-mist contrast rather than from dramatic size changes.
+**Character:** A wide, heavy grotesque for names and headlines, set tight like a chess-book chapter head, against a precise mono that reads as printed notation. Width is an axis of hierarchy: headlines at 112, titles at 108–110, body and UI at 100.
 
 ### Hierarchy
-- **Display** (`typography.display`): the hero name only.
-- **Headline** (`typography.headline`): section headings (About, Experience, Projects, Contact), using the browser-default h2 size in bold Ivory White with 24px below.
-- **Title** (`typography.title`): experience card titles, modal titles, and contact subheads.
-- **Body** (`typography.body`): paragraphs in Mist. Long prose in About and Contact uses a 1.7 line-height; the contact intro is capped at 680px.
-- **Label** (`typography.label`): uppercase meta labels (the Education card, contact item labels) in Slate Sage.
-- **Meta** (0.85–0.9rem, 400): organization lines and "location • dates" lines in Slate Sage or Mist.
-- **Detail link** (`typography.detail-link`): underlined Aqua Highlight text with a Knight Teal-Lit underline, which nudges up and right on hover.
+- **Display** (850, clamp(3.5rem, 11vw, 9rem), 0.95): "Your move." only, the closing call.
+- **Headline** (850, clamp(2.4rem, 5.2vw, 4.5rem), 0.95, -0.03em): section heads (Experience, Projects, About, Skills).
+- **Player** (850, clamp(2.2rem, 3.5vw, 3.5rem), 0.96, -0.025em): the player's name at the top of the ink panel.
+- **Title** (800, clamp(1.35rem, 2.2vw, 1.8rem), 1.1): organisation names in annotations; project names run 850 at width 110, the lead project larger (clamp(2rem, 3.4vw, 3rem)).
+- **Body** (400, 1rem, 1.55): summaries and prose, capped at 52–72ch.
+- **Button** (650, 0.85rem, 0.02em): buttons, intent chips, player line, field labels. Sentence case.
+- **Label** (650, 0.78rem, 0.04–0.06em, uppercase): masthead nav, the resume tab, "Full notes", fact-list terms, form legends. Always a control or a label for data, never a line above a heading.
+- **Notation** (Geist Mono 600, 0.95rem; 1.35rem in annotations): move numbers, figurine SAN and `!`/`!!` glyphs.
+- **Data** (Geist Mono 400, 0.72–0.9rem): board coordinates, PGN tags, dates and durations, metric values, stack lines, the skills list, the GPA line.
 
 ### Named Rules
-**The Weight, Not Size Rule.** Promote an element with weight and white before you promote it with size. Only the hero name gets real display scale.
+**The Notation Rule.** Mono is for notation and measurement only: moves, coordinates, dates, durations, numbers, stacks. Never use it as costume for headings, buttons or prose.
+
+**The No-Eyebrow Rule.** Headings stand alone. No small uppercase kicker or label sits above a heading; context goes in the section note beside it.
 
 ## Layout
 
-A single scrolling page with anchored sections, each separated by a 4%-white top hairline and generous vertical padding (96px by default, 120px for Hero, About, and Projects). Content sits in a centered container 1120–1200px wide with 24px side padding (the header uses `min(1120px, 100% - 32px)`).
+A single long page under a sticky 56px paper masthead closed by a 1px ink rule. The first viewport fills `100svh` minus the masthead with two columns: the analysis board (1.05fr) on paper and the ink move panel (1fr), with the resume and email actions pinned to the panel's foot.
 
-- **Hero:** a two-column flex. The text column is fixed at 540px and the illustration column takes the remaining space. Under 900px the illustration hides and the text centers.
-- **About:** a fixed 250×400 portrait frame on the left and text on the right. Under 850px these stack, and the portrait becomes a full-width 250px-tall crop.
-- **Experience / Projects:** a single column that becomes two equal columns at 768px or wider, with a 20px gap.
-- **Contact:** a two-column grid with a 48px gap that collapses to one column under 900px.
-- **Rhythm:** 8 / 12 / 16 / 20 / 24 / 32 / 48px steps. Cards use 16–20px internal padding; the form uses 32px (24px on mobile).
+Sections pad by the `section` step vertically and the `gutter` step horizontally, cap content at 1280px, and end in a 1px ink rule. Each section head is a two-column grid (heading | note, 1fr | 1.1fr, aligned to the baseline end). Lists of entries (annotations, positions, lines, repertoire) open with a 2px ink rule and separate rows with 1px ink rules at a 32px row rhythm.
+
+Experience is a three-column annotation grid (move 9.5rem | clock 13rem | body). Side variations indent under the body columns. Projects give one lead position at diagram scale (1.35fr image | 1fr text), then 18rem-diagram positions, then a three-column "More lines" list. Skills sit in four ruled repertoire columns.
+
+At 960px everything collapses to one column; the board and eval bar size to min(78vw, 520px); the masthead wraps so the nav becomes a second, horizontally scrollable row under its own ink rule (about 100px tall in total), with 44px touch targets. The repertoire becomes two columns. At 520px the move list drops its proof column under the organisation, and the player facts go single-column.
 
 ## Elevation & Depth
 
-The system is flat. Depth comes only from tonal layering: a 3% white veil lifts a card off the Board Teal, a 12% hairline defines its edge, and hover raises the veil to 6% and turns the hairline Knight Teal. Modals sink rather than rise: they sit on Midnight Well above a 60% black scrim. The only real shadows belong to the photo lightbox (a large, soft drop under the enlarged image) and a near-invisible 4% shadow under experience logos.
+The system is flat: there are no drop shadows. Depth is printed, not lit. A framed object (the board, a project diagram, the player photo, the draft sheet) carries the chess-book double rule: a 2.5px border plus a 1px outline offset 3px, in ink on paper or in paper on ink. Larger depth comes from whole regions of ink laid against paper: the move panel beside the board, the player card, and the "Your move." section.
 
 ### Named Rules
-**The No-Shadow Rule.** Don't use shadows on cards, buttons, or panels. To make something feel closer, brighten its veil or its border.
+**The Double-Rule Rule.** A frame is 2.5px border plus a 1px outline at 3px offset, in the colour opposite its ground. Nothing is lifted with a shadow, blur or glow.
+
+**The Overlap Rule.** To bring something forward, invert it: ink region on paper, paper sheet on ink. Tone never steps in greys between.
 
 ## Shapes
 
-Softness is split by role. Interactive controls (buttons, tabs, social icons, the avatar) are full pills or circles (`rounded.pill`). Containers (cards, inputs, modals, contact items) use a gentle 12px corner (`rounded.md`). The contact form and the tops of project images step up to 20px (`rounded.lg`). Small icon chips and logos use 8px (`rounded.sm`). Borders are always 1px, except the 2px Knight Teal ring around the hero avatar. Modal bullet lists use square markers, a small echo of the board.
+Square corners throughout (radius 0): buttons, chips, inputs, frames, logo tiles, the eval bar, disclosure toggles. Lines carry the form language: 1px ink rules divide rows, 2px rules open lists, dashed 1px rules and mono parentheses mark side variations, and 1.5px strokes outline small marks (duration bars, the "+" disclosure box, logo tiles). Pieces are the cburnett SVG figurine set, used on the board, inline in SAN, and in the wordmark.
 
 ## Components
 
 ### Buttons
-Calm and precise pills. The action is obvious from color alone.
-- **Shape:** full pill (`rounded.pill`), 1px border, 0.95rem, weight 500.
-- **Primary:** a Knight Teal fill with white text. On hover it shifts to Knight Teal, Lit.
-- **Outline:** a transparent background with white text and a Hairline border. On hover both the border and the text turn Knight Teal.
-- **Project buttons:** 12px-radius pills with a Hairline border, 8px 16px padding, and 0.2s transitions on background, border, and color. Unavailable links get a `not-allowed` cursor.
-- **Focus:** there is no custom focus style yet; the browser default applies.
+Flat notation boxes that invert on hover.
+- **Shape:** square (0), 1px border in the current colour, 44px tall.
+- **Primary ("Download resume", "Open in email app"):** paper fill with ink text on ink, padding 0 20px; hover inverts to ink.
+- **Quiet ("Draft an email", the drafter's send and copy actions, contact links):** transparent on ink, paper text and paper border; hover fills paper with ink text.
+- **Line (project links on paper):** ink text and ink border, 40px tall, padding 0 14px; hover fills ink.
+- **Hover / Focus:** background and colour swap over 0.2s on the ease-out curve. Focus is a 2px outline at 3px offset: bright teal on ink, deep teal on paper.
 
-### Tabs (Experience switcher)
-- A segmented pill track with a Veil fill, a Hairline border, and 6px padding. Inactive tabs are transparent with Slate Sage text; the active tab is a Knight Teal pill with white text.
+### Chips
+- **Style:** the email drafter's intent choices, a two-column grid of 48px square boxes on ink with a 50% paper border and 650-weight labels.
+- **State:** hover strengthens the border to full paper; selected inverts to a paper fill with ink text; keyboard focus adds the teal outline.
 
 ### Cards / Containers
-- **Corner Style:** 12px (`rounded.md`).
-- **Background:** Veil.
-- **Shadow Strategy:** none (see Elevation & Depth).
-- **Border:** 1px Hairline. On interactive cards (contact items), hover turns the border Knight Teal and the fill Veil Strong.
-- **Internal Padding:** 18px 20px (experience), 16px (contact items), 32px 28px (skills).
-- **Experience card anatomy:** a 36px logo tile (8px radius with a Knight Teal-Lit ring) above the title, organization, meta line, summary, and "View details" link.
-- **Project tile:** the image sits flush at the top with 20px top corners, and the title and justified description sit below.
+There are no cards. Containers are regions and framed objects.
+- **Corner Style:** square (0).
+- **Background:** paper page; ink for the move panel, player card and "Your move."; paper for the draft sheet on ink.
+- **Shadow Strategy:** none; see Elevation & Depth.
+- **Border:** the double rule for framed objects; 1px ink rules between rows.
+- **Internal Padding:** move panel clamp(24px, 3vw, 40px) by clamp(24px, 4vw, 64px); draft sheet 22px 24px.
 
 ### Inputs / Fields
-- **Style:** a 2% white fill, a Hairline border, 12px radius, and 12px 16px padding. Labels sit above in white at weight 500. Placeholders are Slate Sage.
-- **Focus:** the border turns Knight Teal and the fill rises to 4% white. The outline is removed.
-- **Result states:** full-width success and error panels, as described under Status colors.
+- **Style:** underline fields on ink: transparent fill, a 1.5px paper bottom rule, no other border, 48px tall, 1.05rem text, reply-grey placeholder, teal caret.
+- **Focus:** the bottom rule turns teal and the field takes a faint paper tint (6%); no outline box.
+- **Error / Disabled:** unavailable draft actions drop to 55% opacity until the draft is ready.
 
 ### Navigation
-- A sticky header on 96% Board Teal with a 12px backdrop blur and a Hairline bottom border. The "Jason C. Jason" wordmark is bold white with 0.04em tracking. Nav links are 0.95rem Slate Sage and turn white on hover, with 20px between them.
+The masthead: knight figurine plus the short name in Archivo 800 at width 112 on the left; uppercase 650 label links on the right, which invert to ink on hover; a solid ink "Resume" tab that inverts to paper with a 1px inset keyline on hover. Below 960px the links move to a second row, spread edge to edge and scroll horizontally.
 
-### Experience Modal (Signature)
-- A centered Midnight Well panel, 520px wide, over a 60% black scrim. It contains a white title, a Slate Sage meta line, a square-bullet achievement list in Mist, an optional two-up media grid (clicking an image opens a full-screen lightbox), and a Knight Teal pill Close button.
+### The Analysis Board (signature)
+An 8×8 diagram whose dark squares are hatched and light squares are paper, framed with the double rule, with mono a–h and 1–8 coordinates in margin grey. A 14px eval bar sits on its left edge: ink with a paper fill that scales vertically from the bottom (0.6s). The current move's from and to squares take the analysis wash; a round-capped ink arrow at 70% draws the move and turns deep teal for the brilliant move. Pieces glide with a 0.42s transform on the ease-out curve (cubic-bezier(0.16, 1, 0.3, 1)).
 
-### Personal Cursor (Signature)
-- A 16px chess-knight cursor across the whole page, plus a falling white sparkle trail that follows the pointer. Together they are the site's recognizable personal mark.
+### The Move List (signature)
+The ink panel's PGN header (mono `[Tag value]` pairs in panel and reply grey), the player name, then a numbered list of rows: mono move number, figurine SAN with its glyph, organisation (700, width 108) over role, and a right-aligned mono proof metric. Rows divide on the ink hairline and tint 8% paper on hover, focus or current. The brilliant move's `!!` and proof metric turn teal.
+
+### Annotations (signature)
+Each experience is a ruled row: mono move number and SAN at 1.35rem; a clock column with dates, a duration bar whose length is proportional to months (11px per month, hatch fill, 1.5px ink stroke, 8px tall), and duration and place; then logos in 32px square ink-bordered tiles, the organisation title, a summary, mono metric values and a "Full notes" disclosure with a square "+"/"−" toggle. The brilliant move inverts its SAN into an ink box with paper text and fills its bar solid ink.
+
+### Side Variations (signature)
+Programs and hackathons that branched from a move sit indented beneath it, bounded by a dashed 1px ink rule with large mono "(" and ")" at its ends, divided from each other by dashed rules at 35% ink.
+
+### Positions (signature)
+Projects are numbered positions, not cards: a mono position number before each name, a hatched double-rule diagram holding the screenshot (16:10, top-anchored), a context line, summary, an outcome set off by a 1px left rule, a mono stack line and line buttons. The first position leads at diagram scale.
+
+### Player Card and Repertoire
+The About section is an ink region with a paper double-rule photo frame and a two-column fact list under a 30% paper rule. Skills are four columns divided by 1px ink rules, with an 800-weight group title over a mono list at line-height 2.
+
+### "Your move." Drafter (signature)
+An ink section led by the display headline. Intent chips and underline fields sit on the left; on the right a paper scoresheet preview, framed in the paper double rule, shows To and Subject rows over ink hairlines and the drafted body, with a primary "Open in email app" button and quiet send and copy buttons beneath it on ink.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep Board Teal as the only page background. New sections sit directly on it, separated by a 4% white hairline.
-- **Do** build new containers from Veil + Hairline + 12px radius, and brighten them to Veil Strong with a Knight Teal border on hover when they are interactive.
-- **Do** make every interactive control a pill, and every container a 12px or 20px rounded rectangle.
-- **Do** give each view one Knight Teal move (The One Move Rule).
-- **Do** set headings in bold Ivory White, body text in Mist, and meta and labels in Slate Sage.
-- **Do** keep the knight cursor and sparkle trail. They are the signature.
+- **Do** keep the page to paper (#f6f6f3) and ink (#141414); introduce contrast by inverting whole regions, not by adding greys.
+- **Do** hatch every dark square, duration bar and empty diagram with the 135° ink hatch.
+- **Do** frame diagrams, photos and previews with the double rule: 2.5px border plus 1px outline at 3px offset.
+- **Do** set notation, coordinates, dates, durations, metrics and stacks in Geist Mono, and everything else in Archivo.
+- **Do** make a duration bar's length proportional to the real duration.
+- **Do** put secondary material in parentheses (side variations) or an inline "Full notes" disclosure.
+- **Do** keep the chess-knight cursor and the knight figurine in the wordmark.
+- **Do** honour `prefers-reduced-motion`: the replay jumps to the final position and transitions switch off.
 
 ### Don't:
-- **Don't** add drop shadows to cards, buttons, or panels (The No-Shadow Rule).
-- **Don't** introduce a second accent hue. Status green and red are only for form results.
-- **Don't** use Aqua Highlight as a fill or border (The Aqua Is Ink Rule).
-- **Don't** use a light theme or light surfaces. The board stays dark.
-- **Don't** use large size jumps for hierarchy below the hero name. Use weight and white instead (The Weight, Not Size Rule).
+- **Don't** use teal anywhere except the brilliant move, the board arrow and focus.
+- **Don't** add drop shadows, glows, blurs or gradients for depth.
+- **Don't** round any corner.
+- **Don't** put an eyebrow or kicker above a heading.
+- **Don't** use mono for headings, buttons or prose.
+- **Don't** lay out projects or experience as a card grid.
+- **Don't** hide content behind tabs, carousels or modals.
+- **Don't** add a second authored animation; the game's replay to the brilliant move is the one moment.

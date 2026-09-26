@@ -81,7 +81,9 @@ img {
   padding: 8px 12px;
   background: var(--ink);
   color: var(--paper);
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.8rem;
 }
 
@@ -122,7 +124,9 @@ img {
 
 .masthead-nav a,
 .masthead-resume {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.78rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -141,7 +145,9 @@ img {
 }
 
 .masthead-resume:hover {
-  background: var(--teal-deep);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--ink);
 }
 
 /* Buttons ----------------------------------------------------------------- */
@@ -152,9 +158,10 @@ img {
   justify-content: center;
   min-height: 44px;
   padding: 0 20px;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.85rem;
-  font-weight: 500;
   letter-spacing: 0.02em;
   text-decoration: none;
   border: 1px solid currentColor;
@@ -169,8 +176,8 @@ img {
 }
 
 .btn-move:hover {
-  background: var(--teal);
-  border-color: var(--teal);
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .btn-quiet {
@@ -215,10 +222,11 @@ img {
 
 .eval-fill {
   position: absolute;
-  inset: auto 0 0 0;
-  height: 50%;
+  inset: 0;
   background: var(--paper);
-  transition: height 0.6s var(--ease-out);
+  transform: scaleY(0.5);
+  transform-origin: bottom;
+  transition: transform 0.6s var(--ease-out);
 }
 
 .board-frame {
@@ -357,7 +365,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 20px;
-  margin: 0 0 20px;
+  margin: 12px 0 0;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--panel-muted);
@@ -396,8 +404,10 @@ img {
 }
 
 .player-line {
-  margin: 14px 0 0;
-  font-family: var(--font-mono);
+  margin: 12px 0 0;
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.85rem;
   color: var(--panel-muted);
 }
@@ -559,10 +569,17 @@ img {
     scrollbar-width: none;
   }
 
+  .masthead-nav {
+    justify-content: space-between;
+  }
+
   .masthead-nav a {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
+    padding: 0 4px;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
     white-space: nowrap;
   }
 }
@@ -640,7 +657,7 @@ img {
 
 .annotation {
   display: grid;
-  grid-template-columns: 7.5rem 13rem minmax(0, 1fr);
+  grid-template-columns: 9.5rem 13rem minmax(0, 1fr);
   gap: 0 clamp(20px, 3vw, 40px);
   padding: 32px 0;
   border-bottom: 1px solid var(--ink);
@@ -677,9 +694,18 @@ img {
   color: var(--ink);
 }
 
-.annotation .glyph-brilliant,
-.annotation.is-brilliant .metric-value {
-  color: var(--teal-deep);
+.annotation.is-brilliant .ann-san {
+  padding: 0 6px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.annotation.is-brilliant .glyph {
+  color: var(--paper);
+}
+
+.annotation.is-brilliant .ann-san img {
+  filter: invert(1);
 }
 
 .ann-clock {
@@ -703,8 +729,7 @@ img {
 }
 
 .annotation.is-brilliant > .ann-clock .ann-bar {
-  background: var(--teal-deep);
-  border-color: var(--teal-deep);
+  background: var(--ink);
 }
 
 .ann-duration {
@@ -779,7 +804,9 @@ img {
   align-items: center;
   gap: 8px;
   min-height: 36px;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -880,18 +907,49 @@ img {
   display: block;
 }
 
+.annotations > .annotation:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
 /* Projects: key positions */
 
-.position-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(40px, 5vw, 72px) clamp(24px, 4vw, 56px);
+/* One lead position at diagram scale, the rest as annotated lines with a small diagram. */
+.positions-list {
   max-width: 1280px;
   margin: 0 auto;
+  border-top: 2px solid var(--ink);
+}
+
+.position {
+  display: grid;
+  grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+  gap: 0 clamp(24px, 4vw, 56px);
+  align-items: start;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--ink);
+}
+
+.position-lead {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  padding: 40px 0 48px;
+}
+
+.position-no {
+  margin-right: 0.3em;
+  font-family: var(--font-mono);
+  font-size: 0.6em;
+  font-weight: 400;
+  color: var(--ink-muted);
+  vertical-align: 0.25em;
+}
+
+.position-lead .position-name {
+  font-size: clamp(2rem, 3.4vw, 3rem);
 }
 
 .position-diagram {
-  margin: 0 0 20px;
+  margin: 0;
   border: 2.5px solid var(--ink);
   outline: 1px solid var(--ink);
   outline-offset: 3px;
@@ -908,16 +966,22 @@ img {
   object-position: top;
 }
 
-.position-context,
+.position-context {
+  margin: 6px 0 0;
+  font-weight: 650;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
 .position-stack {
-  margin: 0;
+  margin: 6px 0 0;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--ink-muted);
 }
 
 .position-name {
-  margin: 6px 0 0;
+  margin: 0;
   font-size: clamp(1.5rem, 2.4vw, 2rem);
   font-weight: 850;
   font-variation-settings: "wdth" 110;
@@ -965,9 +1029,10 @@ img {
   max-width: 1280px;
   margin: clamp(64px, 8vw, 96px) auto 0;
   padding-bottom: 12px;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.85rem;
-  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   border-bottom: 2px solid var(--ink);
@@ -998,7 +1063,9 @@ img {
 
 .line-name p {
   margin: 2px 0 0;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.78rem;
   color: var(--ink-muted);
 }
@@ -1056,7 +1123,9 @@ img {
 
 .player-facts dt {
   margin-bottom: 8px;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1151,7 +1220,9 @@ img {
   min-height: 44px;
   padding: 0 18px;
   border: 1px solid var(--paper);
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.9rem;
   text-decoration: none;
 }
@@ -1181,7 +1252,9 @@ img {
 .intents legend {
   margin-bottom: 12px;
   padding: 0;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1213,8 +1286,8 @@ img {
 }
 
 .intents input:checked + span {
-  background: var(--teal);
-  border-color: var(--teal);
+  background: var(--paper);
+  border-color: var(--paper);
   color: var(--ink);
 }
 
@@ -1230,7 +1303,9 @@ img {
 .field label {
   display: block;
   margin-bottom: 6px;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.8rem;
   color: var(--panel-muted);
 }
@@ -1260,7 +1335,9 @@ img {
 
 .draft-label {
   margin: 0 0 12px;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1288,7 +1365,9 @@ img {
 
 .draft-line span {
   flex: 0 0 4.5rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.78rem;
   color: var(--ink-muted);
 }
@@ -1321,7 +1400,9 @@ img {
 .draft-status {
   min-height: 1.5em;
   margin: 12px 0 0;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.85rem;
   color: var(--paper);
 }
@@ -1352,8 +1433,10 @@ img {
     gap: 12px;
   }
 
-  .position-grid {
+  .position,
+  .position-lead {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .line {
@@ -1396,7 +1479,9 @@ img {
   justify-content: space-between;
   gap: 8px 24px;
   padding: 24px var(--gutter) 40px;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-variation-settings: "wdth" 100;
   font-size: 0.75rem;
   color: var(--ink-muted);
   border-top: 1px solid var(--ink);

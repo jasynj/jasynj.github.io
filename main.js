@@ -68,7 +68,7 @@ function renderGame(content) {
   const board = createBoard(document.querySelector("[data-board]"), {
     // White's edge grows as the game goes on; the bar is the story, not a number.
     onPly: (ply) => {
-      evalFill.style.height = `${50 + (ply / board.plies) * 38}%`;
+      evalFill.style.transform = `scaleY(${0.5 + (ply / board.plies) * 0.38})`;
       rows.forEach((row) => row.classList.toggle("is-current", Number(row.dataset.ply) === ply));
     },
   });
@@ -216,17 +216,20 @@ function projectLinks(project) {
     .join("");
 }
 
-function positionCard(project) {
-  return `<article class="position">
+function positionCard(project, index) {
+  const lead = index === 0;
+  return `<article class="position${lead ? " position-lead" : ""}">
     <figure class="position-diagram">
       <img src="${esc(project.image.src)}" alt="${esc(project.image.alt)}" width="1200" height="750" loading="lazy" decoding="async">
     </figure>
-    <p class="position-context">${esc(project.context)}</p>
-    <h3 class="position-name">${esc(project.name)}</h3>
-    <p class="position-summary">${esc(project.summary)}</p>
-    ${project.outcome ? `<p class="position-outcome">${esc(project.outcome)}</p>` : ""}
-    ${project.stack?.length ? `<p class="position-stack">${project.stack.map(esc).join(" · ")}</p>` : ""}
-    <div class="position-links">${projectLinks(project)}</div>
+    <div class="position-text">
+      <h3 class="position-name"><span class="position-no" aria-hidden="true">${index + 1}.</span> ${esc(project.name)}</h3>
+      <p class="position-context">${esc(project.context)}</p>
+      <p class="position-summary">${esc(project.summary)}</p>
+      ${project.outcome ? `<p class="position-outcome">${esc(project.outcome)}</p>` : ""}
+      ${project.stack?.length ? `<p class="position-stack">${project.stack.map(esc).join(" · ")}</p>` : ""}
+      <div class="position-links">${projectLinks(project)}</div>
+    </div>
   </article>`;
 }
 
@@ -273,7 +276,7 @@ function renderSections(content) {
   renderAnnotations(content);
   document.querySelector("[data-render='featured-projects']").innerHTML = content.projects
     .filter((p) => p.featured)
-    .map(positionCard)
+    .map((p, i) => positionCard(p, i))
     .join("");
   document.querySelector("[data-render='more-projects']").innerHTML = content.projects
     .filter((p) => !p.featured)
