@@ -17,6 +17,13 @@ initDrafter($("[data-drafter]"));
 initDisclosures(document.body);
 window.addEventListener("hashchange", openFromHash);
 
+// "Draft an email" lands you in the drafter itself, ready to type.
+document.querySelectorAll('a[href="#contact"]').forEach((link) =>
+  link.addEventListener("click", () => {
+    setTimeout(() => document.getElementById("draft-name")?.focus({ preventScroll: true }), 600);
+  })
+);
+
 try {
   const content = await loadContent(CONTENT_URL);
 

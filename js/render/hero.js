@@ -18,13 +18,15 @@ export function renderHero({ board, caption, photo, facts, schedule }, profile) 
     .map((fact) => html`<div><dt>${fact.label}</dt><dd>${fact.value}${fact.detail ? html`<span class="fact-detail">${fact.detail}</span>` : ""}</dd></div>`)
     .join("");
 
-  // A booking link when there is one; until then the button opens a meeting-request email.
+  // The booking link comes from profile.schedule. If that's empty, a real link already written in the
+  // HTML is kept; only a placeholder (#…) falls back to a meeting-request email.
   const booking = safeUrl(profile.schedule);
+  const written = schedule.getAttribute("href") ?? "";
   if (booking) {
     schedule.href = booking;
     schedule.target = "_blank";
     schedule.rel = "noopener";
-  } else if (profile.email) {
+  } else if ((!written || written.startsWith("#")) && profile.email) {
     schedule.href = `mailto:${profile.email}?subject=${encodeURIComponent("Meeting request")}&body=${encodeURIComponent(
       "Hi Jason,\n\nI'd like to set up a time to talk. A few times that work for me:\n\n- \n- \n\nBest,\n"
     )}`;
