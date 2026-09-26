@@ -20,7 +20,16 @@ window.addEventListener("hashchange", openFromHash);
 try {
   const content = await loadContent(CONTENT_URL);
 
-  renderHero({ list: $("[data-render='moves']"), board: $("[data-board]"), evalFill: $(".eval-fill") }, content.mainline);
+  renderHero(
+    {
+      board: $("[data-board]"),
+      caption: $("[data-render='opening']"),
+      photo: $("[data-render='hero-photo']"),
+      facts: $("[data-render='hero-facts']"),
+      schedule: $("[data-schedule]"),
+    },
+    content.profile
+  );
   renderExperience({ work: $("[data-render='work']"), programs: $("[data-render='programs']") }, content);
   renderProjects({ list: $("[data-render='projects']"), board: $("[data-tour]") }, content.projects);
   renderAbout(

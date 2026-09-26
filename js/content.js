@@ -2,7 +2,7 @@
 // This is the contract a backend writes to: see data/README.md and data/schema.json.
 // Invalid blocks are skipped with a console warning instead of breaking the page.
 
-import { byStartAsc, byStartDesc } from "./util.js";
+import { byStartDesc } from "./util.js";
 
 const REQUIRED = {
   experience: ["id", "kind", "role", "org", "start"],
@@ -67,7 +67,6 @@ function normalizeExperience(block) {
     highlights: [],
     tags: [],
     media: [],
-    mainline: false,
     featured: false,
     ...block,
     ...splitDemo(block),
@@ -98,7 +97,6 @@ export function normalizeContent(raw) {
     profile: raw.profile ?? {},
     work: experience.filter((e) => e.kind === "work").sort(byStartDesc),
     programs: experience.filter((e) => e.kind !== "work").sort(byStartDesc),
-    mainline: experience.filter((e) => e.mainline).sort(byStartAsc),
     // Featured projects first; otherwise the order they appear in the file.
     projects: [...projects.filter((p) => p.featured), ...projects.filter((p) => !p.featured)],
     leadership: raw.leadership ?? [],

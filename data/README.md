@@ -13,7 +13,8 @@ and the rest of the page still renders.
 | File | Job |
 | --- | --- |
 | `js/content.js` | Loads `content.json`, fills in defaults, skips invalid blocks, sorts. **The only place that knows the data shape.** |
-| `js/render/hero.js` | The move list and the board on the first screen |
+| `js/render/hero.js` | First screen: photo, key facts, buttons |
+| `js/board.js` | The decorative board that loops through chess openings |
 | `js/render/experience.js` | Work timeline + Programs & hackathons |
 | `js/render/projects.js` | The project list |
 | `js/render/profile.js` | About and Skills |
@@ -32,9 +33,10 @@ site-relative URLs reach an `href` or `src`.
   order they appear in the file.
 - **Where experience shows up:** `"kind": "work"` goes in the Experience timeline;
   `"program"` and `"hackathon"` go in Programs & hackathons.
-- **The main line** (`mainline: true`) is the game on the first screen. Each entry plays as one white
-  move, oldest first, and the newest lands as the final move. Six fit the board's line. Give it a
-  `glyph` (`"!"` good, `"!!"` brilliant) and a short `proof` (e.g. `"~22M records"`).
+- **First screen:** `profile.facts` is the list of key facts beside your photo
+  (`{ "label": "Now", "value": "…", "detail": "…" }`). `profile.heroPhoto` sets the photo (it falls
+  back to `aboutPhoto`). `profile.schedule` is your booking link for "Schedule a meeting"; leave it
+  empty and the button opens a meeting-request email instead.
 - **Links** only render when they exist. `kind` is `live`, `code`, or `article`.
 - **Demos** go in `demo`, not `links` (see below).
 - **Facts come from the current resume** (`assets/resumes/`). Don't add numbers you can't back up.
@@ -77,10 +79,7 @@ Example: adding the Meta 2026 demo means adding a `demo` object to the `meta-202
   "logos": [{ "src": "assets/logos/meta.png", "alt": "Meta" }],
   "media": [{ "src": "assets/web/…", "alt": "…" }],
   "links": [{ "kind": "article", "url": "https://…" }],
-  "demo": { "url": "https://…" },
-  "mainline": true,
-  "glyph": "!!",
-  "proof": "~22M records"
+  "demo": { "url": "https://…" }
 }
 ```
 
@@ -107,7 +106,7 @@ Example: adding the Meta 2026 demo means adding a `demo` object to the `meta-202
 
 - `leadership`: `{ "role": "…", "org": "…" }`
 - `skills`: `{ "group": "Languages", "items": ["Python", "…"] }`
-- `profile`: name, tagline, email, resume path, photos, education, honors, and `about` paragraphs.
+- `profile`: name, tagline, email, resume path, photos, `facts`, `schedule`, education, honors, and `about` paragraphs.
 
 ## Previewing locally
 

@@ -1,32 +1,31 @@
-// The career game: a fixed line from the Fried Liver Attack. Career moves map onto
-// White's moves (latest last), so the newest role always lands as 6.Nxf7!!.
+// A decorative chess board: plays a handful of well-known openings on a loop.
+// It's a hint of chess on the first screen, not tied to any content.
 
-const LINE = [
-  ["e2", "e4", "e4"], ["e7", "e5", "e5"],
-  ["g1", "f3", "Nf3"], ["b8", "c6", "Nc6"],
-  ["f1", "c4", "Bc4"], ["g8", "f6", "Nf6"],
-  ["f3", "g5", "Ng5"], ["d7", "d5", "d5"],
-  ["e4", "d5", "exd5"], ["f6", "d5", "Nxd5"],
-  ["g5", "f7", "Nxf7"],
+const OPENINGS = [
+  { name: "Ruy López", moves: ["e2e4", "e7e5", "g1f3", "b8c6", "f1b5", "a7a6"], san: "1.e4 e5 2.Nf3 Nc6 3.Bb5 a6" },
+  { name: "Italian Game", moves: ["e2e4", "e7e5", "g1f3", "b8c6", "f1c4", "f8c5"], san: "1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5" },
+  {
+    name: "Sicilian Najdorf",
+    moves: ["e2e4", "c7c5", "g1f3", "d7d6", "d2d4", "c5d4", "f3d4", "g8f6", "b1c3", "a7a6"],
+    san: "1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6",
+  },
+  { name: "Queen's Gambit Declined", moves: ["d2d4", "d7d5", "c2c4", "e7e6", "b1c3", "g8f6"], san: "1.d4 d5 2.c4 e6 3.Nc3 Nf6" },
+  { name: "French Defense", moves: ["e2e4", "e7e6", "d2d4", "d7d5", "b1c3", "f8b4"], san: "1.e4 e6 2.d4 d5 3.Nc3 Bb4" },
+  { name: "Caro-Kann Defense", moves: ["e2e4", "c7c6", "d2d4", "d7d5", "b1c3", "d5e4", "c3e4"], san: "1.e4 c6 2.d4 d5 3.Nc3 dxe4 4.Nxe4" },
+  {
+    name: "King's Indian Defense",
+    moves: ["d2d4", "g8f6", "c2c4", "g7g6", "b1c3", "f8g7", "e2e4", "d7d6"],
+    san: "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6",
+  },
 ];
 
-const WHITE_MOVES = LINE.filter((_, i) => i % 2 === 0).length; // 6
-
-const START = [
-  "rnbqkbnr",
-  "pppppppp",
-  "........",
-  "........",
-  "........",
-  "........",
-  "PPPPPPPP",
-  "RNBQKBNR",
-];
-
+const START = ["rnbqkbnr", "pppppppp", "........", "........", "........", "........", "PPPPPPPP", "RNBQKBNR"];
 const FILES = "abcdefgh";
 const toXY = (sq) => [FILES.indexOf(sq[0]), 8 - Number(sq[1])];
 
-// Every piece gets a stable id so it can glide between positions.
+const MOVE_MS = 700;
+const HOLD_MS = 2600;
+
 function initialPieces() {
   const pieces = new Map();
   START.forEach((row, y) =>
@@ -40,22 +39,8 @@ function initialPieces() {
   return pieces;
 }
 
-// positions[i] = square→pieceId after i plies.
-function buildPositions() {
-  const occupancy = new Map([...initialPieces()].map(([id, p]) => [p.square, id]));
-  const positions = [new Map(occupancy)];
-  for (const [from, to] of LINE) {
-    const id = occupancy.get(from);
-    occupancy.delete(from);
-    occupancy.set(to, id);
-    positions.push(new Map(occupancy));
-  }
-  return positions;
-}
-
-export function createBoard(root, { onPly } = {}) {
+export function createOpeningsBoard(root, caption, { reducedMotion = false } = {}) {
   const pieces = initialPieces();
-  const positions = buildPositions();
 
   const squares = document.createElement("div");
   squares.className = "board-squares";
@@ -80,69 +65,91 @@ export function createBoard(root, { onPly } = {}) {
     layer.append(img);
     els.set(id, img);
   }
+  root.append(squares, layer);
 
-  const arrow = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  arrow.setAttribute("class", "board-arrow");
-  arrow.setAttribute("viewBox", "0 0 8 8");
-  arrow.innerHTML = `<defs><marker id="arrowhead" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker></defs><line marker-end="url(#arrowhead)"/>`;
+  let occupancy = new Map();
 
-  root.append(squares, layer, arrow);
-
-  function setPly(ply, { brilliant = false } = {}) {
-    const position = positions[ply];
-    const onBoard = new Set(position.values());
-    for (const [square, id] of position) {
+  function place() {
+    const onBoard = new Set(occupancy.values());
+    for (const [square, id] of occupancy) {
       const [x, y] = toXY(square);
-      const el = els.get(id);
-      el.style.setProperty("--x", x);
-      el.style.setProperty("--y", y);
+      els.get(id).style.setProperty("--x", x);
+      els.get(id).style.setProperty("--y", y);
     }
     for (const [id, el] of els) el.classList.toggle("is-captured", !onBoard.has(id));
+  }
 
-    root.querySelectorAll(".sq.is-from, .sq.is-to").forEach((s) => s.classList.remove("is-from", "is-to"));
-    const line = arrow.querySelector("line");
-    if (ply === 0) {
-      arrow.classList.remove("is-visible");
+  function highlight(from, to) {
+    root.querySelectorAll(".is-from, .is-to").forEach((s) => s.classList.remove("is-from", "is-to"));
+    if (from) root.querySelector(`[data-square="${from}"]`).classList.add("is-from");
+    if (to) root.querySelector(`[data-square="${to}"]`).classList.add("is-to");
+  }
+
+  function reset() {
+    occupancy = new Map([...pieces].map(([id, p]) => [p.square, id]));
+    highlight();
+    place();
+  }
+
+  function move(uci) {
+    const from = uci.slice(0, 2);
+    const to = uci.slice(2, 4);
+    const id = occupancy.get(from);
+    occupancy.delete(from);
+    occupancy.set(to, id);
+    highlight(from, to);
+    place();
+  }
+
+  function show(opening) {
+    caption.innerHTML = `<span class="opening-name">${opening.name}</span><span class="opening-moves">${opening.san}</span>`;
+  }
+
+  // Reduced motion: one finished opening, no loop.
+  if (reducedMotion) {
+    reset();
+    OPENINGS[0].moves.forEach(move);
+    show(OPENINGS[0]);
+    return;
+  }
+
+  // The loop pauses while the board is off screen or the tab is hidden.
+  let visible = true;
+  let timer = null;
+  let openingIndex = 0;
+  let moveIndex = 0;
+
+  function tick() {
+    timer = null;
+    if (!visible || document.hidden) return;
+    const opening = OPENINGS[openingIndex];
+    // -1 = pieces glide back home and the next opening's name appears, on a beat of its own.
+    if (moveIndex === -1) {
+      reset();
+      show(opening);
+      moveIndex = 0;
+      timer = setTimeout(tick, MOVE_MS * 1.5);
+    } else if (moveIndex < opening.moves.length) {
+      move(opening.moves[moveIndex]);
+      moveIndex += 1;
+      timer = setTimeout(tick, MOVE_MS);
     } else {
-      const [from, to] = LINE[ply - 1];
-      root.querySelector(`[data-square="${from}"]`).classList.add("is-from");
-      root.querySelector(`[data-square="${to}"]`).classList.add("is-to");
-      const [x1, y1] = toXY(from);
-      const [x2, y2] = toXY(to);
-      // Stop short of the target square's centre so the head sits on the piece's edge.
-      const len = Math.hypot(x2 - x1, y2 - y1);
-      const k = (len - 0.32) / len;
-      line.setAttribute("x1", x1 + 0.5);
-      line.setAttribute("y1", y1 + 0.5);
-      line.setAttribute("x2", x1 + 0.5 + (x2 - x1) * k);
-      line.setAttribute("y2", y1 + 0.5 + (y2 - y1) * k);
-      arrow.classList.add("is-visible");
+      openingIndex = (openingIndex + 1) % OPENINGS.length;
+      moveIndex = -1;
+      timer = setTimeout(tick, HOLD_MS);
     }
-    arrow.classList.toggle("is-brilliant", brilliant);
-    root.classList.toggle("is-brilliant", brilliant);
-    onPly?.(ply);
   }
 
-  return { setPly, plies: LINE.length };
-}
+  const resume = () => {
+    if (!timer && visible && !document.hidden) timer = setTimeout(tick, MOVE_MS);
+  };
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    resume();
+  }).observe(root);
+  document.addEventListener("visibilitychange", resume);
 
-// Career entries (oldest first) → the white plies they play. Earlier white moves stay "book".
-export function assignMoves(entries) {
-  const played = entries.slice(-WHITE_MOVES);
-  const offset = WHITE_MOVES - played.length;
-  return played.map((entry, i) => {
-    const whiteIndex = offset + i;
-    const ply = whiteIndex * 2 + 1; // position after White's move
-    const [, , san] = LINE[whiteIndex * 2];
-    const reply = LINE[whiteIndex * 2 + 1]?.[2] ?? null;
-    return { entry, number: whiteIndex + 1, san, reply, ply };
-  });
-}
-
-export function bookMoves(count) {
-  const out = [];
-  for (let i = 0; i < WHITE_MOVES - count; i++) {
-    out.push({ number: i + 1, san: LINE[i * 2][2], reply: LINE[i * 2 + 1][2], ply: i * 2 + 1 });
-  }
-  return out;
+  reset();
+  show(OPENINGS[0]);
+  timer = setTimeout(tick, 600);
 }

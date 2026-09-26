@@ -1,8 +1,7 @@
 // Experience: a work timeline (newest first), then programs & hackathons.
 // Every entry is one row; click it to expand the full notes, demo, and links.
 
-import { assignMoves } from "../board.js";
-import { html, safeUrl, formatRange, monthsBetween, durationLabel, figurine, ICONS } from "../util.js";
+import { html, safeUrl, formatRange, monthsBetween, durationLabel, ICONS } from "../util.js";
 import { linkButtons, demoCard, hasDetail } from "./shared.js";
 
 function logos(entry) {
@@ -19,14 +18,6 @@ function when(entry) {
     <span class="entry-bar" style="--months:${months}" aria-hidden="true"></span>
     <span class="entry-where">${durationLabel(months)}${entry.location ? html` · ${entry.location}` : ""}</span>
   </div>`;
-}
-
-function notation(move) {
-  if (!move) return "";
-  const brilliant = move.entry.glyph === "!!";
-  return html`<span class="entry-move" title="Move ${move.number} in the game above">${move.number}. ${figurine(move.san)}${
-    move.entry.glyph ? html`<span class="glyph${brilliant ? " glyph-brilliant" : ""}">${move.entry.glyph}</span>` : ""
-  }</span>`;
 }
 
 function detail(entry) {
@@ -49,7 +40,7 @@ function detail(entry) {
   </div>`;
 }
 
-function entryRow(entry, { move, compact = false } = {}) {
+function entryRow(entry, { compact = false } = {}) {
   const expandable = hasDetail(entry);
   const panelId = `exp-${entry.id}-detail`;
   const metrics =
@@ -62,7 +53,7 @@ function entryRow(entry, { move, compact = false } = {}) {
     ? html`<button type="button" class="entry-button" aria-expanded="false" aria-controls="${panelId}">${entry.org}</button>`
     : entry.org;
 
-  return html`<li class="entry${compact ? " entry-compact" : ""}${move?.entry.glyph === "!!" ? " is-brilliant" : ""}" id="exp-${entry.id}"${
+  return html`<li class="entry${compact ? " entry-compact" : ""}" id="exp-${entry.id}"${
     expandable ? html` data-disclosure` : ""
   }>
     <div class="entry-row"${expandable ? html` data-disclosure-row` : ""}>
@@ -79,7 +70,6 @@ function entryRow(entry, { move, compact = false } = {}) {
         ${metrics}
       </div>
       <div class="entry-aside">
-        ${notation(move)}
         ${expandable ? html`<span class="entry-toggle" aria-hidden="true">${entry.demo ? "Details & demo" : "Details"}${ICONS.toggle}</span>` : ""}
       </div>
     </div>
@@ -87,10 +77,7 @@ function entryRow(entry, { move, compact = false } = {}) {
   </li>`;
 }
 
-export function renderExperience({ work: workRoot, programs: programsRoot }, { work, programs, mainline }) {
-  const moveById = new Map(assignMoves(mainline).map((move) => [move.entry.id, move]));
-  workRoot.innerHTML = work.map((entry) => entryRow(entry, { move: moveById.get(entry.id) })).join("");
-  programsRoot.innerHTML = programs
-    .map((entry) => entryRow(entry, { move: moveById.get(entry.id), compact: true }))
-    .join("");
+export function renderExperience({ work: workRoot, programs: programsRoot }, { work, programs }) {
+  workRoot.innerHTML = work.map((entry) => entryRow(entry)).join("");
+  programsRoot.innerHTML = programs.map((entry) => entryRow(entry, { compact: true })).join("");
 }

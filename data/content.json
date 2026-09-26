@@ -53,6 +53,28 @@
       "I'm a Computer Science and Computer Information Systems double major at Grambling State University, building full-stack applications that actually ship — real clients, real users, real problems.",
       "I work across the whole stack, but I'm drawn to the frontend: the intersection of engineering and design, where a good decision is both technically sound and visually right. I care about how things look and feel, not just whether they work.",
       "Outside of engineering I paint, draw, read, and play chess. Those interests keep me curious and open to new ways of thinking — and they shape how I learn and build."
+    ],
+    "schedule": "",
+    "facts": [
+      {
+        "label": "Now",
+        "value": "Student Software Engineer, Grambling State University",
+        "detail": "Building the campus Clubs & Organizations Portal (600+ users)"
+      },
+      {
+        "label": "Previously",
+        "value": "Software Engineering Intern, Meta",
+        "detail": "Messenger Data Use (2026) · Meta University (2025)"
+      },
+      {
+        "label": "Education",
+        "value": "B.S. Computer Science & Computer Information Systems",
+        "detail": "Grambling State University · GPA 3.96 · Class of 2028"
+      },
+      {
+        "label": "Based in",
+        "value": "Grambling, LA"
+      }
     ]
   },
   "experience": [
@@ -101,10 +123,7 @@
         "Privacy infrastructure",
         "Full-stack",
         "AI tooling"
-      ],
-      "mainline": true,
-      "glyph": "!!",
-      "proof": "~22M records"
+      ]
     },
     {
       "id": "gsu-swe",
@@ -139,10 +158,7 @@
         "Supabase",
         "Auth"
       ],
-      "project": "gsu-clubs",
-      "mainline": true,
-      "glyph": "!",
-      "proof": "600+ users"
+      "project": "gsu-clubs"
     },
     {
       "id": "meta-2025",
@@ -177,10 +193,7 @@
         "GraphQL",
         "MERN"
       ],
-      "project": "fitsync",
-      "mainline": true,
-      "glyph": "!",
-      "proof": "top ~4% selected"
+      "project": "fitsync"
     },
     {
       "id": "phillips-2024",
@@ -213,9 +226,7 @@
         "QA automation",
         "Jira",
         "Agile"
-      ],
-      "mainline": true,
-      "proof": "+25% pass rate"
+      ]
     },
     {
       "id": "mastercard-auc",
@@ -280,9 +291,7 @@
           "alt": "Jason's hackathon team at BE Smart"
         }
       ],
-      "project": "safelink",
-      "mainline": true,
-      "proof": "4th of 62 teams"
+      "project": "safelink"
     },
     {
       "id": "code2040",
@@ -481,9 +490,7 @@
       "highlights": [
         "Tutored 50+ students in introductory Python: variables, loops, functions, file handling, and basic OOP.",
         "Led lab sessions and group problem-solving on algorithms, data structures, and exam preparation."
-      ],
-      "mainline": true,
-      "proof": "50+ students"
+      ]
     }
   ],
   "projects": [

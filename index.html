@@ -43,31 +43,37 @@
     <noscript>
       <p class="noscript">This page draws its content with JavaScript. Everything is also in the <a href="assets/resumes/Chimdinma_Jason.pdf">resume (PDF)</a>, or email <a href="mailto:jasoncj.dev@gmail.com">jasoncj.dev@gmail.com</a>.</p>
     </noscript>
-    <section id="top" class="analysis" aria-labelledby="player-name">
-      <div class="analysis-board">
-        <div class="eval" aria-hidden="true"><span class="eval-fill"></span></div>
+    <section id="top" class="hero" aria-labelledby="hero-name">
+      <div class="hero-board">
         <div class="board-frame">
-          <div class="board" data-board aria-label="Chess board replaying the career game" role="img"></div>
+          <div class="board" data-board aria-hidden="true"></div>
           <ol class="coords coords-files" aria-hidden="true"><li>a</li><li>b</li><li>c</li><li>d</li><li>e</li><li>f</li><li>g</li><li>h</li></ol>
           <ol class="coords coords-ranks" aria-hidden="true"><li>8</li><li>7</li><li>6</li><li>5</li><li>4</li><li>3</li><li>2</li><li>1</li></ol>
         </div>
+        <p class="opening" data-render="opening" aria-hidden="true"></p>
       </div>
 
-      <div class="analysis-panel">
-        <h1 id="player-name" class="player">Jason Chimdinma Jason</h1>
-        <p class="player-line">Software Engineer · CS &amp; CIS, Grambling State ’28</p>
-        <dl class="pgn" aria-label="Game details">
-          <div><dt>Event</dt><dd>Career, 2024 –</dd></div>
-          <div><dt>Site</dt><dd>Grambling, LA · Menlo Park, CA</dd></div>
-        </dl>
-        <p class="player-tagline">I build practical, user-centered software with a focus on AI, full-stack development, and real-world impact.</p>
+      <div class="hero-info">
+        <div class="hero-intro">
+          <h1 id="hero-name" class="hero-name">Jason Chimdinma Jason</h1>
+          <figure class="hero-photo" data-render="hero-photo"></figure>
+          <div class="hero-identity">
+            <p class="hero-title">Software Engineer</p>
+            <p class="hero-tagline">I build practical, user-centered software with a focus on AI, full-stack development, and real-world impact.</p>
+            <ul class="hero-links">
+              <li><a href="https://www.linkedin.com/in/jasoncjason" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href="https://github.com/jasynj" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="mailto:jasoncj.dev@gmail.com">jasoncj.dev@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
 
-        <h2 class="visually-hidden">Career moves</h2>
-        <ol class="moves" data-render="moves"></ol>
+        <dl class="hero-facts" data-render="hero-facts"></dl>
 
-        <div class="panel-actions">
+        <div class="hero-actions">
           <a class="btn btn-move" href="assets/resumes/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Download resume</a>
           <a class="btn btn-quiet" href="#contact">Draft an email</a>
+          <a class="btn btn-quiet" href="#contact" data-schedule>Schedule a meeting</a>
         </div>
       </div>
     </section>
@@ -75,7 +81,7 @@
     <section id="experience" class="section experience" aria-labelledby="experience-title">
       <header class="section-head">
         <h2 id="experience-title">Experience</h2>
-        <p class="section-note">Newest first. The notation beside each role is its move in the game above. Click a row for the full notes.</p>
+        <p class="section-note">Newest first. Click a row for the full notes, links, and demos.</p>
       </header>
       <ol class="entries" data-render="work"></ol>
 
