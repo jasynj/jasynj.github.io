@@ -6,7 +6,7 @@ import { byStartDesc } from "./util.js";
 
 const REQUIRED = {
   experience: ["id", "kind", "role", "org", "start"],
-  project: ["id", "name", "summary"],
+  project: ["id", "name", "category", "summary"],
 };
 const LINK_KINDS = new Set(["live", "code"]);
 const YM = /^\d{4}-(0[1-9]|1[0-2])$/;
@@ -63,12 +63,14 @@ function normalizeExperience(block) {
   };
 }
 
-function normalizeProject(block) {
+function normalizeProject(block, categoryIds) {
+  if (!categoryIds.has(block.category)) {
+    warn(`project "${block.id}" has category "${block.category}", which isn't in projectCategories`, block);
+  }
   return {
     context: "",
     outcome: "",
     stack: [],
-    featured: false,
     ...block,
     links: normalizeLinks(block.links),
     demo: normalizeDemo(block.demo),
@@ -80,16 +82,19 @@ export function normalizeContent(raw) {
     .filter((block) => hasRequired(block, REQUIRED.experience, "experience"))
     .map(normalizeExperience);
 
+  const projectCategories = (raw.projectCategories ?? []).filter((c) => c?.id && c?.label);
+  const categoryIds = new Set(projectCategories.map((c) => c.id));
   const projects = (raw.projects ?? [])
     .filter((block) => hasRequired(block, REQUIRED.project, "project"))
-    .map(normalizeProject);
+    .map((block) => normalizeProject(block, categoryIds));
 
   return {
     profile: raw.profile ?? {},
     work: experience.filter((e) => e.kind === "work").sort(byStartDesc),
     programs: experience.filter((e) => e.kind !== "work").sort(byStartDesc),
-    // Featured projects first; otherwise the order they appear in the file.
-    projects: [...projects.filter((p) => p.featured), ...projects.filter((p) => !p.featured)],
+    // Projects keep the order they appear in the file.
+    projects,
+    projectCategories,
     leadership: raw.leadership ?? [],
     skills: raw.skills ?? [],
   };

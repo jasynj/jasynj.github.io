@@ -38,7 +38,7 @@ try {
     content.profile
   );
   renderExperience({ work: $("[data-render='work']"), programs: $("[data-render='programs']") }, content);
-  renderProjects({ list: $("[data-render='projects']"), board: $("[data-tour]") }, content.projects);
+  renderProjects({ tabs: $("[data-render='project-tabs']"), panels: $("[data-render='projects']") }, content.projects, content.projectCategories);
   renderAbout(
     { photo: $("[data-render='about-photo']"), about: $("[data-render='about']"), facts: $("[data-render='facts']") },
     content.profile,

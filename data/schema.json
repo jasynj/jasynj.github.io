@@ -7,7 +7,8 @@
   "required": [
     "profile",
     "experience",
-    "projects"
+    "projects",
+    "projectCategories"
   ],
   "properties": {
     "profile": {
@@ -17,6 +18,26 @@
       "type": "array",
       "items": {
         "$ref": "#/$defs/experience"
+      }
+    },
+    "projectCategories": {
+      "type": "array",
+      "description": "The project tabs, in order (an \"All\" tab is added in front automatically)",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "label": {
+            "type": "string"
+          }
+        }
       }
     },
     "projects": {
@@ -243,6 +264,7 @@
       "required": [
         "id",
         "name",
+        "category",
         "summary"
       ],
       "properties": {
@@ -252,10 +274,6 @@
         },
         "name": {
           "type": "string"
-        },
-        "featured": {
-          "type": "boolean",
-          "description": "Featured projects are listed first"
         },
         "context": {
           "type": "string",
@@ -282,6 +300,10 @@
         },
         "demo": {
           "$ref": "#/$defs/demo"
+        },
+        "category": {
+          "type": "string",
+          "description": "id of one of projectCategories; decides the tab"
         }
       }
     },

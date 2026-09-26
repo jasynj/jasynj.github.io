@@ -16,7 +16,7 @@ and the rest of the page still renders.
 | `js/render/hero.js` | First screen: photo, key facts, buttons |
 | `js/board.js` | The decorative board that loops through chess openings |
 | `js/render/experience.js` | Work timeline + Programs & hackathons |
-| `js/render/projects.js` | The project list |
+| `js/render/projects.js` | Project tabs and cards |
 | `js/render/profile.js` | About and Skills |
 | `js/render/shared.js` | Link buttons and the demo card |
 | `js/disclosure.js` | Click-to-expand rows |
@@ -29,8 +29,11 @@ site-relative URLs reach an `href` or `src`.
 ## Conventions
 
 - **Dates** are `"YYYY-MM"`. `"end": null` means *present*.
-- **Order:** experience sorts newest first automatically. Projects show `featured` ones first, then the
-  order they appear in the file.
+- **Order:** experience sorts newest first automatically. Projects keep the order they appear in the
+  file; the first project in each tab gets the wide card.
+- **Project tabs:** `projectCategories` lists the tabs (`{ "id": "hackathon", "label": "Hackathons" }`).
+  Each project's `category` is one of those ids. An "All" tab is added in front automatically. Remove a
+  category from the list to remove its tab.
 - **Where experience shows up:** `"kind": "work"` goes in the Experience timeline;
   `"program"` and `"hackathon"` go in Programs & hackathons.
 - **First screen:** `profile.facts` is the list of key facts beside your photo
@@ -42,8 +45,9 @@ site-relative URLs reach an `href` or `src`.
 
 ## Adding a demo
 
-Any experience or project can have one. It shows as a small thumbnail card inside the expanded row and
-opens in a new tab, so it never takes over the page.
+Any experience or project can have one. On a project it fills the card's demo area (projects without
+one show "No demo available"); on an experience it's a small card inside the expanded row. Either way
+it opens in a new tab.
 
 ```json
 "demo": {
@@ -88,10 +92,10 @@ Example: adding the Meta 2026 demo means adding a `demo` object to the `meta-202
 {
   "id": "cee",
   "name": "Craig Events & Entertainments",
-  "featured": true,
-  "context": "Client work · Live",
+  "category": "client",
+  "context": "Live",
   "summary": "What it is, in two sentences.",
-  "outcome": "The result: users, clients, numbers. Shown on the collapsed row.",
+  "outcome": "The result: users, clients, numbers.",
   "stack": ["React", "Next.js"],
   "links": [
     { "kind": "live", "url": "https://…" },

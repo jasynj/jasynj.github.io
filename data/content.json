@@ -457,11 +457,50 @@
       ]
     }
   ],
+  "projectCategories": [
+    {
+      "id": "hackathon",
+      "label": "Hackathons"
+    },
+    {
+      "id": "internship",
+      "label": "Internship projects"
+    },
+    {
+      "id": "client",
+      "label": "Freelance / client work"
+    },
+    {
+      "id": "vibe",
+      "label": "Vibe coded"
+    },
+    {
+      "id": "fun",
+      "label": "For fun"
+    }
+  ],
   "projects": [
+    {
+      "id": "meta-project",
+      "name": "Meta Project",
+      "category": "internship",
+      "context": "",
+      "summary": "Details coming soon.",
+      "stack": [],
+      "links": []
+    },
+    {
+      "id": "jarms-delight",
+      "name": "Jarms Delight",
+      "category": "client",
+      "context": "",
+      "summary": "Details coming soon.",
+      "stack": [],
+      "links": []
+    },
     {
       "id": "gsu-clubs",
       "name": "GSU Clubs & Organizations Portal",
-      "featured": true,
       "context": "Production · Grambling State University",
       "summary": "A full-stack directory that centralizes every club and Greek organization at Grambling State. Presidents manage their constitutions and bylaws in a password-protected editor; admins keep oversight across all organizations.",
       "outcome": "In production, serving 600+ students, admins, and org presidents.",
@@ -480,13 +519,13 @@
           "kind": "code",
           "url": "https://github.com/jasynj/gsu-clubs-portal"
         }
-      ]
+      ],
+      "category": "client"
     },
     {
       "id": "cee",
       "name": "Craig Events & Entertainments",
-      "featured": true,
-      "context": "Client work · Live",
+      "context": "Live at craigevents.com",
       "summary": "A production website for a full-service event planning company in Grambling, LA — services, gallery, testimonials, and a multi-step conditional booking inquiry form.",
       "outcome": "43+ inquiries from real customers since launch; the client's primary lead funnel.",
       "stack": [
@@ -505,12 +544,12 @@
           "kind": "code",
           "url": "https://github.com/jasynj/cee"
         }
-      ]
+      ],
+      "category": "client"
     },
     {
       "id": "safelink",
       "name": "SafeLink Mesh AI",
-      "featured": true,
       "context": "BE Smart Hackathon · Finalist",
       "summary": "Offline-first emergency communication for when cellular networks fail: SOS messaging, alerts, and relief coordination over Bluetooth Low Energy and Wi-Fi Direct mesh networks.",
       "outcome": "4th of 62 teams. AES-256 + HMAC message security; routing heuristics and retry queues for unstable networks.",
@@ -529,12 +568,12 @@
       "demo": {
         "url": "https://drive.google.com/file/d/1rETbwua_rinHSvlsQRzXozJ7hOHzH0ww/view?usp=sharing",
         "label": "Watch the demo"
-      }
+      },
+      "category": "hackathon"
     },
     {
       "id": "reminisce",
       "name": "Reminisce",
-      "featured": true,
       "context": "Voice-first AI",
       "summary": "A voice-first AI memory companion for seniors with early-stage memory loss — long-term memory, natural speech, and real-time visual reminders, with no typing required.",
       "outcome": "Led the backend and RAG pipeline design: FastAPI handling concurrent voice requests with real-time LLM context injection.",
@@ -558,32 +597,12 @@
       "demo": {
         "url": "https://youtu.be/la-CrAMkCAg",
         "label": "Watch the demo"
-      }
-    },
-    {
-      "id": "quantsim",
-      "name": "QuantSim",
-      "featured": false,
-      "context": "Trading research",
-      "summary": "An event-driven backtesting engine for momentum, mean-reversion, and pairs-trading strategies, modeling commissions, slippage, fill latency, exposure caps, and drawdown limits.",
-      "outcome": "Performance dashboards with equity curves and Sharpe, Sortino, and Calmar analytics.",
-      "stack": [
-        "TypeScript",
-        "React",
-        "Vite",
-        "Zustand"
-      ],
-      "links": [
-        {
-          "kind": "code",
-          "url": "https://github.com/jasynj/QuantSim"
-        }
-      ]
+      },
+      "category": "hackathon"
     },
     {
       "id": "fitsync",
       "name": "FitSync",
-      "featured": false,
       "context": "Built at Meta University",
       "summary": "A fitness tracker for logging meals and workouts and visualizing nutrition and calorie output, powered by real food and exercise data.",
       "outcome": "LLM-generated workout plans, WebSocket sync, and dual auth (Firebase + JWT); presented to Meta leadership.",
@@ -607,12 +626,12 @@
       "demo": {
         "url": "https://drive.google.com/file/d/1QON0dgxbo0ca86QO6RZ8gR4pN-f9gRTN/view?usp=sharing",
         "label": "Watch the demo"
-      }
+      },
+      "category": "internship"
     },
     {
       "id": "mayacare",
       "name": "MayaCare",
-      "featured": false,
       "context": "Tech for Resistance Hackathon",
       "summary": "A maternal health advocacy platform addressing the Black maternal mortality crisis: symptom tracking, doctor-visit prep, and a transparent rule-based triage for recognizing warning signs.",
       "stack": [],
@@ -625,12 +644,32 @@
       "demo": {
         "url": "https://drive.google.com/file/d/1gx5llmqBS9PzvNJTVFPowGpX3bHqymQe/view?usp=sharing",
         "label": "Watch the demo"
-      }
+      },
+      "category": "hackathon"
+    },
+    {
+      "id": "quantsim",
+      "name": "QuantSim",
+      "context": "Trading research",
+      "summary": "An event-driven backtesting engine for momentum, mean-reversion, and pairs-trading strategies, modeling commissions, slippage, fill latency, exposure caps, and drawdown limits.",
+      "outcome": "Performance dashboards with equity curves and Sharpe, Sortino, and Calmar analytics.",
+      "stack": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Zustand"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/QuantSim"
+        }
+      ],
+      "category": "fun"
     },
     {
       "id": "visioncare",
       "name": "VisionCare",
-      "featured": false,
       "context": "Health tech",
       "summary": "A cross-device web app for checking visual acuity at home, pairing a laptop display with a smartphone as the remote input. A preliminary screening tool, not a replacement for an eye exam.",
       "stack": [
@@ -645,12 +684,12 @@
           "kind": "code",
           "url": "https://github.com/jasynj/VisionCare"
         }
-      ]
+      ],
+      "category": "fun"
     },
     {
       "id": "flixster",
       "name": "Flixster",
-      "featured": false,
       "context": "Frontend",
       "summary": "A responsive movie discovery app on The Movie Database API: browse, search, and sort current films, with detail modals for runtime, genres, and overview.",
       "stack": [
@@ -666,7 +705,8 @@
           "kind": "code",
           "url": "https://github.com/jasynj/Flixster"
         }
-      ]
+      ],
+      "category": "fun"
     }
   ],
   "leadership": [

@@ -79,7 +79,7 @@ export const ICONS = {
     '<svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 4 12"/></svg>'
   ),
   play: raw('<svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'),
+  noVideo: raw(
+    '<svg class="icon icon-novideo" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12"/><path d="m16 10 5-3v10l-5-3"/><path d="M3 3l18 18"/></svg>'
+  ),
 };
-
-// The knight that lands on a project's square.
-export const KNIGHT = raw('<img class="figurine" src="assets/pieces/ln.svg" alt="" width="16" height="16">');
