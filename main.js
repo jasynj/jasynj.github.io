@@ -1,104 +1,54 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const contactForm = document.querySelector(".contact-form");
-    if (contactForm) {
-        contactForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const data = new FormData(contactForm);
-            try {
-                const res = await fetch(contactForm.action, {
-                    method: "POST",
-                    body: data,
-                    headers: { Accept: "application/json" },
-                });
-                if (res.ok) {
-                    contactForm.innerHTML =
-                        '<p class="form-success">Thanks for reaching out! I\'ll get back to you soon.</p>';
-                } else {
-                    contactForm.innerHTML =
-                        '<p class="form-error">Something went wrong. Please try emailing me directly.</p>';
-                }
-            } catch {
-                contactForm.innerHTML =
-                    '<p class="form-error">Something went wrong. Please try emailing me directly.</p>';
-            }
-        });
-    }
+// Entry point. Content lives in data/content.json (schema: data/schema.json);
+// adding an experience or project means adding a block there, not editing code.
 
-    const tabButtons = document.querySelectorAll(".experience-tab");
-    const tabPanels = document.querySelectorAll(".experience-panel");
+import { loadContent } from "./js/content.js";
+import { renderHero } from "./js/render/hero.js";
+import { renderExperience } from "./js/render/experience.js";
+import { renderProjects } from "./js/render/projects.js";
+import { renderAbout, renderSkills } from "./js/render/profile.js";
+import { initDisclosures, openFromHash } from "./js/disclosure.js";
+import { initDrafter } from "./js/drafter.js";
 
-    tabButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const tabName = button.getAttribute("data-tab");
+const CONTENT_URL = "data/content.json";
+const $ = (selector) => document.querySelector(selector);
 
-            tabButtons.forEach((btn) => btn.classList.remove("is-active"));
-            button.classList.add("is-active");
+document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
+initDrafter($("[data-drafter]"));
+initDisclosures(document.body);
+window.addEventListener("hashchange", openFromHash);
 
-            tabPanels.forEach((panel) => {
-                const panelName = panel.getAttribute("data-tab-panel");
-                if (panelName === tabName) {
-                    panel.classList.add("is-active");
-                } else {
-                    panel.classList.remove("is-active");
-                }
-            });
-        });
-    });
-});
+// "Draft an email" lands you in the drafter itself, ready to type.
+document.querySelectorAll('a[href="#contact"]').forEach((link) =>
+  link.addEventListener("click", () => {
+    setTimeout(() => document.getElementById("draft-name")?.focus({ preventScroll: true }), 600);
+  })
+);
 
-const modalTriggers = document.querySelectorAll(".experience-more");
-const modals = document.querySelectorAll(".experience-modal");
+try {
+  const content = await loadContent(CONTENT_URL);
 
-modalTriggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-        const targetId = trigger.getAttribute("data-modal-target");
-        const modal = document.getElementById(targetId);
-        if (modal) {
-            modal.classList.add("is-open");
-            // document.body.classList.add("modal-open");
-        }
-    });
-});
-
-modals.forEach((modal) => {
-    const closeBtn = modal.querySelector(".experience-modal-close");
-    if (closeBtn) {
-        closeBtn.addEventListener("click", () => {
-            modal.classList.remove("is-open");
-            // document.body.classList.remove("modal-open");
-        });
-    }
-
-    modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            modal.classList.remove("is-open");
-            // document.body.classList.remove("modal-open");
-        }
-    });
-});
-
-// Lightbox
-const lightbox = document.createElement("div");
-lightbox.className = "lightbox";
-lightbox.innerHTML = '<img class="lightbox-img" /><button class="lightbox-close" aria-label="Close">✕</button>';
-document.body.appendChild(lightbox);
-
-const lightboxImg = lightbox.querySelector(".lightbox-img");
-
-document.addEventListener("click", (e) => {
-    if (e.target.matches(".modal-media-img")) {
-        lightboxImg.src = e.target.src;
-        lightboxImg.alt = e.target.alt;
-        lightbox.classList.add("is-open");
-    }
-});
-
-lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox || e.target.matches(".lightbox-close")) {
-        lightbox.classList.remove("is-open");
-    }
-});
-
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") lightbox.classList.remove("is-open");
-});
+  renderHero(
+    {
+      board: $("[data-board]"),
+      caption: $("[data-render='opening']"),
+      photo: $("[data-render='hero-photo']"),
+      facts: $("[data-render='hero-facts']"),
+      schedule: $("[data-schedule]"),
+    },
+    content.profile
+  );
+  renderExperience({ work: $("[data-render='work']"), programs: $("[data-render='programs']") }, content);
+  renderProjects({ tabs: $("[data-render='project-tabs']"), panels: $("[data-render='projects']") }, content.projects, content.projectCategories);
+  renderAbout(
+    { photo: $("[data-render='about-photo']"), about: $("[data-render='about']"), facts: $("[data-render='facts']") },
+    content.profile,
+    content.leadership
+  );
+  renderSkills($("[data-render='skills']"), content.skills);
+  openFromHash();
+} catch (err) {
+  console.error("Could not load site content:", err);
+  document.querySelectorAll("[data-render]").forEach((el) => {
+    el.innerHTML = `<p class="load-error">This section couldn't load. The <a href="assets/resumes/Chimdinma_Jason.pdf">resume</a> has everything.</p>`;
+  });
+}

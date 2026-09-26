@@ -5,1221 +5,205 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jason Chimdinma Jason | Software Engineer</title>
+  <meta name="description"
+    content="Jason Chimdinma Jason, software engineer. Two Meta SWE internships, a production campus platform serving 600+ users, and client work in production." />
+  <meta name="theme-color" content="#141414" />
+  <link rel="icon" href="assets/pieces/ln.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Jason Chimdinma Jason | Software Engineer" />
+  <meta property="og:description"
+    content="Two Meta SWE internships, a production campus platform serving 600+ users, and client work in production." />
+  <meta property="og:url" content="https://jasynj.github.io/" />
+  <meta property="og:image" content="https://jasynj.github.io/assets/web/about.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
-    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Geist+Mono:wght@400..600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <!-- 
-  // Sparkle animation
-  <script type="text/javascript">
-    var colour = "#fff";
-    var sparkles = 15;
-
-    var x = ox = 400;
-    var y = oy = 300;
-    var swide = 800;
-    var shigh = 600;
-    var sleft = sdown = 0;
-    var tiny = new Array();
-    var star = new Array();
-    var starv = new Array();
-    var starx = new Array();
-    var stary = new Array();
-    var tinyx = new Array();
-    var tinyy = new Array();
-    var tinyv = new Array();
-
-    window.onload = function () {
-      if (document.getElementById) {
-        var i, rats, rlef, rdow;
-        for (var i = 0; i < sparkles; i++) {
-          var rats = createDiv(3, 3);
-          rats.style.visibility = "hidden";
-          rats.style.zIndex = "999";
-          document.body.appendChild(tiny[i] = rats);
-          starv[i] = 0;
-          tinyv[i] = 0;
-          var rats = createDiv(5, 5);
-          rats.style.backgroundColor = "transparent";
-          rats.style.visibility = "hidden";
-          rats.style.zIndex = "999";
-          var rlef = createDiv(1, 5);
-          var rdow = createDiv(5, 1);
-          rats.appendChild(rlef);
-          rats.appendChild(rdow);
-          rlef.style.top = "2px";
-          rlef.style.left = "0px";
-          rdow.style.top = "0px";
-          rdow.style.left = "2px";
-          document.body.appendChild(star[i] = rats);
-        }
-        set_width();
-        sparkle();
-      }
-    }
-
-    function sparkle() {
-      var c;
-      if (Math.abs(x - ox) > 1 || Math.abs(y - oy) > 1) {
-        ox = x;
-        oy = y;
-        for (c = 0; c < sparkles; c++) if (!starv[c]) {
-          star[c].style.left = (starx[c] = x) + "px";
-          star[c].style.top = (stary[c] = y + 1) + "px";
-          star[c].style.clip = "rect(0px, 5px, 5px, 0px)";
-          star[c].childNodes[0].style.backgroundColor = star[c].childNodes[1].style.backgroundColor = (colour == "random") ? newColour() : colour;
-          star[c].style.visibility = "visible";
-          starv[c] = 50;
-          break;
-        }
-      }
-      for (c = 0; c < sparkles; c++) {
-        if (starv[c]) update_star(c);
-        if (tinyv[c]) update_tiny(c);
-      }
-      setTimeout("sparkle()", 40);
-    }
-
-    function update_star(i) {
-      if (--starv[i] == 25) star[i].style.clip = "rect(1px, 4px, 4px, 1px)";
-      if (starv[i]) {
-        stary[i] += 1 + Math.random() * 3;
-        starx[i] += (i % 5 - 2) / 5;
-        if (stary[i] < shigh + sdown) {
-          star[i].style.top = stary[i] + "px";
-          star[i].style.left = starx[i] + "px";
-        }
-        else {
-          star[i].style.visibility = "hidden";
-          starv[i] = 0;
-          return;
-        }
-      }
-      else {
-        tinyv[i] = 50;
-        tiny[i].style.top = (tinyy[i] = stary[i]) + "px";
-        tiny[i].style.left = (tinyx[i] = starx[i]) + "px";
-        tiny[i].style.width = "2px";
-        tiny[i].style.height = "2px";
-        tiny[i].style.backgroundColor = star[i].childNodes[0].style.backgroundColor;
-        star[i].style.visibility = "hidden";
-        tiny[i].style.visibility = "visible"
-      }
-    }
-
-    function update_tiny(i) {
-      if (--tinyv[i] == 25) {
-        tiny[i].style.width = "1px";
-        tiny[i].style.height = "1px";
-      }
-      if (tinyv[i]) {
-        tinyy[i] += 1 + Math.random() * 3;
-        tinyx[i] += (i % 5 - 2) / 5;
-        if (tinyy[i] < shigh + sdown) { tiny[i].style.top = tinyy[i] + "px"; tiny[i].style.left = tinyx[i] + "px"; } else {
-          tiny[i].style.visibility = "hidden"; tinyv[i] = 0; return;
-        }
-      } else tiny[i].style.visibility = "hidden";
-    }
-    document.onmousemove = mouse; function mouse(e) {
-      if (e) { y = e.pageY; x = e.pageX; } else {
-        set_scroll();
-        y = event.y + sdown; x = event.x + sleft;
-      }
-    } window.onscroll = set_scroll; function set_scroll() {
-      if
-        (typeof (self.pageYOffset) == 'number') { sdown = self.pageYOffset; sleft = self.pageXOffset; } else if (document.body &&
-          (document.body.scrollTop || document.body.scrollLeft)) {
-        sdown = document.body.scrollTop;
-        sleft = document.body.scrollLeft;
-      } else if (document.documentElement && (document.documentElement.scrollTop ||
-        document.documentElement.scrollLeft)) {
-        sleft = document.documentElement.scrollLeft;
-        sdown = document.documentElement.scrollTop;
-      } else { sdown = 0; sleft = 0; }
-    } window.onresize = set_width; function
-      set_width() {
-      var sw_min = 999999; var sh_min = 999999; if (document.documentElement &&
-        document.documentElement.clientWidth) {
-        if (document.documentElement.clientWidth > 0)
-          sw_min = document.documentElement.clientWidth;
-        if (document.documentElement.clientHeight > 0) sh_min = document.documentElement.clientHeight;
-      }
-      if (typeof (self.innerWidth) == 'number' && self.innerWidth) {
-        if (self.innerWidth > 0 && self.innerWidth < sw_min) sw_min = self.innerWidth; if (self.innerHeight > 0 && self.innerHeight
-          < sh_min) sh_min = self.innerHeight;
-      } if (document.body.clientWidth) {
-        if (document.body.clientWidth > 0 &&
-          document.body.clientWidth < sw_min) sw_min = document.body.clientWidth; if (document.body.clientHeight > 0 &&
-            document.body.clientHeight < sh_min) sh_min = document.body.clientHeight;
-      } if (sw_min == 999999 || sh_min == 999999) { sw_min = 800; sh_min = 600; } swide = sw_min; shigh = sh_min;
-    } function createDiv(height, width) {
-      var
-        div = document.createElement("div"); div.style.position = "absolute"; div.style.height = height + "px";
-      div.style.width = width + "px"; div.style.overflow = "hidden"; return (div);
-    } function newColour() {
-      var c = new
-        Array(); c[0] = 255; c[1] = Math.floor(Math.random() * 256); c[2] = Math.floor(Math.random() * (256 - c[1] / 2));
-      c.sort(function () { return (0.5 - Math.random()); }); return ("rgb(" + c[0] + ", " + c[1] + " , " + c[2] + " )");
-    } 
-  </script> -->
+  <script type="module" src="main.js"></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="header-container header-inner">
-      <a href="#hero" class="logo">Jason C. Jason</a>
-
-      <nav class="main-nav">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+  <header class="masthead">
+    <a href="#top" class="wordmark">
+      <img src="assets/pieces/ln.svg" alt="" width="28" height="28" />
+      <span>Jason C. Jason</span>
+    </a>
+    <nav class="masthead-nav" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="masthead-resume" href="assets/resumes/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Resume</a>
   </header>
-  <main>
-    <!-- HERO -->
-    <section id="hero" class="section hero">
-      <div class="container hero-inner">
-        <div class="hero-left">
-          <div class="hero-avatar">
-            <img class="profile-pic" src="assets/headshot.png" alt="Portrait of Jason Chimdinma Jason" />
-          </div>
-          <p class="hero-greeting"> Hello, I'm</p>
-          <h1>Jason Chimdinma Jason</h1>
-          <p class="hero-title">Software Engineer</p>
-          <p class="hero-tagline">
-            I build practical, user centered software with a focus on AI, full stack development, and real world
-            impact.
-          </p>
 
-          <div class="hero-actions">
-            <a href="assets/Resume.pdf" class="btn btn-primary" target="_blank" rel="noopener">
-              Download Resume
-            </a>
+  <main id="main">
+    <noscript>
+      <p class="noscript"> Everything is also in the <a href="assets/resumes/Chimdinma_Jason.pdf">resume (PDF)</a>, or
+        email <a href="mailto:jasoncj.dev@gmail.com">jasoncj.dev@gmail.com</a>.</p>
+    </noscript>
+    <section id="top" class="hero" aria-labelledby="hero-name">
+      <div class="hero-board">
+        <div class="board-frame">
+          <div class="board" data-board aria-hidden="true"></div>
+          <ol class="coords coords-files" aria-hidden="true">
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+            <li>d</li>
+            <li>e</li>
+            <li>f</li>
+            <li>g</li>
+            <li>h</li>
+          </ol>
+          <ol class="coords coords-ranks" aria-hidden="true">
+            <li>8</li>
+            <li>7</li>
+            <li>6</li>
+            <li>5</li>
+            <li>4</li>
+            <li>3</li>
+            <li>2</li>
+            <li>1</li>
+          </ol>
+        </div>
+        <p class="opening" data-render="opening" aria-hidden="true"></p>
+      </div>
 
-            <a href="#contact" class="btn btn-outline">
-              Contact Me
-            </a>
-          </div>
-
-          <div class="hero-socials">
-            <a href="https://www.linkedin.com/in/jasoncjason" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <img src="assets/icons/linkedin.png" alt="LinkedIn Logo">
-            </a>
-            <a href=" https://github.com/jasynj" target="_blank" rel="noopener" aria-label="GitHub">
-              <img src="assets/icons/github.png" alt="Github Logo">
-            </a>
+      <div class="hero-info">
+        <div class="hero-intro">
+          <h1 id="hero-name" class="hero-name">Jason Chimdinma Jason</h1>
+          <figure class="hero-photo" data-render="hero-photo"></figure>
+          <div class="hero-identity">
+            <p class="hero-title">Software Engineer</p>
+            <p class="hero-tagline">I build practical, user-centered software with a focus on AI, full-stack
+              development, and real-world impact.</p>
+            <p> Oh...and I like chess.</p>
+            <ul class="hero-links">
+              <li><a href="https://www.linkedin.com/in/jasoncjason" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href="https://github.com/jasynj" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="mailto:jasoncj.dev@gmail.com">jasoncj.dev@gmail.com</a></li>
+            </ul>
           </div>
         </div>
 
-        <div class="hero-right">
-          <img class="hero-illustration" src="assets/illustration.svg" alt="Technology illustration from Storyset">
+        <dl class="hero-facts" data-render="hero-facts"></dl>
+
+        <div class="hero-actions">
+          <a class="btn btn-move" href="assets/resumes/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Download
+            resume</a>
+          <a class="btn btn-quiet" href="#contact">Draft an email</a>
+          <a class="btn btn-quiet" href="https://calendly.com/jasoncj-dev" target="_blank" rel="noopener"
+            data-schedule>Schedule a
+            meeting</a>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section about">
-      <div class="about-container">
-        <h2> About</h2>
+    <section id="experience" class="section experience" aria-labelledby="experience-title">
+      <header class="section-head">
+        <h2 id="experience-title">Experience</h2>
+        <p class="section-note">Newest first. Click a row for the full notes, links, and demos.</p>
+      </header>
+      <ol class="entries" data-render="work"></ol>
 
-        <div class="about-inner">
-          <div class="about-left">
-            <img class="about-image" src="assets/Untitled design.png"
-              alt="Image of Jason Chimdinma Jason by Meta's Monument sign in Menlo Park Office">
-          </div>
+      <h3 class="subsection-title" id="programs-title">Programs &amp; hackathons</h3>
+      <ol class="entries entries-compact" data-render="programs" aria-labelledby="programs-title"></ol>
+    </section>
 
-          <div class="about-right">
-            <div class="about-cards">
-              <div class="about-card">
-                <p class="label">Education</p>
-                <p class="value">B.Sc Computer Science · B.Sc Computer Information Systems </p>
-                <p class="subtext">Grambling State University </p>
-              </div>
-            </div>
-            <p class="about-text">
-              I’m a Computer Science and Computer Informations Systems double major at Grambling State University,
-              building full-stack
-              applications that actually ship — real clients, real users, real problems.
+    <section id="projects" class="section projects" aria-labelledby="projects-title">
+      <header class="section-head">
+        <h2 id="projects-title">Projects</h2>
+        <p class="section-note">What I've built, sorted by where it came from. Every project with a demo has it right on the card.</p>
+      </header>
+      <div class="tabs" role="tablist" aria-label="Project categories" data-render="project-tabs"></div>
+      <div class="tab-panels" data-render="projects"></div>
+    </section>
 
-              I work across the whole stack but I'm drawn to the frontend: the intersection of engineering and design
-              where a good decision is both technically sound and visually right. I care about how things look and feel,
-              not just whether they work.
-
-              Outside of engineering, I have a strong creative streak. I paint, draw, read, play chess, watch sports,
-              and unwind with my PS5. Those interests keep me curious, balanced, and open to new ways of thinking —
-              qualities that shape how I learn and build.
-
-              I also explore cloud computing and the security foundations behind it as part of strengthening my
-              broader technical skill set.
-
-              I’m excited to keep growing as an engineer by taking on challenging projects, collaborating with
-              talented
-              teams, and expanding my experience across full-stack development, design, and security.
-
-            </p>
-          </div>
-        </div>
+    <section id="about" class="section player-card" aria-labelledby="about-title">
+      <figure class="player-photo" data-render="about-photo"></figure>
+      <div class="player-body">
+        <h2 id="about-title">About</h2>
+        <div class="player-about" data-render="about"></div>
+        <dl class="player-facts" data-render="facts"></dl>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section experience">
-      <div class="container">
-        <h2>Experience</h2>
-
-        <!-- Tabs -->
-        <div class="experience-tabs">
-          <button type="button" class="experience-tab is-active" data-tab="internships">
-            Internships
-          </button>
-          <button type="button" class="experience-tab" data-tab="programs">
-            Programs & Hackathons
-          </button>
-        </div>
-
-        <!-- Tab panels -->
-        <div class="experience-panels">
-
-          <!-- internships  -->
-          <div class="experience-panel is-active" id="internships-panel" data-tab-panel="internships">
-            <div class="experience-grid">
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="assets/logos/meta.png" alt="Meta logo" />
-                </div>
-                <h3>Software Engineering Intern</h3>
-                <p class="exp-org">Meta</p>
-                <p class="exp-meta">Menlo Park, CA • May 2026 – Aug 2026</p>
-                <p class="exp-summary">
-                  Selected for Meta's competitive SWE Internship on the <strong> Messenger Data Use</strong> team.
-                  Will contribute to data and privacy infrastructure for Messenger, serving over 1 billion users
-                  globally
-                </p>
-                <button type="button" class="experience-more" data-modal-target="meta2-internship-modal">
-                  View details <span class="arrow">↗</span>
-                </button>
-              </article>
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="assets/logos/gsu.png" alt="GSU logo" />
-                </div>
-                <h3>Student Software Developer</h3>
-                <p class="exp-org">Grambling State University</p>
-                <p class="exp-meta">Grambling, LA • Jan 2026 – Present </p>
-                <p class="exp-summary">
-                  Design, build, and maintain the GSU Clubs & Organizations Portal, a full-stack production platform
-                  used my org members accross campus. Own the department's web infrastructure end-to-end
-                </p>
-                <button type="button" class="experience-more" data-modal-target="ssd-modal">
-                  View details <span class="arrow">↗</span>
-                </button>
-              </article>
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="assets/logos/meta.png" alt="Meta logo" />
-                </div>
-                <h3>Software Engineering Intern</h3>
-                <p class="exp-org">Meta (Meta University)</p>
-                <p class="exp-meta">Menlo Park, CA • Jun 2025 – Aug 2025</p>
-                <p class="exp-summary">
-                  Engineered full-stack features for Meta’s Horizon OS developer tooling and built
-                  <a class="exp-summary proj" href="#projects"> FitSync </a>
-                  , an AI-enhanced MERN fitness tracker with secure auth and real-time device sync.
-                </p>
-                <button type="button" class="experience-more" data-modal-target="meta-internship-modal">
-                  View details <span class="arrow">↗</span>
-                </button>
-              </article>
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="assets/logos/phillips.png" alt="Phillips Consulting logo" />
-                </div>
-                <h3>Software Testing Intern</h3>
-                <p class="exp-org">Phillips Consulting Limited </p>
-                <p class="exp-meta"> Remote • May 2024 – Jul 2024</p>
-                <p class="exp-summary">
-                  Improved automated test reliability and collaborated with developers to resolve compatibility
-                  issues.
-                </p>
-                <button type="button" class="experience-more" data-modal-target="phillips-internship-modal">
-                  View details <span class="arrow">↗</span>
-                </button>
-              </article>
-
-            </div>
-          </div>
-
-          <!-- programs -->
-          <!-- # tech for resistance Hackathon -->
-          <div class="experience-panel" id="programs-panel" data-tab-panel="programs">
-            <div class="experience-grid">
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap double">
-                  <img class="exp-logo" src="assets/logos/mastercard.png" alt="Mastercard logo" />
-                  <img class="exp-logo" src="assets/logos/auc.png" alt="AUC logo" />
-                </div>
-                <h3> Mastercard X AUC Data Science Initiative </h3>
-                <p class="exp-org">Mastercard & AUC</p>
-                <p class="exp-meta">Atlanta, GA • April 2026</p>
-                <p class="exp-summary">
-                  Competed as part of a 3-person team in a Mastercard-sponsored competition
-                  hosted at the Atlanta University Center. Reached the final round, presenting
-                  to a panel of industry judges including professionals from Mastercard.
-                </p>
-                <button type="button" class="experience-more" data-modal-target="mastercard-modal">
-                  View details
-                </button>
-              </article>
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap double">
-                  <img class="exp-logo" src="assets/logos/google.png" alt="Google logo" />
-                  <img class="exp-logo" src="assets/logos/basta.png" alt="Basta logo" />
-                </div>
-                <h3> Code2Career </h3>
-                <p class="exp-org">Google &amp; BASTA</p>
-                <p class="exp-meta"> Remote • Oct 2025 - Present </p>
-                <p class="exp-summary">
-                  Participating in a Google-led technical and professional development program focused on DSA mastery,
-                  mock interviews, and career preparation for competitive SWE roles.
-                </p>
-                <button type="button" class="experience-more" data-modal-target="google-basta-modal">
-                  View details
-                </button>
-              </article>
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap double">
-                  <img class="exp-logo" src="assets/logos/besmart.png" alt="BeSmart logo" />
-                  <img class="exp-logo" src="assets/logos/aa.png" alt="American Airlineslogo" />
-                </div>
-                <h3>BeSmart Hackathon</h3>
-                <p class="exp-org">Black Enterprise &amp; American Airlines</p>
-                <p class="exp-meta"> Charlotte, NC • Nov 2025 </p>
-                <p class="exp-summary">
-                  Developed and pitched a technical solution at the BeSmart Hackathon, placing 4th out of 62 teams
-                  across 43 schools in a fast-paced, collaborative competition.
-                </p>
-                <button type="button" class="experience-more" data-modal-target="besmart-modal">
-                  View details
-                </button>
-              </article>
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="assets/logos/code2040.png" alt="Code2040 logo" />
-                </div>
-                <h3>Code2040 Fellowship</h3>
-                <p class="exp-org">Code2040</p>
-                <p class="exp-meta"> Remote • Sep 2025 - Sep 2026 </p>
-                <p class="exp-summary">
-                  Currently part of the Code2040 Fellowship, gaining mentorship and technical interview preparation.
-                </p>
-                <button type="button" class="experience-more" data-modal-target="code2040-modal">
-                  View details
-                </button>
-              </article>
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="assets/logos/nvidia.png" alt="NVIDIA logo" />
-                </div>
-                <h3>NVIDIA Summer Bridge</h3>
-                <p class="exp-org">NVIDIA</p>
-                <p class="exp-meta"> Remote • Jun 2025 - Aug 2025 </p>
-                <p class="exp-summary">
-                  Participated in an intensive introductory program focused on CS fundamentals and technical
-                  readiness.
-                </p>
-                <button type="button" class="experience-more" data-modal-target="nvidia-modal">
-                  View details
-                </button>
-              </article>
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="assets/logos/att.png" alt="AT&T logo" />
-                </div>
-                <h3>AT&amp;T Technology Academy</h3>
-                <p class="exp-org">AT&amp;T</p>
-                <p class="exp-meta"> Remote • Jun 2025 - Aug 2025 </p>
-                <p class="exp-summary">
-                  Completed AT&T’s Technology Academy, gaining hands-on experience with networking, cloud systems, and
-                  modern telecom technologies.
-                </p>
-                <button type="button" class="experience-more" data-modal-target="att-modal">
-                  View details
-                </button>
-              </article>
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="assets/logos/startup.png" alt="Startup School logo" />
-                </div>
-                <h3>Startup School</h3>
-                <p class="exp-org"> HBCUvc</p>
-                <p class="exp-meta"> Palo Alto, CA • Jun 2025 </p>
-                <p class="exp-summary">
-                  Participated in HBCU Startup School over the summer, learning startup fundamentals, MVP design, and
-                  entrepreneurial problem-solving.
-                </p>
-                <button type="button" class="experience-more" data-modal-target="startup-modal">
-                  View details
-                </button>
-              </article>
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="assets/logos/usc.png" alt="Urban Strategies Council logo" />
-                </div>
-                <h3>Consulting Externship</h3>
-                <p class="exp-org">Urban Strategies Council</p>
-                <p class="exp-meta"> Remote • Apr 2025 - Jun 2025 </p>
-                <p class="exp-summary">
-                  Contributed to equity-focused consulting projects by analyzing community data, generating insights,
-                  and supporting research for impact-driven initiatives
-                </p>
-                <button type="button" class="experience-more" data-modal-target="usc-modal">
-                  View details
-                </button>
-              </article>
-
-              <article class="experience-card">
-                <div class="exp-logo-wrap">
-                  <img class="exp-logo" src="assets/logos/gsu.png" alt="Grambling State University logo" />
-                </div>
-                <h3>Python Tutor</h3>
-                <p class="exp-org">Grambling State University</p>
-                <p class="exp-meta"> Grambling, LA • Jan 2025 - Apr 2025</p>
-                <p class="exp-summary">
-                  Supported students in introductory Python, debugging code and explaining core programming concepts.
-                </p>
-                <button type="button" class="experience-more" data-modal-target="gsu-modal">
-                  View details
-                </button>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- modals -->
-      <div id="meta2-internship-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3>Software Engineering Intern - Meta</h3>
-          <p>Menlo Park, CA • May 2026 - Aug 2026</p>
-          <ul>
-            <li> Selected for Meta's competitive SWE Internship on the Messenger Data Use team.
-            </li>
-            <li> Will contribute to data and privacy infrastructure for Messenger, serving over 1 billion users
-              globally. </li>
-          </ul>
-          <button type="button" class="experience-modal-close" data-modal-close="meta2-internship-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-      <div id="ssd-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3> Student Software Developer - Grambling State University </h3>
-          <p> Grambling, LA • Jan 2026 - Present </p>
-          <ul>
-            <li> Design, build, and maintain the GSU Clubs & Organizations Portal, a full-stack production platform
-              serving
-              students, org presidents, and admins across campus. Own the department's web infrastructure end-to-end
-            </li>
-            <li> Architected role-based UIs and authentication for three distinct user types (visitors, org presidents,
-              admins),
-              each with tailored navigation, permissions, and editing controls using PostgreSQL, Prisma, and Supabase
-            </li>
-            <li> Promoted from Reservations Team into a developer role after independently shipping process improvements
-            </li>
-          </ul>
-          <button type="button" class="experience-modal-close" data-modal-close="ssd-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-      <div id="meta-internship-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3>Software Engineering Intern - Meta (Meta University)</h3>
-          <p>Menlo Park, CA • June 2025 - August 2025</p>
-          <ul>
-            <li>Accepted into Meta University SWE Internship Program from ~15,000 applicants (0.6% acceptance rate).
-            </li>
-            <li>Built <strong>FitSync</strong>, a MERN-based fitness tracker integrating LLM-generated plans,
-              WebSocket sync, and
-              adaptive encryption based on device/network context.</li>
-            <li>Implemented dual authentication (Firebase + JWT), Nutritionix API integration, and full-stack CRUD for
-              meals/workouts with interactive progress tracking.</li>
-            <li>Worked on Meta’s Horizon OS Developer Ed team, unifying documentation infrastructure for Reality Labs
-              devs using React, GraphQL, and Markdown-based CMS pipelines.</li>
-          </ul>
-          <button type="button" class="experience-modal-close" data-modal-close="meta-internship-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-      <div id="phillips-internship-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3>Software Testing Intern - Phillips Consulting</h3>
-          <p>Remote • May 2024 - July 2024</p>
-          <ul>
-            <li>Increased test pass rate by 25% by optimizing and refining automated test suites in collaboration with
-              developers to resolve browser and OS compatibility issues.</li>
-            <li>Accelerated bug resolution cycle by logging high-priority defects in Jira, complete with severity
-              levels, repro steps and annotated screenshots.</li>
-            <li>Participated in Agile QA workflows and bug triage meetings, gaining hands-on experience with manual
-              and exploratory testing, test case execution, and defect lifecycle management.</li>
-          </ul>
-
-          <button type="button" class="experience-modal-close" data-modal-close="phillips-internship-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-      <div id="mastercard-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3>Mastercard X AUC Data Science Challenge</h3>
-          <p> Atlanta, GA • April 2026 </p>
-          <div class="modal-media-grid">
-            <img src="assets/programs-media/site.jpeg" alt="Media placeholder" class="modal-media-img" />
-          </div>
-          <ul>
-            <li>Finalist</li>
-          </ul>
-          <button type="button" class="experience-modal-close" data-modal-close="mastercard-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-      <div id="nvidia-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3>NVIDIA Summer Bridge</h3>
-          <p>Remote • Jun 2025 - Aug 2025 </p>
-          <div class="modal-media-grid">
-            <img src="assets/programs-media/acc_nvidia.png" alt="Media placeholder" class="modal-media-img" />
-          </div>
-          <ul>
-            <li>Selected for NVIDIA’s Summer Bridge Program, completing an accelerated curriculum in computer science
-              foundations including data structures, algorithms, and problem-solving techniques.</li>
-            <li>Participated in technical workshops led by NVIDIA engineers on GPU computing, AI/ML career pathways,
-              and best practices for early-career engineers.</li>
-            <li>Gained exposure to industry expectations for technical interviews, engineering readiness, and
-              long-term growth in software and AI fields.</li>
-          </ul>
-          <button type="button" class="experience-modal-close" data-modal-close="nvidia-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-      <div id="google-basta-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3> Code2Career </h3>
-          <p> Remote • Oct 2025 - Present </p>
-          <ul>
-            <li>Completed Google-led technical interview prep sessions covering data structures, algorithms,
-              problem-solving patterns, and whiteboard best practices.</li>
-            <li>Received 1:1 mentorship on career planning, goal setting, and building a competitive SWE recruiting
-              strategy tailored to industry expectations.</li>
-            <li>Participated in workshops on resume refinement, personal storytelling, and navigating behavioral
-              interviews using structured frameworks.</li>
-            <li>Developed industry-aligned skills through guided mock interviews, peer practice sessions, and
-              real-time feedback from Google engineers and BASTA coaches.</li>
-            <li>Gained exposure to pathways in software engineering, product development, and cloud technologies
-              through curated career development modules.</li>
-          </ul>
-
-          <button type="button" class="experience-modal-close" data-modal-close="google-basta-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-      <div id="besmart-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3>BeSmart Hackathon</h3>
-          <p> Charlotte, NC • Nov 2025 </p>
-          <div class="modal-media-grid">
-            <img src="assets/programs-media/acc_besmart.png" alt="Hackathon acceptance" class="modal-media-img" />
-            <img src="assets/programs-media/team_picture.jpeg" alt="Image of Hackathon Team" class="modal-media-img" />
-          </div>
-          <ul>
-            <li>Competed in the BeSmart Hackathon, building an AI-driven solution for a real-world community problem
-              and placing 4th out of 62 teams across 43 schools.</li>
-            <li>Developed <strong>SafeLink Mesh AI</strong>, an offline-capable emergency communication platform using
-              AI-powered message routing and decentralized mesh networking to support communities during crises.</li>
-            <li>Led frontend development and built the app’s <strong>social media–style broadcast feed</strong>,
-              enabling users to share alerts, resources, and location updates through an intuitive interface
-              post-crisis.</li>
-            <li>Collaborated with teammates to integrate AI routing logic, define user flows, and deliver a final
-              technical pitch evaluated by industry judges for innovation and community impact.</li>
-          </ul>
-
-          <button type="button" class="experience-modal-close" data-modal-close="besmart-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-      <div id="code2040-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3>Code2040 Fellowship</h3>
-          <p> Remote • Sep 2025 - Sep 2026 </p>
-          <div class="modal-media-grid">
-            <img src="assets/programs-media/acc_code2040.png" alt="Media placeholder" class="modal-media-img" />
-          </div>
-          <ul>
-            <li>Selected for the Code2040 Tech Fellowship, a program supporting Black and Latinx technologists through
-              mentorship, career development, and industry exposure.</li>
-            <li>Actively participating in structured technical interview preparation including algorithms practice,
-              mock interviews, and problem-solving workshops led by industry engineers.</li>
-            <li>Engaged in ongoing 1:1 mentorship focused on navigating the tech industry, strengthening professional
-              presence, and preparing for software engineering internships.</li>
-            <li>Participating in cohort sessions on equity in tech, leadership development, and designing inclusive,
-              community-centered products.</li>
-            <li>Building a professional network through speaker events, community meetups, and collaboration with
-              peers pursuing software engineering careers.</li>
-          </ul>
-
-          <button type="button" class="experience-modal-close" data-modal-close="code2040-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-      <div id="att-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3>AT&amp;T Technology Academy</h3>
-          <p> Remote • Jun 2025 - Aug 2025 </p>
-          <ul>
-            <li>Completed AT&T’s Technology Academy, covering networking, cloud infrastructure, cybersecurity
-              fundamentals, and modern telecom systems.</li>
-            <li>Gained hands-on experience with networking configurations, routing concepts, and cloud service models
-              through guided labs and exercises.</li>
-            <li>Explored enterprise telecom technologies including 5G architectures, edge computing, and scalable
-              network design.</li>
-            <li>Participated in career development workshops on technical interviewing, communication skills, and
-              navigating enterprise tech roles.</li>
-            <li>Collaborated with peers on technical challenges to strengthen problem-solving and applied
-              understanding of networked systems.</li>
-          </ul>
-          <button type="button" class="experience-modal-close" data-modal-close="att-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-
-      <div id="startup-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3>Startup School</h3>
-          <p> Palo Alto, CA • Jun 2025 </p>
-          <ul>
-            <li>Selected to participate in HBCU Startup School, a venture-focused program teaching startup
-              fundamentals, product development, and entrepreneurial problem-solving.</li>
-            <li>Learned frameworks for identifying user pain points, validating ideas, designing MVPs, and building
-              sustainable business models.</li>
-            <li>Collaborated with peers to prototype solutions using lean startup methods, iterative design, and rapid
-              feedback cycles.</li>
-            <li>Participated in workshops on storytelling, pitching, market research, and customer discovery led by
-              founders and industry professionals.</li>
-            <li>Developed technical and business documentation for early-stage product planning, including feature
-              scoping, value propositions, and user-journey mapping.</li>
-          </ul>
-          <button type="button" class="experience-modal-close" data-modal-close="startup-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-
-      <div id="usc-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3>Consulting Externship</h3>
-          <p> Remote • Apr 2025 - Jun 2025 </p>
-          <div class="modal-media-grid">
-            <img src="assets/programs-media/acc_usc1.png" alt="Media placeholder" class="modal-media-img" />
-            <img src="assets/programs-media/acc_usc2.png" alt="Media placeholder" class="modal-media-img" />
-          </div>
-          <ul>
-            <li>Completed a consulting externship with Urban Strategies Council, contributing to data-driven research
-              projects focused on community equity and social impact.</li>
-            <li>Analyzed community datasets using spreadsheet tools and statistical methods to identify trends,
-              disparities, and actionable insights for policy recommendations.</li>
-            <li>Supported research efforts by synthesizing findings into clear summaries, reports, and visualizations
-              for internal and community stakeholders.</li>
-            <li>Collaborated with cross-functional teams to refine project scopes, validate data sources, and ensure
-              alignment with community-focused goals.</li>
-            <li>Participated in workshops on equity-centered consulting, evidence-based decision-making, and applying
-              data for community advocacy.</li>
-          </ul>
-
-          <button type="button" class="experience-modal-close" data-modal-close="usc-modal">
-            Close
-          </button>
-        </div>
-      </div>
-
-
-      <div id="gsu-modal" class="experience-modal">
-        <div class="experience-modal-content">
-          <h3>Python Tutor</h3>
-          <p> Grambling, LA • Jan 2025 - Apr 2025 </p>
-          <ul>
-            <li>Tutored and supported 50+ students in introductory Python, covering core programming concepts such as
-              variables, loops, functions, file handling, and basic object-oriented programming.</li>
-            <li>Improved student debugging skills by guiding them through error tracing, logic correction, and best
-              practices for writing clean and efficient code.</li>
-            <li>Led lab sessions and facilitated group problem-solving activities to strengthen understanding of
-              algorithms, fundamental data structures, and exam preparation.</li>
-            <li>Boosted student performance by providing personalized explanations, tailored learning strategies, and
-              step-by-step support on difficult concepts.</li>
-            <li>Assisted instructors by reviewing assignments, creating supplementary examples, and supporting
-              students during hands-on coding exercises.</li>
-          </ul>
-          <button type="button" class="experience-modal-close" data-modal-close="gsu-modal">
-            Close
-          </button>
-        </div>
-      </div>
+    <section id="skills" class="section repertoire" aria-labelledby="skills-title">
+      <header class="section-head">
+        <h2 id="skills-title">Skills</h2>
+      </header>
+      <div class="repertoire-grid" data-render="skills"></div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section projects">
-      <div class="projects-container">
-        <h2> Projects </h2>
-        <div class="projects-grid">
+    <section id="contact" class="section your-move" aria-labelledby="contact-title">
+      <h2 id="contact-title">Your move.</h2>
+      <p class="your-move-lede">Tell me what you're reaching out about and I'll draft the email for you. You send it
+        from your own inbox.</p>
 
-          <div class="project-tile">
-            <div class="project-img-container">
-              <img class="project-img" src="assets/projects-media/cee.png" alt="temp">
-            </div>
-            <div class="project-info">
-              <h3> Craig Events & Entertainments </h3>
-              <p> Craig Events & Entertainments is a production client website built for a full-service event planning
-                company based in Grambling, LA. The site showcases the company's services including catering,
-                decoration, coordination, photography, videography, and MC/DJ management. It features a multi-step
-                conditional booking inquiry form, photo gallery, testimonials carousel, scroll animations, and a fully
-                responsive black and gold branded design. Deployed on Vercel with a custom domain and Formspree for form
-                handling. </p>
-              <div class="project-buttons">
-                <a target="_blank" class="project-btn btn-primary non">
-                  Demo </a>
-                <a href="https://github.com/jasynj/cee" target="_blank" class="project-btn btn-outline"> Github </a>
-                <a href="https://craigevents.com" target="_blank" class="project-btn btn-primary"> Link </a>
-              </div>
-            </div>
+      <div class="drafter" data-drafter>
+        <form class="drafter-form" novalidate>
+          <fieldset class="intents">
+            <legend>I'm reaching out because…</legend>
+            <label><input type="radio" name="intent" value="hiring" checked><span>I'm hiring</span></label>
+            <label><input type="radio" name="intent" value="project"><span>A project for you</span></label>
+            <label><input type="radio" name="intent" value="collab"><span>Let's talk tech</span></label>
+            <label><input type="radio" name="intent" value="hello"><span>Just saying hi</span></label>
+          </fieldset>
+
+          <div class="field">
+            <label for="draft-name">Your name</label>
+            <input id="draft-name" name="name" autocomplete="name" placeholder="e.g. Alex Rivera" required>
           </div>
-
-          <div class="project-tile">
-            <div class="project-img-container">
-              <img class="project-img" src="assets/projects-media/safelink.png" alt="temp">
-            </div>
-            <div class="project-info">
-              <h3> SafeLink </h3>
-              <p> SafeLink Mesh AI is a comprehensive offline-first mesh networking system designed for disaster relief
-                and emergency communications. When traditional internet infrastructure fails, SafeLink enables
-                peer-to-peer communication, emergency alerts, and relief coordination through Bluetooth Low Energy (BLE)
-                and WiFi Direct mesh networks. </p>
-              <div class="project-buttons">
-                <a href="https://drive.google.com/file/d/1rETbwua_rinHSvlsQRzXozJ7hOHzH0ww/view?usp=sharing"
-                  target="_blank" class="project-btn btn-primary">
-                  Demo </a>
-                <a href="https://github.com/jasynj/SafeLink" target="_blank" class="project-btn btn-outline"> Github
-                </a>
-                <a target="_blank" class="project-btn btn-primary non"> Link </a>
-              </div>
-            </div>
+          <div class="field" data-field="org">
+            <label for="draft-org">Company</label>
+            <input id="draft-org" name="org" autocomplete="organization">
           </div>
-
-          <div class="project-tile">
-            <div class="project-img-container">
-              <img class="project-img" src="assets/projects-media/clubs.png" alt="temp">
-            </div>
-            <div class="project-info">
-              <h3> GSU Clubs & Organizations Portal </h3>
-              <p>GSU Clubs Portal is a full-stack organization directory utilized by Grambling State University that
-                centralizes every club and Greek organization in one place. Presidents can securely manage their org's
-                constitution and bylaws documents through a password-protected editor, while admins maintain oversight
-                across all organizations. It solves the problem of scattered or inaccessible org information by
-                providing a clean public directory backed by a real database, with documents and file attachments
-                persisted in cloud storage. </p>
-              <div class="project-buttons">
-                <a target="_blank" class="project-btn btn-primary non">
-                  Demo </a>
-                <a href="https://github.com/jasynj/gsu-clubs-portal" target="_blank" class="project-btn btn-outline">
-                  Github </a>
-                <a href="https://gsu-clubs-portal.vercel.app/"" target=" _blank" class="project-btn btn-primary"> Link
-                </a>
-              </div>
-            </div>
+          <div class="field" data-field="detail">
+            <label for="draft-detail">Role or team</label>
+            <input id="draft-detail" name="detail">
           </div>
+        </form>
 
-          <div class="project-tile">
-            <div class="project-img-container">
-              <img class="project-img" src="assets/projects-media/mayacare.png" alt="temp">
-            </div>
-            <div class="project-info">
-              <h3> MayaCare </h3>
-              <p> MayaCare is a maternal health advocacy platform built to address the Black maternal mortality crisis.
-                It helps mothers track symptoms, prepare for doctor visits, and recognize warning signs using a
-                transparent, rule-based triage system. By centering racial equity and self-advocacy, MayaCare equips
-                mothers with tools to be heard, informed, and protected throughout pregnancy and postpartum care.</p>
-              <div class="project-buttons">
-                <a href="https://drive.google.com/file/d/1gx5llmqBS9PzvNJTVFPowGpX3bHqymQe/view?usp=sharing"
-                  target="_blank" class="project-btn btn-primary">
-                  Demo </a>
-                <a href="https://github.com/jasynj/tech-for-resistance-hackathon" target="_blank"
-                  class="project-btn btn-outline"> Github
-                </a>
-                <a target="_blank" class="project-btn btn-primary non"> Link </a>
-              </div>
-            </div>
+        <div class="draft">
+          <p class="draft-label" id="draft-label">Draft preview</p>
+          <div class="draft-sheet" aria-labelledby="draft-label">
+            <p class="draft-line"><span>To</span> jasoncj.dev@gmail.com</p>
+            <p class="draft-line"><span>Subject</span> <strong data-preview="subject"></strong></p>
+            <pre class="draft-body" data-preview="body"></pre>
           </div>
-
-          <div class="project-tile">
-            <div class="project-img-container">
-              <img class="project-img" src="assets/projects-media/fitsync.png" alt="temp">
-            </div>
-            <div class="project-info">
-              <h3> FitSync </h3>
-              <p> FitSync is a web-based fitness tracking application that allows users to log meals and workouts,
-                visualize their nutrition intake and calorie output, and stay consistent with fitness goals. It solves
-                the problem of overwhelming or paywalled fitness tools by offering a clean platform powered by real
-                food/exercise data via the Nutritionix API. </p>
-              <div class="project-buttons">
-                <a href="https://drive.google.com/file/d/1QON0dgxbo0ca86QO6RZ8gR4pN-f9gRTN/view?usp=sharing"
-                  target="_blank" class="project-btn btn-primary">
-                  Demo </a>
-                <a href="https://github.com/jasynj/FitSync" target="_blank" class="project-btn btn-outline"> Github </a>
-                <a href="https://fitsync-5tf7.onrender.com/" target="_blank" class="project-btn btn-primary"> Link </a>
-              </div>
-            </div>
+          <div class="draft-actions">
+            <a class="btn btn-move" data-send="mailto" href="mailto:jasoncj.dev@gmail.com">Open in email app</a>
+            <a class="btn btn-quiet" data-send="gmail" href="https://mail.google.com/" target="_blank"
+              rel="noopener">Gmail</a>
+            <a class="btn btn-quiet" data-send="outlook" href="https://outlook.office.com/" target="_blank"
+              rel="noopener">Outlook</a>
+            <button type="button" class="btn btn-quiet" data-send="copy">Copy draft</button>
           </div>
-
-          <div class="project-tile">
-            <div class="project-img-container">
-              <img class="project-img" src="assets/projects-media/reminisce.png" alt="temp">
-            </div>
-            <div class="project-info">
-              <h3> Reminisce </h3>
-              <p> Reminisce is a voice-first AI memory companion built for seniors with early-stage memory loss,
-                designed to feel like a caring companion rather than a traditional assistant. It uses a low-latency RAG
-                architecture with long-term memory, natural speech interaction, and real-time visual reminders to help
-                users remember personal details and daily tasks without any typing. Built with Gemini 2.0 Flash,
-                Pinecone, FastAPI, and a custom ElevenLabs voice, Reminisce prioritizes speed, empathy, and
-                accessibility.
-              </p>
-              <div class="project-buttons">
-                <a href="https://youtu.be/la-CrAMkCAg" target="_blank" class="project-btn btn-primary">
-                  Demo </a>
-                <a href="https://github.com/jasynj/Reminisce" target="_blank" class="project-btn btn-outline"> Github
-                </a>
-                <a href="https://reminisce-hackathon-b44cb.web.app/" target="_blank" class="project-btn btn-primary">
-                  Link
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-tile">
-            <div class="project-img-container">
-              <img class="project-img" src="assets/projects-media/quantsim.png" alt="temp">
-            </div>
-            <div class="project-info">
-              <h3> QuantSim </h3>
-              <p>
-                QuantSim is an algorithmic trading backtesting platform for strategy research and performance analysis.
-                It includes an event-driven backtesting engine with transaction costs, slippage, and latency modeling.
-                Supports Momentum (MA Crossover), Mean Reversion (Z-Score), and Pairs Trading strategies.
-              </p>
-              <div class="project-buttons">
-                <a target="_blank" class="project-btn btn-primary non">
-                  Demo </a>
-                <a href="https://github.com/jasynj/QuantSim" target="_blank" class="project-btn btn-outline"> Github
-                </a>
-                <a target="_blank" class="project-btn btn-primary non"> Link
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-tile">
-            <div class="project-img-container">
-              <img class="project-img" src="assets/projects-media/flixster.png" alt="temp">
-            </div>
-            <div class="project-info">
-              <h3> Flixter </h3>
-              <p> Flixster is a responsive movie discovery web application built with React and The Movie Database API.
-                The app allows users to browse current movies in a dynamic grid layout, search by title, and sort
-                results by release date, rating, or alphabetical order. Each movie card displays key details and opens a
-                modal with extended information, including runtime, genres, overview, and backdrop imagery. The project
-                emphasizes accessibility, semantic HTML, responsive design, and clean user interactions while
-                demonstrating real-world API integration, state management, and component-driven UI development.</p>
-              <div class="project-buttons">
-                <a target="_blank" class="project-btn btn-primary non">
-                  Demo </a>
-                <a href="https://github.com/jasynj/Flixster" target="_blank" class="project-btn btn-outline"> Github
-                </a>
-                <a href="https://flixster-starter-5ate.onrender.com/" target="_blank" class="project-btn btn-primary">
-                  Link </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-tile">
-            <div class="project-img-container">
-              <img class="project-img" src="assets/projects-media/visioncare.png" alt="temp">
-            </div>
-            <div class="project-info">
-              <h3> VisionCare </h3>
-              <p> VisionCare is a lightweight web application inspired by the EyecareLive Vision Test, designed to help
-                users assess their visual acuity from home using a laptop or desktop paired with a smartphone. The
-                application guides users through the testing process and allows them to securely save and view their
-                test results.
-
-                It’s intended as a preliminary screening tool, NOT a replacement for a full eye exam.
-              </p>
-              <div class="project-buttons">
-                <a target="_blank" class="project-btn btn-primary non">
-                  Demo </a>
-                <a href="https://github.com/jasynj/VisionCare" target="_blank" class="project-btn btn-outline"> Github
-                </a>
-                <a href="https://va-tester-b127.onrender.com/" target="_blank" class="project-btn btn-primary"> Link
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SKILLS  -->
-    <section id="skills" class="section skills">
-      <div class="container">
-        <h1 class="title">Skills</h1>
-        <div class="skills-card">
-
-          <h3 class="skills-category">Languages</h3>
-          <div class="skills-list">
-            <img
-              src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"
-              alt="JavaScript">
-            <img
-              src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"
-              alt="TypeScript">
-            <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"
-              alt="Python">
-            <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"
-              alt="Java">
-            <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go">
-            <img src="https://img.shields.io/badge/PHP_(Hack)-4A154B?style=for-the-badge&logo=meta&logoColor=white"
-              alt="PHP (Hack)">
-            <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"
-              alt="HTML5">
-            <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"
-              alt="CSS3">
-            <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="SQL">
-          </div>
-
-          <h3 class="skills-category">Frameworks & Libraries</h3>
-          <div class="skills-list">
-            <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"
-              alt="React">
-            <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white"
-              alt="Next.js">
-            <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"
-              alt="Node.js">
-            <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"
-              alt="Express.js">
-            <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white"
-              alt="FastAPI">
-            <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"
-              alt="Flask">
-            <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white"
-              alt="Django">
-            <img
-              src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white"
-              alt="TailwindCSS">
-            <img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"
-              alt="React Native">
-          </div>
-
-          <h3 class="skills-category">Databases & Cloud</h3>
-          <div class="skills-list">
-            <img
-              src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"
-              alt="PostgreSQL">
-            <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"
-              alt="MongoDB">
-            <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white"
-              alt="Prisma">
-            <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black"
-              alt="Firebase">
-            <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"
-              alt="Supabase">
-            <img src="https://img.shields.io/badge/Pinecone-000000?style=for-the-badge&logo=pinecone&logoColor=white"
-              alt="Pinecone">
-            <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"
-              alt="Vercel">
-            <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white"
-              alt="Render">
-          </div>
-
-          <h3 class="skills-category">Tools & Concepts</h3>
-          <div class="skills-list">
-            <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
-            <img src="https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white"
-              alt="GraphQL">
-            <img src="https://img.shields.io/badge/REST_APIs-005571?style=for-the-badge&logo=fastapi&logoColor=white"
-              alt="REST APIs">
-            <img src="https://img.shields.io/badge/WebSockets-010101?style=for-the-badge&logo=socket.io&logoColor=white"
-              alt="WebSockets">
-            <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white"
-              alt="JWT/OAuth">
-            <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white"
-              alt="Jira">
-            <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"
-              alt="Figma">
-            <img src="https://img.shields.io/badge/RAG-412991?style=for-the-badge&logo=openai&logoColor=white"
-              alt="RAG">
-            <img src="https://img.shields.io/badge/Agile-0052CC?style=for-the-badge&logo=jira&logoColor=white"
-              alt="Agile">
-            <img src="https://img.shields.io/badge/CI/CD-2088FF?style=for-the-badge&logo=github-actions&logoColor=white"
-              alt="CI/CD">
-          </div>
-
+          <p class="draft-status" data-status role="status" aria-live="polite"></p>
         </div>
       </div>
-    </section>
 
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="section placeholder"></section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <div class="container">
-        <h2>Contact</h2>
-
-
-        <div class="contact-inner">
-          <div class="contact-left">
-            <h3>Let's Connect</h3>
-            <p class="contact-text">
-              Whether you have a project in mind, want to discuss tech, or just want to say hi. I'd love to hear from
-              you.
-            </p>
-
-            <div class="contact-info">
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                </div>
-                <div class="contact-details">
-                  <p class="contact-label">Email</p>
-                  <a href="mailto:jasoncj.dev@gmail.com" class="contact-link">jasoncj.dev@gmail.com</a>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                </div>
-                <div class="contact-details">
-                  <p class="contact-label">LinkedIn</p>
-                  <a href="https://www.linkedin.com/in/jasoncjason" target="_blank" rel="noopener"
-                    class="contact-link">linkedin.com/in/jasoncjason</a>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path
-                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                    </path>
-                  </svg>
-                </div>
-                <div class="contact-details">
-                  <p class="contact-label">GitHub</p>
-                  <a href="https://github.com/jasynj" target="_blank" rel="noopener"
-                    class="contact-link">github.com/jasynj</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-right">
-            <form class="contact-form" action="https://formspree.io/f/xwvneppk" method="POST">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required placeholder="Your name" />
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="your.email@example.com" />
-              </div>
-
-              <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required placeholder="What's this about?" />
-              </div>
-
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-submit">
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
+      <ul class="contact-links">
+        <li><a href="mailto:jasoncj.dev@gmail.com">jasoncj.dev@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/jasoncjason" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/jasynj" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="assets/resumes/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
+      </ul>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Jason Chimdinma Jason. All rights reserved.</p>
-      <p class="attribution">
-        Illustration by <a href="https://storyset.com/technology" target="_blank">Storyset</a>
-      </p>
-    </div>
+    <p>© <span data-year>2026</span> Jason Chimdinma Jason</p>
+    <p>Chess pieces by Colin M.L. Burnett, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank"
+        rel="noopener">CC BY-SA 3.0</a></p>
   </footer>
-  <script src="main.js"></script>
 </body>
 
 </html>

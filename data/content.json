@@ -1,0 +1,793 @@
+{
+  "profile": {
+    "photo": {
+      "src": "assets/colorstack_headshot.jpeg",
+      "alt": "Portrait of Jason Chimdinma Jason"
+    },
+    "aboutPhoto": {
+      "src": "assets/web/about.jpg",
+      "alt": "Jason Chimdinma Jason by the Meta sign at the Menlo Park office"
+    },
+    "education": {
+      "school": "Grambling State University",
+      "degree": "B.S. Computer Science & B.S. Computer Information Systems",
+      "gpa": "3.96 / 4.00",
+      "graduation": "May 2028",
+      "coursework": [
+        "Data Structures & Algorithms",
+        "Distributed Systems",
+        "Foundations of Deep Learning",
+        "Intro to Artificial Intelligence",
+        "Computer Architecture",
+        "Object-Oriented Programming",
+        "Discrete Structures"
+      ]
+    },
+    "honors": [
+      "President's List",
+      "Earl Lester Cole Honors Society",
+      "Capital One Tech Summit Hackathon — Runner-Up",
+      "BE Smart Hackathon — Finalist, 4th of 62 teams",
+      "National Physics Olympiad — Finalist, Top 40 nationwide"
+    ],
+    "about": [
+      "I'm a Computer Science and Computer Information Systems double major at Grambling State University, building full-stack applications that actually ship — real clients, real users, real problems.",
+      "I work across the whole stack, but I'm drawn to the frontend: the intersection of engineering and design, where a good decision is both technically sound and visually right. I care about how things look and feel, not just whether they work.",
+      "Outside of engineering I paint, draw, read, and play chess. Those interests keep me curious and open to new ways of thinking — and they shape how I learn and build."
+    ],
+    "schedule": "https://calendly.com/jasoncj-dev",
+    "facts": [
+      {
+        "label": "Now",
+        "value": "Student Software Engineer, Grambling State University",
+        "detail": "Building the campus Clubs & Organizations Portal (600+ users)"
+      },
+      {
+        "label": "Previously",
+        "value": "Software Engineering Intern, Meta",
+        "detail": "Messenger Data Use (2026) · Meta University (2025)"
+      },
+      {
+        "label": "Education",
+        "value": "B.S. Computer Science & Computer Information Systems",
+        "detail": "Grambling State University · GPA 3.96 · Class of 2028"
+      },
+      {
+        "label": "Based in",
+        "value": "Grambling, LA"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "id": "meta-2026",
+      "kind": "work",
+      "role": "Software Engineering Intern",
+      "org": "Meta",
+      "team": "Messenger Data Use",
+      "logos": [
+        {
+          "src": "assets/logos/meta.png",
+          "alt": "Meta"
+        }
+      ],
+      "location": "Menlo Park, CA",
+      "start": "2026-05",
+      "end": "2026-08",
+      "summary": "Designed and built an end-to-end monitoring platform for private messaging data on the Messenger Data Use team.",
+      "metrics": [
+        {
+          "value": "~22M",
+          "label": "records processed"
+        },
+        {
+          "value": "15–72s → 6.5s",
+          "label": "flow-lookup latency"
+        },
+        {
+          "value": "+35%",
+          "label": "violation detection coverage"
+        },
+        {
+          "value": "−60%",
+          "label": "remediation turnaround"
+        }
+      ],
+      "highlights": [
+        "Designed and built an end-to-end monitoring platform for private messaging data, processing ~22M records through batch pipelines, violation prioritization, a full-stack dashboard, and real-time anomaly detection.",
+        "Reduced flow-lookup latency from 15–72 seconds to ~6.5 seconds by replacing request-time warehouse scans with indexed key-value lookups and parallel reads, achieving ~5 ms core retrieval latency.",
+        "Increased privacy-violation detection coverage by 35% and reduced remediation turnaround time by 60% by shipping enforcement verifiers and building an AI support bot that accelerated issue triage and resolution."
+      ],
+      "tags": [
+        "Data pipelines",
+        "Privacy infrastructure",
+        "Full-stack",
+        "AI tooling"
+      ]
+    },
+    {
+      "id": "gsu-swe",
+      "kind": "work",
+      "role": "Student Software Engineer",
+      "org": "Grambling State University",
+      "logos": [
+        {
+          "src": "assets/logos/gsu.png",
+          "alt": "Grambling State University"
+        }
+      ],
+      "location": "Grambling, LA",
+      "start": "2026-01",
+      "end": null,
+      "summary": "Designed and built the GSU Clubs & Organizations Portal, a production platform serving 600+ students, admins, and org presidents. I own the department's web infrastructure end to end.",
+      "metrics": [
+        {
+          "value": "600+",
+          "label": "users on campus"
+        }
+      ],
+      "highlights": [
+        "Designed and built the GSU Clubs & Org Portal, a full-stack production platform serving 600+ students, admins, and org presidents across campus.",
+        "Built role-based authentication and admin / org-president workflows with PostgreSQL, Prisma, and Supabase.",
+        "Promoted from the Reservations team into a developer role after independently shipping process improvements."
+      ],
+      "tags": [
+        "PostgreSQL",
+        "Prisma",
+        "Supabase",
+        "Auth"
+      ]
+    },
+    {
+      "id": "meta-2025",
+      "kind": "work",
+      "role": "Software Engineering Intern",
+      "org": "Meta",
+      "team": "Meta University · Horizon OS Developer Education",
+      "logos": [
+        {
+          "src": "assets/logos/meta.png",
+          "alt": "Meta"
+        }
+      ],
+      "location": "Menlo Park, CA",
+      "start": "2025-06",
+      "end": "2025-08",
+      "summary": "Selected from ~4% of applicants for Meta University. Shipped documentation infrastructure for Reality Labs developers and built FitSync.",
+      "metrics": [
+        {
+          "value": "~4%",
+          "label": "acceptance rate"
+        }
+      ],
+      "highlights": [
+        "Selected from ~4% of applicants for Meta University; worked on the Horizon OS Developer Education team.",
+        "Shipped documentation infrastructure with React, GraphQL, and a Markdown-based CMS pipeline for internal developers.",
+        "Designed and built FitSync, a full-stack MERN fitness tracker with LLM-generated workout plans, WebSocket sync, and the Nutritionix API; shipped under weekly milestone reviews and presented to Meta leadership."
+      ],
+      "tags": [
+        "React",
+        "GraphQL",
+        "MERN"
+      ]
+    },
+    {
+      "id": "phillips-2024",
+      "kind": "work",
+      "role": "Software Testing Intern",
+      "org": "Phillips Consulting Limited",
+      "logos": [
+        {
+          "src": "assets/logos/phillips.png",
+          "alt": "Phillips Consulting"
+        }
+      ],
+      "location": "Remote",
+      "start": "2024-05",
+      "end": "2024-07",
+      "summary": "Raised the automated test pass rate by 25% by refactoring test suites and resolving cross-OS compatibility issues.",
+      "metrics": [
+        {
+          "value": "+25%",
+          "label": "test pass rate"
+        }
+      ],
+      "highlights": [
+        "Raised the automated test pass rate by 25% by refactoring test suites and resolving cross-OS compatibility issues.",
+        "Streamlined bug triage by logging high-priority defects in Jira with severity tags and reproduction steps.",
+        "Took part in Agile QA workflows and bug-triage meetings, covering manual and exploratory testing and the defect lifecycle."
+      ],
+      "tags": [
+        "QA automation",
+        "Jira",
+        "Agile"
+      ]
+    },
+    {
+      "id": "mastercard-auc",
+      "kind": "hackathon",
+      "role": "Finalist",
+      "org": "Mastercard × AUC Data Science Challenge",
+      "logos": [
+        {
+          "src": "assets/logos/mastercard.png",
+          "alt": "Mastercard"
+        },
+        {
+          "src": "assets/logos/auc.png",
+          "alt": "Atlanta University Center"
+        }
+      ],
+      "location": "Atlanta, GA",
+      "start": "2026-04",
+      "end": "2026-04",
+      "summary": "Competed on a 3-person team in a Mastercard-sponsored data science competition at the Atlanta University Center and reached the final round, presenting to a panel of industry judges.",
+      "highlights": [],
+      "media": [
+        {
+          "src": "assets/web/site.jpg",
+          "alt": "The Mastercard × AUC Data Science Challenge venue"
+        }
+      ]
+    },
+    {
+      "id": "besmart-2025",
+      "kind": "hackathon",
+      "role": "Finalist — 4th of 62 teams",
+      "org": "BE Smart Hackathon",
+      "logos": [
+        {
+          "src": "assets/logos/besmart.png",
+          "alt": "Black Enterprise BE Smart"
+        },
+        {
+          "src": "assets/logos/aa.png",
+          "alt": "American Airlines"
+        }
+      ],
+      "location": "Charlotte, NC",
+      "start": "2025-11",
+      "end": "2025-11",
+      "summary": "Built SafeLink Mesh AI and placed 4th of 62 teams from 43 schools.",
+      "highlights": [
+        "Built SafeLink Mesh AI, an offline-capable emergency communication platform using AI-powered message routing and decentralized mesh networking.",
+        "Led frontend development and built the app's broadcast feed for sharing alerts, resources, and location updates after a crisis.",
+        "Integrated AI routing logic with teammates and delivered the final technical pitch to industry judges."
+      ],
+      "media": [
+        {
+          "src": "assets/web/acc_besmart.jpg",
+          "alt": "BE Smart Hackathon acceptance letter"
+        },
+        {
+          "src": "assets/web/team_picture.jpg",
+          "alt": "Jason's hackathon team at BE Smart"
+        }
+      ]
+    },
+    {
+      "id": "code2040",
+      "kind": "program",
+      "role": "Technical Fellow",
+      "org": "Code2040",
+      "logos": [
+        {
+          "src": "assets/logos/code2040.png",
+          "alt": "Code2040"
+        }
+      ],
+      "location": "Remote",
+      "start": "2025-09",
+      "end": "2026-09",
+      "summary": "Fellowship supporting Black and Latinx technologists through mentorship, technical interview preparation, and industry exposure.",
+      "highlights": [
+        "Structured technical interview preparation: algorithms practice, mock interviews, and problem-solving workshops led by industry engineers.",
+        "Ongoing 1:1 mentorship on navigating the tech industry and preparing for software engineering roles.",
+        "Cohort sessions on equity in tech, leadership, and designing inclusive, community-centered products."
+      ],
+      "media": [
+        {
+          "src": "assets/web/acc_code2040.jpg",
+          "alt": "Code2040 Fellowship acceptance letter"
+        }
+      ]
+    },
+    {
+      "id": "google-basta",
+      "kind": "program",
+      "role": "Code2Career Fellow",
+      "org": "Google × BASTA",
+      "logos": [
+        {
+          "src": "assets/logos/google.png",
+          "alt": "Google"
+        },
+        {
+          "src": "assets/logos/basta.png",
+          "alt": "BASTA"
+        }
+      ],
+      "location": "Remote",
+      "start": "2025-10",
+      "end": "2025-12",
+      "summary": "Google-led technical and professional development program focused on DSA mastery, mock interviews, and preparation for competitive SWE roles.",
+      "highlights": [
+        "Google-led interview prep covering data structures, algorithms, problem-solving patterns, and whiteboarding.",
+        "Guided mock interviews and real-time feedback from Google engineers and BASTA coaches.",
+        "1:1 mentorship on career planning and a SWE recruiting strategy."
+      ]
+    },
+    {
+      "id": "ai4all",
+      "kind": "program",
+      "role": "Ignite Fellow",
+      "org": "AI4ALL",
+      "logos": [
+        {
+          "src": "assets/logos/ai4all.png",
+          "alt": "AI4ALL"
+        }
+      ],
+      "location": "Remote",
+      "start": "2025-08",
+      "end": null,
+      "summary": "Exploring foundational AI concepts and their ethical implications while leading a group capstone project applying AI to real-world social impact.",
+      "highlights": []
+    },
+    {
+      "id": "nvidia-bridge",
+      "kind": "program",
+      "role": "Summer Bridge Scholar",
+      "org": "NVIDIA",
+      "logos": [
+        {
+          "src": "assets/logos/nvidia.png",
+          "alt": "NVIDIA"
+        }
+      ],
+      "location": "Remote",
+      "start": "2025-06",
+      "end": "2025-08",
+      "summary": "Accelerated curriculum in computer science foundations — data structures, algorithms, and problem solving.",
+      "highlights": [
+        "Accelerated curriculum in CS foundations including data structures, algorithms, and problem-solving techniques.",
+        "Technical workshops led by NVIDIA engineers on GPU computing and AI/ML career pathways."
+      ],
+      "media": [
+        {
+          "src": "assets/web/acc_nvidia.jpg",
+          "alt": "NVIDIA Summer Bridge acceptance letter"
+        }
+      ]
+    },
+    {
+      "id": "att-academy",
+      "kind": "program",
+      "role": "Technology Academy Scholar",
+      "org": "AT&T",
+      "logos": [
+        {
+          "src": "assets/logos/att.png",
+          "alt": "AT&T"
+        }
+      ],
+      "location": "Remote",
+      "start": "2025-06",
+      "end": "2025-08",
+      "summary": "Hands-on program covering networking, cloud infrastructure, cybersecurity fundamentals, and modern telecom systems.",
+      "highlights": [
+        "Guided labs on networking configuration, routing concepts, and cloud service models.",
+        "Explored enterprise telecom technologies including 5G architectures and edge computing."
+      ]
+    },
+    {
+      "id": "hbcuvc-startup",
+      "kind": "program",
+      "role": "Startup School Participant",
+      "org": "HBCUvc",
+      "logos": [
+        {
+          "src": "assets/logos/startup.png",
+          "alt": "HBCUvc Startup School"
+        }
+      ],
+      "location": "Palo Alto, CA",
+      "start": "2025-06",
+      "end": "2025-06",
+      "summary": "Venture-focused program on startup fundamentals, MVP design, and entrepreneurial problem solving.",
+      "highlights": [
+        "Frameworks for identifying user pain points, validating ideas, and designing MVPs.",
+        "Prototyped solutions with peers using lean-startup methods and rapid feedback cycles."
+      ]
+    },
+    {
+      "id": "usc-externship",
+      "kind": "program",
+      "role": "Consulting Extern",
+      "org": "Urban Strategies Council",
+      "logos": [
+        {
+          "src": "assets/logos/usc.png",
+          "alt": "Urban Strategies Council"
+        }
+      ],
+      "location": "Remote",
+      "start": "2025-04",
+      "end": "2025-06",
+      "summary": "Data-driven research on community equity: analyzed community datasets and synthesized findings for policy recommendations.",
+      "highlights": [
+        "Analyzed community datasets to identify trends, disparities, and actionable insights for policy recommendations.",
+        "Synthesized findings into summaries, reports, and visualizations for community stakeholders."
+      ],
+      "media": [
+        {
+          "src": "assets/web/acc_usc1.jpg",
+          "alt": "Urban Strategies Council externship acceptance, page 1"
+        },
+        {
+          "src": "assets/web/acc_usc2.jpg",
+          "alt": "Urban Strategies Council externship acceptance, page 2"
+        }
+      ]
+    },
+    {
+      "id": "gsu-tutor",
+      "kind": "work",
+      "role": "Python Tutor",
+      "org": "Grambling State University",
+      "logos": [
+        {
+          "src": "assets/logos/gsu.png",
+          "alt": "Grambling State University"
+        }
+      ],
+      "location": "Grambling, LA",
+      "start": "2025-01",
+      "end": "2025-04",
+      "summary": "Tutored 50+ students in introductory Python — debugging, core concepts, and exam preparation.",
+      "metrics": [
+        {
+          "value": "50+",
+          "label": "students tutored"
+        }
+      ],
+      "highlights": [
+        "Tutored 50+ students in introductory Python: variables, loops, functions, file handling, and basic OOP.",
+        "Led lab sessions and group problem-solving on algorithms, data structures, and exam preparation."
+      ]
+    }
+  ],
+  "projectCategories": [
+    {
+      "id": "internship",
+      "label": "Internship Projects"
+    },
+    {
+      "id": "client",
+      "label": "Client & Professional Work"
+    },
+    {
+      "id": "hackathon",
+      "label": "Hackathon Projects"
+    },
+    {
+      "id": "personal",
+      "label": "Personal Projects"
+    },
+    {
+      "id": "vibe",
+      "label": "Vibe-Coded Projects"
+    }
+  ],
+  "projects": [
+    {
+      "id": "meta-project",
+      "name": "Meta Project",
+      "category": "internship",
+      "context": "2026",
+      "summary": "Details coming soon.",
+      "stack": [],
+      "links": []
+    },
+    {
+      "id": "fitsync",
+      "name": "FitSync",
+      "context": "Meta University",
+      "summary": "A fitness tracker for logging meals and workouts and visualizing nutrition and calorie output, powered by real food and exercise data.",
+      "outcome": "LLM-generated workout plans, WebSocket sync, and dual auth (Firebase + JWT); presented to Meta leadership.",
+      "stack": [
+        "MongoDB",
+        "Express",
+        "React",
+        "Node.js",
+        "Nutritionix API"
+      ],
+      "links": [
+        {
+          "kind": "live",
+          "url": "https://fitsync-5tf7.onrender.com/"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/FitSync"
+        }
+      ],
+      "demo": {
+        "url": "https://drive.google.com/file/d/1QON0dgxbo0ca86QO6RZ8gR4pN-f9gRTN/view?usp=sharing",
+        "label": "Watch the demo"
+      },
+      "category": "internship"
+    },
+    {
+      "id": "flixster",
+      "name": "Flixster",
+      "context": "Meta University",
+      "summary": "A responsive movie discovery app on The Movie Database API: browse, search, and sort current films, with detail modals for runtime, genres, and overview.",
+      "stack": [
+        "React",
+        "TMDB API"
+      ],
+      "links": [
+        {
+          "kind": "live",
+          "url": "https://flixster-starter-5ate.onrender.com/"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/Flixster"
+        }
+      ],
+      "category": "internship"
+    },
+    {
+      "id": "jarms-delight",
+      "name": "Jarms Delight",
+      "category": "client",
+      "context": "",
+      "summary": "Details coming soon.",
+      "stack": [],
+      "links": []
+    },
+    {
+      "id": "cee",
+      "name": "Craig Events & Entertainments",
+      "context": "Live at craigevents.com",
+      "summary": "A production website for a full-service event planning company in Grambling, LA — services, gallery, testimonials, and a multi-step conditional booking inquiry form.",
+      "outcome": "43+ inquiries from real customers since launch; the client's primary lead funnel.",
+      "stack": [
+        "React",
+        "Next.js",
+        "TailwindCSS",
+        "Framer Motion",
+        "Vercel"
+      ],
+      "links": [
+        {
+          "kind": "live",
+          "url": "https://craigevents.com"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/cee"
+        }
+      ],
+      "category": "client"
+    },
+    {
+      "id": "gsu-clubs",
+      "name": "GSU Clubs & Organizations Portal",
+      "context": "Production · Grambling State University",
+      "summary": "A full-stack directory that centralizes every club and Greek organization at Grambling State. Presidents manage their constitutions and bylaws in a password-protected editor; admins keep oversight across all organizations.",
+      "outcome": "In production, serving 600+ students, admins, and org presidents.",
+      "stack": [
+        "PostgreSQL",
+        "Prisma",
+        "Supabase",
+        "Role-based auth"
+      ],
+      "links": [
+        {
+          "kind": "live",
+          "url": "https://gsu-clubs-portal.vercel.app/"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/gsu-clubs-portal"
+        }
+      ],
+      "category": "client"
+    },
+    {
+      "id": "safelink",
+      "name": "SafeLink Mesh AI",
+      "context": "BE Smart Hackathon · Finalist",
+      "summary": "Offline-first emergency communication for when cellular networks fail: SOS messaging, alerts, and relief coordination over Bluetooth Low Energy and Wi-Fi Direct mesh networks.",
+      "outcome": "4th of 62 teams. AES-256 + HMAC message security; routing heuristics and retry queues for unstable networks.",
+      "stack": [
+        "React Native",
+        "JavaScript",
+        "BLE",
+        "Wi-Fi Direct"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/SafeLink"
+        }
+      ],
+      "demo": {
+        "url": "https://drive.google.com/file/d/1rETbwua_rinHSvlsQRzXozJ7hOHzH0ww/view?usp=sharing",
+        "label": "Watch the demo"
+      },
+      "category": "hackathon"
+    },
+    {
+      "id": "reminisce",
+      "name": "Reminisce",
+      "context": "UC Berkeley AI Hackathon",
+      "summary": "A voice-first AI memory companion for seniors with early-stage memory loss — long-term memory, natural speech, and real-time visual reminders, with no typing required.",
+      "outcome": "Led the backend and RAG pipeline design: FastAPI handling concurrent voice requests with real-time LLM context injection.",
+      "stack": [
+        "FastAPI",
+        "Gemini 2.0 Flash",
+        "Pinecone",
+        "ElevenLabs",
+        "React"
+      ],
+      "links": [
+        {
+          "kind": "live",
+          "url": "https://reminisce-hackathon-b44cb.web.app/"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/Reminisce"
+        }
+      ],
+      "demo": {
+        "url": "https://youtu.be/la-CrAMkCAg",
+        "label": "Watch the demo"
+      },
+      "category": "hackathon"
+    },
+    {
+      "id": "mayacare",
+      "name": "MayaCare",
+      "context": "Tech for Resistance",
+      "summary": "A maternal health advocacy platform addressing the Black maternal mortality crisis: symptom tracking, doctor-visit prep, and a transparent rule-based triage for recognizing warning signs.",
+      "stack": [],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/tech-for-resistance-hackathon"
+        }
+      ],
+      "demo": {
+        "url": "https://drive.google.com/file/d/1gx5llmqBS9PzvNJTVFPowGpX3bHqymQe/view?usp=sharing",
+        "label": "Watch the demo"
+      },
+      "category": "hackathon"
+    },
+    {
+      "id": "quantsim",
+      "name": "QuantSim",
+      "context": "Trading research",
+      "summary": "An event-driven backtesting engine for momentum, mean-reversion, and pairs-trading strategies, modeling commissions, slippage, fill latency, exposure caps, and drawdown limits.",
+      "outcome": "Performance dashboards with equity curves and Sharpe, Sortino, and Calmar analytics.",
+      "stack": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Zustand"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/QuantSim"
+        }
+      ],
+      "category": "personal"
+    },
+    {
+      "id": "visioncare",
+      "name": "VisionCare",
+      "context": "Health tech",
+      "summary": "A cross-device web app for checking visual acuity at home, pairing a laptop display with a smartphone as the remote input. A preliminary screening tool, not a replacement for an eye exam.",
+      "stack": [
+        "WebSockets"
+      ],
+      "links": [
+        {
+          "kind": "live",
+          "url": "https://va-tester-b127.onrender.com/"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/VisionCare"
+        }
+      ],
+      "category": "personal"
+    }
+  ],
+  "leadership": [
+    {
+      "role": "Co-Founder & President",
+      "org": "Grambling State University Book Club"
+    },
+    {
+      "role": "Treasurer",
+      "org": "ACM, Grambling Chapter"
+    },
+    {
+      "role": "Academic Chair",
+      "org": "ColorStack Grambling"
+    },
+    {
+      "role": "PR Director",
+      "org": "African Students Association"
+    },
+    {
+      "role": "Tiger LIFT Mentor",
+      "org": "Grambling State University"
+    }
+  ],
+  "skills": [
+    {
+      "group": "Languages",
+      "items": [
+        "Python",
+        "Java",
+        "Go",
+        "JavaScript",
+        "TypeScript",
+        "PHP (Hack)",
+        "SQL",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "group": "Frameworks",
+      "items": [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Express",
+        "FastAPI",
+        "Flask",
+        "Django",
+        "React Native",
+        "TailwindCSS"
+      ]
+    },
+    {
+      "group": "Data & Cloud",
+      "items": [
+        "PostgreSQL",
+        "MongoDB",
+        "Prisma",
+        "Supabase",
+        "Firebase",
+        "Pinecone",
+        "Docker",
+        "Vercel",
+        "Render"
+      ]
+    },
+    {
+      "group": "Practice",
+      "items": [
+        "GraphQL",
+        "REST APIs",
+        "WebSockets",
+        "JWT / OAuth",
+        "RAG",
+        "Linux / Unix",
+        "Git",
+        "CI/CD",
+        "Figma",
+        "Jira"
+      ]
+    }
+  ]
+}
