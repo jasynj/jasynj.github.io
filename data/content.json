@@ -500,10 +500,6 @@
         "Supabase",
         "Role-based auth"
       ],
-      "image": {
-        "src": "assets/web/clubs.jpg",
-        "alt": "GSU Clubs & Organizations Portal directory page"
-      },
       "links": [
         {
           "kind": "live",
@@ -529,10 +525,6 @@
         "Framer Motion",
         "Vercel"
       ],
-      "image": {
-        "src": "assets/web/cee.jpg",
-        "alt": "Craig Events & Entertainments website home page"
-      },
       "links": [
         {
           "kind": "live",
@@ -557,20 +549,16 @@
         "BLE",
         "Wi-Fi Direct"
       ],
-      "image": {
-        "src": "assets/web/safelink.jpg",
-        "alt": "SafeLink Mesh AI emergency feed"
-      },
       "links": [
-        {
-          "kind": "demo",
-          "url": "https://drive.google.com/file/d/1rETbwua_rinHSvlsQRzXozJ7hOHzH0ww/view?usp=sharing"
-        },
         {
           "kind": "code",
           "url": "https://github.com/jasynj/SafeLink"
         }
-      ]
+      ],
+      "demo": {
+        "url": "https://drive.google.com/file/d/1rETbwua_rinHSvlsQRzXozJ7hOHzH0ww/view?usp=sharing",
+        "label": "Watch the demo"
+      }
     },
     {
       "id": "reminisce",
@@ -586,24 +574,20 @@
         "ElevenLabs",
         "React"
       ],
-      "image": {
-        "src": "assets/web/reminisce.jpg",
-        "alt": "Reminisce voice companion interface"
-      },
       "links": [
         {
           "kind": "live",
           "url": "https://reminisce-hackathon-b44cb.web.app/"
         },
         {
-          "kind": "demo",
-          "url": "https://youtu.be/la-CrAMkCAg"
-        },
-        {
           "kind": "code",
           "url": "https://github.com/jasynj/Reminisce"
         }
-      ]
+      ],
+      "demo": {
+        "url": "https://youtu.be/la-CrAMkCAg",
+        "label": "Watch the demo"
+      }
     },
     {
       "id": "quantsim",
@@ -618,10 +602,6 @@
         "Vite",
         "Zustand"
       ],
-      "image": {
-        "src": "assets/projects-media/quantsim.png",
-        "alt": "QuantSim backtest dashboard"
-      },
       "links": [
         {
           "kind": "code",
@@ -643,24 +623,20 @@
         "Node.js",
         "Nutritionix API"
       ],
-      "image": {
-        "src": "assets/projects-media/fitsync.png",
-        "alt": "FitSync dashboard"
-      },
       "links": [
         {
           "kind": "live",
           "url": "https://fitsync-5tf7.onrender.com/"
         },
         {
-          "kind": "demo",
-          "url": "https://drive.google.com/file/d/1QON0dgxbo0ca86QO6RZ8gR4pN-f9gRTN/view?usp=sharing"
-        },
-        {
           "kind": "code",
           "url": "https://github.com/jasynj/FitSync"
         }
-      ]
+      ],
+      "demo": {
+        "url": "https://drive.google.com/file/d/1QON0dgxbo0ca86QO6RZ8gR4pN-f9gRTN/view?usp=sharing",
+        "label": "Watch the demo"
+      }
     },
     {
       "id": "mayacare",
@@ -669,20 +645,16 @@
       "context": "Tech for Resistance Hackathon",
       "summary": "A maternal health advocacy platform addressing the Black maternal mortality crisis: symptom tracking, doctor-visit prep, and a transparent rule-based triage for recognizing warning signs.",
       "stack": [],
-      "image": {
-        "src": "assets/projects-media/mayacare.png",
-        "alt": "MayaCare symptom tracker"
-      },
       "links": [
-        {
-          "kind": "demo",
-          "url": "https://drive.google.com/file/d/1gx5llmqBS9PzvNJTVFPowGpX3bHqymQe/view?usp=sharing"
-        },
         {
           "kind": "code",
           "url": "https://github.com/jasynj/tech-for-resistance-hackathon"
         }
-      ]
+      ],
+      "demo": {
+        "url": "https://drive.google.com/file/d/1gx5llmqBS9PzvNJTVFPowGpX3bHqymQe/view?usp=sharing",
+        "label": "Watch the demo"
+      }
     },
     {
       "id": "visioncare",
@@ -693,10 +665,6 @@
       "stack": [
         "WebSockets"
       ],
-      "image": {
-        "src": "assets/projects-media/visioncare.png",
-        "alt": "VisionCare vision test screen"
-      },
       "links": [
         {
           "kind": "live",
@@ -718,10 +686,6 @@
         "React",
         "TMDB API"
       ],
-      "image": {
-        "src": "assets/projects-media/flixster.png",
-        "alt": "Flixster movie grid"
-      },
       "links": [
         {
           "kind": "live",

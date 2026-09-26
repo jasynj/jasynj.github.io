@@ -75,7 +75,7 @@ export function createBoard(root, { onPly } = {}) {
     const img = document.createElement("img");
     img.src = `assets/pieces/${p.color}${p.type}.svg`;
     img.alt = "";
-    img.className = "piece";
+    img.className = `piece piece-${p.color}`;
     img.draggable = false;
     layer.append(img);
     els.set(id, img);

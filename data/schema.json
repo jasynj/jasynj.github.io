@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jasynj.github.io/data/schema.json",
+  "title": "Portfolio content",
+  "description": "Everything the site renders. A backend or admin form should produce a document that validates against this schema. The site skips (and logs) any block missing a required field instead of breaking.",
+  "type": "object",
+  "required": ["profile", "experience", "projects"],
+  "properties": {
+    "profile": { "$ref": "#/$defs/profile" },
+    "experience": { "type": "array", "items": { "$ref": "#/$defs/experience" } },
+    "projects": { "type": "array", "items": { "$ref": "#/$defs/project" } },
+    "leadership": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "org"],
+        "properties": { "role": { "type": "string" }, "org": { "type": "string" } }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["group", "items"],
+        "properties": {
+          "group": { "type": "string" },
+          "items": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "yearMonth": {
+      "type": "string",
+      "pattern": "^\\d{4}-(0[1-9]|1[0-2])$",
+      "description": "YYYY-MM"
+    },
+    "image": {
+      "type": "object",
+      "required": ["src", "alt"],
+      "properties": {
+        "src": { "type": "string", "description": "Site-relative path or https URL" },
+        "alt": { "type": "string", "description": "Describe the image; empty only if purely decorative" }
+      }
+    },
+    "link": {
+      "type": "object",
+      "required": ["kind", "url"],
+      "properties": {
+        "kind": { "enum": ["live", "code", "article"] },
+        "url": { "type": "string" }
+      }
+    },
+    "demo": {
+      "type": "object",
+      "required": ["url"],
+      "description": "Shown as a small thumbnail card inside the expanded row; opens in a new tab.",
+      "properties": {
+        "url": { "type": "string", "description": "YouTube, Loom, Drive, or any video/page URL" },
+        "thumbnail": {
+          "type": "string",
+          "description": "Optional image (16:9 works best). YouTube URLs get one automatically when omitted."
+        },
+        "label": { "type": "string", "default": "Watch the demo" }
+      }
+    },
+    "metric": {
+      "type": "object",
+      "required": ["value", "label"],
+      "properties": { "value": { "type": "string" }, "label": { "type": "string" } }
+    },
+    "experience": {
+      "type": "object",
+      "required": ["id", "kind", "role", "org", "start"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "kind": {
+          "enum": ["work", "program", "hackathon"],
+          "description": "work → the Experience timeline; program/hackathon → Programs & hackathons"
+        },
+        "role": { "type": "string" },
+        "org": { "type": "string" },
+        "team": { "type": "string" },
+        "location": { "type": "string" },
+        "start": { "$ref": "#/$defs/yearMonth" },
+        "end": { "oneOf": [{ "$ref": "#/$defs/yearMonth" }, { "type": "null" }], "description": "null = present" },
+        "summary": { "type": "string", "description": "One or two sentences shown on the row" },
+        "metrics": { "type": "array", "maxItems": 4, "items": { "$ref": "#/$defs/metric" } },
+        "highlights": { "type": "array", "items": { "type": "string" }, "description": "Full bullets, shown when expanded" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "logos": { "type": "array", "items": { "$ref": "#/$defs/image" } },
+        "media": { "type": "array", "items": { "$ref": "#/$defs/image" }, "description": "Evidence images shown when expanded" },
+        "links": { "type": "array", "items": { "$ref": "#/$defs/link" } },
+        "demo": { "$ref": "#/$defs/demo" },
+        "project": { "type": "string", "description": "id of a related project" },
+        "mainline": { "type": "boolean", "description": "Plays as a move in the hero game (keep to six)" },
+        "glyph": { "enum": ["!", "!!"] },
+        "proof": { "type": "string", "description": "Mainline only: the 2–4 word result beside the move" },
+        "featured": { "type": "boolean" }
+      }
+    },
+    "project": {
+      "type": "object",
+      "required": ["id", "name", "summary"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "name": { "type": "string" },
+        "featured": { "type": "boolean", "description": "Featured projects are listed first" },
+        "context": { "type": "string", "description": "Short label under the name, e.g. \"Client work · Live\"" },
+        "summary": { "type": "string" },
+        "outcome": { "type": "string", "description": "The result, shown on the collapsed row" },
+        "stack": { "type": "array", "items": { "type": "string" } },
+        "links": { "type": "array", "items": { "$ref": "#/$defs/link" } },
+        "demo": { "$ref": "#/$defs/demo" }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "shortName": { "type": "string" },
+        "title": { "type": "string" },
+        "tagline": { "type": "string" },
+        "email": { "type": "string" },
+        "resume": { "type": "string" },
+        "photo": { "$ref": "#/$defs/image" },
+        "aboutPhoto": { "$ref": "#/$defs/image" },
+        "links": { "type": "array", "items": { "type": "object" } },
+        "education": {
+          "type": "object",
+          "properties": {
+            "school": { "type": "string" },
+            "location": { "type": "string" },
+            "degree": { "type": "string" },
+            "gpa": { "type": "string" },
+            "graduation": { "type": "string" },
+            "coursework": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "honors": { "type": "array", "items": { "type": "string" } },
+        "about": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
