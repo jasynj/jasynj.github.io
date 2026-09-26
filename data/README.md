@@ -101,9 +101,13 @@ Example: adding the Meta 2026 demo means adding a `demo` object to the `meta-202
     { "kind": "live", "url": "https://…" },
     { "kind": "code", "url": "https://github.com/…" }
   ],
-  "demo": { "url": "https://…", "thumbnail": "assets/web/…" }
+  "demo": { "url": "https://…", "thumbnail": "assets/web/…" },
+  "image": { "src": "assets/web/cee.jpg", "alt": "…" }
 }
 ```
+
+A project's demo area shows, in order of preference: its `demo` (thumbnail + play), its `image`
+(a screenshot, when there's no demo), or "No demo available".
 
 ## Other blocks
 

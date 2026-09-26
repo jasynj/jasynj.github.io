@@ -987,6 +987,12 @@ img {
     font-size: 0.8rem;
 }
 
+/* No demo, but a screenshot: shown full strength, anchored to the top of the page it shows. */
+.card-demo-image img {
+    opacity: 1;
+    object-position: top;
+}
+
 /* No demo yet: the space is kept, quietly, with an inset dashed frame. */
 .card-demo-empty {
     align-content: center;

@@ -535,7 +535,11 @@
           "url": "https://github.com/jasynj/Flixster"
         }
       ],
-      "category": "internship"
+      "category": "internship",
+      "image": {
+        "src": "assets/web/flixster.jpg",
+        "alt": "Flixster movie grid"
+      }
     },
     {
       "id": "jarms-delight",
@@ -569,7 +573,11 @@
           "url": "https://github.com/jasynj/cee"
         }
       ],
-      "category": "client"
+      "category": "client",
+      "image": {
+        "src": "assets/web/cee.jpg",
+        "alt": "Craig Events & Entertainments website home page"
+      }
     },
     {
       "id": "gsu-clubs",
@@ -593,7 +601,11 @@
           "url": "https://github.com/jasynj/gsu-clubs-portal"
         }
       ],
-      "category": "client"
+      "category": "client",
+      "image": {
+        "src": "assets/web/clubs.jpg",
+        "alt": "GSU Clubs & Organizations Portal directory page"
+      }
     },
     {
       "id": "safelink",
@@ -684,7 +696,11 @@
           "url": "https://github.com/jasynj/QuantSim"
         }
       ],
-      "category": "personal"
+      "category": "personal",
+      "image": {
+        "src": "assets/web/quantsim.jpg",
+        "alt": "QuantSim backtest dashboard"
+      }
     },
     {
       "id": "visioncare",
@@ -704,7 +720,11 @@
           "url": "https://github.com/jasynj/VisionCare"
         }
       ],
-      "category": "personal"
+      "category": "personal",
+      "image": {
+        "src": "assets/web/visioncare.jpg",
+        "alt": "VisionCare vision test screen"
+      }
     }
   ],
   "leadership": [
