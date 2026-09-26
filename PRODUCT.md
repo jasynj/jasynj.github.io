@@ -24,7 +24,7 @@ Jason ships real products for real users. His work includes a production campus 
 
 - Visitors reach the site from resumes, LinkedIn, job applications, and direct links. Recruiters often decide within seconds.
 - It's a single long page. The reading order puts proof first: relevant experience and what he has shipped lead the page, ahead of his current role or in-progress projects (a decision the user confirmed on 2026-09-25).
-- A resume PDF can be downloaded at `assets/resumes/Chimdinma_Jason.pdf`, the current version (added 2026-09-25). `Resume.pdf` (spring 2026) and `JASON_CHIMDINMA_JASON copy.pdf` (2025) in the same folder are older.
+- A resume PDF can be downloaded at `assets/resumes/Chimdinma_Jason.pdf`, the current version.
 - Contact is an email drafter, not a form backend. A visitor picks a reason (recruiting, a project, a hello), fills in a few fields, and gets a ready-to-send draft to jasoncj.dev@gmail.com, which they can open in their mail app (mailto) or copy. It uses templates only, with no AI and no backend, and may gain an AI endpoint later once a backend exists.
 - There is no Testimonials section. It was removed until real testimonials exist.
 
@@ -43,10 +43,9 @@ Jason ships real products for real users. His work includes a production campus 
 
 ## Evidence on Hand
 
-- Headshot and photos: `assets/headshot.png`, `assets/profile.jpeg`, and `assets/Untitled design.png` (Jason at Meta's Menlo Park sign).
+- Photos: `assets/colorstack_headshot.jpeg` (first screen) and `assets/web/about.jpg` (Jason at Meta's Menlo Park sign, in About).
 - Organization logos: `assets/logos/` (Meta, Google, NVIDIA, Mastercard, AT&T, Code2040, BASTA, AI4ALL, AUC, GSU, USC, Phillips, BeSmart, Startup School).
-- Program photos: `assets/programs-media/`.
-- Project screenshots: `assets/projects-media/` (CEE, GSU Clubs Portal, FitSync, Flixster, MayaCare, QuantSim, Reminisce, SafeLink).
+- Program photos: `assets/web/acc_*.jpg`, `site.jpg`, `team_picture.jpg`.
 - Verifiable outcomes stated on the site: Meta University acceptance (~4% of applicants per the current resume), 4th of 62 teams at the BeSmart Hackathon, Mastercard × AUC finalist, test pass rate up 25% at Phillips Consulting, 50+ students tutored.
 - Resume: `assets/resumes/Chimdinma_Jason.pdf`. Facts from it that weren't on the old site:
   - GPA 3.96 and relevant coursework (distributed systems, deep learning, AI).
@@ -55,7 +54,7 @@ Jason ships real products for real users. His work includes a production campus 
   - QuantSim: an event-driven TypeScript backtesting engine.
   - Reminisce: a voice-first AI memory companion (FastAPI, Gemini, Pinecone, ElevenLabs).
   - Leadership: GSU Book Club co-founder and president, ACM treasurer, ColorStack academic chair, ASA PR director, Tiger LIFT mentor.
-- The older spring-2026 resume adds: Capital One Tech Summit runner-up, National Physics Olympiad finalist (top 40), and Craig Events generating 43+ real inquiries (live at craigevents.com).
+- An older spring-2026 resume (removed from the repo; in git history) adds: Capital One Tech Summit runner-up, National Physics Olympiad finalist (top 40), and Craig Events generating 43+ real inquiries (live at craigevents.com).
 - There are no testimonials yet. Never fabricate quotes, endorsements, metrics, or clients.
 
 ## Product Principles

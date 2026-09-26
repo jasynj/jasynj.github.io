@@ -98,8 +98,7 @@
         "kind": {
           "enum": [
             "live",
-            "code",
-            "article"
+            "code"
           ]
         },
         "url": {
@@ -236,13 +235,6 @@
         },
         "demo": {
           "$ref": "#/$defs/demo"
-        },
-        "project": {
-          "type": "string",
-          "description": "id of a related project"
-        },
-        "featured": {
-          "type": "boolean"
         }
       }
     },
@@ -296,43 +288,18 @@
     "profile": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "shortName": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "tagline": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "resume": {
-          "type": "string"
-        },
         "photo": {
-          "$ref": "#/$defs/image"
+          "$ref": "#/$defs/image",
+          "description": "The photo on the first screen"
         },
         "aboutPhoto": {
-          "$ref": "#/$defs/image"
-        },
-        "links": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
+          "$ref": "#/$defs/image",
+          "description": "The photo in the About section"
         },
         "education": {
           "type": "object",
           "properties": {
             "school": {
-              "type": "string"
-            },
-            "location": {
               "type": "string"
             },
             "degree": {
@@ -363,10 +330,6 @@
           "items": {
             "type": "string"
           }
-        },
-        "heroPhoto": {
-          "$ref": "#/$defs/image",
-          "description": "Photo on the first screen; falls back to aboutPhoto"
         },
         "schedule": {
           "type": "string",

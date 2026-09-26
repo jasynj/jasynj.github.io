@@ -1,34 +1,15 @@
 {
   "profile": {
-    "name": "Jason Chimdinma Jason",
-    "shortName": "Jason C. Jason",
-    "title": "Software Engineer",
-    "tagline": "I build practical, user-centered software with a focus on AI, full-stack development, and real-world impact.",
-    "email": "jasoncj.dev@gmail.com",
-    "resume": "assets/resumes/Chimdinma_Jason.pdf",
     "photo": {
-      "src": "assets/headshot.png",
+      "src": "assets/colorstack_headshot.jpeg",
       "alt": "Portrait of Jason Chimdinma Jason"
     },
     "aboutPhoto": {
       "src": "assets/web/about.jpg",
       "alt": "Jason Chimdinma Jason by the Meta sign at the Menlo Park office"
     },
-    "links": [
-      {
-        "kind": "linkedin",
-        "label": "LinkedIn",
-        "url": "https://www.linkedin.com/in/jasoncjason"
-      },
-      {
-        "kind": "github",
-        "label": "GitHub",
-        "url": "https://github.com/jasynj"
-      }
-    ],
     "education": {
       "school": "Grambling State University",
-      "location": "Grambling, LA",
       "degree": "B.S. Computer Science & B.S. Computer Information Systems",
       "gpa": "3.96 / 4.00",
       "graduation": "May 2028",
@@ -81,7 +62,6 @@
     {
       "id": "meta-2026",
       "kind": "work",
-      "featured": true,
       "role": "Software Engineering Intern",
       "org": "Meta",
       "team": "Messenger Data Use",
@@ -128,7 +108,6 @@
     {
       "id": "gsu-swe",
       "kind": "work",
-      "featured": true,
       "role": "Student Software Engineer",
       "org": "Grambling State University",
       "logos": [
@@ -157,13 +136,11 @@
         "Prisma",
         "Supabase",
         "Auth"
-      ],
-      "project": "gsu-clubs"
+      ]
     },
     {
       "id": "meta-2025",
       "kind": "work",
-      "featured": true,
       "role": "Software Engineering Intern",
       "org": "Meta",
       "team": "Meta University · Horizon OS Developer Education",
@@ -192,13 +169,11 @@
         "React",
         "GraphQL",
         "MERN"
-      ],
-      "project": "fitsync"
+      ]
     },
     {
       "id": "phillips-2024",
       "kind": "work",
-      "featured": false,
       "role": "Software Testing Intern",
       "org": "Phillips Consulting Limited",
       "logos": [
@@ -231,7 +206,6 @@
     {
       "id": "mastercard-auc",
       "kind": "hackathon",
-      "featured": false,
       "role": "Finalist",
       "org": "Mastercard × AUC Data Science Challenge",
       "logos": [
@@ -259,7 +233,6 @@
     {
       "id": "besmart-2025",
       "kind": "hackathon",
-      "featured": false,
       "role": "Finalist — 4th of 62 teams",
       "org": "BE Smart Hackathon",
       "logos": [
@@ -290,13 +263,11 @@
           "src": "assets/web/team_picture.jpg",
           "alt": "Jason's hackathon team at BE Smart"
         }
-      ],
-      "project": "safelink"
+      ]
     },
     {
       "id": "code2040",
       "kind": "program",
-      "featured": false,
       "role": "Technical Fellow",
       "org": "Code2040",
       "logos": [
@@ -324,7 +295,6 @@
     {
       "id": "google-basta",
       "kind": "program",
-      "featured": false,
       "role": "Code2Career Fellow",
       "org": "Google × BASTA",
       "logos": [
@@ -350,7 +320,6 @@
     {
       "id": "ai4all",
       "kind": "program",
-      "featured": false,
       "role": "Ignite Fellow",
       "org": "AI4ALL",
       "logos": [
@@ -368,7 +337,6 @@
     {
       "id": "nvidia-bridge",
       "kind": "program",
-      "featured": false,
       "role": "Summer Bridge Scholar",
       "org": "NVIDIA",
       "logos": [
@@ -395,7 +363,6 @@
     {
       "id": "att-academy",
       "kind": "program",
-      "featured": false,
       "role": "Technology Academy Scholar",
       "org": "AT&T",
       "logos": [
@@ -416,7 +383,6 @@
     {
       "id": "hbcuvc-startup",
       "kind": "program",
-      "featured": false,
       "role": "Startup School Participant",
       "org": "HBCUvc",
       "logos": [
@@ -437,7 +403,6 @@
     {
       "id": "usc-externship",
       "kind": "program",
-      "featured": false,
       "role": "Consulting Extern",
       "org": "Urban Strategies Council",
       "logos": [
@@ -468,7 +433,6 @@
     {
       "id": "gsu-tutor",
       "kind": "work",
-      "featured": false,
       "role": "Python Tutor",
       "org": "Grambling State University",
       "logos": [

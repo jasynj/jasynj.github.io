@@ -34,10 +34,9 @@ site-relative URLs reach an `href` or `src`.
 - **Where experience shows up:** `"kind": "work"` goes in the Experience timeline;
   `"program"` and `"hackathon"` go in Programs & hackathons.
 - **First screen:** `profile.facts` is the list of key facts beside your photo
-  (`{ "label": "Now", "value": "…", "detail": "…" }`). `profile.heroPhoto` sets the photo (it falls
-  back to `aboutPhoto`). `profile.schedule` is your booking link for "Schedule a meeting"; leave it
-  empty and the button opens a meeting-request email instead.
-- **Links** only render when they exist. `kind` is `live`, `code`, or `article`.
+  (`{ "label": "Now", "value": "…", "detail": "…" }`). `profile.photo` is the photo on the first screen and
+  `profile.aboutPhoto` the one in About. `profile.schedule` is the booking link for "Schedule a meeting".
+- **Links** only render when they exist. `kind` is `live` or `code`.
 - **Demos** go in `demo`, not `links` (see below).
 - **Facts come from the current resume** (`assets/resumes/`). Don't add numbers you can't back up.
 
@@ -78,7 +77,7 @@ Example: adding the Meta 2026 demo means adding a `demo` object to the `meta-202
   "tags": ["Data pipelines"],
   "logos": [{ "src": "assets/logos/meta.png", "alt": "Meta" }],
   "media": [{ "src": "assets/web/…", "alt": "…" }],
-  "links": [{ "kind": "article", "url": "https://…" }],
+  "links": [{ "kind": "code", "url": "https://github.com/…" }],
   "demo": { "url": "https://…" }
 }
 ```
@@ -106,7 +105,8 @@ Example: adding the Meta 2026 demo means adding a `demo` object to the `meta-202
 
 - `leadership`: `{ "role": "…", "org": "…" }`
 - `skills`: `{ "group": "Languages", "items": ["Python", "…"] }`
-- `profile`: name, tagline, email, resume path, photos, `facts`, `schedule`, education, honors, and `about` paragraphs.
+- `profile`: `photo`, `aboutPhoto`, `facts`, `schedule`, `education`, `honors`, and `about` paragraphs.
+  (Your name, title, tagline, and contact links are written directly in `index.html`.)
 
 ## Previewing locally
 

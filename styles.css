@@ -1616,9 +1616,15 @@ img {
     grid-area: identity;
   }
 
-  .hero-tagline,
-  .hero-links {
+  /* Everything under the title (tagline, extra lines, links) runs full width. */
+  .hero-identity > :not(.hero-title) {
     grid-column: 1 / -1;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .hero-intro {
+    row-gap: 14px;
   }
 
   .hero-facts {

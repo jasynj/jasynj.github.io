@@ -5,10 +5,9 @@ const TO = "jasoncj.dev@gmail.com";
 
 const INTENTS = {
   hiring: {
-    label: "I'm hiring",
     fields: {
-      org: { label: "Company", placeholder: "e.g. Stripe", required: false },
-      detail: { label: "Role or team", placeholder: "e.g. New Grad SWE 2027, Payments", required: false },
+      org: { label: "Company", placeholder: "e.g. Stripe" },
+      detail: { label: "Role or team", placeholder: "e.g. New Grad SWE 2027, Payments" },
     },
     subject: ({ org, detail }) =>
       detail && org ? `${detail} at ${org}` : org ? `Opportunity at ${org}` : detail ? `${detail} opportunity` : "Software engineering opportunity",
@@ -18,10 +17,9 @@ const INTENTS = {
       }${org ? ` at ${org}` : ""}.\n\nWould you be open to a quick call this week or next? Let me know what times work for you.\n\nBest,\n${name}`,
   },
   project: {
-    label: "A project for you",
     fields: {
-      org: { label: "Business or organization", placeholder: "e.g. Craig Events", required: false },
-      detail: { label: "What you want built", placeholder: "e.g. a booking site for my studio", required: false },
+      org: { label: "Business or organization", placeholder: "e.g. Craig Events" },
+      detail: { label: "What you want built", placeholder: "e.g. a booking site for my studio" },
     },
     subject: ({ detail, org }) => (detail ? `Project inquiry: ${detail}` : org ? `Project inquiry from ${org}` : "Project inquiry"),
     body: ({ name, org, detail }) =>
@@ -30,9 +28,8 @@ const INTENTS = {
       }.\n\nCould we set up a time to talk about scope, timeline, and budget?\n\nThanks,\n${name}`,
   },
   collab: {
-    label: "Let's talk tech",
     fields: {
-      detail: { label: "Topic", placeholder: "e.g. your RAG pipeline in Reminisce", required: false },
+      detail: { label: "Topic", placeholder: "e.g. your RAG pipeline in Reminisce" },
     },
     subject: ({ detail }) => (detail ? `Talking about ${detail}` : "Let's talk tech"),
     body: ({ name, detail }) =>
@@ -41,7 +38,6 @@ const INTENTS = {
       }.\n\nWould love to swap notes sometime.\n\nCheers,\n${name}`,
   },
   hello: {
-    label: "Just saying hi",
     fields: {},
     subject: ({ name }) => `Hello from ${name}`,
     body: ({ name }) => `Hi Jason,\n\nJust wanted to say hi and that I enjoyed your portfolio.\n\nBest,\n${name}`,

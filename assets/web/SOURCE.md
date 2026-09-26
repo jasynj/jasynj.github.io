@@ -1,15 +1,14 @@
 # Web-sized images
 
-Resized JPEG exports (quality 80) of the originals, made with macOS `sips` on 2026-09-25.
-These are the files the site ships; the full-resolution originals stay where they were.
+Resized JPEG exports (quality 80) made with macOS `sips` on 2026-09-25 from larger originals.
+The originals were removed from the repo on 2026-09-26 and remain in git history.
 
-| File | Original |
+| File | What it is |
 | --- | --- |
-| about.jpg | assets/Untitled design.png (1000px wide) |
-| clubs.jpg, cee.jpg, safelink.jpg, reminisce.jpg | assets/projects-media/*.png (1200px wide) |
-| acc_*.jpg | assets/programs-media/acc_*.png (max 1400px wide) |
-| site.jpg | assets/programs-media/site.jpeg |
-| team_picture.jpg | assets/programs-media/team_picture.jpeg (copy) |
+| about.jpg | Jason at the Meta sign, Menlo Park (About section) |
+| acc_*.jpg | Program acceptance letters (BE Smart, Code2040, NVIDIA, Urban Strategies Council) |
+| site.jpg | Mastercard × AUC Data Science Challenge venue |
+| team_picture.jpg | BE Smart hackathon team |
 
-To add a new image: export it about 2× its display width as JPEG or WebP, put it here, and reference
+To add an image: export it at about 2× its display width as JPEG or WebP, put it here, and reference
 it from `data/content.json`.

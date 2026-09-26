@@ -14,9 +14,9 @@ class SafeHtml {
 }
 
 const ESCAPES = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
-export const esc = (value = "") => String(value).replace(/[&<>"']/g, (c) => ESCAPES[c]);
+const esc = (value = "") => String(value).replace(/[&<>"']/g, (c) => ESCAPES[c]);
 
-export const raw = (value) => new SafeHtml(String(value));
+const raw = (value) => new SafeHtml(String(value));
 
 function interpolate(value) {
   if (value === null || value === undefined || value === false) return "";
@@ -42,7 +42,7 @@ export function safeUrl(url) {
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-export function formatMonth(ym) {
+function formatMonth(ym) {
   const [year, month] = ym.split("-").map(Number);
   return `${MONTHS[month - 1]} ${year}`;
 }
@@ -68,7 +68,6 @@ export function durationLabel(months) {
 }
 
 export const byStartDesc = (a, b) => b.start.localeCompare(a.start);
-export const byStartAsc = (a, b) => a.start.localeCompare(b.start);
 
 /* Icons (authored SVG, one stroke weight) ------------------------------------ */
 
@@ -82,10 +81,5 @@ export const ICONS = {
   play: raw('<svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'),
 };
 
-// "Nxf7" → knight figurine + "xf7", the way chess books print it.
-const FIGURINES = { N: "ln", B: "lb", R: "lr", Q: "lq", K: "lk" };
-export function figurine(san) {
-  const piece = FIGURINES[san[0]];
-  if (!piece) return html`${san}`;
-  return html`<img class="figurine" src="assets/pieces/${piece}.svg" alt="${san[0]}" width="16" height="16">${san.slice(1)}`;
-}
+// The knight that lands on a project's square.
+export const KNIGHT = raw('<img class="figurine" src="assets/pieces/ln.svg" alt="" width="16" height="16">');

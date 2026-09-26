@@ -8,7 +8,7 @@ const REQUIRED = {
   experience: ["id", "kind", "role", "org", "start"],
   project: ["id", "name", "summary"],
 };
-const LINK_KINDS = new Set(["live", "code", "demo", "article"]);
+const LINK_KINDS = new Set(["live", "code"]);
 const YM = /^\d{4}-(0[1-9]|1[0-2])$/;
 
 function warn(message, block) {
@@ -43,16 +43,6 @@ function normalizeLinks(links = []) {
   return links.filter((link) => link?.url && LINK_KINDS.has(link.kind));
 }
 
-// A block may carry its demo either as `demo` or as a legacy `{ kind: "demo" }` link.
-function splitDemo(block) {
-  const links = normalizeLinks(block.links);
-  const legacy = links.find((link) => link.kind === "demo");
-  return {
-    demo: normalizeDemo(block.demo) || normalizeDemo(legacy),
-    links: links.filter((link) => link.kind !== "demo"),
-  };
-}
-
 function normalizeExperience(block) {
   if (!YM.test(block.start) || (block.end && !YM.test(block.end))) {
     warn(`experience "${block.id}" has a date that isn't YYYY-MM`, block);
@@ -67,9 +57,9 @@ function normalizeExperience(block) {
     highlights: [],
     tags: [],
     media: [],
-    featured: false,
     ...block,
-    ...splitDemo(block),
+    links: normalizeLinks(block.links),
+    demo: normalizeDemo(block.demo),
   };
 }
 
@@ -80,7 +70,8 @@ function normalizeProject(block) {
     stack: [],
     featured: false,
     ...block,
-    ...splitDemo(block),
+    links: normalizeLinks(block.links),
+    demo: normalizeDemo(block.demo),
   };
 }
 

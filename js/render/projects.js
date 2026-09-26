@@ -2,7 +2,7 @@
 // the board beside it follows whichever project you're looking at. Click a row to expand the
 // full story, stack, links, and demo. One open at a time.
 
-import { html, ICONS, figurine } from "../util.js";
+import { html, ICONS, KNIGHT } from "../util.js";
 import { knightTour, createTourBoard } from "../tour.js";
 import { linkButtons, demoCard } from "./shared.js";
 
@@ -11,7 +11,7 @@ function projectRow(project, index, square) {
   const panelId = `project-${project.id}-detail`;
   return html`<li class="project" id="project-${project.id}" data-index="${index}" data-disclosure>
     <div class="project-row" data-disclosure-row>
-      <span class="project-square" aria-hidden="true"><span class="project-coord">${square}</span><span class="project-knight">${figurine("N")}</span></span>
+      <span class="project-square" aria-hidden="true"><span class="project-coord">${square}</span><span class="project-knight">${KNIGHT}</span></span>
       <div class="project-title">
         <h3 class="project-name">
           <button type="button" class="project-button" aria-expanded="false" aria-controls="${panelId}" data-group="projects">${project.name}</button>
