@@ -34,6 +34,11 @@ body {
     font-family: "Figtree", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+body:hover {
+    cursor: url("assets/icons/icons8-knight-16.png"), auto !important;
+}
+
+
 .header-container {
     width: min(1120px, 100% - 32px);
     margin: 0 auto;
