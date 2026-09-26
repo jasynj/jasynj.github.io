@@ -53,7 +53,7 @@ Jason ships real products for real users. His work includes a production campus 
   - The GSU Clubs & Org Portal serves 600+ users.
   - QuantSim: an event-driven TypeScript backtesting engine.
   - Reminisce: a voice-first AI memory companion (FastAPI, Gemini, Pinecone, ElevenLabs).
-  - Leadership: GSU Book Club co-founder and president, ACM treasurer, ColorStack academic chair, ASA PR director, Tiger LIFT mentor.
+  - Leadership: GSU Book Club co-founder and president, ColorStack Grambling professional development chair, Tiger LIFT mentor (the three shown on the site); also ACM treasurer and ASA PR director (resume only).
 - An older spring-2026 resume (removed from the repo; in git history) adds: Capital One Tech Summit runner-up, National Physics Olympiad finalist (top 40), and Craig Events generating 43+ real inquiries (live at craigevents.com).
 - There are no testimonials yet. Never fabricate quotes, endorsements, metrics, or clients.
 
