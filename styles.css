@@ -181,7 +181,7 @@ body:hover {
 
 .btn-primary {
     background: var(--primary);
-    color: #ffffff;
+    color: #082021;
 }
 
 .btn-primary:hover {
@@ -395,7 +395,7 @@ body:hover {
 
 .experience-tab.is-active {
     background: var(--primary);
-    color: #ffffff;
+    color: #082021;
 }
 
 /* Panels + grid */
@@ -495,6 +495,9 @@ body:hover {
 }
 
 .experience-modal-content {
+    color: var(--text-body);
+    max-height: min(85vh, 720px);
+    overflow-y: auto;
     background: #082021;
     border-radius: var(--radius-md);
     border: 1px solid var(--border-subtle);
@@ -559,8 +562,18 @@ body:hover {
     justify-content: center;
 }
 
-.lightbox.is-open {
+.lightbox[open] {
     display: flex;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    border: none;
+}
+
+.experience-modal-content::backdrop {
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .lightbox-img {
@@ -612,7 +625,7 @@ body:hover {
 .experience-modal-close {
     border: none;
     background: var(--primary);
-    color: #ffffff;
+    color: #082021;
     font-family: inherit;
     font-size: 0.9rem;
     padding: 6px 14px;
@@ -683,9 +696,28 @@ body:hover {
     align-items: center;
 }
 
-.skills-list img {
-    height: 28px;
-    max-width: 100%;
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-chip {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border-subtle);
+    background: var(--surface);
+    color: var(--text-main);
+    font-size: 0.9rem;
+}
+
+.project-outcome {
+    color: var(--text-main);
+    margin-top: 8px !important;
+}
+
+.load-error {
+    color: var(--text-muted);
 }
 
 .skill-item {
@@ -733,9 +765,6 @@ body:hover {
         gap: 10px;
     }
 
-    .skills-list img {
-        height: 24px;
-    }
 
     .skills-card {
         padding: 24px 20px;
