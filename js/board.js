@@ -17,6 +17,11 @@ const OPENINGS = [
     moves: ["d2d4", "g8f6", "c2c4", "g7g6", "b1c3", "f8g7", "e2e4", "d7d6"],
     san: "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6",
   },
+  {
+    name: "Réti Opening",
+    moves: ["g1f3", "d7d5", "c2c4", "e7e6", "g2g3", "g8f6", "f1g2"],
+    san: "1.Nf3 d5 2.c4 e6 3.g3 Nf6 4.Bg2",
+  },
 ];
 
 const START = ["rnbqkbnr", "pppppppp", "........", "........", "........", "........", "PPPPPPPP", "RNBQKBNR"];
