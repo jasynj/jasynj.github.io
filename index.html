@@ -100,7 +100,49 @@
 
     <section id="contact" class="section your-move" aria-labelledby="contact-title">
       <h2 id="contact-title">Your move.</h2>
-      <p class="your-move-lede">Hiring, building something, or just want to talk tech? Email me and I'll reply.</p>
+      <p class="your-move-lede">Tell me what you're reaching out about and I'll draft the email for you. You send it from your own inbox.</p>
+
+      <div class="drafter" data-drafter>
+        <form class="drafter-form" novalidate>
+          <fieldset class="intents">
+            <legend>I'm reaching out because…</legend>
+            <label><input type="radio" name="intent" value="hiring" checked><span>I'm hiring</span></label>
+            <label><input type="radio" name="intent" value="project"><span>A project for you</span></label>
+            <label><input type="radio" name="intent" value="collab"><span>Let's talk tech</span></label>
+            <label><input type="radio" name="intent" value="hello"><span>Just saying hi</span></label>
+          </fieldset>
+
+          <div class="field">
+            <label for="draft-name">Your name</label>
+            <input id="draft-name" name="name" autocomplete="name" placeholder="e.g. Alex Rivera" required>
+          </div>
+          <div class="field" data-field="org">
+            <label for="draft-org">Company</label>
+            <input id="draft-org" name="org" autocomplete="organization">
+          </div>
+          <div class="field" data-field="detail">
+            <label for="draft-detail">Role or team</label>
+            <input id="draft-detail" name="detail">
+          </div>
+        </form>
+
+        <div class="draft">
+          <p class="draft-label" id="draft-label">Draft preview</p>
+          <div class="draft-sheet" aria-labelledby="draft-label">
+            <p class="draft-line"><span>To</span> jasoncj.dev@gmail.com</p>
+            <p class="draft-line"><span>Subject</span> <strong data-preview="subject"></strong></p>
+            <pre class="draft-body" data-preview="body"></pre>
+          </div>
+          <div class="draft-actions">
+            <a class="btn btn-move" data-send="mailto" href="mailto:jasoncj.dev@gmail.com">Open in email app</a>
+            <a class="btn btn-quiet" data-send="gmail" href="https://mail.google.com/" target="_blank" rel="noopener">Gmail</a>
+            <a class="btn btn-quiet" data-send="outlook" href="https://outlook.office.com/" target="_blank" rel="noopener">Outlook</a>
+            <button type="button" class="btn btn-quiet" data-send="copy">Copy draft</button>
+          </div>
+          <p class="draft-status" data-status role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
       <ul class="contact-links">
         <li><a href="mailto:jasoncj.dev@gmail.com">jasoncj.dev@gmail.com</a></li>
         <li><a href="https://www.linkedin.com/in/jasoncjason" target="_blank" rel="noopener">LinkedIn</a></li>

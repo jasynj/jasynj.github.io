@@ -1115,8 +1115,9 @@ img {
   flex-wrap: wrap;
   gap: 12px;
   max-width: 1280px;
-  margin: 36px auto 0;
-  padding: 0;
+  margin: 56px auto 0;
+  padding: 24px 0 0;
+  border-top: 1px solid rgba(246, 246, 243, 0.3);
   list-style: none;
 }
 
@@ -1136,6 +1137,171 @@ img {
   color: var(--ink);
 }
 
+.drafter {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 4vw, 64px);
+  max-width: 1280px;
+  margin: 44px auto 0;
+}
+
+.intents {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+}
+
+.intents legend {
+  margin-bottom: 12px;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--panel-muted);
+}
+
+.intents label {
+  position: relative;
+  cursor: pointer;
+}
+
+.intents input {
+  position: absolute;
+  opacity: 0;
+}
+
+.intents span {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid rgba(246, 246, 243, 0.5);
+  font-weight: 650;
+  transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+
+.intents label:hover span {
+  border-color: var(--paper);
+}
+
+.intents input:checked + span {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--ink);
+}
+
+.intents input:focus-visible + span {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--panel-muted);
+}
+
+.field input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1.5px solid var(--paper);
+  color: var(--paper);
+  font: inherit;
+  font-size: 1.05rem;
+  caret-color: var(--teal);
+}
+
+.field input::placeholder {
+  color: var(--panel-dim);
+}
+
+.field input:focus {
+  outline: none;
+  background: rgba(246, 246, 243, 0.06);
+  border-bottom-color: var(--teal);
+}
+
+.draft-label {
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--panel-muted);
+}
+
+/* The test strip: the email set on a paper scoresheet before it's sent. */
+.draft-sheet {
+  padding: 22px 24px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2.5px solid var(--paper);
+  outline: 1px solid var(--paper);
+  outline-offset: 3px;
+}
+
+.draft-line {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--ink);
+  font-size: 0.95rem;
+}
+
+.draft-line span {
+  flex: 0 0 4.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.draft-body {
+  min-height: 11em;
+  margin: 16px 0 0;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.draft-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.draft-actions button {
+  background: transparent;
+  cursor: pointer;
+}
+
+.drafter:not(.is-ready) .draft-actions [aria-disabled="true"] {
+  opacity: 0.55;
+}
+
+.draft-status {
+  min-height: 1.5em;
+  margin: 12px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--paper);
+}
+
 .your-move a:focus-visible,
 .player-card a:focus-visible {
   outline-color: var(--teal);
@@ -1143,7 +1309,8 @@ img {
 
 @media (max-width: 960px) {
   .section-head,
-  .player-card {
+  .player-card,
+  .drafter {
     grid-template-columns: 1fr;
   }
 

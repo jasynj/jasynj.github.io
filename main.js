@@ -2,6 +2,7 @@
 // Adding an experience, project, or skill means editing that file, not this one.
 
 import { createBoard, assignMoves } from "./js/board.js";
+import { initDrafter } from "./js/drafter.js";
 
 const CONTENT_URL = "data/content.json";
 const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -285,6 +286,7 @@ function renderSections(content) {
 /* Boot ---------------------------------------------------------------------- */
 
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
+initDrafter(document.querySelector("[data-drafter]"));
 
 try {
   const res = await fetch(CONTENT_URL);
