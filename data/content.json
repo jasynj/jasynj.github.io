@@ -459,24 +459,24 @@
   ],
   "projectCategories": [
     {
-      "id": "hackathon",
-      "label": "Hackathons"
-    },
-    {
       "id": "internship",
-      "label": "Internship projects"
+      "label": "Internship Projects"
     },
     {
       "id": "client",
-      "label": "Freelance / client work"
+      "label": "Client & Professional Work"
+    },
+    {
+      "id": "hackathon",
+      "label": "Hackathon Projects"
+    },
+    {
+      "id": "personal",
+      "label": "Personal Projects"
     },
     {
       "id": "vibe",
-      "label": "Vibe coded"
-    },
-    {
-      "id": "fun",
-      "label": "For fun"
+      "label": "Vibe-Coded Projects"
     }
   ],
   "projects": [
@@ -484,10 +484,60 @@
       "id": "meta-project",
       "name": "Meta Project",
       "category": "internship",
-      "context": "",
+      "context": "2026",
       "summary": "Details coming soon.",
       "stack": [],
       "links": []
+    },
+    {
+      "id": "fitsync",
+      "name": "FitSync",
+      "context": "Meta University",
+      "summary": "A fitness tracker for logging meals and workouts and visualizing nutrition and calorie output, powered by real food and exercise data.",
+      "outcome": "LLM-generated workout plans, WebSocket sync, and dual auth (Firebase + JWT); presented to Meta leadership.",
+      "stack": [
+        "MongoDB",
+        "Express",
+        "React",
+        "Node.js",
+        "Nutritionix API"
+      ],
+      "links": [
+        {
+          "kind": "live",
+          "url": "https://fitsync-5tf7.onrender.com/"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/FitSync"
+        }
+      ],
+      "demo": {
+        "url": "https://drive.google.com/file/d/1QON0dgxbo0ca86QO6RZ8gR4pN-f9gRTN/view?usp=sharing",
+        "label": "Watch the demo"
+      },
+      "category": "internship"
+    },
+    {
+      "id": "flixster",
+      "name": "Flixster",
+      "context": "Meta University",
+      "summary": "A responsive movie discovery app on The Movie Database API: browse, search, and sort current films, with detail modals for runtime, genres, and overview.",
+      "stack": [
+        "React",
+        "TMDB API"
+      ],
+      "links": [
+        {
+          "kind": "live",
+          "url": "https://flixster-starter-5ate.onrender.com/"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/Flixster"
+        }
+      ],
+      "category": "internship"
     },
     {
       "id": "jarms-delight",
@@ -497,30 +547,6 @@
       "summary": "Details coming soon.",
       "stack": [],
       "links": []
-    },
-    {
-      "id": "gsu-clubs",
-      "name": "GSU Clubs & Organizations Portal",
-      "context": "Production · Grambling State University",
-      "summary": "A full-stack directory that centralizes every club and Greek organization at Grambling State. Presidents manage their constitutions and bylaws in a password-protected editor; admins keep oversight across all organizations.",
-      "outcome": "In production, serving 600+ students, admins, and org presidents.",
-      "stack": [
-        "PostgreSQL",
-        "Prisma",
-        "Supabase",
-        "Role-based auth"
-      ],
-      "links": [
-        {
-          "kind": "live",
-          "url": "https://gsu-clubs-portal.vercel.app/"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/jasynj/gsu-clubs-portal"
-        }
-      ],
-      "category": "client"
     },
     {
       "id": "cee",
@@ -543,6 +569,30 @@
         {
           "kind": "code",
           "url": "https://github.com/jasynj/cee"
+        }
+      ],
+      "category": "client"
+    },
+    {
+      "id": "gsu-clubs",
+      "name": "GSU Clubs & Organizations Portal",
+      "context": "Production · Grambling State University",
+      "summary": "A full-stack directory that centralizes every club and Greek organization at Grambling State. Presidents manage their constitutions and bylaws in a password-protected editor; admins keep oversight across all organizations.",
+      "outcome": "In production, serving 600+ students, admins, and org presidents.",
+      "stack": [
+        "PostgreSQL",
+        "Prisma",
+        "Supabase",
+        "Role-based auth"
+      ],
+      "links": [
+        {
+          "kind": "live",
+          "url": "https://gsu-clubs-portal.vercel.app/"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/jasynj/gsu-clubs-portal"
         }
       ],
       "category": "client"
@@ -574,7 +624,7 @@
     {
       "id": "reminisce",
       "name": "Reminisce",
-      "context": "Voice-first AI",
+      "context": "UC Berkeley AI Hackathon",
       "summary": "A voice-first AI memory companion for seniors with early-stage memory loss — long-term memory, natural speech, and real-time visual reminders, with no typing required.",
       "outcome": "Led the backend and RAG pipeline design: FastAPI handling concurrent voice requests with real-time LLM context injection.",
       "stack": [
@@ -601,38 +651,9 @@
       "category": "hackathon"
     },
     {
-      "id": "fitsync",
-      "name": "FitSync",
-      "context": "Built at Meta University",
-      "summary": "A fitness tracker for logging meals and workouts and visualizing nutrition and calorie output, powered by real food and exercise data.",
-      "outcome": "LLM-generated workout plans, WebSocket sync, and dual auth (Firebase + JWT); presented to Meta leadership.",
-      "stack": [
-        "MongoDB",
-        "Express",
-        "React",
-        "Node.js",
-        "Nutritionix API"
-      ],
-      "links": [
-        {
-          "kind": "live",
-          "url": "https://fitsync-5tf7.onrender.com/"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/jasynj/FitSync"
-        }
-      ],
-      "demo": {
-        "url": "https://drive.google.com/file/d/1QON0dgxbo0ca86QO6RZ8gR4pN-f9gRTN/view?usp=sharing",
-        "label": "Watch the demo"
-      },
-      "category": "internship"
-    },
-    {
       "id": "mayacare",
       "name": "MayaCare",
-      "context": "Tech for Resistance Hackathon",
+      "context": "Tech for Resistance",
       "summary": "A maternal health advocacy platform addressing the Black maternal mortality crisis: symptom tracking, doctor-visit prep, and a transparent rule-based triage for recognizing warning signs.",
       "stack": [],
       "links": [
@@ -665,7 +686,7 @@
           "url": "https://github.com/jasynj/QuantSim"
         }
       ],
-      "category": "fun"
+      "category": "personal"
     },
     {
       "id": "visioncare",
@@ -685,28 +706,7 @@
           "url": "https://github.com/jasynj/VisionCare"
         }
       ],
-      "category": "fun"
-    },
-    {
-      "id": "flixster",
-      "name": "Flixster",
-      "context": "Frontend",
-      "summary": "A responsive movie discovery app on The Movie Database API: browse, search, and sort current films, with detail modals for runtime, genres, and overview.",
-      "stack": [
-        "React",
-        "TMDB API"
-      ],
-      "links": [
-        {
-          "kind": "live",
-          "url": "https://flixster-starter-5ate.onrender.com/"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/jasynj/Flixster"
-        }
-      ],
-      "category": "fun"
+      "category": "personal"
     }
   ],
   "leadership": [
