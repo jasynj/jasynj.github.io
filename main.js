@@ -101,127 +101,190 @@ function renderGame(content) {
   }
 }
 
-/* Sections below the fold (transitional markup until Phase 3) ------------- */
+/* Experience: the annotated game ------------------------------------------ */
 
-function logosHtml(logos = []) {
-  return `<div class="exp-logo-wrap${logos.length > 1 ? " double" : ""}">
-    ${logos.map((l) => `<img class="exp-logo" src="${esc(l.src)}" alt="${esc(l.alt)}" width="36" height="36" loading="lazy">`).join("")}
+function monthsBetween(start, end) {
+  const [y1, m1] = start.split("-").map(Number);
+  const now = new Date();
+  const [y2, m2] = end ? end.split("-").map(Number) : [now.getFullYear(), now.getMonth() + 1];
+  return Math.max(1, (y2 - y1) * 12 + (m2 - m1) + 1);
+}
+
+function durationLabel(months) {
+  if (months < 12) return `${months} mo`;
+  const years = Math.floor(months / 12);
+  const rest = months % 12;
+  return rest ? `${years} yr ${rest} mo` : `${years} yr`;
+}
+
+function annotationBody(item) {
+  const metrics = (item.metrics || [])
+    .map((m) => `<li><span class="metric-value">${esc(m.value)}</span> <span class="metric-label">${esc(m.label)}</span></li>`)
+    .join("");
+  const highlights = (item.highlights || []).map((h) => `<li>${esc(h)}</li>`).join("");
+  const media = (item.media || [])
+    .map(
+      (m) =>
+        `<a class="evidence" href="${esc(m.src)}" target="_blank" rel="noopener"><img src="${esc(m.src)}" alt="${esc(m.alt)}" loading="lazy"></a>`
+    )
+    .join("");
+  const logos = (item.logos || [])
+    .map((l) => `<img src="${esc(l.src)}" alt="${esc(l.alt)}" width="32" height="32" loading="lazy">`)
+    .join("");
+  return `
+    <div class="ann-head">
+      <span class="ann-logos">${logos}</span>
+      <div>
+        <h3 class="ann-org">${esc(item.org)}</h3>
+        <p class="ann-role">${esc(item.role)}${item.team ? ` · ${esc(item.team)}` : ""}</p>
+      </div>
+    </div>
+    <p class="ann-summary">${esc(item.summary)}</p>
+    ${metrics ? `<ul class="ann-metrics">${metrics}</ul>` : ""}
+    ${
+      highlights || media
+        ? `<details class="ann-notes">
+            <summary>Full notes</summary>
+            ${highlights ? `<ul class="ann-highlights">${highlights}</ul>` : ""}
+            ${media ? `<div class="ann-evidence">${media}</div>` : ""}
+          </details>`
+        : ""
+    }`;
+}
+
+function clockColumn(item) {
+  const months = monthsBetween(item.start, item.end);
+  return `<div class="ann-clock">
+    <span class="ann-dates">${formatRange(item.start, item.end)}</span>
+    <span class="ann-bar" style="--months:${months}" aria-hidden="true"></span>
+    <span class="ann-duration">${durationLabel(months)} · ${esc(item.location)}</span>
   </div>`;
 }
 
-function experienceCard(item) {
-  const hasDetail = (item.highlights && item.highlights.length) || (item.media && item.media.length);
-  return `<article class="experience-card" id="exp-${esc(item.id)}">
-    ${logosHtml(item.logos)}
-    <h3>${esc(item.role)}</h3>
-    <p class="exp-org">${esc(item.org)}${item.team ? ` · ${esc(item.team)}` : ""}</p>
-    <p class="exp-meta">${esc(item.location)} • ${formatRange(item.start, item.end)}</p>
-    <p class="exp-summary">${esc(item.summary)}</p>
-    ${hasDetail ? `<button type="button" class="experience-more" data-detail="${esc(item.id)}">View details ↗</button>` : ""}
+function renderAnnotations(content) {
+  const mainline = content.experience.filter((e) => e.mainline).sort(byStartAsc);
+  const moves = assignMoves(mainline);
+  const side = content.experience.filter((e) => !e.mainline).sort(byStartDesc);
+
+  // A side variation hangs off the latest main move that started on or before it.
+  const variationsFor = (move, next) =>
+    side.filter((v) => v.start >= move.entry.start && (!next || v.start < next.entry.start));
+
+  const earliest = side.filter((v) => v.start < moves[0].entry.start);
+
+  const html = moves
+    .map((move, i) => {
+      const next = moves[i + 1];
+      const brilliant = move.entry.glyph === "!!";
+      const variations = variationsFor(move, next)
+        .map((v) => `<li class="variation" id="exp-${esc(v.id)}">${clockColumn(v)}<div class="ann-body">${annotationBody(v)}</div></li>`)
+        .join("");
+      return {
+        html: `<li class="annotation${brilliant ? " is-brilliant" : ""}" id="exp-${esc(move.entry.id)}">
+          <p class="ann-move">
+            <span class="ann-no">${move.number}.</span>
+            <span class="ann-san">${figurine(move.san)}${move.entry.glyph ? `<span class="glyph${brilliant ? " glyph-brilliant" : ""}">${esc(move.entry.glyph)}</span>` : ""}</span>
+          </p>
+          ${clockColumn(move.entry)}
+          <div class="ann-body">${annotationBody(move.entry)}</div>
+          ${variations ? `<ol class="variations" aria-label="Side variations">${variations}</ol>` : ""}
+        </li>`,
+      };
+    })
+    .reverse()
+    .map((m) => m.html)
+    .join("");
+
+  const opening = earliest.length
+    ? `<li class="annotation annotation-opening"><ol class="variations" aria-label="Before the game">${earliest
+        .map((v) => `<li class="variation" id="exp-${esc(v.id)}">${clockColumn(v)}<div class="ann-body">${annotationBody(v)}</div></li>`)
+        .join("")}</ol></li>`
+    : "";
+
+  document.querySelector("[data-render='annotations']").innerHTML = html + opening;
+}
+
+/* Projects: key positions and more lines ---------------------------------- */
+
+function projectLinks(project) {
+  return (project.links || [])
+    .map(
+      (link) =>
+        `<a class="btn btn-line" href="${esc(link.url)}" target="_blank" rel="noopener">${LINK_LABELS[link.kind] || "Link"}<span class="visually-hidden"> for ${esc(project.name)}</span></a>`
+    )
+    .join("");
+}
+
+function positionCard(project) {
+  return `<article class="position">
+    <figure class="position-diagram">
+      <img src="${esc(project.image.src)}" alt="${esc(project.image.alt)}" loading="lazy">
+    </figure>
+    <p class="position-context">${esc(project.context)}</p>
+    <h3 class="position-name">${esc(project.name)}</h3>
+    <p class="position-summary">${esc(project.summary)}</p>
+    ${project.outcome ? `<p class="position-outcome">${esc(project.outcome)}</p>` : ""}
+    ${project.stack?.length ? `<p class="position-stack">${project.stack.map(esc).join(" · ")}</p>` : ""}
+    <div class="position-links">${projectLinks(project)}</div>
   </article>`;
 }
 
-function detailDialog(item) {
-  const highlights = (item.highlights || []).map((h) => `<li>${esc(h)}</li>`).join("");
-  const media = (item.media || [])
-    .map((m) => `<img class="modal-media-img" src="${esc(m.src)}" alt="${esc(m.alt)}" loading="lazy">`)
-    .join("");
-  return `<dialog class="experience-modal-content" id="detail-${esc(item.id)}" aria-labelledby="detail-${esc(item.id)}-title">
-    <h3 id="detail-${esc(item.id)}-title">${esc(item.role)} — ${esc(item.org)}</h3>
-    <p>${esc(item.location)} • ${formatRange(item.start, item.end)}</p>
-    ${highlights ? `<ul>${highlights}</ul>` : ""}
-    ${media ? `<div class="modal-media-grid">${media}</div>` : ""}
-    <form method="dialog"><button class="experience-modal-close">Close</button></form>
-  </dialog>`;
+function lineRow(project) {
+  return `<li class="line">
+    <div class="line-name">
+      <h4>${esc(project.name)}</h4>
+      <p>${esc(project.context)}</p>
+    </div>
+    <p class="line-summary">${esc(project.summary)}</p>
+    <div class="line-links">${projectLinks(project)}</div>
+  </li>`;
 }
 
-function projectTile(project) {
-  const links = (project.links || [])
-    .map(
-      (link, i) =>
-        `<a href="${esc(link.url)}" target="_blank" rel="noopener" class="project-btn ${i === 0 ? "btn-primary" : "btn-outline"}">${LINK_LABELS[link.kind] || "Link"}</a>`
-    )
-    .join("");
-  return `<article class="project-tile">
-    <div class="project-img-container">
-      <img class="project-img" src="${esc(project.image.src)}" alt="${esc(project.image.alt)}" loading="lazy">
-    </div>
-    <div class="project-info">
-      <h3>${esc(project.name)}</h3>
-      <p>${esc(project.summary)}</p>
-      ${project.outcome ? `<p class="project-outcome">${esc(project.outcome)}</p>` : ""}
-      <div class="project-buttons">${links}</div>
-    </div>
-  </article>`;
+/* About and skills ---------------------------------------------------------- */
+
+function renderPlayer(profile, leadership) {
+  document.querySelector("[data-render='about-photo']").innerHTML = `<img src="${esc(profile.aboutPhoto.src)}" alt="${esc(
+    profile.aboutPhoto.alt
+  )}" width="1545" height="2000" loading="lazy">`;
+  document.querySelector("[data-render='about']").innerHTML = profile.about.map((p) => `<p>${esc(p)}</p>`).join("");
+
+  const ed = profile.education;
+  const list = (items) => `<ul>${items.map((i) => `<li>${i}</li>`).join("")}</ul>`;
+  document.querySelector("[data-render='facts']").innerHTML = `
+    <div><dt>Education</dt><dd>${esc(ed.school)}<br>${esc(ed.degree)}<br><span class="fact-mono">GPA ${esc(ed.gpa)} · ${esc(ed.graduation)}</span></dd></div>
+    <div><dt>Honors</dt><dd>${list(profile.honors.map(esc))}</dd></div>
+    <div><dt>Leadership</dt><dd>${list(leadership.map((l) => `${esc(l.role)}, ${esc(l.org)}`))}</dd></div>
+    <div><dt>Coursework</dt><dd>${esc(ed.coursework.join(" · "))}</dd></div>`;
 }
 
-function skillsHtml(groups) {
-  return `<div class="skills-card">${groups
+function renderSkills(groups) {
+  document.querySelector("[data-render='skills']").innerHTML = groups
     .map(
-      (g) => `<h3 class="skills-category">${esc(g.group)}</h3>
-      <ul class="skills-list">${g.items.map((s) => `<li class="skill-chip">${esc(s)}</li>`).join("")}</ul>`
+      (g) => `<div class="repertoire-group">
+        <h3>${esc(g.group)}</h3>
+        <ul>${g.items.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>
+      </div>`
     )
-    .join("")}</div>`;
+    .join("");
 }
 
 function renderSections(content) {
-  const work = content.experience.filter((e) => e.kind === "work").sort(byStartDesc);
-  const programs = content.experience.filter((e) => e.kind !== "work").sort(byStartDesc);
-
-  document.querySelector("[data-render='about']").innerHTML = content.profile.about
-    .map((p) => `<p class="about-text">${esc(p)}</p>`)
+  renderAnnotations(content);
+  document.querySelector("[data-render='featured-projects']").innerHTML = content.projects
+    .filter((p) => p.featured)
+    .map(positionCard)
     .join("");
-  document.querySelector("[data-render='work']").innerHTML = work.map(experienceCard).join("");
-  document.querySelector("[data-render='programs']").innerHTML = programs.map(experienceCard).join("");
-  document.querySelector("[data-render='details']").innerHTML = content.experience.map(detailDialog).join("");
-  document.querySelector("[data-render='projects']").innerHTML = content.projects.map(projectTile).join("");
-  document.querySelector("[data-render='skills']").innerHTML = skillsHtml(content.skills);
-}
-
-function bindTabs() {
-  const tabs = document.querySelectorAll(".experience-tab");
-  const panels = document.querySelectorAll(".experience-panel");
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      tabs.forEach((t) => {
-        const active = t === tab;
-        t.classList.toggle("is-active", active);
-        t.setAttribute("aria-selected", String(active));
-      });
-      panels.forEach((panel) => panel.classList.toggle("is-active", panel.id === tab.getAttribute("aria-controls")));
-    });
-  });
-}
-
-function bindDetails() {
-  document.addEventListener("click", (e) => {
-    const trigger = e.target.closest("[data-detail]");
-    if (trigger) document.getElementById(`detail-${trigger.dataset.detail}`)?.showModal();
-
-    // Click on the backdrop closes the dialog.
-    if (e.target instanceof HTMLDialogElement) e.target.close();
-  });
-}
-
-function bindLightbox() {
-  const lightbox = document.createElement("dialog");
-  lightbox.className = "lightbox";
-  document.body.appendChild(lightbox);
-
-  document.addEventListener("click", (e) => {
-    if (!e.target.matches(".modal-media-img")) return;
-    lightbox.innerHTML = `<img class="lightbox-img" src="${esc(e.target.src)}" alt="${esc(e.target.alt)}">
-      <form method="dialog"><button class="lightbox-close" aria-label="Close image">✕</button></form>`;
-    lightbox.showModal();
-  });
+  document.querySelector("[data-render='more-projects']").innerHTML = content.projects
+    .filter((p) => !p.featured)
+    .map(lineRow)
+    .join("");
+  renderPlayer(content.profile, content.leadership);
+  renderSkills(content.skills);
 }
 
 /* Boot ---------------------------------------------------------------------- */
 
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
-bindTabs();
-bindDetails();
-bindLightbox();
 
 try {
   const res = await fetch(CONTENT_URL);

@@ -12,7 +12,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="legacy.css" />
   <link rel="stylesheet" href="styles.css" />
   <script type="module" src="main.js"></script>
 </head>
@@ -53,7 +52,7 @@
         </dl>
         <h1 id="player-name" class="player">Jason Chimdinma Jason</h1>
         <p class="player-line">Software Engineer · CS &amp; CIS, Grambling State ’28</p>
-        <p class="player-tagline" data-render="tagline">I build practical, user-centered software with a focus on AI, full-stack development, and real-world impact.</p>
+        <p class="player-tagline">I build practical, user-centered software with a focus on AI, full-stack development, and real-world impact.</p>
 
         <h2 class="visually-hidden">Career moves</h2>
         <ol class="moves" data-render="moves"></ol>
@@ -65,147 +64,55 @@
       </div>
     </section>
 
-    <div class="legacy">
-    <!-- ABOUT -->
-    <section id="about" class="section about">
-      <div class="about-container">
-        <h2> About</h2>
+    <section id="experience" class="section game" aria-labelledby="experience-title">
+      <header class="section-head">
+        <h2 id="experience-title">Experience</h2>
+        <p class="section-note">The full game, newest move first. Programs and hackathons sit in parentheses as side variations, under the move they branched from. Each bar is as long as the role lasted.</p>
+      </header>
+      <ol class="annotations" data-render="annotations"></ol>
+    </section>
 
-        <div class="about-inner">
-          <div class="about-left">
-            <img class="about-image" src="assets/Untitled design.png"
-              alt="Image of Jason Chimdinma Jason by Meta's Monument sign in Menlo Park Office">
-          </div>
+    <section id="projects" class="section positions" aria-labelledby="projects-title">
+      <header class="section-head">
+        <h2 id="projects-title">Projects</h2>
+        <p class="section-note">Four key positions: shipped, used, and measured. More lines below.</p>
+      </header>
+      <div class="position-grid" data-render="featured-projects"></div>
+      <h3 class="lines-title">More lines</h3>
+      <ul class="lines" data-render="more-projects"></ul>
+    </section>
 
-          <div class="about-right">
-            <div class="about-cards">
-              <div class="about-card">
-                <p class="label">Education</p>
-                <p class="value">B.S. Computer Science · B.S. Computer Information Systems</p>
-                <p class="subtext">Grambling State University · GPA 3.96 · Class of 2028</p>
-              </div>
-            </div>
-            <div data-render="about"></div>
-          </div>
-        </div>
+    <section id="about" class="section player-card" aria-labelledby="about-title">
+      <figure class="player-photo" data-render="about-photo"></figure>
+      <div class="player-body">
+        <h2 id="about-title">About</h2>
+        <div class="player-about" data-render="about"></div>
+        <dl class="player-facts" data-render="facts"></dl>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section experience">
-      <div class="container">
-        <h2>Experience</h2>
-
-        <div class="experience-tabs" role="tablist" aria-label="Experience type">
-          <button type="button" class="experience-tab is-active" role="tab" id="tab-work" aria-selected="true" aria-controls="panel-work">
-            Work
-          </button>
-          <button type="button" class="experience-tab" role="tab" id="tab-programs" aria-selected="false" aria-controls="panel-programs">
-            Programs &amp; Hackathons
-          </button>
-        </div>
-
-        <div class="experience-panels">
-          <div class="experience-panel is-active" id="panel-work" role="tabpanel" aria-labelledby="tab-work">
-            <div class="experience-grid" data-render="work"></div>
-          </div>
-          <div class="experience-panel" id="panel-programs" role="tabpanel" aria-labelledby="tab-programs">
-            <div class="experience-grid" data-render="programs"></div>
-          </div>
-        </div>
-      </div>
-
-      <div data-render="details"></div>
-
+    <section id="skills" class="section repertoire" aria-labelledby="skills-title">
+      <header class="section-head">
+        <h2 id="skills-title">Skills</h2>
+      </header>
+      <div class="repertoire-grid" data-render="skills"></div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section projects">
-      <div class="projects-container">
-        <h2> Projects </h2>
-        <div class="projects-grid" data-render="projects"></div>
-      </div>
+    <section id="contact" class="section your-move" aria-labelledby="contact-title">
+      <h2 id="contact-title">Your move.</h2>
+      <p class="your-move-lede">Hiring, building something, or just want to talk tech? Email me and I'll reply.</p>
+      <ul class="contact-links">
+        <li><a href="mailto:jasoncj.dev@gmail.com">jasoncj.dev@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/jasoncjason" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/jasynj" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="assets/resumes/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
+      </ul>
     </section>
-
-    <!-- SKILLS  -->
-    <section id="skills" class="section skills">
-      <div class="container">
-        <h2>Skills</h2>
-        <div data-render="skills"></div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <div class="container">
-        <h2>Contact</h2>
-
-
-        <div class="contact-inner">
-          <div class="contact-left">
-            <h3>Let's Connect</h3>
-            <p class="contact-text">
-              Whether you're hiring, have a project in mind, or just want to talk tech, email me and I'll get back to you.
-            </p>
-
-            <div class="contact-info">
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                </div>
-                <div class="contact-details">
-                  <p class="contact-label">Email</p>
-                  <a href="mailto:jasoncj.dev@gmail.com" class="contact-link">jasoncj.dev@gmail.com</a>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                </div>
-                <div class="contact-details">
-                  <p class="contact-label">LinkedIn</p>
-                  <a href="https://www.linkedin.com/in/jasoncjason" target="_blank" rel="noopener"
-                    class="contact-link">linkedin.com/in/jasoncjason</a>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path
-                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                    </path>
-                  </svg>
-                </div>
-                <div class="contact-details">
-                  <p class="contact-label">GitHub</p>
-                  <a href="https://github.com/jasynj" target="_blank" rel="noopener"
-                    class="contact-link">github.com/jasynj</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© <span data-year>2026</span> Jason Chimdinma Jason.</p>
-      <p class="attribution">
-        Chess pieces by Colin M.L. Burnett, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>
-      </p>
-    </div>
+    <p>© <span data-year>2026</span> Jason Chimdinma Jason</p>
+    <p>Chess pieces by Colin M.L. Burnett, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></p>
   </footer>
 </body>
 
