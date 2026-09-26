@@ -14,6 +14,10 @@ so the form only has to append an object in the shape below.
   recruiters see first; keep it to the strongest three or four.
 - **Images** are paths relative to the site root. Every image needs a real `alt`.
 - **Links** only render when they exist. Omit a link rather than leaving it empty.
+- **The main line** (`mainline: true`) is the career game on the first screen. Each mainline entry
+  plays as one white move, oldest first, and the newest always lands as the final move. Keep it to
+  the moves that matter most (six fit the board's line). Everything else still appears below as a
+  side variation.
 - **Facts come from the current resume** (`assets/resumes/`). Don't add numbers you can't back up.
 
 ## Experience block
@@ -35,7 +39,10 @@ so the form only has to append an object in the shape below.
   "highlights": ["Full bullet…"],    // optional, shown in the detail view
   "tags": ["Data pipelines"],        // optional
   "media": [{ "src": "…", "alt": "…" }],                            // optional
-  "project": "fitsync"               // optional, id of a related project
+  "project": "fitsync",              // optional, id of a related project
+  "mainline": true,                  // optional: plays as a move in the hero's game
+  "glyph": "!!",                     // optional annotation: "!!" brilliant, "!" good
+  "proof": "~22M records"            // mainline only: the 2–4 word result beside the move
 }
 ```
 

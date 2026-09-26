@@ -101,7 +101,10 @@
         "Privacy infrastructure",
         "Full-stack",
         "AI tooling"
-      ]
+      ],
+      "mainline": true,
+      "glyph": "!!",
+      "proof": "~22M records"
     },
     {
       "id": "gsu-swe",
@@ -136,7 +139,10 @@
         "Supabase",
         "Auth"
       ],
-      "project": "gsu-clubs"
+      "project": "gsu-clubs",
+      "mainline": true,
+      "glyph": "!",
+      "proof": "600+ users"
     },
     {
       "id": "meta-2025",
@@ -171,7 +177,10 @@
         "GraphQL",
         "MERN"
       ],
-      "project": "fitsync"
+      "project": "fitsync",
+      "mainline": true,
+      "glyph": "!",
+      "proof": "top ~4% selected"
     },
     {
       "id": "phillips-2024",
@@ -204,7 +213,9 @@
         "QA automation",
         "Jira",
         "Agile"
-      ]
+      ],
+      "mainline": true,
+      "proof": "+25% pass rate"
     },
     {
       "id": "mastercard-auc",
@@ -269,7 +280,9 @@
           "alt": "Jason's hackathon team at BE Smart"
         }
       ],
-      "project": "safelink"
+      "project": "safelink",
+      "mainline": true,
+      "proof": "4th of 62 teams"
     },
     {
       "id": "code2040",
@@ -468,7 +481,9 @@
       "highlights": [
         "Tutored 50+ students in introductory Python: variables, loops, functions, file handling, and basic OOP.",
         "Led lab sessions and group problem-solving on algorithms, data structures, and exam preparation."
-      ]
+      ],
+      "mainline": true,
+      "proof": "50+ students"
     }
   ],
   "projects": [

@@ -1,10 +1,14 @@
 // Renders every content block from data/content.json.
 // Adding an experience, project, or skill means editing that file, not this one.
 
+import { createBoard, assignMoves } from "./js/board.js";
+
 const CONTENT_URL = "data/content.json";
+const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const LINK_LABELS = { live: "Live site", demo: "Demo", code: "Code" };
+const FIGURINES = { N: "ln", B: "lb", R: "lr", Q: "lq", K: "lk" };
 
 const esc = (value = "") =>
   String(value).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -21,6 +25,83 @@ function formatRange(start, end) {
 }
 
 const byStartDesc = (a, b) => b.start.localeCompare(a.start);
+const byStartAsc = (a, b) => a.start.localeCompare(b.start);
+
+// "Nxf7" → knight figurine + "xf7", the way chess books print it.
+function figurine(san) {
+  const piece = FIGURINES[san[0]];
+  if (!piece) return esc(san);
+  return `<img src="assets/pieces/${piece}.svg" alt="${esc(san[0])}" width="16" height="16">${esc(san.slice(1))}`;
+}
+
+/* The game on the first screen ------------------------------------------- */
+
+function moveRow({ entry, number, san, ply }) {
+  const brilliant = entry.glyph === "!!";
+  const glyph = entry.glyph
+    ? `<span class="glyph${brilliant ? " glyph-brilliant" : ""}" aria-label="${brilliant ? "brilliant move" : "good move"}">${esc(entry.glyph)}</span>`
+    : "";
+  return `<li class="move${brilliant ? " is-brilliant" : ""}" data-ply="${ply}">
+    <a href="#exp-${esc(entry.id)}">
+      <span class="move-no">${number}.</span>
+      <span class="move-san">${figurine(san)}${glyph}</span>
+      <span class="move-what">
+        <span class="move-org">${esc(entry.org)}</span>
+        <span class="move-role">${entry.start.slice(0, 4)} · ${esc(entry.role)}</span>
+      </span>
+      <span class="move-proof">${esc(entry.proof || "")}</span>
+    </a>
+  </li>`;
+}
+
+function renderGame(content) {
+  const mainline = content.experience.filter((e) => e.mainline).sort(byStartAsc);
+  const moves = assignMoves(mainline);
+  const list = document.querySelector("[data-render='moves']");
+  list.innerHTML = moves.map(moveRow).join("");
+
+  const evalFill = document.querySelector(".eval-fill");
+  const rows = [...list.querySelectorAll(".move")];
+  const brilliantPly = moves.find((m) => m.entry.glyph === "!!")?.ply;
+
+  const board = createBoard(document.querySelector("[data-board]"), {
+    // White's edge grows as the game goes on; the bar is the story, not a number.
+    onPly: (ply) => {
+      evalFill.style.height = `${50 + (ply / board.plies) * 38}%`;
+      rows.forEach((row) => row.classList.toggle("is-current", Number(row.dataset.ply) === ply));
+    },
+  });
+
+  const finalPly = moves.at(-1).ply;
+  const show = (ply) => board.setPly(ply, { brilliant: ply === brilliantPly });
+
+  rows.forEach((row) => {
+    const ply = Number(row.dataset.ply);
+    const link = row.querySelector("a");
+    link.addEventListener("mouseenter", () => show(ply));
+    link.addEventListener("focus", () => show(ply));
+  });
+  list.addEventListener("mouseleave", () => show(finalPly));
+  list.addEventListener("focusout", (e) => {
+    if (!list.contains(e.relatedTarget)) show(finalPly);
+  });
+
+  // Play the game through once, landing on the latest move.
+  if (REDUCED_MOTION) {
+    show(finalPly);
+  } else {
+    let ply = 0;
+    show(0);
+    const step = () => {
+      ply += 1;
+      show(ply);
+      if (ply < finalPly) setTimeout(step, ply % 2 ? 380 : 520);
+    };
+    setTimeout(step, 500);
+  }
+}
+
+/* Sections below the fold (transitional markup until Phase 3) ------------- */
 
 function logosHtml(logos = []) {
   return `<div class="exp-logo-wrap${logos.length > 1 ? " double" : ""}">
@@ -30,7 +111,7 @@ function logosHtml(logos = []) {
 
 function experienceCard(item) {
   const hasDetail = (item.highlights && item.highlights.length) || (item.media && item.media.length);
-  return `<article class="experience-card">
+  return `<article class="experience-card" id="exp-${esc(item.id)}">
     ${logosHtml(item.logos)}
     <h3>${esc(item.role)}</h3>
     <p class="exp-org">${esc(item.org)}${item.team ? ` · ${esc(item.team)}` : ""}</p>
@@ -83,7 +164,7 @@ function skillsHtml(groups) {
     .join("")}</div>`;
 }
 
-function render(content) {
+function renderSections(content) {
   const work = content.experience.filter((e) => e.kind === "work").sort(byStartDesc);
   const programs = content.experience.filter((e) => e.kind !== "work").sort(byStartDesc);
 
@@ -135,20 +216,22 @@ function bindLightbox() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
-  bindTabs();
-  bindDetails();
-  bindLightbox();
+/* Boot ---------------------------------------------------------------------- */
 
-  try {
-    const res = await fetch(CONTENT_URL);
-    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-    render(await res.json());
-  } catch (err) {
-    console.error("Could not load site content:", err);
-    document.querySelectorAll("[data-render]").forEach((el) => {
-      el.innerHTML = `<p class="load-error">This section couldn't load. The <a href="assets/resumes/Chimdinma_Jason.pdf">resume</a> has everything.</p>`;
-    });
-  }
-});
+document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
+bindTabs();
+bindDetails();
+bindLightbox();
+
+try {
+  const res = await fetch(CONTENT_URL);
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+  const content = await res.json();
+  renderGame(content);
+  renderSections(content);
+} catch (err) {
+  console.error("Could not load site content:", err);
+  document.querySelectorAll("[data-render]").forEach((el) => {
+    el.innerHTML = `<p class="load-error">This section couldn't load. The <a href="assets/resumes/Chimdinma_Jason.pdf">resume</a> has everything.</p>`;
+  });
+}

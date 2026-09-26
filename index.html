@@ -5,72 +5,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jason Chimdinma Jason | Software Engineer</title>
+  <meta name="description" content="Jason Chimdinma Jason, software engineer. Two Meta SWE internships, a production campus platform serving 600+ users, and client work in production." />
+  <meta name="theme-color" content="#f6f6f3" />
+  <link rel="icon" href="assets/pieces/ln.svg" type="image/svg+xml" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="legacy.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="main.js"></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="header-container header-inner">
-      <a href="#hero" class="logo">Jason C. Jason</a>
-
-      <nav class="main-nav">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+  <header class="masthead">
+    <a href="#top" class="wordmark">
+      <img src="assets/pieces/ln.svg" alt="" width="28" height="28" />
+      <span>Jason C. Jason</span>
+    </a>
+    <nav class="masthead-nav" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="masthead-resume" href="assets/resumes/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Resume</a>
   </header>
-  <main>
-    <!-- HERO -->
-    <section id="hero" class="section hero">
-      <div class="container hero-inner">
-        <div class="hero-left">
-          <div class="hero-avatar">
-            <img class="profile-pic" src="assets/headshot.png" alt="Portrait of Jason Chimdinma Jason" />
-          </div>
-          <p class="hero-greeting"> Hello, I'm</p>
-          <h1>Jason Chimdinma Jason</h1>
-          <p class="hero-title">Software Engineer</p>
-          <p class="hero-tagline">
-            I build practical, user centered software with a focus on AI, full stack development, and real world
-            impact.
-          </p>
 
-          <div class="hero-actions">
-            <a href="assets/resumes/Chimdinma_Jason.pdf" class="btn btn-primary" target="_blank" rel="noopener">
-              Download Resume
-            </a>
-
-            <a href="#contact" class="btn btn-outline">
-              Contact Me
-            </a>
-          </div>
-
-          <div class="hero-socials">
-            <a href="https://www.linkedin.com/in/jasoncjason" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <img src="assets/icons/linkedin.png" alt="LinkedIn Logo">
-            </a>
-            <a href=" https://github.com/jasynj" target="_blank" rel="noopener" aria-label="GitHub">
-              <img src="assets/icons/github.png" alt="Github Logo">
-            </a>
-          </div>
+  <main id="main">
+    <section id="top" class="analysis" aria-labelledby="player-name">
+      <div class="analysis-board">
+        <div class="eval" aria-hidden="true"><span class="eval-fill"></span></div>
+        <div class="board-frame">
+          <div class="board" data-board aria-label="Chess board replaying the career game" role="img"></div>
+          <ol class="coords coords-files" aria-hidden="true"><li>a</li><li>b</li><li>c</li><li>d</li><li>e</li><li>f</li><li>g</li><li>h</li></ol>
+          <ol class="coords coords-ranks" aria-hidden="true"><li>8</li><li>7</li><li>6</li><li>5</li><li>4</li><li>3</li><li>2</li><li>1</li></ol>
         </div>
+      </div>
 
-        <div class="hero-right">
-          <img class="hero-illustration" src="assets/illustration.svg" alt="Technology illustration from Storyset">
+      <div class="analysis-panel">
+        <dl class="pgn" aria-label="Player">
+          <div><dt>Event</dt><dd>Career, 2024 –</dd></div>
+          <div><dt>Site</dt><dd>Grambling, LA · Menlo Park, CA</dd></div>
+        </dl>
+        <h1 id="player-name" class="player">Jason Chimdinma Jason</h1>
+        <p class="player-line">Software Engineer · CS &amp; CIS, Grambling State ’28</p>
+        <p class="player-tagline" data-render="tagline">I build practical, user-centered software with a focus on AI, full-stack development, and real-world impact.</p>
+
+        <h2 class="visually-hidden">Career moves</h2>
+        <ol class="moves" data-render="moves"></ol>
+
+        <div class="panel-actions">
+          <a class="btn btn-move" href="assets/resumes/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Download resume</a>
+          <a class="btn btn-quiet" href="#contact">Draft an email</a>
         </div>
       </div>
     </section>
 
+    <div class="legacy">
     <!-- ABOUT -->
     <section id="about" class="section about">
       <div class="about-container">
@@ -201,17 +196,17 @@
         </div>
       </div>
     </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <p>© <span data-year>2026</span> Jason Chimdinma Jason.</p>
       <p class="attribution">
-        Illustration by <a href="https://storyset.com/technology" target="_blank">Storyset</a>
+        Chess pieces by Colin M.L. Burnett, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>
       </p>
     </div>
   </footer>
-  <script src="main.js"></script>
 </body>
 
 </html>
