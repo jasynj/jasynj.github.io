@@ -2,3 +2,4 @@
 .impeccable/config.local.json
 .impeccable/review/
 .impeccable/
+.DS_Store
