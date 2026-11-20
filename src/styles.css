@@ -51,7 +51,7 @@ body {
     font-size: 1rem;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
-    cursor: url("assets/icons/knight_cursor_white.png") 4 4, auto;
+    cursor: url("../assets/chess/knight_cursor_white.png") 4 4, auto;
 }
 
 ::selection {

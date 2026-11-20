@@ -63,7 +63,7 @@ export function createOpeningsBoard(root, caption, { reducedMotion = false } = {
   const els = new Map();
   for (const [id, p] of pieces) {
     const img = document.createElement("img");
-    img.src = `assets/pieces/${p.color}${p.type}.svg`;
+    img.src = `assets/chess/pieces/${p.color}${p.type}.svg`;
     img.alt = "";
     img.className = `piece piece-${p.color}`;
     img.draggable = false;

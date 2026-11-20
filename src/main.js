@@ -49,6 +49,6 @@ try {
 } catch (err) {
   console.error("Could not load site content:", err);
   document.querySelectorAll("[data-render]").forEach((el) => {
-    el.innerHTML = `<p class="load-error">This section couldn't load. The <a href="assets/resumes/Chimdinma_Jason.pdf">resume</a> has everything.</p>`;
+    el.innerHTML = `<p class="load-error">This section couldn't load. The <a href="assets/resume/Chimdinma_Jason.pdf">resume</a> has everything.</p>`;
   });
 }
