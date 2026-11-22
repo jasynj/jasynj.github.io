@@ -24,7 +24,9 @@ const playBadge = () => html`<span class="play-badge">${ICONS.play}</span>`;
 export function thumbnail({ demo, image, logos, note }) {
   const hasDemo = Boolean(safeUrl(demo?.url));
   const thumb = hasDemo && safeUrl(demo.thumbnail);
-  const still = thumb ? picture({ src: thumb }, { className: "is-video" }) : picture(image, { className: hasDemo || image?.focus ? "" : "is-still" });
+  // YouTube's automatic thumbnail has black bars baked in; a hand-made one is left alone.
+  const barred = thumb && /^https:\/\/img\.youtube\.com\//.test(thumb);
+  const still = thumb ? picture({ src: thumb }, { className: barred ? "is-video is-barred" : "is-video" }) : picture(image, { className: hasDemo || image?.focus ? "" : "is-still" });
   const tiles = still ? "" : logoTiles(logos);
   const empty = !hasDemo && !still && !tiles;
   return html`<span class="frame${empty ? " frame-empty" : ""}" aria-hidden="true">

@@ -672,6 +672,10 @@ img {
     object-position: top;
 }
 
+.frame-img.is-barred {
+    transform: scale(1.1);
+}
+
 .frame-player {
     background: var(--ink);
     object-fit: contain;
