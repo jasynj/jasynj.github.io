@@ -49,7 +49,7 @@ function player(demo, title) {
   }
   if (src) {
     const embed = demo.provider === "youtube" && autoplay ? `${src}&autoplay=1&mute=1` : src;
-    return html`<iframe class="frame-player" src="${embed}" title="${label}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+    return html`<iframe class="frame-player" src="${embed}" title="${label}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
   }
   return html`${picture({ src: demo.thumbnail }, { className: "is-video" })}
     <a class="btn btn-move frame-link" href="${url}" target="_blank" rel="noopener">${demo.label}<span class="visually-hidden"> (opens in a new tab)</span>${ICONS.external}</a>`;
