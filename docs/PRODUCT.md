@@ -26,6 +26,7 @@ Jason ships real products for real users. His work includes a production campus 
 - It's a single long page. The reading order puts proof first: relevant experience and what he has shipped lead the page, ahead of his current role or in-progress projects (a decision the user confirmed on 2026-09-25).
 - A resume PDF can be downloaded at `assets/resume/Chimdinma_Jason.pdf`, the current version.
 - Contact is an email drafter, not a form backend. A visitor picks a reason (recruiting, a project, a hello), fills in a few fields, and gets a ready-to-send draft to jasoncj.dev@gmail.com, which they can open in their mail app (mailto) or copy. It uses templates only, with no AI and no backend, and may gain an AI endpoint later once a backend exists.
+- Experience is one looping carousel and Projects are rows of cards; both open a details modal (a decision the user confirmed on 2026-11-22).
 - There is no Testimonials section. It was removed until real testimonials exist.
 
 ## Capabilities and Constraints
