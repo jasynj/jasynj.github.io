@@ -44,7 +44,7 @@ try {
   renderExperience($("[data-render='experience']"), content.experienceGroups);
 
   // Projects
-  renderProjects({ tabs: $("[data-render='project-tabs']"), panels: $("[data-render='projects']") }, content.projects, content.projectCategories);
+  renderProjects($("[data-render='projects']"), content.projects, content.projectCategories);
 
   // About and Skills
   renderAbout(

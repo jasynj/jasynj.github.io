@@ -1,110 +1,88 @@
-// Projects: tabs by category (All first), then a grid of cards. Every card has a demo area:
-// a thumbnail that opens the demo; without a demo, the project's screenshot; with neither,
-// a "No demo available" placeholder.
+// Projects: a row for each category, three cards across. Every card opens the details modal.
+// Empty categories are hidden; a project with an unknown category lands in "Other projects".
 
-import { html, safeUrl, ICONS } from "../util.js";
+import { html, ICONS } from "../util.js";
+import { registerDetails } from "../modal.js";
 import { linkButtons } from "./shared.js";
+import { thumbnail, stage } from "./media.js";
 
-function demoArea(project) {
-  const url = safeUrl(project.demo?.url);
-  const image = safeUrl(project.image?.src);
-  if (!url && image) {
-    return html`<div class="card-demo card-demo-image">
-      <img src="${image}" alt="${project.image.alt ?? ""}" loading="lazy" decoding="async">
-    </div>`;
-  }
-  if (!url) {
-    return html`<div class="card-demo card-demo-empty">
-      ${ICONS.noVideo}
-      <span class="card-demo-note">No demo available</span>
-    </div>`;
-  }
-  const thumbnail = safeUrl(project.demo.thumbnail);
-  return html`<a class="card-demo" href="${url}" target="_blank" rel="noopener">
-    ${thumbnail ? html`<img src="${thumbnail}" alt="" loading="lazy" decoding="async">` : ""}
-    <span class="card-demo-play">${ICONS.play}</span>
-    <span class="card-demo-label">${project.demo.label}<span class="visually-hidden"> of ${project.name} (opens in a new tab)</span></span>
-  </a>`;
+const NO_DEMO = "Demo coming soon";
+const keyOf = (project) => `project-${project.id}`;
+
+function groupByCategory(projects, categories) {
+  const known = new Set(categories.map((c) => c.id));
+  return [
+    ...categories.map((c) => ({ label: c.label, items: projects.filter((p) => p.category === c.id) })),
+    { label: "Other projects", items: projects.filter((p) => !known.has(p.category)) },
+  ].filter((group) => group.items.length);
 }
 
-function card(project, categoryLabel) {
-  const links = linkButtons(project.links, project.name);
-  return html`<article class="card" id="project-${project.id}">
-    ${demoArea(project)}
-    <div class="card-body">
-      <h3 class="card-name">${project.name}</h3>
-      <p class="card-meta">${categoryLabel}${project.context ? html` · ${project.context}` : ""}</p>
-      <p class="card-summary">${project.summary}</p>
-      ${project.outcome ? html`<p class="card-outcome">${project.outcome}</p>` : ""}
-      ${project.stack.length ? html`<ul class="card-stack">${project.stack.map((s) => html`<li>${s}</li>`)}</ul>` : ""}
-      ${links.length ? html`<div class="card-links">${links}</div>` : ""}
+function card(project, category) {
+  return html`<button type="button" class="reel-card" data-detail="${keyOf(project)}" aria-haspopup="dialog">
+    ${thumbnail({ demo: project.demo, image: project.image, note: NO_DEMO })}
+    <span class="reel-body">
+      <span class="reel-name">${project.name}</span>
+      <span class="reel-sub">${category}${project.context ? html` · ${project.context}` : ""}</span>
+      ${project.stack.length ? html`<span class="tag-list">${project.stack.slice(0, 3).map((s) => html`<span class="tag">${s}</span>`)}</span>` : ""}
+      <span class="visually-hidden">${project.demo ? "Has a demo" : NO_DEMO}</span>
+    </span>
+  </button>`;
+}
+
+function row({ label, items }) {
+  return html`<div class="project-row">
+    <div class="project-row-head">
+      <h3 class="project-row-title">${label}<span class="project-count">${items.length}</span></h3>
+      <div class="project-arrows" hidden>
+        <button type="button" class="icon-button" data-step="-1" aria-label="${`Previous in ${label}`}">${ICONS.previous}</button>
+        <button type="button" class="icon-button" data-step="1" aria-label="${`Next in ${label}`}">${ICONS.next}</button>
+      </div>
     </div>
-  </article>`;
+    <div class="project-track" role="group" aria-label="${label}">${items.map((project) => card(project, label))}</div>
+  </div>`;
 }
 
-function panel(id, projects, labels) {
-  const body = projects.length
-    ? html`<div class="card-grid">${projects.map((p) => card(p, labels.get(p.category) ?? ""))}</div>`
-    : html`<p class="tab-empty">Nothing here yet.</p>`;
-  return html`<div class="tab-panel" id="projects-panel-${id}" role="tabpanel" aria-labelledby="projects-tab-${id}" tabindex="0"${
-    id === "all" ? "" : html` hidden`
-  }>${body}</div>`;
+function details(project, category) {
+  const links = linkButtons(project.links, project.name);
+  return html`${stage({ demo: project.demo, image: project.image, note: NO_DEMO, title: project.name })}
+    <div class="detail">
+      <h2 class="detail-title" id="detail-title">${project.name}</h2>
+      <p class="detail-context">${category}${project.context ? html` · ${project.context}` : ""}</p>
+      <div class="detail-main">
+        <p>${project.summary}</p>
+        ${project.outcome ? html`<p class="detail-label">Outcome</p><p>${project.outcome}</p>` : ""}
+      </div>
+      <div class="detail-side">
+        ${project.stack.length ? html`<div><p class="detail-label">Stack</p><ul class="tag-list">${project.stack.map((s) => html`<li class="tag">${s}</li>`)}</ul></div>` : ""}
+        ${links.length ? html`<div class="detail-links">${links}</div>` : ""}
+      </div>
+    </div>`;
 }
 
-export function renderProjects({ tabs, panels }, projects, categories) {
-  const labels = new Map(categories.map((c) => [c.id, c.label]));
-  const groups = [
-    { id: "all", label: "All", items: projects },
-    ...categories.map((c) => ({ ...c, items: projects.filter((p) => p.category === c.id) })),
-  ];
+// The arrows only appear when a row has more cards than fit.
+function initRow(element) {
+  const track = element.querySelector(".project-track");
+  const arrows = element.querySelector(".project-arrows");
+  const [back, forward] = arrows.querySelectorAll("button");
 
-  tabs.innerHTML = groups
-    .map(
-      (g, i) => html`<button type="button" role="tab" class="tab" id="projects-tab-${g.id}" aria-controls="projects-panel-${g.id}"
-        aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">${g.label}<span class="tab-count">${g.items.length}</span></button>`
-    )
-    .join("");
-  panels.innerHTML = groups.map((g) => panel(g.id, g.items, labels)).join("");
-
-  const buttons = [...tabs.querySelectorAll('[role="tab"]')];
-  const indicator = document.createElement("span");
-  indicator.className = "tab-indicator";
-  indicator.setAttribute("aria-hidden", "true");
-  tabs.append(indicator);
-
-  // The indicator is 100px wide in CSS; transform alone moves and sizes it (no layout animation).
-  function moveIndicator(button) {
-    indicator.style.transform = `translateX(${button.offsetLeft - tabs.scrollLeft}px) scaleX(${button.offsetWidth / 100})`;
-  }
-
-  function select(button, { focus = false } = {}) {
-    buttons.forEach((b) => {
-      const on = b === button;
-      b.setAttribute("aria-selected", String(on));
-      b.tabIndex = on ? 0 : -1;
-      document.getElementById(b.getAttribute("aria-controls")).hidden = !on;
+  const update = () => {
+    arrows.hidden = track.scrollWidth <= track.clientWidth + 2;
+    back.disabled = track.scrollLeft < 8;
+    forward.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
+  };
+  for (const button of [back, forward]) {
+    button.addEventListener("click", () => {
+      const behavior = matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth";
+      track.scrollBy({ left: Number(button.dataset.step) * track.clientWidth * 0.85, behavior });
     });
-    moveIndicator(button);
-    if (focus) button.focus();
   }
+  track.addEventListener("scroll", update, { passive: true });
+  new ResizeObserver(update).observe(track);
+}
 
-  tabs.addEventListener("click", (e) => {
-    const button = e.target.closest('[role="tab"]');
-    if (button) select(button);
-  });
-
-  // Arrow keys move between tabs (WAI-ARIA tabs pattern).
-  tabs.addEventListener("keydown", (e) => {
-    const i = buttons.indexOf(document.activeElement);
-    if (i < 0) return;
-    const next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: buttons.length - 1 }[e.key];
-    if (next === undefined) return;
-    e.preventDefault();
-    select(buttons[(next + buttons.length) % buttons.length], { focus: true });
-  });
-
-  const current = () => buttons.find((b) => b.getAttribute("aria-selected") === "true");
-  tabs.addEventListener("scroll", () => moveIndicator(current()));
-  requestAnimationFrame(() => moveIndicator(buttons[0]));
-  window.addEventListener("resize", () => moveIndicator(current()));
+export function renderProjects(root, projects, categories) {
+  const groups = groupByCategory(projects, categories);
+  root.innerHTML = groups.map(row).join("");
+  root.querySelectorAll(".project-row").forEach(initRow);
+  registerDetails(groups.flatMap(({ label, items }) => items.map((project) => [keyOf(project), () => details(project, label)])));
 }

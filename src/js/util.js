@@ -80,6 +80,6 @@ export const ICONS = {
   previous: raw('<svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="m10 3-5 5 5 5"/></svg>'),
   next: raw('<svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg>'),
   noVideo: raw(
-    '<svg class="icon icon-novideo" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12"/><path d="m16 10 5-3v10l-5-3"/><path d="M3 3l18 18"/></svg>'
+    '<svg class="icon icon-novideo" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m6.5 6.5 11 11"/></svg>'
   ),
 };

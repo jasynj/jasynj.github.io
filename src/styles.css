@@ -1179,313 +1179,99 @@ html:has(.modal[open]) {
     }
 }
 
-/* Projects: category tabs and a card grid ------------------------------------ */
+/* Projects: a row per category, three across --------------------------------- */
 
-.tabs {
-    position: relative;
+.projects {
+    padding: clamp(48px, 7vw, 96px) 0 24px;
+}
+
+.projects .section-head {
+    max-width: none;
+    margin: 0 0 8px;
+    padding-inline: var(--gutter);
+}
+
+.project-row {
+    margin-top: 36px;
+}
+
+.project-row-head {
     display: flex;
-    gap: 4px;
-    max-width: var(--content);
-    margin: 0 auto;
-    overflow-x: auto;
-    border-bottom: 1px solid var(--rule);
-    scrollbar-width: none;
-}
-
-/* On narrow screens the row scrolls; a fade at the edge says there's more. */
-@media (max-width: 960px) {
-    .tabs {
-        mask-image: linear-gradient(to right, #000 85%, transparent);
-    }
-}
-
-.tab {
-    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    min-height: 48px;
-    padding: 0 16px;
-    border: 0;
-    background: none;
-    color: var(--fg-muted);
-    font: inherit;
-    font-weight: 650;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: color 0.2s var(--ease-out);
+    justify-content: space-between;
+    gap: 16px;
+    padding-inline: var(--gutter);
 }
 
-.tab:hover,
-.tab[aria-selected="true"] {
-    color: var(--fg);
-}
-
-.tab:focus-visible {
-    outline-offset: -3px;
-}
-
-.tab-count {
-    min-width: 1.6em;
-    padding: 1px 6px;
-    border: 1px solid var(--rule);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 400;
-    color: var(--fg-dim);
-    text-align: center;
-}
-
-.tab[aria-selected="true"] .tab-count {
-    border-color: var(--teal);
-    color: var(--fg);
-}
-
-/* The underline slides between tabs; only transform animates. */
-.tab-indicator {
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: 100px;
-    height: 2px;
-    background: var(--teal);
-    transform-origin: left;
-    transition: transform 0.35s var(--ease-out);
-}
-
-.tab-panels {
-    max-width: var(--content);
-    margin: 32px auto 0;
-}
-
-.tab-panel:not([hidden]) {
-    animation: rise 0.4s var(--ease-out);
-}
-
-.tab-panel:focus-visible {
-    outline-offset: 8px;
-}
-
-@keyframes rise {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-}
-
-.tab-empty {
-    margin: 0;
-    padding: 64px 0;
-    color: var(--fg-muted);
-    text-align: center;
-}
-
-/* The first card in every tab leads at double width. */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-}
-
-.card-grid > .card:first-child {
-    grid-column: span 2;
-}
-
-.card {
+.project-row-title {
     display: flex;
-    flex-direction: column;
-    background: var(--ink-raised);
-    border: 1px solid var(--rule);
-    transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
-}
-
-.card:hover {
-    border-color: var(--rule-strong);
-    transform: translateY(-3px);
-}
-
-.card-demo {
-    position: relative;
-    display: grid;
-    place-items: center;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    background: var(--ink);
-    border-bottom: 1px solid var(--rule);
-    text-decoration: none;
-}
-
-.card-grid > .card:first-child .card-demo {
-    aspect-ratio: 21 / 9;
-}
-
-.card-demo img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-    transition: opacity 0.3s var(--ease-out), transform 0.5s var(--ease-out);
-}
-
-.card-demo:hover img {
-    opacity: 1;
-    transform: scale(1.03);
-}
-
-.card-demo-play {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: 56px;
-    height: 56px;
-    background: var(--paper);
-    color: var(--ink);
-    transition: transform 0.3s var(--ease-out);
-}
-
-.card-demo-play .icon {
-    width: 24px;
-    height: 24px;
-}
-
-.card-demo:hover .card-demo-play {
-    transform: scale(1.08);
-}
-
-.card-demo-label {
-    position: absolute;
-    left: 14px;
-    bottom: 12px;
-    padding: 4px 10px;
-    background: var(--ink);
-    font-weight: 650;
-    font-size: 0.8rem;
-}
-
-/* No demo, but a screenshot: shown full strength, anchored to the top of the page it shows. */
-.card-demo-image img {
-    opacity: 1;
-    object-position: top;
-}
-
-/* No demo yet: the space is kept, quietly, with an inset dashed frame. */
-.card-demo-empty {
-    align-content: center;
-    gap: 10px;
-    color: var(--fg-dim);
-}
-
-.card-demo-empty::before {
-    content: "";
-    position: absolute;
-    inset: 14px;
-    border: 1px dashed var(--rule);
-}
-
-.card-demo-empty .icon {
-    width: 28px;
-    height: 28px;
-    stroke-width: 1.3;
-}
-
-.card-demo-note {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-}
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 20px 22px 22px;
-}
-
-.card-name {
+    align-items: baseline;
+    gap: 12px;
     margin: 0;
-    font-size: clamp(1.3rem, 1.9vw, 1.6rem);
-    font-weight: 800;
-    line-height: 1.15;
+    font-size: 1.35rem;
+    font-weight: 750;
     letter-spacing: -0.01em;
 }
 
-.card-grid > .card:first-child .card-name {
-    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
-}
-
-.card-meta {
-    margin: 6px 0 0;
-    font-weight: 650;
-    font-size: 0.82rem;
+.project-count {
+    padding: 1px 7px;
+    border: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
     color: var(--fg-dim);
 }
 
-.card-summary {
-    margin: 14px 0 0;
-    color: var(--fg-muted);
-}
-
-.card-outcome {
-    margin: 12px 0 0;
-    font-weight: 650;
-}
-
-.card-stack {
+.project-arrows {
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin: 16px 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.card-stack li {
-    padding: 2px 8px;
-    border: 1px solid var(--rule);
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--fg-muted);
-}
-
-.card-links {
-    display: flex;
-    flex-wrap: wrap;
     gap: 8px;
-    margin-top: auto;
-    padding-top: 20px;
+}
+
+.project-arrows[hidden] {
+    display: none;
+}
+
+.project-track {
+    /* Contains the visually hidden text inside the cards, which would widen the page otherwise. */
+    position: relative;
+    display: flex;
+    gap: 16px;
+    padding: 16px var(--gutter) 22px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+}
+
+.project-track::-webkit-scrollbar {
+    display: none;
+}
+
+.project-track > .reel-card {
+    flex: 0 0 calc((100% - 2 * 16px) / 3);
+    scroll-snap-align: start;
 }
 
 @media (max-width: 960px) {
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .card-grid > .card:first-child {
-        grid-column: auto;
-    }
-
-    .card-grid > .card:first-child .card-demo {
-        aspect-ratio: 16 / 9;
+    .project-track > .reel-card {
+        flex-basis: calc((100% - 16px) / 2);
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .tab-panel:not([hidden]) {
-        animation: none;
+@media (max-width: 520px) {
+    .project-track > .reel-card {
+        flex-basis: 82vw;
     }
 
-    .tab-indicator,
-    .card,
-    .card-demo img,
-    .card-demo-play {
-        transition: none;
+    .project-arrows {
+        display: none;
     }
+}
 
-    .card:hover,
-    .card-demo:hover img,
-    .card-demo:hover .card-demo-play {
-        transform: none;
+@media (hover: none) {
+    .project-arrows {
+        display: none;
     }
 }
 
