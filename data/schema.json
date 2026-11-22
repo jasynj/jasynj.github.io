@@ -106,6 +106,11 @@
         "alt": {
           "type": "string",
           "description": "Describe the image; empty only if purely decorative"
+        },
+        "focus": {
+          "type": "string",
+          "pattern": "^\\d{1,3}% \\d{1,3}%$",
+          "description": "The point to keep in view when the image is cropped to 16:9, as \"x% y%\""
         }
       }
     },
@@ -132,15 +137,15 @@
       "required": [
         "url"
       ],
-      "description": "Shown as a small thumbnail card inside the expanded row; opens in a new tab.",
+      "description": "A video demo. YouTube, Google Drive and direct video files play on the page; other URLs open in a new tab.",
       "properties": {
         "url": {
           "type": "string",
-          "description": "YouTube, Loom, Drive, or any video/page URL"
+          "description": "YouTube and .mp4/.webm/.m4v/.mov URLs autoplay muted. Google Drive needs a click to play. Any other URL opens in a new tab."
         },
         "thumbnail": {
           "type": "string",
-          "description": "Optional image (16:9 works best). YouTube URLs get one automatically when omitted."
+          "description": "Optional image (16:9 works best). YouTube and Google Drive URLs get one automatically when omitted."
         },
         "label": {
           "type": "string",
@@ -234,6 +239,10 @@
           "items": {
             "type": "string"
           }
+        },
+        "cover": {
+          "$ref": "#/$defs/image",
+          "description": "The 16:9 picture on the card and at the top of the details. Without one, the logos are shown."
         },
         "logos": {
           "type": "array",
