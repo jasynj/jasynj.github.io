@@ -98,15 +98,6 @@ img {
     stroke: none;
 }
 
-.icon-toggle-v {
-    transform-origin: center;
-    transition: transform 0.25s var(--ease-out);
-}
-
-.is-open .icon-toggle-v {
-    transform: scaleY(0);
-}
-
 .skip-link {
     position: absolute;
     left: 12px;
@@ -522,14 +513,6 @@ img {
     color: var(--fg-muted);
 }
 
-.subsection-title {
-    max-width: var(--content);
-    margin: clamp(64px, 8vw, 96px) auto 0;
-    padding-bottom: 14px;
-    font-size: 1.35rem;
-    font-weight: 800;
-}
-
 /* Cards, media and the details modal (shared by Experience and Projects) ----- */
 
 .reel-card {
@@ -941,387 +924,258 @@ html:has(.modal[open]) {
     }
 }
 
-/* Expandable rows (shared by experience and projects) */
+/* Experience: one looping carousel ------------------------------------------- */
 
-[data-disclosure-row] {
-    cursor: pointer;
-    transition: background-color 0.2s var(--ease-out);
+.experience {
+    padding: clamp(48px, 7vw, 96px) 0 24px;
 }
 
-[data-disclosure-row]:hover,
-.is-open>[data-disclosure-row] {
-    background: var(--ink-raised);
+.experience .section-head {
+    max-width: none;
+    margin: 0 0 8px;
+    padding-inline: var(--gutter);
 }
 
-.entry-button {
-    padding: 0;
-    border: 0;
-    background: none;
-    color: inherit;
-    font: inherit;
-    text-align: left;
-    cursor: pointer;
-}
-
-[data-disclosure-row]:hover .entry-button {
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.18em;
-}
-
-.entry-panel:not([hidden]) {
-    animation: unfold 0.32s var(--ease-out);
-}
-
-@keyframes unfold {
-    from {
-        opacity: 0;
-        transform: translateY(-6px);
-    }
-}
-
-/* Experience ---------------------------------------------------------------- */
-
-.entries {
-    max-width: var(--content);
-    margin: 0 auto;
-    padding: 0;
-    list-style: none;
-    border-top: 1px solid var(--rule-strong);
-}
-
-.entry {
-    border-bottom: 1px solid var(--rule);
-}
-
-.entry-row {
-    display: grid;
-    grid-template-columns: 12.5rem minmax(0, 1fr) auto;
-    gap: 0 clamp(20px, 3vw, 40px);
-    padding: 28px 16px;
-}
-
-.entry-when {
+.carousel-head {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px 24px;
+    margin-top: 32px;
+    padding-inline: var(--gutter);
 }
 
-.entry-bar {
-    display: block;
-    width: min(100%, calc(var(--months) * 10px));
-    height: 8px;
+.carousel-groups {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 24px;
+    min-width: 0;
+}
+
+.carousel-group {
+    min-height: 44px;
+    padding: 10px 0;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: var(--fg-muted);
+    font: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.carousel-group:hover {
+    color: var(--fg);
+}
+
+.carousel-group[aria-current="true"] {
+    border-bottom-color: var(--paper);
+    color: var(--fg);
+}
+
+.carousel-count {
+    margin-left: 6px;
+    padding: 1px 7px;
+    border: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--fg-dim);
+}
+
+.carousel-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-track {
+    position: relative;
+    display: flex;
+    padding: 22px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overflow-anchor: none;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track.is-dragging,
+.carousel-track.is-dragging .reel-card {
+    cursor: grabbing;
+    user-select: none;
+}
+
+.carousel-slot {
+    --card-w: clamp(260px, 24vw, 360px);
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    width: calc(var(--card-w) + 16px);
+    padding-right: 16px;
+}
+
+.carousel-slot .reel-card {
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+/* The ruled line above the cards, with a mark where each group starts. */
+.carousel-marker {
+    position: relative;
+    flex: none;
+    height: 34px;
+    font-size: 0.8rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.carousel-marker::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: -16px;
+    bottom: 8px;
+    border-top: 1px solid var(--rule);
+}
+
+.carousel-marker.is-start::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 9px;
+    height: 9px;
+    background: var(--paper);
+}
+
+.carousel-marker span {
+    position: absolute;
+    left: 0;
+    top: -8px;
+}
+
+/* Few enough to fit: one still copy, nothing to pause or step through. */
+.is-still .carousel-track {
+    padding-left: var(--gutter);
+}
+
+.is-still .carousel-slot[aria-hidden="true"],
+.is-still .carousel-controls {
+    display: none;
+}
+
+/* Length is real time: 6% of the card per month. */
+.duration-bar {
+    width: min(100%, calc(var(--months) * 6%));
+    height: 7px;
+    margin-top: 8px;
     background: var(--hatch);
     border: 1px solid var(--rule-strong);
 }
 
-.entry-where {
-    color: var(--fg-dim);
-}
-
-.entry-head {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.entry-logos {
-    display: flex;
-    gap: 6px;
-    flex-shrink: 0;
-}
-
-.entry-logos img {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-    padding: 4px;
-    background: var(--paper);
-}
-
-.entry-org {
+.detail-highlights {
     margin: 0;
-    font-size: clamp(1.3rem, 2vw, 1.65rem);
-    font-weight: 800;
-    line-height: 1.15;
-}
-
-.entry-role {
-    margin: 2px 0 0;
-    color: var(--fg-muted);
-}
-
-.entry-summary {
-    max-width: 66ch;
-    margin: 14px 0 0;
-}
-
-.entry-metrics {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 28px;
-    margin: 16px 0 0;
     padding: 0;
     list-style: none;
 }
 
-.metric-value {
+.detail-highlights li {
+    position: relative;
+    max-width: 62ch;
+    margin-bottom: 10px;
+    padding-left: 18px;
+}
+
+.detail-highlights li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    background: var(--paper);
+}
+
+.detail-when {
+    margin: 0;
     font-family: var(--font-mono);
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.detail-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.detail-metrics li {
+    padding-top: 8px;
+    border-top: 1px solid var(--rule-strong);
+}
+
+.metric-value {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
 }
 
 .metric-label {
     color: var(--fg-muted);
-    font-size: 0.9rem;
+    font-size: 0.82rem;
 }
 
-.entry-aside {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-.entry-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 650;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-muted);
-    white-space: nowrap;
-}
-
-[data-disclosure-row]:hover .entry-toggle,
-.is-open .entry-toggle {
-    color: var(--fg);
-}
-
-.entry-panel {
-    padding: 0 16px 32px calc(12.5rem + clamp(20px, 3vw, 40px) + 16px);
-    background: var(--ink-raised);
-}
-
-.entry-detail {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 32px;
-    border-top: 1px solid var(--rule);
-    padding-top: 24px;
-}
-
-.entry-highlights {
-    max-width: 72ch;
-    margin: 0;
-    padding-left: 1.1em;
-    list-style: square;
-}
-
-.entry-highlights li+li {
-    margin-top: 10px;
-}
-
-.entry-tags {
-    margin: 18px 0 0;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--fg-muted);
-}
-
-.entry-links {
+.evidence-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 18px;
-}
-
-.entry-evidence {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 20px;
+    gap: 10px;
 }
 
 .evidence img {
     display: block;
-    height: 120px;
     width: auto;
+    height: 92px;
     border: 1px solid var(--rule-strong);
 }
 
-.entry-demo {
-    width: 280px;
-}
-
-/* Programs & hackathons: the same rows, two to a line, lighter. */
-.entries-compact {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: clamp(24px, 4vw, 56px);
-}
-
-.entry-compact .entry-row {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 12px 20px;
-    padding: 22px 12px;
-}
-
-.entry-compact .entry-when {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 4px 12px;
-}
-
-.entry-compact .entry-bar {
-    width: calc(var(--months) * 6px);
-    max-width: 96px;
-    height: 6px;
-}
-
-.entry-compact .entry-org {
-    font-size: 1.15rem;
-}
-
-.entry-compact .entry-logos img {
-    width: 30px;
-    height: 30px;
-}
-
-.entry-compact .entry-summary {
-    margin-top: 10px;
-    font-size: 0.95rem;
-    color: var(--fg-muted);
-}
-
-.entry-compact .entry-aside {
-    justify-content: flex-start;
-}
-
-.entry-compact .entry-panel {
-    padding: 0 12px 24px;
-}
-
-.entry-compact .entry-detail {
-    grid-template-columns: 1fr;
-}
-
-/* Demo card: a small thumbnail that opens the demo in a new tab. */
-.demo {
-    display: block;
-    text-decoration: none;
-}
-
-.demo-thumb {
-    position: relative;
-    display: block;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border: 1px solid var(--rule-strong);
-    background: var(--ink);
-}
-
-.demo-thumb-empty {
-    background: var(--hatch), var(--ink);
-}
-
-.demo-thumb img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.85;
-    transition: opacity 0.25s var(--ease-out);
-}
-
-.demo-play {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    display: grid;
-    place-items: center;
-    width: 48px;
-    height: 48px;
-    background: var(--paper);
-    color: var(--ink);
-    transition: transform 0.25s var(--ease-out);
-}
-
-.demo-play .icon {
-    width: 22px;
-    height: 22px;
-}
-
-.demo:hover .demo-thumb img {
-    opacity: 1;
-}
-
-.demo:hover .demo-play {
-    transform: scale(1.08);
-}
-
-.demo-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-    font-weight: 650;
-    font-size: 0.9rem;
-}
-
-.demo:hover .demo-label {
-    text-decoration: underline;
-}
-
-@media (max-width: 960px) {
-    .entry-row {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        padding: 24px 12px;
+@media (max-width: 520px) {
+    .carousel-slot {
+        --card-w: 74vw;
     }
 
-    .entry-aside {
-        flex-direction: row;
-        align-items: center;
+    .carousel-head {
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        gap: 12px;
     }
 
-    .entry-panel {
-        padding: 0 12px 24px;
+    .carousel-groups {
+        flex: 1;
+        column-gap: 16px;
     }
 
-    .entry-detail {
-        grid-template-columns: 1fr;
+    .carousel-group {
+        font-size: 0.98rem;
     }
 
-    .entries-compact {
-        grid-template-columns: 1fr;
-    }
-
-    .entry-demo {
-        width: min(100%, 320px);
+    .carousel-controls [data-step] {
+        display: none;
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .icon-toggle-v,
-    .demo-play,
-    .demo-thumb img {
-        transition: none;
-    }
-
-    .entry-panel:not([hidden]) {
-        animation: none;
-    }
-
-    .demo:hover .demo-play {
-        transform: none;
+@media (hover: none) {
+    .carousel-controls [data-step] {
+        display: none;
     }
 }
 

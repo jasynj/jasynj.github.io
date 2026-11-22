@@ -1,83 +1,78 @@
-// Experience: a work timeline (newest first), then programs & hackathons.
-// Every entry is one row; click it to expand the full notes, demo, and links.
+// Experience: one carousel that runs through work, programs and hackathons.
+// Every card opens the details modal.
 
-import { html, safeUrl, formatRange, monthsBetween, durationLabel, ICONS } from "../util.js";
-import { linkButtons, demoCard, hasDetail } from "./shared.js";
+import { html, safeUrl, formatRange, monthsBetween, durationLabel } from "../util.js";
+import { createCarousel } from "../carousel.js";
+import { registerDetails } from "../modal.js";
+import { linkButtons } from "./shared.js";
+import { thumbnail, stage } from "./media.js";
 
-function logos(entry) {
-  return entry.logos
-    .map((logo) => ({ ...logo, src: safeUrl(logo.src) }))
-    .filter((logo) => logo.src)
-    .map((logo) => html`<img src="${logo.src}" alt="${logo.alt ?? ""}" width="36" height="36" loading="lazy">`);
+const keyOf = (entry) => `exp-${entry.id}`;
+const roleLine = (entry) => [entry.role, entry.team].filter(Boolean).join(" · ");
+
+// A summary is left out only when the bullets already say nearly every word of it
+// (at least 90%), so a fact that appears only in the summary is never lost.
+function summaryRepeats(entry) {
+  if (!entry.highlights.length) return false;
+  const words = (text) => new Set((text.toLowerCase().match(/[a-z0-9%+]+/g) ?? []).filter((w) => w.length > 2));
+  const summary = [...words(entry.summary)].filter((w) => !["the", "and", "for", "with", "from"].includes(w));
+  const said = words([entry.org, roleLine(entry), ...entry.highlights].join(" "));
+  return summary.filter((w) => said.has(w)).length >= summary.length * 0.9;
 }
 
-function when(entry) {
+function card(entry, { copy }) {
   const months = monthsBetween(entry.start, entry.end);
-  return html`<div class="entry-when">
-    <span class="entry-dates">${formatRange(entry.start, entry.end)}</span>
-    <span class="entry-bar" style="--months:${months}" aria-hidden="true"></span>
-    <span class="entry-where">${durationLabel(months)}${entry.location ? html` · ${entry.location}` : ""}</span>
-  </div>`;
+  return html`<button type="button" class="reel-card" data-detail="${keyOf(entry)}" aria-haspopup="dialog"${copy ? html` tabindex="-1"` : ""}>
+    ${thumbnail({ demo: entry.demo, image: entry.cover, logos: entry.logos })}
+    <span class="reel-body">
+      <span class="reel-name">${entry.org}</span>
+      <span class="reel-sub">${roleLine(entry)}</span>
+      <span class="reel-meta">${formatRange(entry.start, entry.end)} · ${durationLabel(months)}</span>
+      <span class="duration-bar" style="--months:${months}" aria-hidden="true"></span>
+    </span>
+  </button>`;
 }
 
-function detail(entry) {
-  const evidence = entry.media
-    .map((m) => ({ ...m, src: safeUrl(m.src) }))
-    .filter((m) => m.src)
-    .map(
-      (m) =>
-        html`<a class="evidence" href="${m.src}" target="_blank" rel="noopener"><img src="${m.src}" alt="${m.alt ?? ""}" loading="lazy"></a>`
-    );
+function details(entry) {
   const links = linkButtons(entry.links, entry.org);
-  return html`<div class="entry-detail">
-    <div class="entry-notes">
-      ${entry.highlights.length ? html`<ul class="entry-highlights">${entry.highlights.map((h) => html`<li>${h}</li>`)}</ul>` : ""}
-      ${entry.tags.length ? html`<p class="entry-tags">${entry.tags.join(" · ")}</p>` : ""}
-      ${links.length ? html`<div class="entry-links">${links}</div>` : ""}
-      ${evidence.length ? html`<div class="entry-evidence">${evidence}</div>` : ""}
-    </div>
-    ${entry.demo ? html`<div class="entry-demo">${demoCard(entry.demo, entry.org)}</div>` : ""}
-  </div>`;
-}
+  const evidence = entry.media
+    .map((image) => ({ ...image, src: safeUrl(image.src) }))
+    .filter((image) => image.src && image.src !== entry.cover?.src)
+    .map(
+      (image) =>
+        html`<a class="evidence" href="${image.src}" target="_blank" rel="noopener"><img src="${image.src}" alt="${image.alt ?? ""}"><span class="visually-hidden"> (opens in a new tab)</span></a>`
+    );
 
-function entryRow(entry, { compact = false } = {}) {
-  const expandable = hasDetail(entry);
-  const panelId = `exp-${entry.id}-detail`;
-  const metrics =
-    !compact && entry.metrics.length
-      ? html`<ul class="entry-metrics">${entry.metrics.map(
-          (m) => html`<li><span class="metric-value">${m.value}</span> <span class="metric-label">${m.label}</span></li>`
-        )}</ul>`
-      : "";
-  const title = expandable
-    ? html`<button type="button" class="entry-button" aria-expanded="false" aria-controls="${panelId}">${entry.org}</button>`
-    : entry.org;
-
-  return html`<li class="entry${compact ? " entry-compact" : ""}" id="exp-${entry.id}"${
-    expandable ? html` data-disclosure` : ""
-  }>
-    <div class="entry-row"${expandable ? html` data-disclosure-row` : ""}>
-      ${when(entry)}
-      <div class="entry-main">
-        <div class="entry-head">
-          <span class="entry-logos">${logos(entry)}</span>
-          <div>
-            <h3 class="entry-org">${title}</h3>
-            <p class="entry-role">${entry.role}${entry.team ? html` · ${entry.team}` : ""}</p>
-          </div>
+  return html`${stage({ demo: entry.demo, image: entry.cover, logos: entry.logos, title: entry.org })}
+    <div class="detail">
+      <h2 class="detail-title" id="detail-title">${entry.org}</h2>
+      <p class="detail-context">${roleLine(entry)}</p>
+      <div class="detail-main">
+        ${entry.summary && !summaryRepeats(entry) ? html`<p>${entry.summary}</p>` : ""}
+        ${entry.highlights.length ? html`<ul class="detail-highlights">${entry.highlights.map((h) => html`<li>${h}</li>`)}</ul>` : ""}
+      </div>
+      <div class="detail-side">
+        <div>
+          <p class="detail-label">When</p>
+          <p class="detail-when">${formatRange(entry.start, entry.end)}<br>${durationLabel(monthsBetween(entry.start, entry.end))}${
+            entry.location ? html`<br>${entry.location}` : ""
+          }</p>
         </div>
-        ${entry.summary ? html`<p class="entry-summary">${entry.summary}</p>` : ""}
-        ${metrics}
+        ${
+          entry.metrics.length
+            ? html`<ul class="detail-metrics">${entry.metrics.map(
+                (m) => html`<li><span class="metric-value">${m.value}</span><span class="metric-label">${m.label}</span></li>`
+              )}</ul>`
+            : ""
+        }
+        ${entry.tags.length ? html`<div><p class="detail-label">Focus</p><ul class="tag-list">${entry.tags.map((t) => html`<li class="tag">${t}</li>`)}</ul></div>` : ""}
+        ${evidence.length ? html`<div><p class="detail-label">Evidence</p><div class="evidence-list">${evidence}</div></div>` : ""}
+        ${links.length ? html`<div class="detail-links">${links}</div>` : ""}
       </div>
-      <div class="entry-aside">
-        ${expandable ? html`<span class="entry-toggle" aria-hidden="true">${entry.demo ? "Details & demo" : "Details"}${ICONS.toggle}</span>` : ""}
-      </div>
-    </div>
-    ${expandable ? html`<div class="entry-panel" id="${panelId}" hidden>${detail(entry)}</div>` : ""}
-  </li>`;
+    </div>`;
 }
 
-export function renderExperience({ work: workRoot, programs: programsRoot }, { work, programs }) {
-  workRoot.innerHTML = work.map((entry) => entryRow(entry)).join("");
-  programsRoot.innerHTML = programs.map((entry) => entryRow(entry, { compact: true })).join("");
+export function renderExperience(root, groups) {
+  createCarousel(root, { groups, card, label: `Experience: ${groups.map((g) => g.label).join(", ")}` });
+  registerDetails(groups.flatMap((g) => g.items).map((entry) => [keyOf(entry), () => details(entry)]));
 }

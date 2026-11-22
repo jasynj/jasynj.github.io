@@ -72,9 +72,6 @@ export const byStartDesc = (a, b) => b.start.localeCompare(a.start);
 /* Icons (authored SVG, one stroke weight) ------------------------------------ */
 
 export const ICONS = {
-  toggle: raw(
-    '<svg class="icon icon-toggle" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/><path class="icon-toggle-v" d="M8 3v10"/></svg>'
-  ),
   external: raw(
     '<svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 4 12"/></svg>'
   ),

@@ -6,7 +6,6 @@ import { renderHero } from "./js/render/hero.js";
 import { renderExperience } from "./js/render/experience.js";
 import { renderProjects } from "./js/render/projects.js";
 import { renderAbout, renderSkills } from "./js/render/profile.js";
-import { initDisclosures, openFromHash } from "./js/disclosure.js";
 import { initDrafter } from "./js/drafter.js";
 import { initModal, openLinkedDetail } from "./js/modal.js";
 import { initMedia } from "./js/render/media.js";
@@ -16,8 +15,6 @@ const $ = (selector) => document.querySelector(selector);
 
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 initDrafter($("[data-drafter]"));
-initDisclosures(document.body);
-window.addEventListener("hashchange", openFromHash);
 
 initMedia();
 initModal($("[data-modal]"));
@@ -44,7 +41,7 @@ try {
   );
 
   // Experience
-  renderExperience({ work: $("[data-render='work']"), programs: $("[data-render='programs']") }, content);
+  renderExperience($("[data-render='experience']"), content.experienceGroups);
 
   // Projects
   renderProjects({ tabs: $("[data-render='project-tabs']"), panels: $("[data-render='projects']") }, content.projects, content.projectCategories);
@@ -56,7 +53,6 @@ try {
     content.leadership
   );
   renderSkills($("[data-render='skills']"), content.skills);
-  openFromHash();
 
   openLinkedDetail();
 } catch (err) {

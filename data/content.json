@@ -206,6 +206,11 @@
       "kind": "hackathon",
       "role": "Finalist",
       "org": "Mastercard × AUC Data Science Challenge",
+      "cover": {
+        "src": "assets/images/site.jpg",
+        "alt": "The Mastercard × AUC Data Science Challenge venue",
+        "focus": "50% 56%"
+      },
       "logos": [
         {
           "src": "assets/logos/mastercard.png",
@@ -233,6 +238,11 @@
       "kind": "hackathon",
       "role": "Finalist — 4th of 62 teams",
       "org": "BE Smart Hackathon",
+      "cover": {
+        "src": "assets/images/team_picture.jpg",
+        "alt": "Jason's hackathon team at BE Smart",
+        "focus": "50% 50%"
+      },
       "logos": [
         {
           "src": "assets/logos/besmart.png",

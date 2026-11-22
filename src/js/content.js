@@ -8,6 +8,12 @@ const REQUIRED = {
   experience: ["id", "kind", "role", "org", "start"],
   project: ["id", "name", "category", "summary"],
 };
+// The carousel runs through these in order. An unknown kind joins the programs.
+const EXPERIENCE_GROUPS = [
+  { id: "work", label: "Work" },
+  { id: "program", label: "Programs & fellowships" },
+  { id: "hackathon", label: "Hackathons" },
+];
 const LINK_KINDS = new Set(["live", "code"]);
 const FOCUS = /^\d{1,3}% \d{1,3}%$/;
 const YM = /^\d{4}-(0[1-9]|1[0-2])$/;
@@ -118,6 +124,13 @@ export function normalizeContent(raw) {
     .filter((block) => hasRequired(block, REQUIRED.experience, "experience"))
     .map(normalizeExperience);
 
+  const kinds = new Set(EXPERIENCE_GROUPS.map((group) => group.id));
+  const groupOf = (entry) => (kinds.has(entry.kind) ? entry.kind : "program");
+  const experienceGroups = EXPERIENCE_GROUPS.map((group) => ({
+    ...group,
+    items: experience.filter((entry) => groupOf(entry) === group.id).sort(byStartDesc),
+  })).filter((group) => group.items.length);
+
   const projectCategories = (raw.projectCategories ?? []).filter((c) => c?.id && c?.label);
   const categoryIds = new Set(projectCategories.map((c) => c.id));
   const projects = (raw.projects ?? [])
@@ -126,8 +139,7 @@ export function normalizeContent(raw) {
 
   return {
     profile: raw.profile ?? {},
-    work: experience.filter((e) => e.kind === "work").sort(byStartDesc),
-    programs: experience.filter((e) => e.kind !== "work").sort(byStartDesc),
+    experienceGroups,
     // Projects keep the order they appear in the file.
     projects,
     projectCategories,

@@ -188,7 +188,7 @@
             "program",
             "hackathon"
           ],
-          "description": "work → the Experience timeline; program/hackathon → Programs & hackathons"
+          "description": "The part of the Experience carousel it appears in: Work, Programs & fellowships, or Hackathons"
         },
         "role": {
           "type": "string"
@@ -218,7 +218,7 @@
         },
         "summary": {
           "type": "string",
-          "description": "One or two sentences shown on the row"
+          "description": "One or two sentences shown in the details, unless the highlights already say the same"
         },
         "metrics": {
           "type": "array",
@@ -232,7 +232,7 @@
           "items": {
             "type": "string"
           },
-          "description": "Full bullets, shown when expanded"
+          "description": "Full bullets, shown in the details"
         },
         "tags": {
           "type": "array",
@@ -255,7 +255,7 @@
           "items": {
             "$ref": "#/$defs/image"
           },
-          "description": "Evidence images shown when expanded"
+          "description": "Evidence images shown in the details"
         },
         "links": {
           "type": "array",
