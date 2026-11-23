@@ -8,21 +8,21 @@
   <meta name="description"
     content="Jason Chimdinma Jason, software engineer. Two Meta SWE internships, a production campus platform serving 600+ users, and client work in production." />
   <meta name="theme-color" content="#141414" />
-  <link rel="icon" href="assets/pieces/ln.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/chess/pieces/ln.svg" type="image/svg+xml" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Jason Chimdinma Jason | Software Engineer" />
   <meta property="og:description"
     content="Two Meta SWE internships, a production campus platform serving 600+ users, and client work in production." />
   <meta property="og:url" content="https://jasynj.github.io/" />
-  <meta property="og:image" content="https://jasynj.github.io/assets/colorstack_headshot.jpeg" />
+  <meta property="og:image" content="https://jasynj.github.io/assets/images/colorstack_headshot.jpeg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&family=Geist+Mono:wght@400..600&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script type="module" src="main.js"></script>
+  <link rel="stylesheet" href="src/styles.css" />
+  <script type="module" src="src/main.js"></script>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
 
   <header class="masthead">
     <a href="#top" class="wordmark">
-      <img src="assets/pieces/ln.svg" alt="" width="28" height="28" />
+      <img src="assets/chess/pieces/ln.svg" alt="" width="28" height="28" />
       <span>Jason C. Jason</span>
     </a>
     <nav class="masthead-nav" aria-label="Sections">
@@ -40,12 +40,12 @@
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="masthead-resume" href="assets/resumes/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Resume</a>
+    <a class="masthead-resume" href="assets/resume/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Resume</a>
   </header>
 
   <main id="main">
     <noscript>
-      <p class="noscript"> Everything is also in the <a href="assets/resumes/Chimdinma_Jason.pdf">resume (PDF)</a>, or
+      <p class="noscript"> Everything is also in the <a href="assets/resume/Chimdinma_Jason.pdf">resume (PDF)</a>, or
         email <a href="mailto:jasoncj.dev@gmail.com">jasoncj.dev@gmail.com</a>.</p>
     </noscript>
     <section id="top" class="hero" aria-labelledby="hero-name">
@@ -95,7 +95,7 @@
         <dl class="hero-facts" data-render="hero-facts"></dl>
 
         <div class="hero-actions">
-          <a class="btn btn-move" href="assets/resumes/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Download
+          <a class="btn btn-move" href="assets/resume/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Download
             resume</a>
           <a class="btn btn-quiet" href="#contact">Draft an email</a>
           <a class="btn btn-quiet" href="https://calendly.com/jasoncj-dev" target="_blank" rel="noopener"
@@ -108,22 +108,17 @@
     <section id="experience" class="section experience" aria-labelledby="experience-title">
       <header class="section-head">
         <h2 id="experience-title">Experience</h2>
-        <p class="section-note">Newest first. Click a row for the full notes, links, and demos.</p>
+        <p class="section-note">Pick a card for the role, the dates, what I shipped and the evidence behind it.</p>
       </header>
-      <ol class="entries" data-render="work"></ol>
-
-      <h3 class="subsection-title" id="programs-title">Programs &amp; hackathons</h3>
-      <ol class="entries entries-compact" data-render="programs" aria-labelledby="programs-title"></ol>
+      <div class="carousel" data-render="experience"></div>
     </section>
 
     <section id="projects" class="section projects" aria-labelledby="projects-title">
       <header class="section-head">
         <h2 id="projects-title">Projects</h2>
-        <p class="section-note">What I've built, sorted by where it came from. Every project with a demo has it right on
-          the card.</p>
+        <p class="section-note">Every card opens a demo or a screenshot, the story, the stack and the links.</p>
       </header>
-      <div class="tabs" role="tablist" aria-label="Project categories" data-render="project-tabs"></div>
-      <div class="tab-panels" data-render="projects"></div>
+      <div class="project-rows" data-render="projects"></div>
     </section>
 
     <section id="about" class="section player-card" aria-labelledby="about-title">
@@ -194,10 +189,19 @@
         <li><a href="mailto:jasoncj.dev@gmail.com">jasoncj.dev@gmail.com</a></li>
         <li><a href="https://www.linkedin.com/in/jasoncjason" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://github.com/jasynj" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="assets/resumes/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
+        <li><a href="assets/resume/Chimdinma_Jason.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
       </ul>
     </section>
   </main>
+
+  <dialog class="modal" data-modal aria-labelledby="detail-title">
+    <button type="button" class="icon-button modal-close" data-close aria-label="Close">
+      <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M3.5 3.5l9 9m0-9-9 9" />
+      </svg>
+    </button>
+    <div class="modal-scroll" data-modal-body tabindex="0"></div>
+  </dialog>
 
   <footer class="site-footer">
     <p>© <span data-year>2026</span> Jason Chimdinma Jason</p>

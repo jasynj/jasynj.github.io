@@ -6,16 +6,18 @@ import { renderHero } from "./js/render/hero.js";
 import { renderExperience } from "./js/render/experience.js";
 import { renderProjects } from "./js/render/projects.js";
 import { renderAbout, renderSkills } from "./js/render/profile.js";
-import { initDisclosures, openFromHash } from "./js/disclosure.js";
 import { initDrafter } from "./js/drafter.js";
+import { initModal, openLinkedDetail } from "./js/modal.js";
+import { initMedia } from "./js/render/media.js";
 
 const CONTENT_URL = "data/content.json";
 const $ = (selector) => document.querySelector(selector);
 
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 initDrafter($("[data-drafter]"));
-initDisclosures(document.body);
-window.addEventListener("hashchange", openFromHash);
+
+initMedia();
+initModal($("[data-modal]"));
 
 // "Draft an email" lands you in the drafter itself, ready to type.
 document.querySelectorAll('a[href="#contact"]').forEach((link) =>
@@ -37,18 +39,25 @@ try {
     },
     content.profile
   );
-  renderExperience({ work: $("[data-render='work']"), programs: $("[data-render='programs']") }, content);
-  renderProjects({ tabs: $("[data-render='project-tabs']"), panels: $("[data-render='projects']") }, content.projects, content.projectCategories);
+
+  // Experience
+  renderExperience($("[data-render='experience']"), content.experienceGroups);
+
+  // Projects
+  renderProjects($("[data-render='projects']"), content.projects, content.projectCategories);
+
+  // About and Skills
   renderAbout(
     { photo: $("[data-render='about-photo']"), about: $("[data-render='about']"), facts: $("[data-render='facts']") },
     content.profile,
     content.leadership
   );
   renderSkills($("[data-render='skills']"), content.skills);
-  openFromHash();
+
+  openLinkedDetail();
 } catch (err) {
   console.error("Could not load site content:", err);
   document.querySelectorAll("[data-render]").forEach((el) => {
-    el.innerHTML = `<p class="load-error">This section couldn't load. The <a href="assets/resumes/Chimdinma_Jason.pdf">resume</a> has everything.</p>`;
+    el.innerHTML = `<p class="load-error">This section couldn't load. The <a href="assets/resume/Chimdinma_Jason.pdf">resume</a> has everything.</p>`;
   });
 }

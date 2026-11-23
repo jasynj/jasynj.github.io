@@ -8,7 +8,14 @@ const REQUIRED = {
   experience: ["id", "kind", "role", "org", "start"],
   project: ["id", "name", "category", "summary"],
 };
+// The carousel runs through these in order. An unknown kind joins the programs.
+const EXPERIENCE_GROUPS = [
+  { id: "work", label: "Work" },
+  { id: "program", label: "Programs & fellowships" },
+  { id: "hackathon", label: "Hackathons" },
+];
 const LINK_KINDS = new Set(["live", "code"]);
+const FOCUS = /^\d{1,3}% \d{1,3}%$/;
 const YM = /^\d{4}-(0[1-9]|1[0-2])$/;
 
 function warn(message, block) {
@@ -24,19 +31,52 @@ function hasRequired(block, fields, type) {
   return true;
 }
 
-// YouTube demos get a thumbnail for free.
-function youtubeThumbnail(url) {
-  const match = String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
-  return match ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg` : null;
+/* Demos -----------------------------------------------------------------------
+   A demo is just a URL. Its provider decides how the modal plays it:
+   youtube and file autoplay muted, drive shows Drive's own player (which can't
+   autoplay), and anything else opens in a new tab. */
+
+const YOUTUBE = /(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?(?:[^#]*&)?v=|embed\/|shorts\/|live\/))([\w-]{11})/;
+const DRIVE = /drive\.google\.com\/(?:file\/d\/|(?:open|uc)\?(?:[^#]*&)?id=)([\w-]+)/;
+const VIDEO_FILE = /\.(?:mp4|m4v|webm|mov)(?:[?#]|$)/i;
+
+function resolveVideo(url) {
+  const youtube = url.match(YOUTUBE)?.[1];
+  if (youtube) {
+    return {
+      provider: "youtube",
+      embedUrl: `https://www.youtube-nocookie.com/embed/${youtube}?playsinline=1&rel=0`,
+      poster: `https://img.youtube.com/vi/${youtube}/hqdefault.jpg`,
+    };
+  }
+  const drive = url.match(DRIVE)?.[1];
+  if (drive) {
+    return {
+      provider: "drive",
+      embedUrl: `https://drive.google.com/file/d/${drive}/preview`,
+      poster: `https://drive.google.com/thumbnail?id=${drive}&sz=w800`,
+    };
+  }
+  if (VIDEO_FILE.test(url)) return { provider: "file", embedUrl: url, poster: null };
+  return { provider: "other", embedUrl: null, poster: null };
 }
 
 function normalizeDemo(demo) {
   if (!demo?.url) return null;
+  const { provider, embedUrl, poster } = resolveVideo(String(demo.url));
   return {
     url: demo.url,
     label: demo.label || "Watch the demo",
-    thumbnail: demo.thumbnail || youtubeThumbnail(demo.url),
+    thumbnail: demo.thumbnail || poster,
+    provider,
+    embedUrl,
   };
+}
+
+// `focus` ends up in a style attribute, so only two percentages get through.
+function normalizeImage(image) {
+  if (!image?.src) return null;
+  return { ...image, alt: image.alt ?? "", focus: FOCUS.test(image.focus ?? "") ? image.focus : null };
 }
 
 function normalizeLinks(links = []) {
@@ -58,6 +98,7 @@ function normalizeExperience(block) {
     tags: [],
     media: [],
     ...block,
+    cover: normalizeImage(block.cover),
     links: normalizeLinks(block.links),
     demo: normalizeDemo(block.demo),
   };
@@ -71,8 +112,8 @@ function normalizeProject(block, categoryIds) {
     context: "",
     outcome: "",
     stack: [],
-    image: null,
     ...block,
+    image: normalizeImage(block.image),
     links: normalizeLinks(block.links),
     demo: normalizeDemo(block.demo),
   };
@@ -83,6 +124,13 @@ export function normalizeContent(raw) {
     .filter((block) => hasRequired(block, REQUIRED.experience, "experience"))
     .map(normalizeExperience);
 
+  const kinds = new Set(EXPERIENCE_GROUPS.map((group) => group.id));
+  const groupOf = (entry) => (kinds.has(entry.kind) ? entry.kind : "program");
+  const experienceGroups = EXPERIENCE_GROUPS.map((group) => ({
+    ...group,
+    items: experience.filter((entry) => groupOf(entry) === group.id).sort(byStartDesc),
+  })).filter((group) => group.items.length);
+
   const projectCategories = (raw.projectCategories ?? []).filter((c) => c?.id && c?.label);
   const categoryIds = new Set(projectCategories.map((c) => c.id));
   const projects = (raw.projects ?? [])
@@ -91,8 +139,7 @@ export function normalizeContent(raw) {
 
   return {
     profile: raw.profile ?? {},
-    work: experience.filter((e) => e.kind === "work").sort(byStartDesc),
-    programs: experience.filter((e) => e.kind !== "work").sort(byStartDesc),
+    experienceGroups,
     // Projects keep the order they appear in the file.
     projects,
     projectCategories,

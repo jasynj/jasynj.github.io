@@ -1,11 +1,11 @@
 {
   "profile": {
     "photo": {
-      "src": "assets/colorstack_headshot.jpeg",
+      "src": "assets/images/colorstack_headshot.jpeg",
       "alt": "Portrait of Jason Chimdinma Jason"
     },
     "aboutPhoto": {
-      "src": "assets/web/about.jpg",
+      "src": "assets/images/about.jpg",
       "alt": "Jason Chimdinma Jason by the Meta sign at the Menlo Park office"
     },
     "education": {
@@ -206,6 +206,11 @@
       "kind": "hackathon",
       "role": "Finalist",
       "org": "Mastercard × AUC Data Science Challenge",
+      "cover": {
+        "src": "assets/images/site.jpg",
+        "alt": "The Mastercard × AUC Data Science Challenge venue",
+        "focus": "50% 56%"
+      },
       "logos": [
         {
           "src": "assets/logos/mastercard.png",
@@ -223,7 +228,7 @@
       "highlights": [],
       "media": [
         {
-          "src": "assets/web/site.jpg",
+          "src": "assets/images/site.jpg",
           "alt": "The Mastercard × AUC Data Science Challenge venue"
         }
       ]
@@ -233,6 +238,11 @@
       "kind": "hackathon",
       "role": "Finalist — 4th of 62 teams",
       "org": "BE Smart Hackathon",
+      "cover": {
+        "src": "assets/images/team_picture.jpg",
+        "alt": "Jason's hackathon team at BE Smart",
+        "focus": "50% 50%"
+      },
       "logos": [
         {
           "src": "assets/logos/besmart.png",
@@ -254,11 +264,11 @@
       ],
       "media": [
         {
-          "src": "assets/web/acc_besmart.jpg",
+          "src": "assets/images/acc_besmart.jpg",
           "alt": "BE Smart Hackathon acceptance letter"
         },
         {
-          "src": "assets/web/team_picture.jpg",
+          "src": "assets/images/team_picture.jpg",
           "alt": "Jason's hackathon team at BE Smart"
         }
       ]
@@ -285,7 +295,7 @@
       ],
       "media": [
         {
-          "src": "assets/web/acc_code2040.jpg",
+          "src": "assets/images/acc_code2040.jpg",
           "alt": "Code2040 Fellowship acceptance letter"
         }
       ]
@@ -353,7 +363,7 @@
       ],
       "media": [
         {
-          "src": "assets/web/acc_nvidia.jpg",
+          "src": "assets/images/acc_nvidia.jpg",
           "alt": "NVIDIA Summer Bridge acceptance letter"
         }
       ]
@@ -419,11 +429,11 @@
       ],
       "media": [
         {
-          "src": "assets/web/acc_usc1.jpg",
+          "src": "assets/images/acc_usc1.jpg",
           "alt": "Urban Strategies Council externship acceptance, page 1"
         },
         {
-          "src": "assets/web/acc_usc2.jpg",
+          "src": "assets/images/acc_usc2.jpg",
           "alt": "Urban Strategies Council externship acceptance, page 2"
         }
       ]
@@ -537,7 +547,7 @@
       ],
       "category": "internship",
       "image": {
-        "src": "assets/web/flixster.jpg",
+        "src": "assets/images/flixster.jpg",
         "alt": "Flixster movie grid"
       }
     },
@@ -575,7 +585,7 @@
       ],
       "category": "client",
       "image": {
-        "src": "assets/web/cee.jpg",
+        "src": "assets/images/cee.jpg",
         "alt": "Craig Events & Entertainments website home page"
       }
     },
@@ -603,7 +613,7 @@
       ],
       "category": "client",
       "image": {
-        "src": "assets/web/clubs.jpg",
+        "src": "assets/images/clubs.jpg",
         "alt": "GSU Clubs & Organizations Portal directory page"
       }
     },
@@ -698,7 +708,7 @@
       ],
       "category": "personal",
       "image": {
-        "src": "assets/web/quantsim.jpg",
+        "src": "assets/images/quantsim.jpg",
         "alt": "QuantSim backtest dashboard"
       }
     },
@@ -722,7 +732,7 @@
       ],
       "category": "personal",
       "image": {
-        "src": "assets/web/visioncare.jpg",
+        "src": "assets/images/visioncare.jpg",
         "alt": "VisionCare vision test screen"
       }
     }

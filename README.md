@@ -1,4 +1,4 @@
 [Portfolio](https://jasynj.github.io/)
 
-![Portfolio hero](hero.png)
+![Portfolio hero](docs/hero.png)
 
